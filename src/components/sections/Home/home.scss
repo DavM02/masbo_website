@@ -1,6 +1,6 @@
 #home {
     height: 100vh;
-    min-height: 800px;
+    min-height: 700px;
     width: 100%;
     background: url('/src/assets/cover.jpg') center no-repeat;
     background-size: cover;
@@ -71,7 +71,7 @@
             }
         }
 
-        @media all and (max-width: 480px) {
+        @media all and (max-width: 820px) {
             p br:not(:nth-child(1)) {
                 display: none;
             }

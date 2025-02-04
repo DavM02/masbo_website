@@ -71,8 +71,8 @@ p {
     &.to-middle {}
 
     &.to-small {
-        line-height: clamp(1rem, 0.8635rem + 0.6826vw, 1.5rem);
-        font-size: clamp(0.5625rem, 0.4772rem + 0.4266vw, 0.875rem);
+        line-height: clamp(0.875rem, 0.7044rem + 0.8532vw, 1.5rem);
+        font-size: clamp(0.625rem, 0.5567rem + 0.3413vw, 0.875rem);
     }
 }
 
