@@ -1,23 +1,20 @@
 import { useLayoutEffect, useRef, useContext } from "preact/hooks";
-import Scrollbar, { ScrollbarPlugin } from "smooth-scrollbar";
+import Scrollbar from "smooth-scrollbar";
 import { MainContext } from "@context/MainContext";
-import useMediaQ from "@hooks/useMediaQ";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/src/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
 export default function SmoothScroll({ children }) {
-  const { scrollbarAccess } =
-    useContext(MainContext);
+  const { scrollbarAccess } = useContext(MainContext);
   const scrollRef = useRef(null);
-  // const query = useMediaQ("(min-width: 767px)");
-   const query = true
+  const animationRef = useRef(null);  
 
   useLayoutEffect(() => {
     let scrollbar;
     let resizeObserver;
 
-    gsap.registerPlugin(ScrollTrigger);
-
-    // if (query) {
     const initScrollbar = () => {
       if (scrollRef.current) {
         scrollbar = Scrollbar.init(scrollRef.current, {
@@ -29,42 +26,53 @@ export default function SmoothScroll({ children }) {
 
         scrollbarAccess.current = scrollbar;
 
-
+      
         ScrollTrigger.scrollerProxy(scrollRef.current, {
           scrollTop(value) {
             if (arguments.length) {
-              scrollbar.f = value;
+              scrollbar.scrollTop = value; 
             }
             return scrollbar.scrollTop;
+          },
+          getBoundingClientRect() {
+            return {
+              top: 0,
+              left: 0,
+              width: window.innerWidth,
+              height: window.innerHeight
+            };
           }
         });
 
-
-        scrollbarAccess.current.addListener(ScrollTrigger.update)
-
+        scrollbar.addListener(ScrollTrigger.update);
         ScrollTrigger.defaults({ scroller: scrollRef.current });
 
-        gsap.to('section.grey .text', { 
-          rotation: 360,
-          scrollTrigger: {
-            trigger: "section.grey",
-            start: "top top", 
-            end: () => "+=" + innerHeight,
-            pin: true,
-            scrub: true,
-          }
-        });
-
-
-
-
+        ScrollTrigger.refresh();
       }
     };
 
-    const handleResize = () => {
-      if (scrollRef.current) {
-        initScrollbar();
+    const createAnimation = () => {
+      if (animationRef.current) {
+        animationRef.current.kill();
       }
+
+      animationRef.current = gsap.to("#home-scroll .row", {
+        x: "-200vw",
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: "#home-scroll",
+          start: "top top",
+          end: () => "+=" + window.innerHeight,
+          pin: true,
+          scrub: true
+        }
+      });
+
+      ScrollTrigger.refresh();
+    };
+
+    const handleResize = () => {
+      ScrollTrigger.refresh();
     };
 
     resizeObserver = new ResizeObserver(handleResize);
@@ -72,46 +80,35 @@ export default function SmoothScroll({ children }) {
       resizeObserver.observe(scrollRef.current);
     }
 
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+
+    initScrollbar();
+    createAnimation();
+
     return () => {
-      setHeaderHeight.current("30px");
       if (scrollbar) {
         scrollbar.destroy();
       }
       if (resizeObserver) {
         resizeObserver.disconnect();
       }
+      if (animationRef.current) {
+        animationRef.current.kill();
+      }
     };
-    // }
-
-    if ("scrollRestoration" in window.history) {
-      window.history.scrollRestoration = "manual";
-    }
-
-  }, [ query, scrollbarAccess ]);
+  }, [ scrollbarAccess ]);
 
   return (
     <div
       id="scroll-wrapper"
       style={{
-        position: query ? "fixed" : "unset",
-        height: query ? "unset" : "100%",
+        position: "fixed",
+        height: "100%"
       }}
       ref={scrollRef}>
       {children}
     </div>
   );
 }
-
-class OverflowPlugin extends ScrollbarPlugin {
-  static pluginName = "overflow";
-
-  static defaultOptions = {
-    open: false,
-  };
-
-  transformDelta(delta) {
-    return this.options.open ? { x: 0, y: 0 } : delta;
-  }
-}
-
-Scrollbar.use(OverflowPlugin);

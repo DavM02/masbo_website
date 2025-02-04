@@ -64,6 +64,10 @@
     align-self: flex-start;
 }
 
+.self-center-y {
+    align-self: center;
+}
+
 .end-x {
     justify-content: flex-end;
 }
