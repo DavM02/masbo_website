@@ -1,4 +1,4 @@
-$container-padding: clamp(1.9375rem, -0.9465rem + 14.4198vw, 12.5rem);
+$container-padding: clamp(0.9375rem, -1.4516rem + 11.9454vw, 9.6875rem);
 $overlay-dark: #151517;
 $line-bg: rgb(255, 255, 255, 45%);
 $header-padding: clamp(1.0625rem, 0.4994rem + 2.8157vw, 3.125rem);
@@ -6,11 +6,13 @@ $header-padding-y: clamp(0.625rem, 0.369rem + 1.2799vw, 1.5625rem);
 
 $white: #FFFFFF;
 $white-secondary: #E9E9E9;
+$text-gray: #909090;
 $black: #000000;
 $brown: #3F3F3F;
 $gray: #1D1D20;
 $blue: #004FE2;
 
+$transition-1:  cubic-bezier(0.645, 0.045, 0.355, 1);
 
 @mixin overlay($color, $opacity) {
     content: "";

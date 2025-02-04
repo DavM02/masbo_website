@@ -52,6 +52,10 @@
     align-self: flex-end;
 }
 
+.end-y {
+    align-items: flex-end;
+}
+
 .self-start-x {
     justify-self: flex-start;
 }

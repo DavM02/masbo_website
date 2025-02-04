@@ -2,6 +2,12 @@
 @import './styles/reset.css';
 @import "./styles/helpers.css";
 
+@media all and (max-width: 320px) {
+    body {
+        width: 320px;
+    }
+}
+
 .container {
     display: block;
     margin: 0 auto;
@@ -10,6 +16,7 @@
 }
 
 body {
+    background-color: $black;
     position: relative;
     &::after {
         content: "";
