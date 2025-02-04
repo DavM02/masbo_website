@@ -40,6 +40,7 @@ export default defineConfig({
     })
   ],
   css: {
+    devSourcemap: true ,
     preprocessorMaxWorkers: 4,  
     postcss: {
       plugins: [ autoprefixer, mergeRules ]
@@ -47,9 +48,8 @@ export default defineConfig({
     preprocessorOptions: {
       scss: {
         additionalData: `@use "${path.resolve(__dirname, 'src/styles/variables.scss')}" as *;`,
-        sourceMap: true,
       }
-    }
+    },
   },
   
 });
