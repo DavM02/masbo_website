@@ -15,3 +15,36 @@
         url("/src/assets/fonts/Inter-Bold.eot") format("embedded-opentype"),
         url("/src/assets/fonts/Inter-Bold.otf") format("opentype"),
 }
+
+.up-case {
+   text-transform: uppercase;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: $white;
+    font-family: "font-main-bold";
+}
+
+.font-bold {
+    font-family: "font-main-bold";
+}
+
+.font-reg {
+    font-family: "font-main";
+}
+
+.text-white {
+    color: $white;
+}
+
+.fs-14 {
+    font-size: 14px;
+    font-family: "font-main";
+    line-height: 16.94px;
+    font-weight: bolder;
+    letter-spacing: 0.5px;
+}

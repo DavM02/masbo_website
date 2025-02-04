@@ -24,37 +24,43 @@ export default function Header() {
                 className='row gap-50'>
 
                 <li>
-                  <Link >
+                  <Link
+                    className='text-white fs-14 capitalize' >
                     About us
                   </Link>
                 </li>
 
                 <li>
-                  <Link >
+                  <Link
+                    className='text-white fs-14 capitalize'>
                     Portfolio
                   </Link>
                 </li>
 
                 <li>
-                  <Link >
+                  <Link
+                    className='text-white fs-14 capitalize'>
                     Team
                   </Link>
                 </li>
 
                 <li>
-                  <Link >
+                  <Link
+                    className='text-white fs-14 capitalize'>
                     Services
                   </Link>
                 </li>
 
                 <li>
-                  <Link >
+                  <Link
+                    className='text-white fs-14 capitalize'>
                     News
                   </Link>
                 </li>
 
                 <li>
-                  <Link >
+                  <Link
+                    className='text-white fs-14 capitalize'>
                     Contacts
                   </Link>
                 </li>

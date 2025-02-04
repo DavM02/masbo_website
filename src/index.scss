@@ -1,8 +1,28 @@
-@forward './styles/typography.scss';
+@import './styles/typography.scss';
 @import './styles/reset.css';
 @import "./styles/helpers.css";
 
 .container {
+    display: block;
+    margin: 0 auto;
     max-width: 1492px;
-    // padding: 0 $container-padding;
+    padding: 0 $container-padding;
+}
+
+body {
+    position: relative;
+    &::after {
+        content: "";
+        top: 0;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        background: url("/src/assets/noise.gif") repeat;
+        z-index: 555; 
+        opacity: 15%;
+        pointer-events: none;
+        mix-blend-mode: soft-light;
+        background-size: 150px;
+    }
 }

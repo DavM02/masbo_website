@@ -11,6 +11,7 @@ $brown: #3F3F3F;
 $gray: #1D1D20;
 $blue: #004FE2;
 
+
 @mixin overlay($color, $opacity) {
     content: "";
     width: 100%;
@@ -20,4 +21,5 @@ $blue: #004FE2;
     left: 0;
     background-color: $color;
     opacity: $opacity;
+    mix-blend-mode: darken;
 }

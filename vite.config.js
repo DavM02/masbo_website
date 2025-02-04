@@ -40,7 +40,6 @@ export default defineConfig({
     })
   ],
   css: {
-    devSourcemap: true ,
     preprocessorMaxWorkers: 4,  
     postcss: {
       plugins: [ autoprefixer, mergeRules ]

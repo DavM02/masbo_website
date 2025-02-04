@@ -25,10 +25,12 @@ a {
     text-decoration: none;
     display: inline-block;
     cursor: pointer;
+    color: inherit;
 }
 
 li {
     list-style: none;
+    cursor: pointer;
 }
 
 /* 

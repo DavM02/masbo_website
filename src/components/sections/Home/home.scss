@@ -6,6 +6,6 @@
     background-size: cover;
     position: relative;
     &::after {
-        @include overlay($overlay-dark, 62%);
+        @include overlay($overlay-dark, 40%);
     }
 } 
