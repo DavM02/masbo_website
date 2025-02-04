@@ -10,6 +10,12 @@ export default function HomePage() {
 
       <Home />
 
+      <section
+        className="grey">
+        <div
+          className="text">Section 2</div>
+      </section>
+
       <Home />
 
       <Home />

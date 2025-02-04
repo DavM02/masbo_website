@@ -5,7 +5,25 @@
     background: url('/src/assets/cover.jpg') center no-repeat;
     background-size: cover;
     position: relative;
+
+
     &::after {
         @include overlay($overlay-dark, 40%);
     }
-} 
+}
+
+section {
+    height: 100vh !important;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-content: center;
+}
+
+section .text {
+    position: relative;
+    margin: auto;
+    color: white;
+    font-size: 2em;
+
+}
