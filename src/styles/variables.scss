@@ -1,8 +1,9 @@
 $container-padding: clamp(0.9375rem, -1.4516rem + 11.9454vw, 9.6875rem);
 $overlay-dark: #151517;
+$overlay: #272727;
 $line-bg: rgb(255, 255, 255, 45%);
 $header-padding: clamp(1.0625rem, 0.4994rem + 2.8157vw, 3.125rem);
-$header-padding-y: clamp(0.625rem, 0.369rem + 1.2799vw, 1.5625rem);
+$header-padding-y: 10px;
 
 $white: #FFFFFF;
 $white-secondary: #E9E9E9;

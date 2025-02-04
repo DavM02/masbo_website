@@ -64,6 +64,14 @@ p {
     font-weight: 100;
     font-size: 14px;
 
+    &.static {}
+
+    &.to-middle {}
+
+    &.to-small {
+        line-height: clamp(1.1875rem, 1.1022rem + 0.4266vw, 1.5rem);
+        font-size: clamp(0.78125rem, 0.7557rem + 0.128vw, 0.875rem);
+    }
 }
 
 h1 {

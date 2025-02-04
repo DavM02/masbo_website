@@ -1,6 +1,9 @@
 import './home.scss'
 import arrow from '@assets/icons/arrow-down.svg'
+import { useContext } from 'preact/hooks'
+import { MainContext } from "@context/MainContext";
 export default function Home() {
+  const {scrollbarAccess} = useContext(MainContext)
   return (
     <section
       id='home'>
@@ -9,7 +12,10 @@ export default function Home() {
         <div
           className='center-flex'>
           <div
-            className='scroll-down center-gr'>
+            className='scroll-down center-gr'
+            onClick={() => {
+              scrollbarAccess.current.scrollIntoView(document.getElementById("home-scroll"))
+            }}>
             <img
               className='icon'
               src={arrow}

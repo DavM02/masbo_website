@@ -56,7 +56,7 @@ export default function SmoothScroll({ children }) {
         animationRef.current.kill();
       }
 
-      animationRef.current = gsap.to("#home-scroll .row", {
+      animationRef.current = gsap.to("#home-scroll > .row", {
         x: "-200vw",
         ease: "power2.out",
         scrollTrigger: {

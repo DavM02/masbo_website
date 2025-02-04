@@ -7,12 +7,25 @@
     position: relative;
 
 
+    &::before {
+        content: "";
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        backdrop-filter: blur(1px);
+    }
+
     &::after {
         @include overlay($overlay-dark, 40%);
     }
 
     .container {
         height: 100%;
+        position: relative;
+        z-index: 56;
+        max-width: unset;
     }
 
     .scroll-down {
@@ -35,7 +48,6 @@
         }
 
         p {
-            line-height: 24px;
             position: relative;
 
             &::after {
