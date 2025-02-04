@@ -62,18 +62,8 @@ p {
     font-family: "font-main";
     letter-spacing: 1%;
     font-weight: 100;
+    font-size: 14px;
 
-    &.static {
-        font-size: 14px;
-        line-height: 24px;
-    }
-
-    &.to-middle {}
-
-    &.to-small {
-        line-height: clamp(0.875rem, 0.7044rem + 0.8532vw, 1.5rem);
-        font-size: clamp(0.625rem, 0.5567rem + 0.3413vw, 0.875rem);
-    }
 }
 
 h1 {
