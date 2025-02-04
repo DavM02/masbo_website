@@ -17,14 +17,19 @@
 }
 
 .up-case {
-   text-transform: uppercase;
+    text-transform: uppercase;
 }
 
 .capitalize {
     text-transform: capitalize;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     color: $white;
     font-family: "font-main-bold";
 }
@@ -54,8 +59,21 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
+    font-family: "font-main";
     letter-spacing: 1%;
     font-weight: 100;
+
+    &.static {
+        font-size: 14px;
+        line-height: 24px;
+    }
+
+    &.to-middle {}
+
+    &.to-small {
+        line-height: clamp(1rem, 0.8635rem + 0.6826vw, 1.5rem);
+        font-size: clamp(0.5625rem, 0.4772rem + 0.4266vw, 0.875rem);
+    }
 }
 
 h1 {

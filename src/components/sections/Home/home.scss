@@ -1,6 +1,6 @@
 #home {
     height: 100vh;
-    min-height: 500px;
+    min-height: 800px;
     width: 100%;
     background: url('/src/assets/cover.jpg') center no-repeat;
     background-size: cover;
@@ -27,15 +27,54 @@
         position: absolute;
         bottom: 17%;
         left: $container-padding;
+        right: $container-padding;
         z-index: 5;
+
+        h1 {
+            white-space: nowrap;
+        }
+
         p {
             line-height: 24px;
+            position: relative;
+
+            &::after {
+                content: "";
+                position: absolute;
+                background-color: $white;
+                width: 1px;
+                height: 100%;
+                left: -25px;
+                top: 0;
+            }
         }
-        .line {
-            background-color: $white;
-            width: 1px;
- 
+
+
+        @media all and (max-width: 782px) {
+
+            &>.row:nth-child(1) {
+
+                flex-direction: column;
+                height: 100%;
+                justify-content: space-between;
+                align-items: flex-start;
+            }
+
+            & {
+                bottom: 76px;
+                height: calc(100% - (163px + 76px));
+
+            }
+
+            p {
+                margin-left: 25px;
+            }
+        }
+
+        @media all and (max-width: 480px) {
+            p br:not(:nth-child(1)) {
+                display: none;
+            }
         }
     }
 }
-

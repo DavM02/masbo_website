@@ -20,18 +20,16 @@ export default function Home() {
         <div
           className='text-wrapper'>
           <div
-            className='row gap-25'>
+            className='row center-y gap-50'>
             <h1
-              className='self-center-y capitalize'>
+              className='capitalize'>
               from idea 
               <br /> to life
             </h1>
 
-            <div
-              className='line'></div>
 
             <p
-              className='fs-14 self-center-y text-white capitalize'>
+              className='to-small text-white capitalize'>
               Arhitecture modern technology
               <br /> MasBo is an architectural group working in the field of architecture and
 
