@@ -1,8 +1,9 @@
 import { useLayoutEffect, useRef, useContext } from "preact/hooks";
 import Scrollbar from "smooth-scrollbar";
 import { MainContext } from "@context/MainContext";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/src/ScrollTrigger";
+import { gsap } from "gsap/all";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 
 gsap.registerPlugin(ScrollTrigger);
 

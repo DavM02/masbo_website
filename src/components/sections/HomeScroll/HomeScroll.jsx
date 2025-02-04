@@ -88,24 +88,44 @@ export default function HomeScroll() {
 
             <div>
 
-              <LazyLoadImage
-                src={img6}
-                width={"100%"}
-                height={"100%"}
-                effect="blur"
-                alt={"img-6"} />
+
 
             </div>
           </div>
 
-          <div></div>
+          <div>
+
+            <LazyLoadImage
+              src={img6}
+              width={"100%"}
+              height={"100%"}
+              effect="blur"
+              alt={"img-6"} /> 
+          </div>
 
           <div>
             <div></div>
 
-            <div></div>
+            <div>
 
-            <div></div>
+              <LazyLoadImage
+                src={img7}
+                width={"100%"}
+                height={"100%"}
+                effect="blur"
+                alt={"img-7"} /> 
+
+            </div>
+
+            <div>
+              <LazyLoadImage
+                src={img8}
+                width={"100%"}
+                height={"100%"}
+                effect="blur"
+                alt={"img-8"} /> 
+
+            </div>
           </div>
         </div>
       </div>

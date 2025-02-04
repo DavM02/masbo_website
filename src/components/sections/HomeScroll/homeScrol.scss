@@ -65,10 +65,50 @@
                         div {
                             height: 50%;
                             min-width: 765px;
-                            overflow: hidden;
-                            position: relative;
+
 
                             &:nth-child(1) {
+                                overflow: hidden;
+                                position: relative;
+
+                                &::after {
+                                    @include overlay($overlay, 50%)
+                                }
+                            }
+
+                            &:nth-child(2) {
+                                background-color: $blue;
+                            }
+                        }
+
+
+                    }
+
+                    &:nth-child(2) {
+                        overflow: hidden;
+                        position: relative;
+                        min-width: 771px;
+
+                        &::after {
+                            @include overlay($overlay, 50%)
+                        }
+                    }
+
+                    &:nth-child(3) {
+
+                        &>div {
+                            min-width: 482px;
+                            height: calc(100% / 3);
+
+                            &:nth-child(1) {
+                                background-color: $gray;
+                            }
+
+                            &:nth-child(2),
+                            &:nth-child(3) {
+                                overflow: hidden;
+                                position: relative;
+
                                 &::after {
                                     @include overlay($overlay, 50%)
                                 }
@@ -77,29 +117,6 @@
 
 
                     }
-
-                    // &:nth-child(2) {
-                    //     overflow: hidden;
-                    //     position: relative;
-
-                    //     &::after {
-                    //         @include overlay($overlay, 50%)
-                    //     }
-                    // }
-
-                    // &:nth-child(3) {
-                    //     overflow: hidden;
-                    //     position: relative;
-
-                    //     &>div {
-                    //         min-width: 509px;
-                    //         height: 50%;
-                    //     }
-
-                    //     &::after {
-                    //         @include overlay($overlay, 50%)
-                    //     }
-                    // }
 
                 }
             }
