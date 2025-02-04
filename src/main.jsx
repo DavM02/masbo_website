@@ -1,5 +1,8 @@
 import { render } from 'preact'
-import './index.css'
+import './index.scss'
 import { App } from './app.jsx'
-
-render(<App />, document.getElementById('app'))
+import { BrowserRouter } from 'react-router-dom'
+render(<BrowserRouter
+  basename="/masbo_website">
+  <App />
+</BrowserRouter>, document.getElementById('app'))

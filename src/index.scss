@@ -1,0 +1,8 @@
+@forward './styles/typography.scss';
+@import './styles/reset.css';
+@import "./styles/helpers.css";
+
+.container {
+    max-width: 1492px;
+    // padding: 0 $container-padding;
+}

@@ -1,0 +1,13 @@
+header .container {
+    padding: $header-padding-y $header-padding;
+
+}
+
+header {
+    border-bottom: 0.5px solid $line-bg;
+    z-index: 55;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
