@@ -6,13 +6,13 @@
     -webkit-user-drag: none;
 }
 
-html {
+/* html {
     scroll-behavior: smooth;
 }
 
 body, html {
     overscroll-behavior: none;
-}
+} */
 
 img:not(.icon) {
     width: 100%;

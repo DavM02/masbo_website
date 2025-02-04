@@ -10,9 +10,10 @@
     "deploy": "vite build && gh-pages -d dist"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.2",
     "@tanstack/react-query": "^5.66.0",
     "framer-motion": "^12.0.11",
-    "gsap": "^3.12.7",
+    "gsap-trial": "^3.12.7",
     "preact": "^10.25.3",
     "react-lazy-load-image-component": "^1.6.3",
     "react-router-dom": "^7.1.5"

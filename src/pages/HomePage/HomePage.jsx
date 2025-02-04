@@ -5,6 +5,16 @@ export default function HomePage() {
     <div
       id='home-page'> 
       <Home />
+
+      <Home />
+
+      <Home />
+
+      <Home />
+
+      <Home />
+
+      <Home />
     </div>
   )
 }
