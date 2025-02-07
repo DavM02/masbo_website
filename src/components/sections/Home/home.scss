@@ -14,7 +14,7 @@
         position: absolute;
         top: 0;
         left: 0;
-        backdrop-filter: blur(1px);
+        backdrop-filter: blur(0.5px);
     }
 
     &::before {
