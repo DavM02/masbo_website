@@ -29,6 +29,15 @@ export default function SmoothScroll({ children }) {
 
         scrollbarAccess.current = scrollbar;
 
+        scrollbarAccess.current.addListener(({offset}) => {
+          if (offset.y > 1) {
+            scrollbarAccess.current.containerEl.previousElementSibling.style.backgroundColor = "#151517"
+            scrollbarAccess.current.containerEl.previousElementSibling.style.borderBottom = "0.5px solid transparent"
+          } else {
+            scrollbarAccess.current.containerEl.previousElementSibling.style.backgroundColor = "transparent"
+            scrollbarAccess.current.containerEl.previousElementSibling.style.borderBottom = "0.5px solid rgb(255, 255, 255, 45%)"
+          }
+        })
         ScrollTrigger.scrollerProxy(scrollRef.current, {
           scrollTop(value) {
             if (arguments.length) {

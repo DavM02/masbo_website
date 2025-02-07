@@ -8,17 +8,18 @@
 
 
     &::after {
-        content: "";
+
+
+        @include overlay($black, 40%);
+    }
+
+    .mask-layer {
         height: 100%;
         width: 100%;
         position: absolute;
         top: 0;
         left: 0;
-        backdrop-filter: blur(0.5px);
-    }
-
-    &::before {
-        @include overlay($overlay-dark, 40%);
+        backdrop-filter: blur(0.9px);
     }
 
     .container {

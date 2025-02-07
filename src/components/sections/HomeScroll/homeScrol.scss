@@ -21,7 +21,8 @@
 
 
     &>.row:nth-child(1) {
-        height: 100% !important;
+        height: calc(100% - 73px) !important;
+        margin-top: 73px;
 
         &>div {
             width: 100vw;

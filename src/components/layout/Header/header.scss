@@ -5,6 +5,7 @@ header {
     top: 0;
     left: 0;
     width: 100%;
+    transition: $transition-1 background-color 1s, $transition-1 border-bottom 1s;
 
     .container {
         max-width: unset;

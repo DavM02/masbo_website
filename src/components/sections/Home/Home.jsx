@@ -8,6 +8,9 @@ export default function Home() {
     <section
       id='home'>
       <div
+        className='mask-layer'></div>
+
+      <div
         className="container">
         <div
           className='center-flex'>
