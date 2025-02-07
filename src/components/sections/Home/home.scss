@@ -7,7 +7,7 @@
     position: relative;
 
 
-    &::before {
+    &::after {
         content: "";
         height: 100%;
         width: 100%;
@@ -17,7 +17,7 @@
         backdrop-filter: blur(1px);
     }
 
-    &::after {
+    &::before {
         @include overlay($overlay-dark, 40%);
     }
 

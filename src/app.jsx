@@ -33,8 +33,8 @@ export function App() {
     
           </main>
 
-          <footer
-            style={{height: '400px', backgroundColor: 'red', width: '100%'}}></footer>
+          {/* <footer
+            style={{height: '400px', backgroundColor: 'red', width: '100%'}}></footer> */}
         </SmoothScroll>
       </MainContextProvider>
     </>
