@@ -29,11 +29,18 @@
     }
 
     .scroll-down {
+        pointer-events: all;
         cursor: pointer;
         border-radius: 50%;
         aspect-ratio: 1/1;
         width: clamp(5.5rem, 5.0222rem + 2.3891vw, 7.25rem);
         border: 1px solid rgb(255, 2555, 255, 50%);
+    }
+
+    .center-flex {
+        position: relative;
+        z-index: 565;
+        pointer-events: none;
     }
 
     .text-wrapper {

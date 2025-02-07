@@ -6,13 +6,23 @@ import autoprefixer from 'autoprefixer';
 import mergeRules from 'postcss-merge-rules';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
-
+import {visualizer} from "rollup-plugin-visualizer";
+import { terser } from 'rollup-plugin-terser';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 export default defineConfig({
   base: '/masbo_website/', 
+  optimizeDeps: {
+    exclude: [ "gsap" ], 
+  },
+  build: {
+    rollupOptions: {
+      plugins: [ terser() ],
+    },
+  },
   plugins: [
+    visualizer({ open: true }),
     preact(),
     alias({
       entries: [

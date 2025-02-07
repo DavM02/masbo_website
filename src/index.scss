@@ -8,6 +8,28 @@
     }
 }
 
+body,
+html {
+    overscroll-behavior: none;
+}
+
+body {
+    background-color: $black;
+}
+
+body,
+html,
+#app,
+#root {
+    /* width: 100%; */
+    height: 100%;
+}
+
+main {
+    min-height: 100vh;
+    // flex-grow: 1;
+}
+
 #scroll-wrapper {
     inset: 0;
     width: 100%;
@@ -18,8 +40,8 @@
 .scroll-content {
     min-height: 100% !important;
     /* height: inherit; */
-    display: flex !important;
-    flex-direction: column;
+    // display: flex !important;
+    // flex-direction: column;
     will-change: transform;
     height: inherit;
 }
@@ -34,9 +56,10 @@
     width: 11px !important;
 }
 
- 
 
-div[id*="page"], section {
+
+div[id*="page"],
+section {
     overflow: hidden;
 }
 
@@ -71,10 +94,49 @@ body {
         height: 100%;
         left: 0;
         background: url("/src/assets/noise.gif") repeat;
-        z-index: 555;
-        opacity: 15%;
+        z-index: 888;
+        opacity: 25%;
         pointer-events: none;
         mix-blend-mode: soft-light;
         background-size: 150px;
     }
+}
+
+.lazy-load-image-background.blur {
+    filter: blur(15px);
+}
+
+.lazy-load-image-background.blur.lazy-load-image-loaded {
+    filter: blur(0);
+    transition: filter 0.3s;
+}
+
+.lazy-load-image-background.blur>img {
+    opacity: 0;
+}
+
+.lazy-load-image-background.blur.lazy-load-image-loaded>img {
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+.lazy-load-image-background.opacity {
+    opacity: 0;
+}
+
+.lazy-load-image-background.opacity.lazy-load-image-loaded {
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+.placeholder-1 {
+    background-color: $blue;
+}
+
+.placeholder-2 {
+    background-color: $black;
+}
+
+.placeholder-3 {
+    background-color: $gray;
 }

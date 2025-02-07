@@ -3,23 +3,25 @@ import Scrollbar from "smooth-scrollbar";
 import { MainContext } from "@context/MainContext";
 import { gsap } from "gsap/all";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
+import useMediaQ from "@hooks/useMediaQ"
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function SmoothScroll({ children }) {
   const { scrollbarAccess } = useContext(MainContext);
   const scrollRef = useRef(null);
-  const animationRef = useRef(null);  
 
+  const q = useMediaQ("(min-width: 1025px)")
+ 
   useLayoutEffect(() => {
     let scrollbar;
     let resizeObserver;
+    const ctx = gsap.context(() => {});  
 
     const initScrollbar = () => {
       if (scrollRef.current) {
         scrollbar = Scrollbar.init(scrollRef.current, {
-          damping: 0.06,
+          damping: 0.12,
           alwaysShowTrack: true,
           renderByPixels: true,
           delegateTo: document
@@ -27,11 +29,10 @@ export default function SmoothScroll({ children }) {
 
         scrollbarAccess.current = scrollbar;
 
-      
         ScrollTrigger.scrollerProxy(scrollRef.current, {
           scrollTop(value) {
             if (arguments.length) {
-              scrollbar.scrollTop = value; 
+              scrollbar.scrollTop = value;
             }
             return scrollbar.scrollTop;
           },
@@ -53,23 +54,25 @@ export default function SmoothScroll({ children }) {
     };
 
     const createAnimation = () => {
-      if (animationRef.current) {
-        animationRef.current.kill();
+      ctx.revert();  
+
+      if (q) {
+        ctx.add(() => {
+          gsap.to("#home-scroll > .row", {
+            x: "-200vw",
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: "#home-scroll",
+              start: "top top",
+              end: () => "+=" + window.innerHeight,
+              pin: true,
+              scrub: true
+            }
+          });
+        });
+
+        ScrollTrigger.refresh();
       }
-
-      animationRef.current = gsap.to("#home-scroll > .row", {
-        x: "-200vw",
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: "#home-scroll",
-          start: "top top",
-          end: () => "+=" + window.innerHeight,
-          pin: true,
-          scrub: true
-        }
-      });
-
-      ScrollTrigger.refresh();
     };
 
     const handleResize = () => {
@@ -89,17 +92,15 @@ export default function SmoothScroll({ children }) {
     createAnimation();
 
     return () => {
+      ctx.revert();  
       if (scrollbar) {
         scrollbar.destroy();
       }
       if (resizeObserver) {
         resizeObserver.disconnect();
       }
-      if (animationRef.current) {
-        animationRef.current.kill();
-      }
     };
-  }, [ scrollbarAccess ]);
+  }, [ q, scrollbarAccess ]);
 
   return (
     <div

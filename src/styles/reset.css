@@ -10,10 +10,6 @@ html {
     scroll-behavior: smooth;
 }
 
-body, html {
-    overscroll-behavior: none;
-}
-
 img:not(.icon) {
     width: 100%;
     height: 100%;

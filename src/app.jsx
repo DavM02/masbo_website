@@ -27,13 +27,14 @@ export function App() {
                 <Route
                   path="/"
                   element={<HomePage />} />
-
               </Routes>
 
             </AnimatePresence>
     
           </main>
 
+          <footer
+            style={{height: '400px', backgroundColor: 'red', width: '100%'}}></footer>
         </SmoothScroll>
       </MainContextProvider>
     </>

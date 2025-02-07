@@ -26,7 +26,8 @@ export default function HomeScroll() {
 
             <div></div>
 
-            <div>
+            <div
+              className='placeholder-2'>
               <LazyLoadImage
                 src={img1}
                 width={"100%"}
@@ -36,7 +37,8 @@ export default function HomeScroll() {
             </div>
           </div>
           
-          <div>
+          <div
+            className='placeholder-1'>
             <LazyLoadImage
               src={img2}
               width={"100%"}
@@ -47,7 +49,8 @@ export default function HomeScroll() {
           
           <div>
 
-            <div>
+            <div
+              className='placeholder-2'>
 
               <LazyLoadImage
                 src={img3}
@@ -57,9 +60,11 @@ export default function HomeScroll() {
                 alt={"img-3"} />
             </div>
 
-            <div>
+            <div
+              className='placeholder-1'>
 
               <LazyLoadImage
+             
                 src={img4}
                 width={"100%"}
                 height={"100%"}
@@ -75,7 +80,8 @@ export default function HomeScroll() {
         <div
           className='row'>
           <div>
-            <div>
+            <div
+              className='placeholder-1'>
 
               <LazyLoadImage
                 src={img5}
@@ -93,7 +99,8 @@ export default function HomeScroll() {
             </div>
           </div>
 
-          <div>
+          <div
+            className='placeholder-2'>
 
             <LazyLoadImage
               src={img6}
@@ -106,7 +113,8 @@ export default function HomeScroll() {
           <div>
             <div></div>
 
-            <div>
+            <div
+              className='placeholder-2'>
 
               <LazyLoadImage
                 src={img7}
@@ -117,7 +125,8 @@ export default function HomeScroll() {
 
             </div>
 
-            <div>
+            <div
+              className='placeholder-1'>
               <LazyLoadImage
                 src={img8}
                 width={"100%"}

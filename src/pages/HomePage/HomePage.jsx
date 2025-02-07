@@ -13,7 +13,8 @@ export default function HomePage() {
       <Home />
 
       <HomeScroll />
-  
+
+
     </div>
   )
 }
