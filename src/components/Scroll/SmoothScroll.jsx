@@ -21,7 +21,7 @@ export default function SmoothScroll({ children }) {
     const initScrollbar = () => {
       if (scrollRef.current) {
         scrollbar = Scrollbar.init(scrollRef.current, {
-          damping: 0.12,
+          damping: 0.8,
           alwaysShowTrack: true,
           renderByPixels: true,
           delegateTo: document
