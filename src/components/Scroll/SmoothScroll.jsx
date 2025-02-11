@@ -21,7 +21,7 @@ export default function SmoothScroll({ children }) {
     const initScrollbar = () => {
       if (scrollRef.current) {
         scrollbar = Scrollbar.init(scrollRef.current, {
-          damping: 0.08,
+          damping: 0.06,
           alwaysShowTrack: true,
           renderByPixels: true,
           delegateTo: document
@@ -30,12 +30,10 @@ export default function SmoothScroll({ children }) {
         scrollbarAccess.current = scrollbar;
 
         scrollbarAccess.current.addListener(({offset}) => {
-          if (offset.y > 1) {
+          if (offset.y > 3) {
             scrollbarAccess.current.containerEl.previousElementSibling.style.backgroundColor = "#151517"
-            scrollbarAccess.current.containerEl.previousElementSibling.style.borderBottom = "0.5px solid transparent"
           } else {
             scrollbarAccess.current.containerEl.previousElementSibling.style.backgroundColor = "transparent"
-            scrollbarAccess.current.containerEl.previousElementSibling.style.borderBottom = "0.5px solid rgb(255, 255, 255, 45%)"
           }
         })
         ScrollTrigger.scrollerProxy(scrollRef.current, {
@@ -68,7 +66,7 @@ export default function SmoothScroll({ children }) {
       if (q) {
         ctx.add(() => {
           gsap.to("#home-scroll > .row", {
-            x: "-200vw",
+            x: "-300vw",
             ease: "power2.out",
             scrollTrigger: {
               trigger: "#home-scroll",

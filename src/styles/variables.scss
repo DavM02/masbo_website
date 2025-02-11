@@ -24,6 +24,6 @@ $transition-1:  cubic-bezier(0.645, 0.045, 0.355, 1);
     left: 0;
     background-color: $color;
     opacity: $opacity;
-    mix-blend-mode: darken;
+    mix-blend-mode: hard-light;
     pointer-events: none;
 }

@@ -8,17 +8,7 @@
 
 
     &::after {
-        @include overlay($black, 40%);
-    }
-
-    .mask-layer {
-        z-index: 44;
-        height: 100%;
-        width: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        backdrop-filter: blur(0.9px);
+        @include overlay($black, 60%);
     }
 
     .container {
@@ -54,21 +44,6 @@
             white-space: nowrap;
         }
 
-        p {
-            position: relative;
-
-            &::after {
-                content: "";
-                position: absolute;
-                background-color: $white;
-                width: 1px;
-                height: 100%;
-                left: -25px;
-                top: 0;
-            }
-        }
-
-
         @media all and (max-width: 782px) {
 
             &>.row:nth-child(1) {
@@ -94,6 +69,23 @@
             p br:not(:nth-child(1)) {
                 display: none;
             }
+        }
+    }
+}
+
+#home,
+#home-scroll .container {
+    p {
+        position: relative;
+
+        &::after {
+            content: "";
+            position: absolute;
+            background-color: $white;
+            width: 1px;
+            height: 100%;
+            left: -25px;
+            top: 0;
         }
     }
 }

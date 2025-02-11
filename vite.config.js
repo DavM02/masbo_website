@@ -3,20 +3,24 @@ import preact from '@preact/preset-vite'
 import alias from '@rollup/plugin-alias';
 import path from 'path';
 import autoprefixer from 'autoprefixer';
-import mergeRules from 'postcss-merge-rules';
+// import mergeRules from 'postcss-merge-rules';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import {visualizer} from "rollup-plugin-visualizer";
 import { terser } from 'rollup-plugin-terser';
+import mergeLonghand from 'postcss-merge-longhand';
+import mergeRulePlus from 'postcss-merge-rules-plus';
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 export default defineConfig({
   base: '/masbo_website/', 
-  optimizeDeps: {
-    exclude: [ "gsap" ], 
-  },
+  // optimizeDeps: {
+  //   exclude: [ "gsap" ], 
+  // },
   build: {
+    minify: false,
     rollupOptions: {
       plugins: [ terser() ],
     },
@@ -60,7 +64,11 @@ export default defineConfig({
   css: {
     preprocessorMaxWorkers: 4,  
     postcss: {
-      plugins: [ autoprefixer, mergeRules ]
+      plugins: [
+        autoprefixer,
+        mergeLonghand,
+        mergeRulePlus.default 
+      ]
     },
     preprocessorOptions: {
       scss: {

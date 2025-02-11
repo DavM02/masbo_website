@@ -7,8 +7,6 @@ export default function Home() {
   return (
     <section
       id='home'>
-      <div
-        className='mask-layer'></div>
 
       <div
         className="container">

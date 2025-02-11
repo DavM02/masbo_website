@@ -53,30 +53,53 @@ h6 {
 .fs-14 {
     font-size: 14px;
     font-family: "font-main";
-    line-height: 16.94px;
-    font-weight: bolder;
+    line-height: 24px;
     letter-spacing: 0.5px;
     font-weight: 100;
 }
 
 p {
     font-family: "font-main";
-    letter-spacing: px;
-    font-weight: 100;
+    letter-spacing: 0.5px;
+    font-weight: bolder;
     font-size: 14px;
 
-    &.static {}
 
-    &.to-middle {}
+    &.to-middle {
+        font-size: clamp(0.6875rem, 0.642rem + 0.1942vw, 0.875rem);
+        line-height: clamp(1.125rem, 1.034rem + 0.3883vw, 1.5rem);
+        ;
+    }
 
     &.to-small {
-        line-height: clamp(1.1875rem, 1.1022rem + 0.4266vw, 1.5rem);
-        font-size: clamp(0.78125rem, 0.7557rem + 0.128vw, 0.875rem);
+        line-height: clamp(1rem, 0.8786rem + 0.5178vw, 1.5rem);
+        font-size: clamp(0.5625rem, 0.4867rem + 0.3236vw, 0.875rem);
+    }
+}
+
+span {
+    &.to-small {
+        font-family: "font-main";
+        letter-spacing: 0.5px;
+        line-height: clamp(1rem, 0.8786rem + 0.5178vw, 1.5rem);
+        font-size: clamp(0.5625rem, 0.4867rem + 0.3236vw, 0.875rem);
     }
 }
 
 h1 {
     font-size: clamp(1.75rem, 1.1357rem + 3.0717vw, 4rem);
     line-height: clamp(1.9625rem, 1.4062rem + 2.7816vw, 4rem);
-    font-family: "font-main-bold";
+
+}
+
+h2 {
+    font-size: 48px;
+    line-height: 65.5px;
+}
+
+h6 {
+    font-size: clamp(0.75rem, 0.6893rem + 0.2589vw, 1rem);
+    ;
+    line-height: clamp(1.1125rem, 1.0184rem + 0.4013vw, 1.5rem);
+    letter-spacing: 0.4px;
 }

@@ -5,7 +5,15 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    transition: $transition-1 background-color 1s, $transition-1 border-bottom 1s;
+    transition: $transition-1 background-color 1s;
+
+    a {
+        line-height: 16.94px !important;
+    }
+
+    &.hide-fill {
+        background-color: transparent !important;
+    }
 
     .container {
         max-width: unset;

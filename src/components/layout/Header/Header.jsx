@@ -1,15 +1,56 @@
 import { Link } from 'react-router-dom';
 import logo from '@assets/icons/MASBO_Logo 2.svg';
+import { useEffect, useState } from 'preact/hooks';
 import useMediaQ from '../../../hooks/useMediaQ';
 import './header.scss';
-
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap } from 'gsap';
+ 
 export default function Header() {
  
   const query = useMediaQ("(min-width: 920px)");
+  const query2 = useMediaQ("(min-width: 1025px)")
+  const [ hideFill, setHideFill ] = useState(false)
+
+  useEffect(() => {
+
+    const ctx = gsap.context(() => {});  
+ 
+
+    const createAnimation = () => {
+      ctx.revert();  
+
+    
+      ctx.add(() => {
+        gsap.to("#home-scroll", {
+          scrollTrigger: {
+            trigger: "#home-scroll",
+            start: "top top",        
+            end: "bottom bottom",   
+            onEnter: () => setHideFill(true),
+            onEnterBack: () =>  setHideFill(false),
+          }
+        });
+      });
+
+      ScrollTrigger.refresh();
+ 
+    };
+
+    createAnimation()
+
+    return () => {
+      ctx.revert();  
+    }
+
+
+  
+  }, [ query2 ])
 
  
   return (
-    <header>
+    <header
+      className={hideFill ? 'hide-fill' : 'static'}>
       <div
         className='container'>
         <div

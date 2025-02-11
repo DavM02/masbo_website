@@ -13,6 +13,9 @@ html {
     overscroll-behavior: none;
 }
 
+::selection {
+    background-color: $blue;
+}
 
 body,
 html,
@@ -92,7 +95,7 @@ body {
         left: 0;
         background: url("/src/assets/noise.gif") repeat;
         z-index: 888;
-        opacity: 25%;
+        opacity: 15%;
         pointer-events: none;
         mix-blend-mode: soft-light;
         background-size: 150px;
