@@ -34,18 +34,20 @@ li {
     cursor: pointer;
 }
 
-/* 
 button,
 input,
 textarea {
     outline: none;
     border: none;
-    background-color: transparent;
 }
 
 textarea {
     resize: none;
 }
+
+/* 
+
+
 
 
 input:-webkit-autofill,

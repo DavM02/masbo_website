@@ -8,7 +8,7 @@ import useMediaQ from "@hooks/useMediaQ"
 gsap.registerPlugin(ScrollTrigger);
 
 export default function SmoothScroll({ children }) {
-  const { scrollbarAccess } = useContext(MainContext);
+  const { scrollbarAccess, scrollTweenAccess } = useContext(MainContext);
   const scrollRef = useRef(null);
 
   const q = useMediaQ("(min-width: 1025px)")
@@ -61,21 +61,39 @@ export default function SmoothScroll({ children }) {
     };
 
     const createAnimation = () => {
+       
       ctx.revert();  
 
       if (q) {
         ctx.add(() => {
-          gsap.to("#home-scroll > .row", {
-            x: "-300vw",
-            ease: "power2.out",
+          let scrollTween = gsap.to("#home-scroll > .row", {
+            x: "-500vw",
+            ease: "none",
             scrollTrigger: {
               trigger: "#home-scroll",
               start: "top top",
               end: () => "+=" + window.innerHeight,
               pin: true,
-              scrub: true
+              scrub: true,
+              invalidateOnRefresh: true
             }
           });
+          // let sections = gsap.utils.toArray("#home-scroll > .row > *");
+          // let scrollTween = gsap.to(sections, {
+          //   x: "-500vw",
+          //   ease: "none", // <-- IMPORTANT!
+          //   scrollTrigger: {
+          //     trigger: "#home-scroll",
+          //     pin: true,
+          //     scrub: true,
+          //     start: "top top",
+          //     end: () => "+=" + window.innerHeight,
+
+          //   }
+          // });
+
+          scrollTweenAccess.current = scrollTween
+          
         });
 
         ScrollTrigger.refresh();
