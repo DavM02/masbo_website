@@ -23,6 +23,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { gsap } from 'gsap';
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import { useLayoutEffect, useRef, useContext, useEffect } from 'preact/hooks'
+import { useGSAP } from '@gsap/react';
 import MainButton from '@components/ui/buttons/MainButton'
 export default function HomeScroll() {
   const {   scrollTweenAccess } = useContext(MainContext);

@@ -4,8 +4,8 @@ import { MainContext } from "@context/MainContext";
 import { gsap } from "gsap/all";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import useMediaQ from "@hooks/useMediaQ"
-
-gsap.registerPlugin(ScrollTrigger);
+import { useGSAP } from '@gsap/react';
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export default function SmoothScroll({ children }) {
   const { scrollbarAccess, scrollTweenAccess } = useContext(MainContext);
@@ -13,7 +13,7 @@ export default function SmoothScroll({ children }) {
 
   const q = useMediaQ("(min-width: 1025px)")
  
-  useLayoutEffect(() => {
+  useGSAP(() => {
     let scrollbar;
     let resizeObserver;
     const ctx = gsap.context(() => {});  
@@ -125,7 +125,7 @@ export default function SmoothScroll({ children }) {
         resizeObserver.disconnect();
       }
     };
-  }, [ q, scrollbarAccess ]);
+  },  {dependencies: q, scope: scrollRef});
 
   return (
     <div
