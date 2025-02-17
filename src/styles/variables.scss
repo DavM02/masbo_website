@@ -10,11 +10,11 @@ $white-secondary: #E9E9E9;
 $text-gray: #909090;
 $brown: #3F3F3F;
 $gray: #1D1D20;
-$blue: #004FE2;
+$blue: #1C6BCF;
 
 
-$transition-1:  cubic-bezier(0.645, 0.045, 0.355, 1);
- 
+$transition-1: cubic-bezier(0.645, 0.045, 0.355, 1);
+
 
 @mixin overlay($color, $opacity) {
     content: "";
@@ -27,4 +27,18 @@ $transition-1:  cubic-bezier(0.645, 0.045, 0.355, 1);
     opacity: $opacity;
     mix-blend-mode: hard-light;
     pointer-events: none;
+}
+
+@mixin center-absolute($index) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: $index;
+}
+
+@mixin full-width-on-mobile($breakpoint: 1024px) {
+    @media all and (max-width: $breakpoint) {
+        width: 100% !important;
+    }
 }

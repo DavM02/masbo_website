@@ -19,17 +19,15 @@ import icon3 from "@assets/icons/icon-3.svg"
 import icon4 from "@assets/icons/icon-4.svg"
 // import icon5 from "@assets/icons/icon-5.svg"
 import { MainContext } from "@context/MainContext";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import useMediaQ from "@hooks/useMediaQ"
 import { gsap } from 'gsap';
 import { LazyLoadImage } from 'react-lazy-load-image-component'
-import { useLayoutEffect, useRef, useContext, useEffect } from 'preact/hooks'
+import { useRef, useContext } from 'preact/hooks'
 import { useGSAP } from '@gsap/react';
 import MainButton from '@components/ui/buttons/MainButton'
 export default function HomeScroll() {
   const {   scrollTweenAccess } = useContext(MainContext);
-  const numRefs = useRef()
-
-  const dataRef  = useRef()
+ 
   const numbers = [
     { num: 123, title: "successful projects" },
     { num: 1235, title: "people who work with us" },
@@ -37,8 +35,9 @@ export default function HomeScroll() {
     {num: 1012, title: "Modern interiors "}
   ]
 
-  
-  console.log('rerendered')
+  const sectionRef = useRef(null)
+ 
+  const q = useMediaQ("(min-width: 1025px)")
  
   const data = [
     {
@@ -59,78 +58,56 @@ export default function HomeScroll() {
   ]
  
 
- 
 
-  useLayoutEffect(() => {
-    const ctx = gsap.context(() => { });
-    
+  useGSAP(() => {
 
-    const createAnimation = () => {
-      ctx.revert();
-
-      ctx.add(() => {
-        requestAnimationFrame(() => {
-          if (numRefs.current) {
-            numRefs.current.querySelectorAll("li h2").forEach((counter, i) => {
-              gsap.to(counter, {
-                innerText: numbers[i].num,
-                duration: 2,
-                ease: "power1.out",
-                snap: { innerText: 1 },
-                scrollTrigger: {
-                  trigger: "#home-scroll .container",
-                  start: "top 20%",
-                  toggleActions: "play none none none",
-                  invalidateOnRefresh: true,
-                },
+    requestAnimationFrame(() => {
+      const numItems = gsap.utils.toArray("li h2")
+      numItems.forEach((counter, i) => {
+        gsap.to(counter, {
+          innerText: numbers[i].num,
+          duration: 2,
+          ease: "power1.out",
+          snap: { innerText: 1 },
+          scrollTrigger: {
+            trigger: ".row > .container",
+            start: "top 20%",
+            toggleActions: "play none none none",
+            invalidateOnRefresh: true,
+          },
               
-              });
-            });
-           
-          }
-
- 
-          if (dataRef.current) {
-            dataRef.current.querySelectorAll("li .placeholder-1").forEach((placeholder, i) => {
-            
-              gsap.set(placeholder, {
-                clipPath: "inset(0 100% 0 0)"
-              });
-
-              gsap.to(placeholder, {
-                ease: "none",
-                clipPath: "inset(0)",  
-                scrollTrigger: {
-                  trigger: ".services-list",
-                  containerAnimation: scrollTweenAccess.current,
-                  start: "left 30%",
-                  toggleActions: "play none none none",
-                  invalidateOnRefresh: true,
-                }
-              });
-            });
-
- 
-          }
-
-        
-       
         });
-        ScrollTrigger.refresh();
-      })
-    
-  
-    };
+      });
+           
+      const data = gsap.utils.toArray("li .placeholder-1")
+   
+      data.forEach((placeholder) => {
+            
+        gsap.set(placeholder, {
+          clipPath: "inset(0 100% 0 0)"
+        });
+
+        gsap.to(placeholder, {
+          ease: "none",
+          clipPath: "inset(0)",  
+          scrollTrigger: {
+            trigger: ".services-list",
+            containerAnimation: scrollTweenAccess.current,
+            start: "left 30%",
+            toggleActions: "play none none none",
+            invalidateOnRefresh: true,
+          }
+        });
+      });
+    })
  
-    createAnimation();
  
-    return () => ctx.revert();
-  }, [ ]);
+  }, {scope: sectionRef, dependencies: [ q ]});
 
 
   return (
     <section
-     
+      ref={sectionRef}
       id="home-scroll">
       <div
         className='row'>
@@ -161,8 +138,7 @@ export default function HomeScroll() {
           </div>
 
           <ul
-            className='row wrap gap-150'
-            ref={numRefs}>
+            className='row wrap gap-150'>
             {numbers.map((el, i) => {
               return (
                 <li
@@ -243,6 +219,32 @@ export default function HomeScroll() {
               height={"100%"}
               effect="blur"
               alt={"img-2"} />
+            
+            <div
+              className='description'>
+              <h1
+                className='capitalize'>
+                
+                inovative 
+                <br /> engineering &
+
+                <br /> architecture 
+
+                <br />  solutions
+              </h1>
+             
+              <p
+                className='to-middle text-white capitalize'>
+                We offer innovative engineering solutions that ensure the successful achievement of the client's goals. Because engineering is a result-oriented strategy in action. An individual approach and attention to detail in the development of engineering systems allows us to obtain reliable, verified solutions. Simply put, we think over the operation of facilities based on practical experience and scientific knowledge.
+              </p>
+
+              <MainButton
+                arrow={false}
+                type="button">
+                Order The Project
+              </MainButton>
+            </div>
+
           </div>
           
           <div>
@@ -319,6 +321,29 @@ export default function HomeScroll() {
               height={"100%"}
               effect="blur"
               alt={"img-6"} /> 
+            
+            <div
+              className='description'>
+              <h1
+                className='capitalize'>
+                
+                inovative 
+                <br /> engineering 
+
+                <br /> solutions
+              </h1>
+             
+              <p
+                className='to-middle text-white capitalize'>
+                We offer innovative engineering solutions that ensure the successful achievement of the client's goals. Because engineering is a result-oriented strategy in action. An individual approach and attention to detail in the development of engineering systems allows us to obtain reliable, verified solutions. Simply put, we think over the operation of facilities based on practical experience and scientific knowledge.
+              </p>
+
+              <MainButton
+                arrow={false}
+                type="button">
+                Order The Project
+              </MainButton>
+            </div>
           </div>
 
           <div>
@@ -441,8 +466,8 @@ export default function HomeScroll() {
             </div>
 
             <ul
-              ref={dataRef }
-              className='row gap-85'>
+           
+              className='data row gap-85'>
               {data.map((el, i) => {
                 return (<li
                   key={i}>

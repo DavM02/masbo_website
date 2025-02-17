@@ -1,5 +1,5 @@
 import arrowRight from "@assets/icons/arrow-right.svg"
-export default function MainButton({...props}) {
+export default function MainButton({arrow = true, ...props}) {
   return (
     <div
       className='main-button'>
@@ -7,13 +7,14 @@ export default function MainButton({...props}) {
         className='font-bold text-white'
         {...props}>
         <div
-          className='row gap-10 cetner-y'>
+          className='row gap-10 center-y'>
           {props.children}
 
-          <img
+          {arrow && <img
             alt="arrow"
             className="icon"
-            src={arrowRight} />
+            src={arrowRight} />}
+
         </div>
       </button>
     </div> 
