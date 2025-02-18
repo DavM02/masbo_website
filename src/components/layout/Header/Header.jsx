@@ -1,64 +1,57 @@
 import { Link } from 'react-router-dom';
 import logo from '@assets/icons/MASBO_Logo 2.svg';
-import useMediaQ from '../../../hooks/useMediaQ';
+import useMediaQ from '@hooks/useMediaQ';
 import './header.scss';
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useContext } from 'preact/hooks';
 import { gsap } from 'gsap';
 
 import { useGSAP } from '@gsap/react';
+import { MainContext } from "@context/MainContext";
  
 export default function Header() {
- 
+
+
+  const {scrollbarAccess} = useContext(MainContext)
   const query = useMediaQ("(min-width: 920px)");
   const width = useMediaQ("(min-width: 1025px)")
   const height = useMediaQ("(min-height: 657px)")
-  
+ 
  
 
   useGSAP(() => {
 
 
-const createAnimation = () => {
+    const createAnimation = () => {
+ 
+      scrollbarAccess.current.addListener((scroll) => {
+        if (scroll.offset.y > 3) {
+          gsap.set("header", { className: "scrolled" });  
+        } else {
+        
+          gsap.set("header", { className: "static" });  
+        } 
+      })
 
-  
-gsap.to("main", {
-  scrollTrigger: {
-    trigger: "main",
-    start: "top top",        
-    end: "bottom bottom", 
-    onUpdate: (self) => {
-      console.log(self.scroll())
-      if (self.scroll() > 3) {
-        gsap.to("header", { className: "scrolled" });  
-      } else {
-        gsap.to("header", { className: "static" });   
+      if (width && height) {
+        gsap.to("#home-scroll", {
+          scrollTrigger: {
+            trigger: "#home-scroll",
+            start: "top top",        
+            end: "bottom bottom",   
+            onEnter: () => {
+              gsap.set("header", { backgroundColor: "transparent" });  
+           
+            },
+            onEnterBack: () => {
+              gsap.set("header", {clearProps: "backgroundColor"});  
+            },
+ 
+          }
+        });
       }
-    }
-  }
-});
  
-if (width && height) {
-  gsap.to("#home-scroll", {
-    scrollTrigger: {
-      trigger: "#home-scroll",
-      start: "top top",        
-      end: "bottom bottom",   
-      onEnter: () => {
-        gsap.to("header", { className: "static" });
-      },
-      onEnterBack: () => {
-        gsap.to("header", { className:  "scrolled" });
-      },
- 
-    }
-  });
-}
 
-
-
-
-
-};
+    };
 
     requestAnimationFrame(() => {
       createAnimation()

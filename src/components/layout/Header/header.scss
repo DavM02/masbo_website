@@ -11,8 +11,12 @@ header {
         line-height: 16.94px !important;
     }
 
+&.static {
+    background-color: transparent;
+}
+
     &.scrolled {
-        background-color: $black !important;
+        background-color: $black;
     }
 
     .container {

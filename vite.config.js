@@ -10,6 +10,7 @@ import { visualizer } from "rollup-plugin-visualizer";
 import { terser } from "rollup-plugin-terser";
 import mergeLonghand from "postcss-merge-longhand";
 import mergeRulePlus from "postcss-merge-rules-plus";
+import svgr from "vite-plugin-svgr";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -20,15 +21,16 @@ export default defineConfig({
   //   exclude: [ "gsap" ],
   // },
   server: {
-    allowedHosts: ["q5r5mx-5173.csb.app"],
+    allowedHosts: [ "q5r5mx-5173.csb.app" ],
   },
   build: {
     minify: false,
     rollupOptions: {
-      plugins: [terser()],
+      plugins: [ terser() ],
     },
   },
   plugins: [
+    svgr(),
     visualizer({ open: true }),
     preact(),
     alias({
@@ -67,7 +69,11 @@ export default defineConfig({
   css: {
     preprocessorMaxWorkers: 4,
     postcss: {
-      plugins: [autoprefixer, mergeLonghand, mergeRulePlus.default],
+      plugins: [ autoprefixer,
+        mergeLonghand,
+        mergeRulePlus.default,
+
+      ],
     },
     preprocessorOptions: {
       scss: {

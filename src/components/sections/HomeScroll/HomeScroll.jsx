@@ -25,6 +25,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component'
 import { useRef, useContext } from 'preact/hooks'
 import { useGSAP } from '@gsap/react';
 import MainButton from '@components/ui/buttons/MainButton'
+import Socials from '@components/socials/Socials'
 export default function HomeScroll() {
   const {   scrollTweenAccess } = useContext(MainContext);
  
@@ -60,7 +61,7 @@ export default function HomeScroll() {
  
 
  
-  useGSAP((context) => {
+  useGSAP(() => {
  
     requestAnimationFrame(() => {
       const numItems = gsap.utils.toArray("li h2")
@@ -103,7 +104,7 @@ export default function HomeScroll() {
             trigger: ".services-list",
             start: "left 30%",
             toggleActions: "play none none none",
-  ...options 
+            ...options 
           }
         });
       });
@@ -117,6 +118,8 @@ export default function HomeScroll() {
     <section
       ref={sectionRef}
       id="home-scroll">
+
+
       <div
         className='row'>
         
@@ -163,6 +166,8 @@ export default function HomeScroll() {
               )
             })}
           </ul>
+
+          <Socials />
         </div>
 
         <div
@@ -409,20 +414,21 @@ export default function HomeScroll() {
               effect="blur"
               alt={"img-9"} /> 
 
-<div
+            <div
               className='description'>
               <h1
                 className='capitalize'>
                 
              
                 interior &
-<br/> landscape 
-<br/>  design
+                <br /> landscape 
+
+                <br />  design
               </h1>
              
               <p
                 className='to-middle text-white capitalize'>
-              We create a comfortable space for living and working, entertainment and education. High-quality and thoughtful design not only pleases the eye, but creates a healthy environment for a comfortable and intuitive use of the room.
+                We create a comfortable space for living and working, entertainment and education. High-quality and thoughtful design not only pleases the eye, but creates a healthy environment for a comfortable and intuitive use of the room.
               </p>
 
               <MainButton
@@ -533,6 +539,8 @@ export default function HomeScroll() {
         <div
           className='row'></div>
       </div>
+
+
     </section>
   )
 }

@@ -2,11 +2,13 @@ import './home.scss'
 import arrow from '@assets/icons/arrow-down.svg'
 import { useContext } from 'preact/hooks'
 import { MainContext } from "@context/MainContext";
+import Socials from '@components/socials/Socials';
 export default function Home() {
   const {scrollbarAccess} = useContext(MainContext)
   return (
     <section
       id='home'>
+      <Socials />
 
       <div
         className="container">
