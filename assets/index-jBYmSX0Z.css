@@ -298,7 +298,7 @@ button:disabled {
 
 @font-face {
   font-family: "font-main-bold";
-  src: url("/masbo_website/assets/Inter-Bold-DtjLL3eg.woff") format("woff2"), url("/masbo_website/assets/Inter-Bold-DtjLL3eg.woff") format("woff"), url("/masbo_website/assets/Inter-Bold-DffPURSq.ttf") format("truetype"), url("/masbo_website/assets/Inter-Bold-3degqdS-.eot") format("embedded-opentype"), url("/masbo_website/assets/Inter-Bold-B3d6VThR.otf") format("opentype");
+  src: url("/masbo_website/assets/Inter-Bold-BSIRPsaf.woff2") format("woff2"), url("/masbo_website/assets/Inter-Bold-DtjLL3eg.woff") format("woff"), url("/masbo_website/assets/Inter-Bold-DffPURSq.ttf") format("truetype"), url("/masbo_website/assets/Inter-Bold-3degqdS-.eot") format("embedded-opentype"), url("/masbo_website/assets/Inter-Bold-B3d6VThR.otf") format("opentype");
 }
 
 .up-case {
