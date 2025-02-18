@@ -5,15 +5,16 @@ import { gsap } from "gsap/all";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import useMediaQ from "@hooks/useMediaQ"
 import { useGSAP } from '@gsap/react';
+
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export default function SmoothScroll({ children }) {
   const { scrollbarAccess, scrollTweenAccess } = useContext(MainContext);
   const scrollRef = useRef(null);
 
-  const q = useMediaQ("(min-width: 1025px)")
- 
-  useGSAP(() => {
+  const width = useMediaQ("(min-width: 1025px)")
+  const height = useMediaQ("(min-height: 657px)")
+  useGSAP((context) => {
 
     let scrollbar;
     let resizeObserver;
@@ -28,13 +29,7 @@ export default function SmoothScroll({ children }) {
 
         scrollbarAccess.current = scrollbar;
 
-        scrollbarAccess.current.addListener(({ offset }) => {
-          if (offset.y > 3) {
-            scrollbarAccess.current.containerEl.previousElementSibling.style.backgroundColor = "#151517"
-          } else {
-            scrollbarAccess.current.containerEl.previousElementSibling.style.backgroundColor = "transparent"
-          }
-        })
+ 
         ScrollTrigger.scrollerProxy(scrollRef.current, {
           scrollTop(value) {
             if (arguments.length) {
@@ -60,7 +55,7 @@ export default function SmoothScroll({ children }) {
     };
 
     const createAnimation = () => {
-      if (q) {
+      if (width && height) {
        
         let scrollTween = gsap.to("#home-scroll > .row", {
           x: "-600vw",
@@ -109,7 +104,7 @@ export default function SmoothScroll({ children }) {
       }
  
     };
-  },  {dependencies: [ q ], scope: scrollRef, revertOnUpdate: true});
+  },  {dependencies: [ width, height ], scope: scrollRef, revertOnUpdate: true});
 
   return (
     <div

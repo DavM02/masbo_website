@@ -37,7 +37,8 @@ export default function HomeScroll() {
 
   const sectionRef = useRef(null)
  
-  const q = useMediaQ("(min-width: 1025px)")
+  const width = useMediaQ("(min-width: 1025px)")
+  const height = useMediaQ("(min-height: 657px)")
  
   const data = [
     {
@@ -58,9 +59,9 @@ export default function HomeScroll() {
   ]
  
 
-
-  useGSAP(() => {
-
+ 
+  useGSAP((context) => {
+ 
     requestAnimationFrame(() => {
       const numItems = gsap.utils.toArray("li h2")
       numItems.forEach((counter, i) => {
@@ -73,7 +74,7 @@ export default function HomeScroll() {
             trigger: ".row > .container",
             start: "top 20%",
             toggleActions: "play none none none",
-            invalidateOnRefresh: true,
+ 
           },
               
         });
@@ -87,22 +88,29 @@ export default function HomeScroll() {
           clipPath: "inset(0 100% 0 0)"
         });
 
+        let options = {}
+
+        if (height && width) {
+          options.containerAnimation = scrollTweenAccess.current
+        } else {
+          options = {}
+        }
+ 
         gsap.to(placeholder, {
           ease: "none",
           clipPath: "inset(0)",  
           scrollTrigger: {
             trigger: ".services-list",
-            containerAnimation: scrollTweenAccess.current,
             start: "left 30%",
             toggleActions: "play none none none",
-            invalidateOnRefresh: true,
+  ...options 
           }
         });
       });
     })
  
  
-  }, {scope: sectionRef, dependencies: [ q ]});
+  }, {scope: sectionRef, dependencies: [ width, height ], revertOnUpdate: true});
 
 
   return (
@@ -400,6 +408,29 @@ export default function HomeScroll() {
               height={"100%"}
               effect="blur"
               alt={"img-9"} /> 
+
+<div
+              className='description'>
+              <h1
+                className='capitalize'>
+                
+             
+                interior &
+<br/> landscape 
+<br/>  design
+              </h1>
+             
+              <p
+                className='to-middle text-white capitalize'>
+              We create a comfortable space for living and working, entertainment and education. High-quality and thoughtful design not only pleases the eye, but creates a healthy environment for a comfortable and intuitive use of the room.
+              </p>
+
+              <MainButton
+                arrow={false}
+                type="button">
+                Order The Project
+              </MainButton>
+            </div>
           </div>
 
           <div>
@@ -412,6 +443,7 @@ export default function HomeScroll() {
                 height={"100%"}
                 effect="blur"
                 alt={"img-10"} /> 
+                
             </div>
 
             <div

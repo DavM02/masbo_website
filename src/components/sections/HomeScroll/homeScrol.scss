@@ -3,7 +3,7 @@
     width: calc(1762px + 3271px + (100vw * 3)) !important;
     will-change: transform;
 
-    @media all and (max-width: 1024px) {
+    @media all and (max-width: 1024px), (max-height: 656px) {
         height: unset !important;
         width: initial !important;
 
@@ -20,9 +20,8 @@
 
     }
 
-    @media all and (min-width: 1600px) and (min-height: 3000px) {
-        width: 600vw !important;
-    }
+ 
+    @include responsive-width(600vw);
 
     .container {
         max-width: unset;
@@ -75,7 +74,7 @@
             &:not(:nth-child(1)) {
 
                 margin-top: 73px;
-                height: calc(100% - 73px) !important;
+                // height: calc(100% - 73px) !important;
             }
 
             @include full-width-on-mobile();
@@ -88,16 +87,13 @@
                 width: 1762px;
 
                 @include full-width-on-mobile();
-
-                @media all and (min-width: 1600px) and (min-height: 3000px) {
-                    width: 100vw !important;
-                }
-
+ 
+                @include responsive-width(100vw);
                 &>div {
                     &:nth-child(1) {
                         div {
                             height: calc(100% / 3);
-                            min-width: 482px;
+                             width: 482px;
 
                             @include full-width-on-mobile();
 
@@ -121,11 +117,8 @@
 
                         @include full-width-on-mobile();
 
-                        @media all and (min-width: 1600px) and (min-height: 3000px) {
-                            width: -webkit-fill-available !important;
-                        }
-
-                        &::after {
+                        @include responsive-width(-webkit-fill-available);
+                    &::after {
                             @include overlay($overlay, 50%)
                         }
                     }
@@ -133,7 +126,7 @@
                     &:nth-child(3) {
                         overflow: hidden;
                         position: relative;
-                        min-width: 509px;
+                        width: 509px;
 
                         @include full-width-on-mobile();
 
@@ -157,16 +150,13 @@
                 width: 3271px;
 
                 @include full-width-on-mobile();
-
-                @media all and (min-width: 1600px) and (min-height: 3000px) {
-                    width: 200vw !important;
-                }
-
+ 
+                @include responsive-width(200vw);
                 &>div {
                     &:nth-child(1) {
                         div {
                             height: 50%;
-                            min-width: 765px;
+                           width: 765px;
 
                             @include full-width-on-mobile();
 
@@ -195,10 +185,8 @@
 
                         @include full-width-on-mobile();
 
-                        @media all and (min-width: 1600px) and (min-height: 3000px) {
-                            width: -webkit-fill-available !important;
-                        }
-
+ 
+                        @include responsive-width(-webkit-fill-available);
                         &::after {
                             @include overlay($overlay, 50%)
                         }
@@ -207,7 +195,7 @@
                     &:nth-child(3) {
 
                         &>div {
-                            min-width: 482px;
+                           width: 482px;
                             height: calc(100% / 3);
 
                             @include full-width-on-mobile();
@@ -236,9 +224,8 @@
                         // width: -webkit-fill-available;
                         @include full-width-on-mobile();
 
-                        @media all and (min-width: 1600px) and (min-height: 3000px) {
-                            width: -webkit-fill-available !important;
-                        }
+                  
+                        @include responsive-width(-webkit-fill-available);
 
                         &::after {
                             @include overlay($overlay, 50%)
@@ -248,7 +235,7 @@
                     &:nth-child(5) {
                         >div:nth-child(1) {
                             position: relative;
-                            min-width: 482px;
+                             width: 482px;
                             height: calc(100%/3 * 2);
 
                             @include full-width-on-mobile();
@@ -280,7 +267,7 @@
             width: 100vw;
             margin-top: 73px;
 
-            height: calc(100% - 73px) !important;
+            // height: calc(100% - 73px) !important;
 
             h1 {
                 white-space: nowrap;

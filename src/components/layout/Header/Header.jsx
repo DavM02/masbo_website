@@ -1,32 +1,64 @@
 import { Link } from 'react-router-dom';
 import logo from '@assets/icons/MASBO_Logo 2.svg';
-import { useState } from 'preact/hooks';
 import useMediaQ from '../../../hooks/useMediaQ';
 import './header.scss';
- 
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { gsap } from 'gsap';
+
 import { useGSAP } from '@gsap/react';
  
 export default function Header() {
  
   const query = useMediaQ("(min-width: 920px)");
-  const query2 = useMediaQ("(min-width: 1025px)")
-  const [ hideFill, setHideFill ] = useState(false)
+  const width = useMediaQ("(min-width: 1025px)")
+  const height = useMediaQ("(min-height: 657px)")
+  
+ 
 
   useGSAP(() => {
-    const createAnimation = () => {
+
+
+const createAnimation = () => {
+
+  
+gsap.to("main", {
+  scrollTrigger: {
+    trigger: "main",
+    start: "top top",        
+    end: "bottom bottom", 
+    onUpdate: (self) => {
+      console.log(self.scroll())
+      if (self.scroll() > 3) {
+        gsap.to("header", { className: "scrolled" });  
+      } else {
+        gsap.to("header", { className: "static" });   
+      }
+    }
+  }
+});
  
-      gsap.to("#home-scroll", {
-        scrollTrigger: {
-          trigger: "#home-scroll",
-          start: "top top",        
-          end: "bottom bottom",   
-          onEnter: () => setHideFill(true),
-          onEnterBack: () =>  setHideFill(false),
-        }
-      });
+if (width && height) {
+  gsap.to("#home-scroll", {
+    scrollTrigger: {
+      trigger: "#home-scroll",
+      start: "top top",        
+      end: "bottom bottom",   
+      onEnter: () => {
+        gsap.to("header", { className: "static" });
+      },
+      onEnterBack: () => {
+        gsap.to("header", { className:  "scrolled" });
+      },
  
-    };
+    }
+  });
+}
+
+
+
+
+
+};
 
     requestAnimationFrame(() => {
       createAnimation()
@@ -34,12 +66,11 @@ export default function Header() {
 
 
   
-  }, {dependencies: [ query2 ], revertOnUpdate: true})
+  }, {dependencies: [ width, height ], revertOnUpdate: true})
 
  
   return (
-    <header
-      className={hideFill ? 'hide-fill' : 'static'}>
+    <header>
       <div
         className='container'>
         <div

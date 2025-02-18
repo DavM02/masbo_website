@@ -37,8 +37,14 @@ $transition-1: cubic-bezier(0.645, 0.045, 0.355, 1);
     z-index: $index;
 }
 
-@mixin full-width-on-mobile($breakpoint: 1024px) {
-    @media all and (max-width: $breakpoint) {
+@mixin full-width-on-mobile($width: 1024px, $height: 656px) {
+    @media all and (max-width: $width), (max-height: $height) {
         width: 100% !important;
     }
 }
+
+@mixin responsive-width($width) {
+    @media all and (min-height: 2200px) and (min-width: 1500px), (min-width: 3000px) {
+      width: $width !important;
+    }
+  }
