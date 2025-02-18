@@ -10,60 +10,112 @@ import img7 from "@assets/img-7.jpg"
 import img8 from "@assets/img-8.jpg"
 import img9 from "@assets/img-9.jpg"
 import img10 from "@assets/img-10.jpg"
+import img11 from "@assets/img-11.jpg"
+import img12 from "@assets/img-12.jpg"
 
 import icon1 from "@assets/icons/icon-1.svg"
 import icon2 from "@assets/icons/icon-2.svg"
 import icon3 from "@assets/icons/icon-3.svg"
 import icon4 from "@assets/icons/icon-4.svg"
-import icon5 from "@assets/icons/icon-5.svg"
-
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+// import icon5 from "@assets/icons/icon-5.svg"
+import { MainContext } from "@context/MainContext";
+import useMediaQ from "@hooks/useMediaQ"
 import { gsap } from 'gsap';
 import { LazyLoadImage } from 'react-lazy-load-image-component'
-import { useLayoutEffect, useRef } from 'preact/hooks'
+import { useRef, useContext } from 'preact/hooks'
+import { useGSAP } from '@gsap/react';
+import MainButton from '@components/ui/buttons/MainButton'
 export default function HomeScroll() {
-
-  const numRefs = useRef()
+  const {   scrollTweenAccess } = useContext(MainContext);
+ 
   const numbers = [
     { num: 123, title: "successful projects" },
     { num: 1235, title: "people who work with us" },
     { num: 23, title: "urban planning projects" },
     {num: 1012, title: "Modern interiors "}
   ]
-  useLayoutEffect(() => {
-    const ctx = gsap.context(() => {});
 
-    const createAnimation = () => {
-      ctx.revert();
-    
-      requestAnimationFrame(() => {
-        if (numRefs.current) {
-          numRefs.current.querySelectorAll("li h2").forEach((counter, i) => {
-            gsap.to(counter, {
-              innerText: numbers[i].num,
-              duration: 2,
-              ease: "power1.out",
-              snap: { innerText: 1 },
-              scrollTrigger: {
-                trigger: "#home-scroll .container",
-                start: "top top",
-                toggleActions: "play none none none",
-              },
-            });
-          });
-          ScrollTrigger.refresh();
-        }
+  const sectionRef = useRef(null)
+ 
+  const width = useMediaQ("(min-width: 1025px)")
+  const height = useMediaQ("(min-height: 657px)")
+ 
+  const data = [
+    {
+      img: img2,
+      title: "How the industrial zone turned into a colorful microdistrict",
+      date: "25 september ", description: "We offer innovative engineering solutions that ensure the successful achievement of the client's goals. Because engineering is a result-oriented strategy in action."
+    },
+    {
+      img: img11,
+      title: "How the industrial zone turned into a colorful microdistrict",
+      date: "25 september ", description: "We offer innovative engineering solutions that ensure the successful achievement of the client's goals. Because engineering is a result-oriented strategy in action."
+    },
+    {
+      img: img12,
+      title: "How the industrial zone turned into a colorful microdistrict",
+      date: "25 september ", description: "We offer innovative engineering solutions that ensure the successful achievement of the client's goals. Because engineering is a result-oriented strategy in action."
+    }
+  ]
+ 
+
+ 
+  useGSAP((context) => {
+ 
+    requestAnimationFrame(() => {
+      const numItems = gsap.utils.toArray("li h2")
+      numItems.forEach((counter, i) => {
+        gsap.to(counter, {
+          innerText: numbers[i].num,
+          duration: 2,
+          ease: "power1.out",
+          snap: { innerText: 1 },
+          scrollTrigger: {
+            trigger: ".row > .container",
+            start: "top 20%",
+            toggleActions: "play none none none",
+ 
+          },
+              
+        });
       });
-    };
+           
+      const data = gsap.utils.toArray("li .placeholder-1")
+   
+      data.forEach((placeholder) => {
+            
+        gsap.set(placeholder, {
+          clipPath: "inset(0 100% 0 0)"
+        });
 
-    createAnimation();
+        let options = {}
 
-    return () => ctx.revert();
-  }, []);
+        if (height && width) {
+          options.containerAnimation = scrollTweenAccess.current
+        } else {
+          options = {}
+        }
+ 
+        gsap.to(placeholder, {
+          ease: "none",
+          clipPath: "inset(0)",  
+          scrollTrigger: {
+            trigger: ".services-list",
+            start: "left 30%",
+            toggleActions: "play none none none",
+  ...options 
+          }
+        });
+      });
+    })
+ 
+ 
+  }, {scope: sectionRef, dependencies: [ width, height ], revertOnUpdate: true});
 
 
   return (
     <section
+      ref={sectionRef}
       id="home-scroll">
       <div
         className='row'>
@@ -72,7 +124,7 @@ export default function HomeScroll() {
           className='container column end-x'>
 
           <div
-            className='row center-y gap-50'>
+            className='text-wrapper row center-y gap-50'>
             <h1
               className='capitalize'>
               from idea 
@@ -94,8 +146,7 @@ export default function HomeScroll() {
           </div>
 
           <ul
-            className='row wrap gap-150'
-            ref={numRefs}>
+            className='row wrap gap-150'>
             {numbers.map((el, i) => {
               return (
                 <li
@@ -131,7 +182,7 @@ export default function HomeScroll() {
               </h6>
 
               <p
-                className='to-small text-white capitalize'>
+                className='to-middle text-white capitalize'>
                 MasBo is an architectural group working in 
                 <br /> the field of architecture and urban planning.
               </p>
@@ -152,7 +203,7 @@ export default function HomeScroll() {
               </h6>
 
               <p
-                className='to-small text-white capitalize'>
+                className='to-middle text-white capitalize'>
                 modern solutions for the modern city.
               </p>
             </div>
@@ -176,6 +227,32 @@ export default function HomeScroll() {
               height={"100%"}
               effect="blur"
               alt={"img-2"} />
+            
+            <div
+              className='description'>
+              <h1
+                className='capitalize'>
+                
+                inovative 
+                <br /> engineering &
+
+                <br /> architecture 
+
+                <br />  solutions
+              </h1>
+             
+              <p
+                className='to-middle text-white capitalize'>
+                We offer innovative engineering solutions that ensure the successful achievement of the client's goals. Because engineering is a result-oriented strategy in action. An individual approach and attention to detail in the development of engineering systems allows us to obtain reliable, verified solutions. Simply put, we think over the operation of facilities based on practical experience and scientific knowledge.
+              </p>
+
+              <MainButton
+                arrow={false}
+                type="button">
+                Order The Project
+              </MainButton>
+            </div>
+
           </div>
           
           <div>
@@ -236,7 +313,7 @@ export default function HomeScroll() {
               </h6>
 
               <p
-                className='to-small text-white capitalize'>
+                className='to-middle text-white capitalize'>
                 MasBo is an architectural group working in <br />
                 the field of architecture and urban planning.
               </p>
@@ -252,6 +329,29 @@ export default function HomeScroll() {
               height={"100%"}
               effect="blur"
               alt={"img-6"} /> 
+            
+            <div
+              className='description'>
+              <h1
+                className='capitalize'>
+                
+                inovative 
+                <br /> engineering 
+
+                <br /> solutions
+              </h1>
+             
+              <p
+                className='to-middle text-white capitalize'>
+                We offer innovative engineering solutions that ensure the successful achievement of the client's goals. Because engineering is a result-oriented strategy in action. An individual approach and attention to detail in the development of engineering systems allows us to obtain reliable, verified solutions. Simply put, we think over the operation of facilities based on practical experience and scientific knowledge.
+              </p>
+
+              <MainButton
+                arrow={false}
+                type="button">
+                Order The Project
+              </MainButton>
+            </div>
           </div>
 
           <div>
@@ -267,7 +367,7 @@ export default function HomeScroll() {
               </h6>
 
               <p
-                className='to-small text-white capitalize'>
+                className='to-middle text-white capitalize'>
                 MasBo is an architectural group working in 
                 <br /> the field of architecture and urban planning.
               </p>
@@ -308,6 +408,29 @@ export default function HomeScroll() {
               height={"100%"}
               effect="blur"
               alt={"img-9"} /> 
+
+<div
+              className='description'>
+              <h1
+                className='capitalize'>
+                
+             
+                interior &
+<br/> landscape 
+<br/>  design
+              </h1>
+             
+              <p
+                className='to-middle text-white capitalize'>
+              We create a comfortable space for living and working, entertainment and education. High-quality and thoughtful design not only pleases the eye, but creates a healthy environment for a comfortable and intuitive use of the room.
+              </p>
+
+              <MainButton
+                arrow={false}
+                type="button">
+                Order The Project
+              </MainButton>
+            </div>
           </div>
 
           <div>
@@ -320,6 +443,7 @@ export default function HomeScroll() {
                 height={"100%"}
                 effect="blur"
                 alt={"img-10"} /> 
+                
             </div>
 
             <div
@@ -334,13 +458,80 @@ export default function HomeScroll() {
               </h6>
 
               <p
-                className='to-small text-white capitalize'>
+                className='to-middle text-white capitalize'>
                 MasBo is an architectural group working in 
                 <br /> the field of architecture and urban planning.
               </p>
             </div>
+
+
           </div>
+
         </div>
+
+        <section
+          className='services-list row center-y'>
+          <div
+            className='container'>
+            <div
+              className='text-wrapper row gap-50'>
+              <h1
+                className='capitalize'>
+                how we are
+                <br /> working
+              </h1>
+
+
+              <div>
+                <p
+                  className='to-middle text-white capitalize'>
+                  Arhitecture modern technology
+                  Collaboration is a priority at MasBo. We believe that the best result can only be achieved through constant dialogue between all stakeholders. Our practice brings together experts in the field of architecture, design, engineering and construction, to solve any tasks assigned to us.
+                </p>
+
+                <MainButton
+                  type="button">
+                  learn more
+                </MainButton>
+              </div>
+
+            </div>
+
+            <ul
+           
+              className='data row gap-85'>
+              {data.map((el, i) => {
+                return (<li
+                  key={i}>
+                  <div
+                    className='placeholder-1'>
+                    <LazyLoadImage
+                      src={el.img}
+                      width={"100%"}
+                      height={"127px"}
+                      effect="blur"
+                      alt={`img-${i + 1}`} /> 
+                  </div>
+
+                  <span
+                    className='up-case font-reg text-white'>
+                    {el.date}
+                  </span>
+
+                  <h5>{el.title}</h5>
+
+                  <p
+                    className='to-middle text-white capitalize'>
+                    {el.description}
+                  </p>
+                </li>)
+              })}
+            </ul>
+          </div>
+        </section>
+
+        <div
+          className='row'></div>
       </div>
     </section>
   )

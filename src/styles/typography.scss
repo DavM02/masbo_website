@@ -99,7 +99,12 @@ h2 {
 
 h6 {
     font-size: clamp(0.75rem, 0.6893rem + 0.2589vw, 1rem);
-    ;
     line-height: clamp(1.1125rem, 1.0184rem + 0.4013vw, 1.5rem);
     letter-spacing: 0.4px;
+}
+
+h5 {
+    letter-spacing: 0.4px;
+    font-size: clamp(0.75rem, 0.6893rem + 0.2589vw, 1rem);
+    line-height: clamp(1.125rem, 1.034rem + 0.3883vw, 1.5rem);;
 }

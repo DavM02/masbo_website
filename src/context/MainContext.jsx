@@ -5,12 +5,12 @@ const MainContext = createContext();
 
 export default function MainContextProvider({ children }) {
   const scrollbarAccess = useRef(null);
-
+  const scrollTweenAccess = useRef(null)
  
 
   return (
     <MainContext.Provider
-      value={{ scrollbarAccess }}>
+      value={{ scrollbarAccess, scrollTweenAccess }}>
       {children}
     </MainContext.Provider>
   );

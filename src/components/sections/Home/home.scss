@@ -73,19 +73,18 @@
     }
 }
 
-#home,
-#home-scroll .container {
-    p {
-        position: relative;
+#home .text-wrapper p,
+#home-scroll .text-wrapper>*:nth-child(2) {
 
-        &::after {
-            content: "";
-            position: absolute;
-            background-color: $white;
-            width: 1px;
-            height: 100%;
-            left: -25px;
-            top: 0;
-        }
+    position: relative;
+
+    &::after {
+        content: "";
+        position: absolute;
+        background-color: $white;
+        width: 1px;
+        height: 100%;
+        left: -25px;
+        top: 0;
     }
 }

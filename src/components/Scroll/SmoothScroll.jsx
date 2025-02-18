@@ -1,23 +1,23 @@
-import { useLayoutEffect, useRef, useContext } from "preact/hooks";
+import { useRef, useContext } from "preact/hooks";
 import Scrollbar from "smooth-scrollbar";
 import { MainContext } from "@context/MainContext";
 import { gsap } from "gsap/all";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import useMediaQ from "@hooks/useMediaQ"
+import { useGSAP } from '@gsap/react';
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export default function SmoothScroll({ children }) {
-  const { scrollbarAccess } = useContext(MainContext);
+  const { scrollbarAccess, scrollTweenAccess } = useContext(MainContext);
   const scrollRef = useRef(null);
 
-  const q = useMediaQ("(min-width: 1025px)")
- 
-  useLayoutEffect(() => {
+  const width = useMediaQ("(min-width: 1025px)")
+  const height = useMediaQ("(min-height: 657px)")
+  useGSAP((context) => {
+
     let scrollbar;
     let resizeObserver;
-    const ctx = gsap.context(() => {});  
-
     const initScrollbar = () => {
       if (scrollRef.current) {
         scrollbar = Scrollbar.init(scrollRef.current, {
@@ -29,13 +29,7 @@ export default function SmoothScroll({ children }) {
 
         scrollbarAccess.current = scrollbar;
 
-        scrollbarAccess.current.addListener(({offset}) => {
-          if (offset.y > 3) {
-            scrollbarAccess.current.containerEl.previousElementSibling.style.backgroundColor = "#151517"
-          } else {
-            scrollbarAccess.current.containerEl.previousElementSibling.style.backgroundColor = "transparent"
-          }
-        })
+ 
         ScrollTrigger.scrollerProxy(scrollRef.current, {
           scrollTop(value) {
             if (arguments.length) {
@@ -61,26 +55,26 @@ export default function SmoothScroll({ children }) {
     };
 
     const createAnimation = () => {
-      ctx.revert();  
+      if (width && height) {
+       
+        let scrollTween = gsap.to("#home-scroll > .row", {
+          x: "-600vw",
+          ease: "none",
+          scrollTrigger: {
+            trigger: "#home-scroll",
+            start: "top top",
+            end: () => "+=" + window.innerHeight,
+            pin: true,
+            scrub: true,
 
-      if (q) {
-        ctx.add(() => {
-          gsap.to("#home-scroll > .row", {
-            x: "-300vw",
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: "#home-scroll",
-              start: "top top",
-              end: () => "+=" + window.innerHeight,
-              pin: true,
-              scrub: true
-            }
-          });
+          }
         });
 
-        ScrollTrigger.refresh();
-      }
-    };
+        scrollTweenAccess.current = scrollTween
+   
+      };
+
+    }
 
     const handleResize = () => {
       ScrollTrigger.refresh();
@@ -91,6 +85,7 @@ export default function SmoothScroll({ children }) {
       resizeObserver.observe(scrollRef.current);
     }
 
+
     if ("scrollRestoration" in window.history) {
       window.history.scrollRestoration = "manual";
     }
@@ -99,15 +94,17 @@ export default function SmoothScroll({ children }) {
     createAnimation();
 
     return () => {
-      ctx.revert();  
+ 
       if (scrollbar) {
         scrollbar.destroy();
       }
+
       if (resizeObserver) {
         resizeObserver.disconnect();
       }
+ 
     };
-  }, [ q, scrollbarAccess ]);
+  },  {dependencies: [ width, height ], scope: scrollRef, revertOnUpdate: true});
 
   return (
     <div
