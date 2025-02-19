@@ -1,4 +1,5 @@
 .main-button {
+    display: inline-block;
     &:hover {
        button {
         background-color: $brown;

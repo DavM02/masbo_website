@@ -1,73 +1,32 @@
 #home-scroll {
     height: 100vh !important;
-    width: calc(1762px + 3271px + (100vw * 3)) !important;
+    width: calc(1762px + 3271px + (100vw * 4) + (100vw / 3)) !important;
     will-change: transform;
 
-    @media all and (max-width: 1024px),
-    (max-height: 656px) {
-        height: unset !important;
-        width: initial !important;
-
-        .row:not(ul, button .row, #home-scroll > .row:nth-child(1) > .container .row) {
-            flex-direction: column !important;
-        }
-
-        div[class*="placeholder"]:not(:has(.description), li .placeholder-1),
-        div.column.center-y {
-            height: clamp(15.25rem, 6.005rem + 39.4453vw, 31.25rem) !important;
-        }
-
-        div[class*="placeholder"]:has(.description) {
-            height: clamp(30.25rem, 22.4495rem + 33.282vw, 43.75rem) !important;
-            ;
-        }
-
-        &>.row:nth-child(1) {
-
-            &:nth-child(1) {
-
-                background-size: 1928px 1045px !important;
-
-
-            }
-
-        }
-
-        section.services-list {
-
-            .text-wrapper {
-                margin: 37px 0 50px 25px;
-                gap: 15px;
-
-                h1 {
-                    margin-left: -15px;
-                }
-
-            }
-
-            ul.data {
-                flex-direction: column;
-                gap: 30px;
-                align-items: center;
-            }
-        }
-
-    }
-
     div[class*="placeholder"] {
+        overflow: hidden;
 
-        span {
+        span:not(#home-scroll > .row > .row:nth-child(2) .column + .placeholder-2 span) {
             vertical-align: bottom;
+            position: relative;
+
+            &::after {
+                @include overlay($overlay, 50%)
+            }
         }
     }
 
-    @include responsive-width(600vw);
+    div:has(.description) {
+        position: relative;
+    }
+
+    @include responsive-width(700vw);
 
     .container {
         max-width: unset;
         position: relative;
 
-        >.row:not(ul) {
+        >.row:not(ul, .services .row) {
             margin-bottom: 80px;
         }
 
@@ -89,8 +48,6 @@
             border: 1px solid rgb(255, 2555, 255, 50%);
 
         }
-
-
 
     }
 
@@ -119,64 +76,6 @@
             background-size: contain;
             background-position: -2px 0;
             background-repeat: no-repeat;
-
-            @media all and (max-height: 1370px) and (max-width: 1334px), (max-width: 1024px) {
-                >.container:nth-child(1) {
-
-                    >.row:nth-child(1) {
-                        justify-content: space-between;
-                        gap: 35px;
-                    }
-
-                    .play {
-                        position: static;
-                        transform: none;
-                    }
-
-                }
-            }
-
-            @media all and (max-height: 840px),
-            (max-width: 1024px) {
-                >.container:nth-child(1) {
-
-                    >.row:nth-child(1) {
-                        justify-content: space-between;
-                        gap: 35px;
-                        margin-left: 25px;
-                        margin-top: 47px;
-
-                        +ul {
-                            gap: 40px;
-                        }
-                    }
-
-                    .play {
-                        position: static;
-                        transform: none;
-                    }
-
-                    .text-wrapper {
-                        flex-direction: column;
-                        align-items: baseline;
-                        gap: 15px;
-                        width: calc(100% - clamp(5.5rem, 5.0222rem + 2.3891vw, 7.25rem) - 35px);
-
-                        h1 {
-                            transform: translateX(-25px);
-                        }
-
-                        p {
-                            max-width:458px;
-                        }
-
-                        br:not(:nth-child(1)) {
-                            display: none;
-                        }
-                    }
-
-                }
-            }
         }
 
         &>div {
@@ -222,22 +121,15 @@
 
                     &:nth-child(2) {
                         overflow: hidden;
-                        position: relative;
-                        // width: -webkit-fill-available;
                         width: 771px;
 
                         @include full-width-on-mobile();
 
                         @include responsive-width(-webkit-fill-available);
-
-                        &::after {
-                            @include overlay($overlay, 50%)
-                        }
                     }
 
                     &:nth-child(3) {
                         overflow: hidden;
-                        position: relative;
                         width: 509px;
 
                         @include full-width-on-mobile();
@@ -247,9 +139,6 @@
                             height: 50%;
                         }
 
-                        &::after {
-                            @include overlay($overlay, 50%)
-                        }
                     }
 
                 }
@@ -275,11 +164,7 @@
 
                             &:nth-child(1) {
                                 overflow: hidden;
-                                position: relative;
 
-                                &::after {
-                                    @include overlay($overlay, 50%)
-                                }
                             }
 
                             &:nth-child(2) {
@@ -292,7 +177,7 @@
 
                     &:nth-child(2) {
                         overflow: hidden;
-                        position: relative;
+
 
                         width: 771px;
 
@@ -301,9 +186,6 @@
 
                         @include responsive-width(-webkit-fill-available);
 
-                        &::after {
-                            @include overlay($overlay, 50%)
-                        }
                     }
 
                     &:nth-child(3) {
@@ -318,44 +200,29 @@
                                 background-color: $gray;
                             }
 
-                            &:nth-child(2),
-                            &:nth-child(3) {
-                                overflow: hidden;
-                                position: relative;
-
-                                &::after {
-                                    @include overlay($overlay, 50%)
-                                }
-                            }
                         }
 
                     }
 
                     &:nth-child(4) {
-                        overflow: hidden;
-                        position: relative;
+
                         width: 771px;
                         @include full-width-on-mobile();
 
 
                         @include responsive-width(-webkit-fill-available);
 
-                        &::after {
-                            @include overlay($overlay, 50%)
-                        }
+
                     }
 
                     &:nth-child(5) {
                         >div:nth-child(1) {
-                            position: relative;
+
                             width: 482px;
                             height: calc(100%/3 * 2);
 
                             @include full-width-on-mobile();
 
-                            &::after {
-                                @include overlay($overlay, 50%)
-                            }
                         }
 
                         >div:nth-child(2) {
@@ -373,9 +240,7 @@
 
         }
 
-
-
-        section {
+        section.projects-list {
             height: 100%;
             width: 100vw;
             margin-top: 73px;
@@ -420,6 +285,118 @@
                 }
 
 
+            }
+        }
+
+        section.services {
+            height: 100%;
+            width: 130vw;
+            margin-top: 73px;
+            @include full-width-on-mobile();
+
+            div:has(.column) {
+                position: relative;
+            }
+
+            .column {
+                @include center-absolute(120)
+            }
+
+            >.row:nth-child(1) {
+                height: calc(50% - 45px);
+
+                >div {
+
+                    width: calc(100% / 4);
+                    @include full-width-on-mobile();
+                }
+            }
+
+            >.row:nth-child(2) {
+                height: 50%;
+
+                >div:not(:nth-child(2)) {
+                    width: 25%;
+                    @include full-width-on-mobile();
+                }
+
+                >div:nth-child(2) {
+
+                    width: 50%;
+
+                    >.row {
+                        height: 100%;
+                        
+                    }
+
+                    @include full-width-on-mobile();
+
+                    .text-wrapper {
+                        h1 {
+                            white-space: nowrap;
+                        }
+
+                        padding: 50px 0;
+                       
+max-width: 1000px;
+                        p {
+                            margin-bottom: 27px;
+                    
+                        }
+                    }
+                }
+            }
+        }
+
+        section.investment-projects {
+            height: 100%;
+            width: 100vw;
+            margin-top: 73px;
+            @include full-width-on-mobile();
+
+            >.row {
+                height: 100%;
+
+                >div:nth-child(1),
+                >div:nth-child(3) {
+                    width: calc(100% / 2 - (482px / 2));
+                    @include full-width-on-mobile();
+                }
+
+                >div:nth-child(3) {
+                    >div:nth-child(1) {
+                    
+                        height: calc(50% - 45px);
+                    }
+
+                    >div:nth-child(2) {
+                        height: 50%;
+                    }
+
+                }
+
+                >div:nth-child(2) {
+                    width: 482px;
+                    @include full-width-on-mobile();
+
+                    > div {
+                        &:nth-child(2), &:nth-child(1) {
+                            height: calc((100% / 3) - 35px);
+                        }
+
+                        &:nth-child(3) {
+                            height: calc((100% / 3) + 45px) ;
+                        }
+
+                        &:nth-child(2) {
+                            background-color: $gray;
+
+                            > div {
+                                height: 100%;
+                            }
+                        }
+                    }
+                }
             }
         }
     }

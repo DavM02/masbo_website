@@ -14,7 +14,7 @@ export default function SmoothScroll({ children }) {
 
   const width = useMediaQ("(min-width: 1025px)")
   const height = useMediaQ("(min-height: 657px)")
-  useGSAP((context) => {
+  useGSAP(() => {
 
     let scrollbar;
     let resizeObserver;
@@ -53,12 +53,12 @@ export default function SmoothScroll({ children }) {
         ScrollTrigger.refresh();
       }
     };
-
+    
     const createAnimation = () => {
       if (width && height) {
-       
+ 
         let scrollTween = gsap.to("#home-scroll > .row", {
-          x: "-600vw",
+          x: () => -(1762 + 3271 + window.innerWidth * 3 + (window.innerWidth / 3)), 
           ease: "none",
           scrollTrigger: {
             trigger: "#home-scroll",
@@ -66,7 +66,7 @@ export default function SmoothScroll({ children }) {
             end: () => "+=" + window.innerHeight,
             pin: true,
             scrub: true,
-
+            invalidateOnRefresh: true
           }
         });
 
@@ -78,6 +78,7 @@ export default function SmoothScroll({ children }) {
 
     const handleResize = () => {
       ScrollTrigger.refresh();
+ 
     };
 
     resizeObserver = new ResizeObserver(handleResize);
