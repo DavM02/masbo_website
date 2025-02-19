@@ -10,8 +10,12 @@
         padding: 12px 21px;
         letter-spacing: 0.4px;
         text-transform: capitalize;
-        font-style: 14px;
+        font-size: 14px;
         cursor: pointer;
         transition: $transition-1 1s background-color;
+    }
+
+    .row {
+        flex-wrap: nowrap;
     }
 }

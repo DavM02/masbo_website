@@ -27,7 +27,6 @@ export default function Header() {
         if (scroll.offset.y > 3) {
           gsap.set("header", { className: "scrolled" });  
         } else {
-        
           gsap.set("header", { className: "static" });  
         } 
       })
@@ -48,6 +47,8 @@ export default function Header() {
  
           }
         });
+      } else {
+        gsap.set("header", {clearProps: "backgroundColor"});  
       }
  
 

@@ -3,12 +3,15 @@ import arrow from '@assets/icons/arrow-down.svg'
 import { useContext } from 'preact/hooks'
 import { MainContext } from "@context/MainContext";
 import Socials from '@components/socials/Socials';
+import useMediaQ from "@hooks/useMediaQ"
 export default function Home() {
-  const {scrollbarAccess} = useContext(MainContext)
+  const { scrollbarAccess } = useContext(MainContext)
+  
+  const width = useMediaQ("(min-width: 1025px)")
   return (
     <section
       id='home'>
-      <Socials />
+      {width &&  <Socials />}
 
       <div
         className="container">

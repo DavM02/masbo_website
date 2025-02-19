@@ -3,28 +3,69 @@
     width: calc(1762px + 3271px + (100vw * 3)) !important;
     will-change: transform;
 
-    @media all and (max-width: 1024px), (max-height: 656px) {
+    @media all and (max-width: 1024px),
+    (max-height: 656px) {
         height: unset !important;
         width: initial !important;
 
-        .row:not(ul) {
+        .row:not(ul, button .row, #home-scroll > .row:nth-child(1) > .container .row) {
             flex-direction: column !important;
         }
 
-        div[class*="placeholder"] {
-            height: clamp(15.3125rem, 2.3864rem + 64.6307vw, 43.75rem) !important;
-            width: initial !important;
-            min-width: initial !important;
-            min-height: initial !important;
+        div[class*="placeholder"]:not(:has(.description), li .placeholder-1),
+        div.column.center-y {
+            height: clamp(15.25rem, 6.005rem + 39.4453vw, 31.25rem) !important;
+        }
+
+        div[class*="placeholder"]:has(.description) {
+            height: clamp(30.25rem, 22.4495rem + 33.282vw, 43.75rem) !important;
+            ;
+        }
+
+        &>.row:nth-child(1) {
+
+            &:nth-child(1) {
+
+                background-size: 1928px 1045px !important;
+
+
+            }
+
+        }
+
+        section.services-list {
+
+            .text-wrapper {
+                margin: 37px 0 50px 25px;
+                gap: 15px;
+
+                h1 {
+                    margin-left: -15px;
+                }
+
+            }
+
+            ul.data {
+                flex-direction: column;
+                gap: 30px;
+                align-items: center;
+            }
         }
 
     }
 
- 
+    div[class*="placeholder"] {
+
+        span {
+            vertical-align: bottom;
+        }
+    }
+
     @include responsive-width(600vw);
 
     .container {
         max-width: unset;
+        position: relative;
 
         >.row:not(ul) {
             margin-bottom: 80px;
@@ -38,24 +79,30 @@
             }
         }
 
+        .play {
+            @include center-absolute(120);
+            pointer-events: all;
+            cursor: pointer;
+            border-radius: 50%;
+            aspect-ratio: 1/1;
+            width: clamp(5.5rem, 5.0222rem + 2.3891vw, 7.25rem);
+            border: 1px solid rgb(255, 2555, 255, 50%);
+
+        }
+
+
 
     }
+
 
 
     &>.row:nth-child(1) {
         height: 100%;
         will-change: transform;
 
-        &:nth-child(1) {
-            background-image: url("/src/assets/lines.svg");
-            background-size: contain;
-            background-position: -2px 0;
-            background-repeat: no-repeat;
-
-        }
-
         .description {
             @include center-absolute(6);
+            min-width: 260px;
 
             h1 {
                 white-space: nowrap;
@@ -67,33 +114,97 @@
             }
         }
 
+        &:nth-child(1) {
+            background-image: url("/src/assets/lines.svg");
+            background-size: contain;
+            background-position: -2px 0;
+            background-repeat: no-repeat;
+
+            @media all and (max-height: 1370px) and (max-width: 1334px), (max-width: 1024px) {
+                >.container:nth-child(1) {
+
+                    >.row:nth-child(1) {
+                        justify-content: space-between;
+                        gap: 35px;
+                    }
+
+                    .play {
+                        position: static;
+                        transform: none;
+                    }
+
+                }
+            }
+
+            @media all and (max-height: 840px),
+            (max-width: 1024px) {
+                >.container:nth-child(1) {
+
+                    >.row:nth-child(1) {
+                        justify-content: space-between;
+                        gap: 35px;
+                        margin-left: 25px;
+                        margin-top: 47px;
+
+                        +ul {
+                            gap: 40px;
+                        }
+                    }
+
+                    .play {
+                        position: static;
+                        transform: none;
+                    }
+
+                    .text-wrapper {
+                        flex-direction: column;
+                        align-items: baseline;
+                        gap: 15px;
+                        width: calc(100% - clamp(5.5rem, 5.0222rem + 2.3891vw, 7.25rem) - 35px);
+
+                        h1 {
+                            transform: translateX(-25px);
+                        }
+
+                        p {
+                            max-width:458px;
+                        }
+
+                        br:not(:nth-child(1)) {
+                            display: none;
+                        }
+                    }
+
+                }
+            }
+        }
+
         &>div {
 
-            width: 100vw;
+            &:not(:nth-child(2), :nth-child(3)) {
+                width: 100vw;
+            }
 
             &:not(:nth-child(1)) {
 
                 margin-top: 73px;
-                // height: calc(100% - 73px) !important;
             }
 
             @include full-width-on-mobile();
-
-
-
 
             &:nth-child(2) {
 
                 width: 1762px;
 
                 @include full-width-on-mobile();
- 
+
                 @include responsive-width(100vw);
+
                 &>div {
                     &:nth-child(1) {
                         div {
                             height: calc(100% / 3);
-                             width: 482px;
+                            width: 482px;
 
                             @include full-width-on-mobile();
 
@@ -118,7 +229,8 @@
                         @include full-width-on-mobile();
 
                         @include responsive-width(-webkit-fill-available);
-                    &::after {
+
+                        &::after {
                             @include overlay($overlay, 50%)
                         }
                     }
@@ -150,13 +262,14 @@
                 width: 3271px;
 
                 @include full-width-on-mobile();
- 
+
                 @include responsive-width(200vw);
+
                 &>div {
                     &:nth-child(1) {
                         div {
                             height: 50%;
-                           width: 765px;
+                            width: 765px;
 
                             @include full-width-on-mobile();
 
@@ -185,8 +298,9 @@
 
                         @include full-width-on-mobile();
 
- 
+
                         @include responsive-width(-webkit-fill-available);
+
                         &::after {
                             @include overlay($overlay, 50%)
                         }
@@ -195,7 +309,7 @@
                     &:nth-child(3) {
 
                         &>div {
-                           width: 482px;
+                            width: 482px;
                             height: calc(100% / 3);
 
                             @include full-width-on-mobile();
@@ -221,10 +335,9 @@
                         overflow: hidden;
                         position: relative;
                         width: 771px;
-                        // width: -webkit-fill-available;
                         @include full-width-on-mobile();
 
-                  
+
                         @include responsive-width(-webkit-fill-available);
 
                         &::after {
@@ -235,7 +348,7 @@
                     &:nth-child(5) {
                         >div:nth-child(1) {
                             position: relative;
-                             width: 482px;
+                            width: 482px;
                             height: calc(100%/3 * 2);
 
                             @include full-width-on-mobile();
@@ -267,7 +380,8 @@
             width: 100vw;
             margin-top: 73px;
 
-            // height: calc(100% - 73px) !important;
+
+            @include full-width-on-mobile();
 
             h1 {
                 white-space: nowrap;
@@ -308,5 +422,22 @@
 
             }
         }
+    }
+}
+
+.scroll-indicator {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 8px;
+    width: 100%;
+    background-color: $brown;
+
+    div {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background-color: $blue;
+        height: 100%;
     }
 }

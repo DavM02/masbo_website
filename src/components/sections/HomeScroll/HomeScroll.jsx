@@ -4,6 +4,8 @@ import img2 from "@assets/img-2.jpg"
 import img3 from "@assets/img-3.jpg"
 import img4 from "@assets/img-4.jpg"
 
+import play from "@assets/icons/play.svg"
+ 
 import img5 from "@assets/img-5.jpg"
 import img6 from "@assets/img-6.jpg"
 import img7 from "@assets/img-7.jpg"
@@ -26,6 +28,8 @@ import { useRef, useContext } from 'preact/hooks'
 import { useGSAP } from '@gsap/react';
 import MainButton from '@components/ui/buttons/MainButton'
 import Socials from '@components/socials/Socials'
+import ScrollIndicator from './ScrollIndicator'
+import { clipPath } from 'framer-motion/client'
 export default function HomeScroll() {
   const {   scrollTweenAccess } = useContext(MainContext);
  
@@ -37,6 +41,8 @@ export default function HomeScroll() {
   ]
 
   const sectionRef = useRef(null)
+
+ 
  
   const width = useMediaQ("(min-width: 1025px)")
   const height = useMediaQ("(min-height: 657px)")
@@ -58,7 +64,6 @@ export default function HomeScroll() {
       date: "25 september ", description: "We offer innovative engineering solutions that ensure the successful achievement of the client's goals. Because engineering is a result-oriented strategy in action."
     }
   ]
- 
 
  
   useGSAP(() => {
@@ -75,7 +80,7 @@ export default function HomeScroll() {
             trigger: ".row > .container",
             start: "top 20%",
             toggleActions: "play none none none",
- 
+
           },
               
         });
@@ -104,12 +109,11 @@ export default function HomeScroll() {
             trigger: ".services-list",
             start: "left 30%",
             toggleActions: "play none none none",
-            ...options 
+            ...options,
           }
         });
       });
     })
- 
  
   }, {scope: sectionRef, dependencies: [ width, height ], revertOnUpdate: true});
 
@@ -127,25 +131,36 @@ export default function HomeScroll() {
           className='container column end-x'>
 
           <div
-            className='text-wrapper row center-y gap-50'>
-            <h1
-              className='capitalize'>
-              from idea 
-              <br /> to life
-            </h1>
+            className='row center-y'>
+            <div className='text-wrapper  center-y row gap-50'>
+              
+              <h1
+                className='capitalize'>
+                from idea 
+                <br /> to life
+              </h1>
 
 
-            <p
-              className='to-small text-white capitalize'>
-              Arhitecture modern technology
-              <br /> MasBo is an architectural group working in the field of
+              <p
+                className='to-small text-white capitalize'>
+                Arhitecture modern technology
+                <br /> MasBo is an architectural group working in the field of
 
-              <br /> architecture and urban planning. For our customers, we are known 
+                <br /> architecture and urban planning. For our customers, we are known 
 
-              <br />as a reliable partner with high standards of quality and 
+                <br />as a reliable partner with high standards of quality and 
 
-              <br /> responsibility.
-            </p>
+                <br /> responsibility.
+              </p>
+            </div>
+
+            <div
+              className='play self-center-y center-gr'>
+              <img
+                className='icon'
+                src={play}
+                alt='arrow' />
+            </div>
           </div>
 
           <ul
@@ -167,7 +182,9 @@ export default function HomeScroll() {
             })}
           </ul>
 
-          <Socials />
+
+          
+          {width &&  <Socials />}
         </div>
 
         <div
@@ -187,7 +204,7 @@ export default function HomeScroll() {
               </h6>
 
               <p
-                className='to-middle text-white capitalize'>
+                className='to-middle text-center text-white capitalize'>
                 MasBo is an architectural group working in 
                 <br /> the field of architecture and urban planning.
               </p>
@@ -208,7 +225,7 @@ export default function HomeScroll() {
               </h6>
 
               <p
-                className='to-middle text-white capitalize'>
+                className='to-middle text-center text-white capitalize'>
                 modern solutions for the modern city.
               </p>
             </div>
@@ -318,7 +335,7 @@ export default function HomeScroll() {
               </h6>
 
               <p
-                className='to-middle text-white capitalize'>
+                className='to-middle text-center text-white capitalize'>
                 MasBo is an architectural group working in <br />
                 the field of architecture and urban planning.
               </p>
@@ -372,7 +389,7 @@ export default function HomeScroll() {
               </h6>
 
               <p
-                className='to-middle text-white capitalize'>
+                className='to-middle text-center text-white capitalize'>
                 MasBo is an architectural group working in 
                 <br /> the field of architecture and urban planning.
               </p>
@@ -464,7 +481,7 @@ export default function HomeScroll() {
               </h6>
 
               <p
-                className='to-middle text-white capitalize'>
+                className='to-middle text-center text-white capitalize'>
                 MasBo is an architectural group working in 
                 <br /> the field of architecture and urban planning.
               </p>
@@ -540,7 +557,7 @@ export default function HomeScroll() {
           className='row'></div>
       </div>
 
-
+      {width && height && <ScrollIndicator />}
     </section>
   )
 }

@@ -40,6 +40,8 @@ $transition-1: cubic-bezier(0.645, 0.045, 0.355, 1);
 @mixin full-width-on-mobile($width: 1024px, $height: 656px) {
     @media all and (max-width: $width), (max-height: $height) {
         width: 100% !important;
+        // min-height: 244px;
+        margin-top: 0;
     }
 }
 
