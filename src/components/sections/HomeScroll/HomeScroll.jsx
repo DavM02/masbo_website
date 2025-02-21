@@ -54,10 +54,11 @@ export default function HomeScroll() {
 
   const sectionRef = useRef(null)
 
- 
+  const isLargeScreen = useMediaQ("(min-height: 2200px) and (min-width: 1500px), (min-width: 3000px)");
+
 
   const width = useMediaQ("(min-width: 1025px)")
-  const height = useMediaQ("(min-height: 657px)")
+  const height = useMediaQ("(min-height: 695px)")
  
   const data = [
     {
@@ -83,6 +84,14 @@ export default function HomeScroll() {
     requestAnimationFrame(() => {
       const numItems = gsap.utils.toArray("li h2")
       numItems.forEach((counter, i) => {
+        let options = {}
+        if (height && width) {
+          options = {}
+        } else {
+          options.scroller = window
+        }
+ 
+
         gsap.to(counter, {
           innerText: numbers[i].num,
           duration: 2,
@@ -92,7 +101,7 @@ export default function HomeScroll() {
             trigger: ".row > .container",
             start: "top 20%",
             toggleActions: "play none none none",
-
+               ...options
           },
               
         });
@@ -112,6 +121,7 @@ export default function HomeScroll() {
           options.containerAnimation = scrollTweenAccess.current
         } else {
           options = {}
+          options.scroller = window
         }
  
         gsap.to(placeholder, {
@@ -127,7 +137,7 @@ export default function HomeScroll() {
       });
     })
  
-  }, {scope: sectionRef, dependencies: [ width, height ], revertOnUpdate: true});
+  },  {dependencies: [ width, height, isLargeScreen ], scope: sectionRef, revertOnUpdate: true});
 
 
   return (
@@ -850,7 +860,11 @@ export default function HomeScroll() {
         </section>
       </div>
 
-      {width && height && <ScrollIndicator />}
+      {width && height && <ScrollIndicator 
+      width={width}
+      height={height}
+      isLargeScreen={isLargeScreen}
+      />}
     </section>
   )
 }

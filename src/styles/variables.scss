@@ -37,7 +37,7 @@ $transition-1: cubic-bezier(0.645, 0.045, 0.355, 1);
     z-index: $index;
 }
 
-@mixin full-width-on-mobile($width: 1024px, $height: 656px) {
+@mixin full-width-on-mobile($width: 1024px, $height: 694px) {
 
     @media all and (max-width: $width),
     (max-height: $height) {

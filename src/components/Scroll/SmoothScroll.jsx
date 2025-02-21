@@ -13,11 +13,14 @@ export default function SmoothScroll({ children }) {
   const scrollRef = useRef(null);
 
   const width = useMediaQ("(min-width: 1025px)")
-  const height = useMediaQ("(min-height: 657px)")
+  const height = useMediaQ("(min-height: 695px)")
+
+  const isLargeScreen = useMediaQ("(min-height: 2200px) and (min-width: 1500px), (min-width: 3000px)");
   useGSAP(() => {
 
     let scrollbar;
     let resizeObserver;
+  
     const initScrollbar = () => {
       if (scrollRef.current) {
         scrollbar = Scrollbar.init(scrollRef.current, {
@@ -58,7 +61,7 @@ export default function SmoothScroll({ children }) {
       if (width && height) {
  
         let scrollTween = gsap.to("#home-scroll > .row", {
-          x: () => -(1762 + 3271 + window.innerWidth * 3 + (window.innerWidth / 3)), 
+          x: isLargeScreen ? "-600vw" : () => -(1762 + 3271 + window.innerWidth * 3 + (window.innerWidth / 3)), 
           ease: "none",
           scrollTrigger: {
             trigger: "#home-scroll",
@@ -91,7 +94,9 @@ export default function SmoothScroll({ children }) {
       window.history.scrollRestoration = "manual";
     }
 
-    initScrollbar();
+    if(width && height) {
+      initScrollbar();
+    }
     createAnimation();
 
     return () => {
@@ -105,13 +110,13 @@ export default function SmoothScroll({ children }) {
       }
  
     };
-  },  {dependencies: [ width, height ], scope: scrollRef, revertOnUpdate: true});
+  },  {dependencies: [ width, height, isLargeScreen ], scope: scrollRef, revertOnUpdate: true});
 
   return (
     <div
       id="scroll-wrapper"
       style={{
-        position: "fixed",
+        position: width && height ? "fixed" : "static",
         height: "100%"
       }}
       ref={scrollRef}>

@@ -34,9 +34,7 @@ export function App() {
             </AnimatePresence>
     
           </main>
-
-          {/* <footer
-            style={{height: '400px', backgroundColor: 'red', width: '100%'}}></footer> */}
+ 
         </SmoothScroll>
       </MainContextProvider>
     </>
