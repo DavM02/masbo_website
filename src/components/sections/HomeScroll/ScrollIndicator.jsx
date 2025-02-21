@@ -1,7 +1,7 @@
 import { createPortal } from "preact/compat"
 import { useGSAP } from "@gsap/react"
 import {gsap} from "gsap"
-export default function ScrollIndicator() {
+export default function ScrollIndicator({width, height, isLargeScreen}) {
  
      
   useGSAP(() => {
@@ -21,7 +21,7 @@ export default function ScrollIndicator() {
       });
     })
 
-  })
+  }, {dependencies: [ width, height, isLargeScreen ], revertOnUpdate: true})
 
   return (
     createPortal(<div

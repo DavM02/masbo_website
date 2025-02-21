@@ -1,7 +1,7 @@
 #home-scroll {
 
     @media all and (max-width: 1024px),
-    (max-height: 656px) {
+    (max-height: 694px) {
         height: unset !important;
         width: initial !important;
 
@@ -46,6 +46,18 @@
                 gap: 30px;
                 align-items: center;
             }
+        }
+
+        section.services {
+            
+                .text-wrapper {
+                    gap: 15px;
+                    margin-left: 25px;
+                    h1 {
+                        margin-left: -25px;
+                    }
+                }
+        
         }
 
     }
@@ -128,15 +140,7 @@
 
                 }
 
-                section.services {
-                    .text-wrapper {
-                        gap: 15px;
-                        margin-left: 25px;
-                        h1 {
-                            margin-left: -25px;
-                        }
-                    }
-                }
+
             }
         }
     }
