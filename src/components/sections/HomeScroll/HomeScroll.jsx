@@ -1,5 +1,4 @@
 import './homeScrol.scss'
-import './media.scss'
 import ScrollIndicator from './ScrollIndicator/ScrollIndicator'
 import ProjectsList from './ProjectsList/ProjectsList'
 import Services from './Services/Services'

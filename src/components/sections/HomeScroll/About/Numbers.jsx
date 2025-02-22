@@ -20,7 +20,7 @@ export default function Numbers() {
         ease: "power1.out",
         snap: { innerText: 1 },
         scrollTrigger: {
-          trigger: ".row > .container",
+          trigger: ".about .container",
           start: "top 20%",
           toggleActions: "play none none none",
           scroller: options.scroller,

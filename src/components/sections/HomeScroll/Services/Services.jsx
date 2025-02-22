@@ -14,7 +14,7 @@ import icon5 from '@assets/icons/icon-5.svg';
 import icon6 from '@assets/icons/icon-6.svg';
 import ServiceItem from './ServiceItem';
 import ServiceTextBlock from './ServiceTextBlock';
-import './services.scss'
+ 
 const servicesData = [
   { img: img13, icon: icon4, title: 'Interior', className: 'placeholder-2' },
   { img: img14, icon: icon1, title: 'Architecture', className: 'placeholder-1' },

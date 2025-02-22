@@ -6,7 +6,7 @@ import img20 from "@assets/img-20.jpg";
 import icon6 from "@assets/icons/icon-6.svg"
 import ImageBlock from "../ImageBlock";
 import InfoBlock from "../InfoBlock";
-import './investment.scss'
+ 
 export default function InvestmentProjects() {
   return (
     <section

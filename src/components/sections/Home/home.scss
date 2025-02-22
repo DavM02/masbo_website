@@ -40,6 +40,11 @@
         left: $container-padding;
         right: $container-padding;
         z-index: 5;
+
+        h1 {
+            white-space: nowrap;
+        }
+
     }
 }
 

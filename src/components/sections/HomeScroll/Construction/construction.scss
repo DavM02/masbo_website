@@ -1,7 +1,7 @@
 #home-scroll {
 
     .construction {
-        width: 3271px !important;
+        width: 3271px;
         @include full-size-on-mobile();
         @include responsive-width(200vw);
 

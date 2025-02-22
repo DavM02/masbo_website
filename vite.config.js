@@ -3,7 +3,6 @@ import preact from "@preact/preset-vite";
 import alias from "@rollup/plugin-alias";
 import path from "path";
 import autoprefixer from "autoprefixer";
-// import mergeRules from 'postcss-merge-rules';
 import { fileURLToPath } from "url";
 import { dirname } from "path";
 import { visualizer } from "rollup-plugin-visualizer";
@@ -11,6 +10,7 @@ import { terser } from "rollup-plugin-terser";
 import mergeLonghand from "postcss-merge-longhand";
 import mergeRulePlus from "postcss-merge-rules-plus";
 import svgr from "vite-plugin-svgr";
+import sortMediaQueries from 'postcss-sort-media-queries'
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -71,7 +71,9 @@ export default defineConfig({
     postcss: {
       plugins: [ autoprefixer,
         mergeLonghand,
-        mergeRulePlus.default ],
+        mergeRulePlus.default,
+        sortMediaQueries
+      ],
     },
     preprocessorOptions: {
       scss: {

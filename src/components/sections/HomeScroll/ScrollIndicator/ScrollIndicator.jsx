@@ -1,7 +1,7 @@
 import { createPortal } from "preact/compat"
 import useAnimation from "@hooks/useAnimation"
 import {gsap} from "gsap"
-import './scrollIndicator.scss'
+ 
 export default function ScrollIndicator() {
  
   const { width, height, isLargeScreen } = useAnimation((options) => {

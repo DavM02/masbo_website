@@ -12,7 +12,7 @@ import img10 from "@assets/img-10.jpg";
 import icon1 from "@assets/icons/icon-1.svg";
 import icon3 from "@assets/icons/icon-3.svg";
 import icon4 from "@assets/icons/icon-4.svg";
-import './construction.scss'
+ 
 
 export default function ConstructionInterior() {
   return (

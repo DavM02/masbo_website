@@ -2,7 +2,7 @@ import Numbers from "./Numbers"
 import useAnimation from '@hooks/useAnimation'
 import play from "@assets/icons/play.svg"
 import Socials from "../Socials"
-import './about.scss'
+
 export default function About() {
 
   const { width, height } = useAnimation()

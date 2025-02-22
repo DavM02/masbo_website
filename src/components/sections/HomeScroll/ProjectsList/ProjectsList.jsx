@@ -1,6 +1,6 @@
 import MainButton from '@components/ui/buttons/MainButton'
 import Projects from './Projects'
-import './projects.scss'
+ 
 export default function ProjectsList() {
   return (
     <section

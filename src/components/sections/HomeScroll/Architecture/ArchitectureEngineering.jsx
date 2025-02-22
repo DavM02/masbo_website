@@ -11,8 +11,6 @@ import icon2 from "@assets/icons/icon-2.svg";
 
 import ImageBlock from "../ImageBlock";
 
-import './architecture.scss'
-
 export default function ArchitectureEngineering() {
   return (
     <section
