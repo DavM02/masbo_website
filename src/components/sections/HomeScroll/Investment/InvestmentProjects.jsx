@@ -6,7 +6,7 @@ import img20 from "@assets/img-20.jpg";
 import icon6 from "@assets/icons/icon-6.svg"
 import ImageBlock from "../ImageBlock";
 import InfoBlock from "../InfoBlock";
- 
+import MainButton from "@components/ui/buttons/MainButton"
 export default function InvestmentProjects() {
   return (
     <section
@@ -19,6 +19,26 @@ export default function InvestmentProjects() {
             src={img17}
             alt="img-17"
             className="placeholder-1 full-height" />
+
+          <div
+            className="description">
+            <h1
+              className="capitalize">
+              Investment 
+              <br /> projects
+            </h1>
+
+            <p
+              className="to-middle text-white capitalize">
+              Our portfolio is a long-term experience, a variety of complex projects and the implementation of innovative solutions. We approach each client and his project as a unique challenge that we accept. Responsibly performing our work, we will confidently bring it to life.
+            </p>
+
+            <MainButton
+              arrow={false}
+              type="button">
+              Order The Project
+            </MainButton>
+          </div>
         </div>
 
 
