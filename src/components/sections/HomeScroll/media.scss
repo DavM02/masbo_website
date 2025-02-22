@@ -5,86 +5,59 @@
         height: unset !important;
         width: initial !important;
 
-        .row:not(ul, button .row, #home-scroll > .row:nth-child(1) > .container .row) {
+        .row:not(ul, button .row, .about .row) {
             flex-direction: column !important;
         }
 
-        div[class*="placeholder"]:not(:has(.description), li .placeholder-1),
-        div.column.center-y {
-            height: clamp(15.25rem, 6.005rem + 39.4453vw, 31.25rem) !important;
-        }
-
-        div[class*="placeholder"]:has(.description) {
-            height: clamp(30.25rem, 22.4495rem + 33.282vw, 43.75rem) !important;
-            ;
-        }
-
         &>.row:nth-child(1) {
-
-            &:nth-child(1) {
-
-                background-size: 1928px 1045px !important;
-
-            }
-
+            background-size: 1928px 1045px !important;
         }
 
-        section.projects-list {
+        .projects-list {
 
             .text-wrapper {
-                margin: 37px 0 50px 25px;
+                margin: 70px 0 50px 25px !important;
                 gap: 15px;
 
                 h1 {
-                    margin-left: -15px;
+                    margin-left: -25px;
                 }
 
             }
 
             ul.data {
+                margin-bottom: 70px;
                 flex-direction: column;
                 gap: 30px;
                 align-items: center;
             }
         }
 
-        section.services {
-            
-                .text-wrapper {
-                    gap: 15px;
-                    margin-left: 25px;
-                    h1 {
-                        margin-left: -25px;
-                    }
+        .services {
+
+            >.row {
+                height: initial !important;
+            }
+
+            .text-wrapper {
+                gap: 15px;
+                margin-left: 25px;
+                padding: 70px 0;
+
+                h1 {
+                    margin-left: -25px;
                 }
-        
+            }
+
         }
 
     }
 
-    &>.row:nth-child(1) {
-        height: 100%;
-        will-change: transform;
-
-        .description {
-            @include center-absolute(6);
-            min-width: 260px;
-
-            h1 {
-                white-space: nowrap;
-            }
-
-            p {
-                margin: 13px 0 32px;
-                max-width: 600px;
-            }
-        }
-
+    .about {
         &:nth-child(1) {
 
-            @media all and (max-height: 1370px) and (max-width: 1334px),
-            (max-width: 1024px) {
-                >.container:nth-child(1) {
+            @media all and (max-height: 1370px) and (max-width: 1334px) {
+                .container {
 
                     >.row:nth-child(1) {
                         justify-content: space-between;
@@ -101,9 +74,9 @@
 
             @media all and (max-height: 840px),
             (max-width: 1024px) {
-                >.container:nth-child(1) {
+                  .container{
 
-                    >.row:nth-child(1) {
+                    >.row:nth-child(1) { 
                         justify-content: space-between;
                         gap: 35px;
                         margin-left: 25px;
@@ -139,7 +112,6 @@
                     }
 
                 }
-
 
             }
         }

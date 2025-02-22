@@ -1,3 +1,5 @@
+@import './menu.scss';
+
 header {
     border-bottom: 0.5px solid $line-bg;
     z-index: 55;
@@ -11,9 +13,9 @@ header {
         line-height: 16.94px !important;
     }
 
-&.static {
-    background-color: transparent;
-}
+    &.static {
+        background-color: transparent;
+    }
 
     &.scrolled {
         background-color: $black;
@@ -56,83 +58,6 @@ header {
             }
         }
 
-        a:not(.logo) {
-
-            position: relative;
-
-            &::after {
-                width: 7px;
-                height: 7px;
-                border-radius: 50%;
-                background-color: $white;
-                content: "";
-                position: absolute;
-                opacity: 0;
-                pointer-events: none;
-                left: -12px;
-                top: 50%;
-                transform: translateY(-50%);
-                transition: $transition-1 0.5s opacity;
-            }
-
-            &:hover,
-            &.active {
-
-                &::after {
-                    opacity: 1;
-                }
-            }
-        }
-
-        .menu-bars {
-
-            height: 19px;
-            cursor: pointer;
-            width: 39px;
-
-            div {
-                height: 2px;
-                transition: $transition-1 width 0.5s;
-                background-color: $white;
-            }
-
-            div {
-                &:nth-child(1) {
-                    width: 19px;
-                }
-
-                &:nth-child(2) {
-                    width: 39px;
-                    height: 1px;
-                }
-
-                &:nth-child(3) {
-                    width: 13px;
-                }
-            }
-
-            &:hover div {
-                &:nth-child(1) {
-                    width: 39px;
-                }
-
-                &:nth-child(2) {
-                    width: 13px;
-                }
-
-                &:nth-child(3) {
-                    width: 19px;
-                }
-            }
-        }
-
-        nav {
-            ul {
-                gap: clamp(1.875rem, -0.1355rem + 3.4965vw, 3.125rem);
-                ;
-            }
-        }
-
         &>.row>div {
             &:nth-child(1) {
                 gap: clamp(2.5rem, -5.0393rem + 13.1119vw, 7.1875rem);
@@ -142,8 +67,6 @@ header {
                 gap: clamp(1.25rem, -2.771rem + 6.993vw, 3.75rem);
             }
         }
-
-
 
     }
 

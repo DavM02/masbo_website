@@ -31,10 +31,13 @@ export default function Socials() {
   ];
 
   return (
-    <ul className="socials column center-x gap-40">
-      {socials.map((el, i) => {
-        return <li key={i}>{el.icon}</li>;
-      })}
+    <ul
+      className="socials column center-x gap-40">
+      {socials.map((el, i) => (
+        <li
+          key={i}>{el.icon}</li>
+      ))}
     </ul>
+
   );
 }

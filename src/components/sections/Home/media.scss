@@ -1,0 +1,30 @@
+#home {
+    .text-wrapper {
+        @media all and (max-width: 782px) {
+
+            &>.row:nth-child(1) {
+
+                flex-direction: column ;
+                height: 100%;
+                justify-content: space-between;
+                align-items: flex-start;
+            }
+
+            & {
+                bottom: 76px !important;
+                height: calc(100% - (163px + 76px));
+
+            }
+
+            p {
+                margin-left: 25px;
+            }
+        }
+
+        @media all and (max-width: 950px) {
+            p br:not(:nth-child(1)) {
+                display: none;
+            }
+        }
+    }
+}

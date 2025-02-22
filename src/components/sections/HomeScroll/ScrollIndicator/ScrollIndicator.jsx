@@ -1,31 +1,30 @@
 import { createPortal } from "preact/compat"
-import { useGSAP } from "@gsap/react"
+import useAnimation from "@hooks/useAnimation"
 import {gsap} from "gsap"
-export default function ScrollIndicator({width, height, isLargeScreen}) {
+import './scrollIndicator.scss'
+export default function ScrollIndicator() {
  
-     
-  useGSAP(() => {
-
-    requestAnimationFrame(() => {
+  const { width, height, isLargeScreen } = useAnimation((options) => {
+    if ((width && height) || isLargeScreen) {
       gsap.set(".scroll-indicator div", {width: "0%"})
       gsap.to(".scroll-indicator div", {
         ease: "power1.out",
         width: "100%",  
         scrollTrigger: {
+          scroller: options.scroller,
           trigger: "#home-scroll",
-          scroller: "#scroll-wrapper",  
           start: "top top",
           end: () => "+=" + window.innerHeight,
           scrub: true,
         }
       });
-    })
-
-  }, {dependencies: [ width, height, isLargeScreen ], revertOnUpdate: true})
-
-  return (
-    createPortal(<div
+    }
+    
+  })
  
+
+  return (width && height &&
+    createPortal(<div
       className="scroll-indicator">
       <div></div>
     </div>, document.getElementById("modal-root"))

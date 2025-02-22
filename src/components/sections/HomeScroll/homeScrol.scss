@@ -3,10 +3,25 @@
     width: calc(1762px + 3271px + (100vw * 4) + (100vw / 3)) !important;
     will-change: transform;
 
-    div[class*="placeholder"]:not(.projects-list .placeholder-1) {
+    h1 {
+        white-space: nowrap;
+    }
+
+    &>.row:nth-child(1) {
+        background-image: url("/src/assets/lines.svg");
+        background-size: contain;
+        background-position: -2px 0;
+        background-repeat: no-repeat;
+        will-change: transform;
+        height: 100%;
+    }
+
+    @include responsive-width(700vw);
+
+    div[class*="placeholder"]:not(.projects-list div, .architecture div:nth-child(3)) {
         overflow: hidden;
 
-        span:not(#home-scroll > .row > .row:nth-child(2) .column + .placeholder-2 span) {
+        span {
             vertical-align: bottom;
             position: relative;
 
@@ -18,52 +33,10 @@
 
     div:has(.description) {
         position: relative;
-    }
-
-    @include responsive-width(700vw);
-
-    .container {
-        max-width: unset;
-        position: relative;
-
-        >.row:not(ul, .services .row) {
-            margin-bottom: 80px;
-        }
-
-        ul:not(.socials) {
-            margin-bottom: 70px;
-
-            li {
-                cursor: initial !important;
-            }
-        }
-
-        .play {
-            @include center-absolute(120);
-            pointer-events: all;
-            cursor: pointer;
-            border-radius: 50%;
-            aspect-ratio: 1/1;
-            width: clamp(5.5rem, 5.0222rem + 2.3891vw, 7.25rem);
-            border: 1px solid rgb(255, 2555, 255, 50%);
-
-        }
-
-    }
-
-
-
-    &>.row:nth-child(1) {
-        height: 100%;
-        will-change: transform;
 
         .description {
             @include center-absolute(6);
             min-width: 260px;
-
-            h1 {
-                white-space: nowrap;
-            }
 
             p {
                 margin: 13px 0 32px;
@@ -71,350 +44,18 @@
             }
         }
 
-        &:nth-child(1) {
-            background-image: url("/src/assets/lines.svg");
-            background-size: contain;
-            background-position: -2px 0;
-            background-repeat: no-repeat;
-        }
-
-        &>div {
-
-            &:not(:nth-child(2), :nth-child(3)) {
-                width: 100vw;
-            }
-
-            &:not(:nth-child(1)) {
-
-                margin-top: 73px;
-            }
-
-            @include full-width-on-mobile();
-
-            &:nth-child(2) {
-
-                width: 1762px;
-
-                @include full-width-on-mobile();
-
-                @include responsive-width(100vw);
-
-                &>div {
-                    &:nth-child(1) {
-                        div {
-                            height: calc(100% / 3);
-                            width: 482px;
-
-                            @include full-width-on-mobile();
-
-                            &:nth-child(1) {
-
-                                background-color: $blue;
-                            }
-
-                            &:nth-child(2) {
-                                background-color: $gray;
-
-                            }
-                        }
-                    }
-
-                    &:nth-child(2) {
-                        overflow: hidden;
-                        width: 771px;
-
-                        @include full-width-on-mobile();
-
-                        @include responsive-width(-webkit-fill-available);
-                    }
-
-                    &:nth-child(3) {
-                        overflow: hidden;
-                        width: 509px;
-
-                        @include full-width-on-mobile();
-
-                        &>div {
-
-                            height: 50%;
-                        }
-
-                    }
-
-                }
-
-
-            }
-
-            &:nth-child(3) {
-
-                width: 3271px;
-
-                @include full-width-on-mobile();
-
-                @include responsive-width(200vw);
-
-                &>div {
-                    &:nth-child(1) {
-                        div {
-                            height: 50%;
-                            width: 765px;
-
-                            @include full-width-on-mobile();
-
-                            &:nth-child(1) {
-                                overflow: hidden;
-
-                            }
-
-                            &:nth-child(2) {
-                                background-color: $blue;
-                            }
-                        }
-
-
-                    }
-
-                    &:nth-child(2) {
-                        overflow: hidden;
-
-
-                        width: 771px;
-
-                        @include full-width-on-mobile();
-
-
-                        @include responsive-width(-webkit-fill-available);
-
-                    }
-
-                    &:nth-child(3) {
-
-                        &>div {
-                            width: 482px;
-                            height: calc(100% / 3);
-
-                            @include full-width-on-mobile();
-
-                            &:nth-child(1) {
-                                background-color: $gray;
-                            }
-
-                        }
-
-                    }
-
-                    &:nth-child(4) {
-
-                        width: 771px;
-                        @include full-width-on-mobile();
-
-
-                        @include responsive-width(-webkit-fill-available);
-
-
-                    }
-
-                    &:nth-child(5) {
-                        >div:nth-child(1) {
-
-                            width: 482px;
-                            height: calc(100%/3 * 2);
-
-                            @include full-width-on-mobile();
-
-                        }
-
-                        >div:nth-child(2) {
-                            height: calc(100%/3);
-                            background-color: $blue;
-                        }
-
-                    }
-
-
-
-                }
-            }
-
-
-        }
-
-        section.projects-list {
-            height: 100%;
-            width: 100vw;
-            margin-top: 73px;
-
-
-            @include full-width-on-mobile();
-
-            h1 {
-                white-space: nowrap;
-            }
-
-            p {
-                max-width: 753px;
-                margin-bottom: 27px;
-            }
-
-            li {
-                max-width: 344px;
-                width: -webkit-fill-available;
-                $count: 3;
-
-                .placeholder-1 {
-                    width: 100%;
-                    height: 127px;
-                }
-
-                @for $item from 1 through $count {
-                    &:nth-child(#{$item}) .placeholder-1 {
-                        transition: $transition-1 0.7s clip-path #{($item * 0.3)}s;
-                    }
-                }
-
-                span.up-case {
-                    line-height: 24px;
-                    font-size: 12px;
-                    display: block;
-                    margin: 19px 0 11px;
-                }
-
-                h5 {
-                    margin-bottom: 5px;
-                }
-
-
-            }
-        }
-
-        section.services {
-            height: 100%;
-            width: 130vw;
-            margin-top: 73px;
-            @include full-width-on-mobile();
-            @include responsive-width(100vw);
-            div:has(.column) {
-                position: relative;
-            }
-
-            .column {
-                @include center-absolute(120)
-            }
-
-            >.row:nth-child(1) {
-                height: calc(50% - 45px);
-
-                >div {
-
-                    width: calc(100% / 4);
-                    @include full-width-on-mobile();
-                }
-            }
-
-            >.row:nth-child(2) {
-                height: 50%;
-
-                >div:not(:nth-child(2)) {
-                    width: 25%;
-                    @include full-width-on-mobile();
-                }
-
-                >div:nth-child(2) {
-
-                    width: 50%;
-
-                    >.row {
-                        height: 100%;
-                        
-                    }
-
-                    @include full-width-on-mobile();
-
-                    .text-wrapper {
-                        h1 {
-                            white-space: nowrap;
-                        }
-
-                        padding: 25px 0 50px 0;
-                       
-max-width: 1000px;
-                        p {
-                            margin-bottom: 27px;
-                    
-                        }
-                    }
-                }
-            }
-        }
-
-        section.investment-projects {
-            height: 100%;
-            width: 100vw;
-            margin-top: 73px;
-            @include full-width-on-mobile();
-
-            >.row {
-                height: 100%;
-
-                >div:nth-child(1),
-                >div:nth-child(3) {
-                    width: calc(100% / 2 - (482px / 2));
-                    @include full-width-on-mobile();
-                }
-
-                >div:nth-child(3) {
-                    >div:nth-child(1) {
-                    
-                        height: calc(50% - 45px);
-                    }
-
-                    >div:nth-child(2) {
-                        height: 50%;
-                    }
-
-                }
-
-                >div:nth-child(2) {
-                    width: 482px;
-                    @include full-width-on-mobile();
-
-                    > div {
-                        &:nth-child(2), &:nth-child(1) {
-                            height: calc((100% / 3) - 35px);
-                        }
-
-                        &:nth-child(3) {
-                            height: calc((100% / 3) + 45px) ;
-                        }
-
-                        &:nth-child(2) {
-                            background-color: $gray;
-
-                            > div {
-                                height: 100%;
-                            }
-                        }
-                    }
-                }
-            }
-        }
     }
-}
 
-.scroll-indicator {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    height: 8px;
-    width: 100%;
-    background-color: $brown;
+    section {
 
-    div {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        background-color: $blue;
-        height: 100%;
+        &:not(:nth-child(1)) {
+            margin-top: 73px;
+            height: calc(100% - 73px - 8px);
+        }
+
+        width: 100vw;
+
+
+        @include full-size-on-mobile();
     }
 }

@@ -1,0 +1,51 @@
+#home-scroll {
+    .architecture {
+        width: 1762px;
+
+        .section-block {
+            &:nth-child(1) {
+                div {
+                    height: calc(100% / 3);
+                    width: 482px;
+
+                    @include full-size-on-mobile('small');
+
+                    &:nth-child(1) {
+                        background-color: $blue;
+                    }
+
+                    &:nth-child(2) {
+                        background-color: $gray;
+
+                    }
+                }
+            }
+
+            &:nth-child(2) {
+                overflow: hidden;
+                width: 771px;
+
+                @include full-size-on-mobile('large');
+
+                @include responsive-width(-webkit-fill-available);
+            }
+
+            &:nth-child(3) {
+                overflow: hidden;
+                width: 509px;
+                @include full-size-on-mobile();
+
+                &>div {
+                    height: 50%;
+                    @include full-size-on-mobile('small');
+                }
+
+            }
+        }
+
+        @include full-size-on-mobile();
+
+        @include responsive-width(100vw);
+
+    }
+}

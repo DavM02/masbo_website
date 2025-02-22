@@ -1,22 +1,24 @@
-import { useRef, useContext } from "preact/hooks";
+import { useRef } from "preact/hooks";
 import Scrollbar from "smooth-scrollbar";
-import { MainContext } from "@context/MainContext";
 import { gsap } from "gsap/all";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import useMediaQ from "@hooks/useMediaQ"
+import useAnimation from "@hooks/useAnimation";
 import { useGSAP } from '@gsap/react';
-
+import { setScrollTween, setScrollBar, clearScrollBar, clearScrollTween } from "./ScrollAccess";
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export default function SmoothScroll({ children }) {
-  const { scrollbarAccess, scrollTweenAccess } = useContext(MainContext);
+
   const scrollRef = useRef(null);
 
-  const width = useMediaQ("(min-width: 1025px)")
-  const height = useMediaQ("(min-height: 695px)")
+  const { width, height, isLargeScreen} = useAnimation()
 
-  const isLargeScreen = useMediaQ("(min-height: 2200px) and (min-width: 1500px), (min-width: 3000px)");
+
   useGSAP(() => {
+
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
 
     let scrollbar;
     let resizeObserver;
@@ -30,8 +32,8 @@ export default function SmoothScroll({ children }) {
           delegateTo: document
         });
 
-        scrollbarAccess.current = scrollbar;
-
+ 
+        setScrollBar(scrollbar)
  
         ScrollTrigger.scrollerProxy(scrollRef.current, {
           scrollTop(value) {
@@ -73,15 +75,14 @@ export default function SmoothScroll({ children }) {
           }
         });
 
-        scrollTweenAccess.current = scrollTween
-   
+        setScrollTween(scrollTween)
       };
 
     }
 
     const handleResize = () => {
       ScrollTrigger.refresh();
- 
+
     };
 
     resizeObserver = new ResizeObserver(handleResize);
@@ -89,28 +90,24 @@ export default function SmoothScroll({ children }) {
       resizeObserver.observe(scrollRef.current);
     }
 
-
-    if ("scrollRestoration" in window.history) {
-      window.history.scrollRestoration = "manual";
-    }
-
-    if(width && height) {
+    if((width && height) || isLargeScreen) {
       initScrollbar();
-    }
+    } 
     createAnimation();
-
+ 
     return () => {
  
-      if (scrollbar) {
-        scrollbar.destroy();
-      }
-
+      clearScrollBar()
+      clearScrollTween()
       if (resizeObserver) {
         resizeObserver.disconnect();
       }
  
     };
-  },  {dependencies: [ width, height, isLargeScreen ], scope: scrollRef, revertOnUpdate: true});
+  },  
+  {dependencies: [ width,
+    height,
+    isLargeScreen ], scope: scrollRef, revertOnUpdate: true});
 
   return (
     <div

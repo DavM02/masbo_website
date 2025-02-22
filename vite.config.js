@@ -21,12 +21,12 @@ export default defineConfig({
   //   exclude: [ "gsap" ],
   // },
   server: {
-    allowedHosts: ["q5r5mx-5173.csb.app"],
+    allowedHosts: [ "q5r5mx-5173.csb.app" ],
   },
   build: {
     minify: false,
     rollupOptions: {
-      plugins: [terser()],
+      plugins: [ terser() ],
     },
   },
   plugins: [
@@ -69,7 +69,9 @@ export default defineConfig({
   css: {
     preprocessorMaxWorkers: 4,
     postcss: {
-      plugins: [autoprefixer, mergeLonghand, mergeRulePlus.default],
+      plugins: [ autoprefixer,
+        mergeLonghand,
+        mergeRulePlus.default ],
     },
     preprocessorOptions: {
       scss: {

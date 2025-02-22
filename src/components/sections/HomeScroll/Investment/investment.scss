@@ -1,0 +1,37 @@
+#home-scroll {
+    .investment-projects {
+
+        .section-block {
+
+            &:nth-child(1),
+            &:nth-child(3) {
+                width: calc(100% / 2 - (482px / 2));
+                @include full-size-on-mobile('small');
+            }
+
+            &:nth-child(3) {
+
+                >div:nth-child(1),
+                >div:nth-child(2) {
+                    @include full-size-on-mobile('small');
+                    height: 50%;
+                }
+
+            }
+
+            &:nth-child(2) {
+                width: 482px;
+                @include full-size-on-mobile();
+
+                >div {
+                    @include full-size-on-mobile('small');
+                    height: calc((100% / 3));
+
+                    &:nth-child(2) {
+                        background-color: $gray;
+                    }
+                }
+            }
+        }
+    }
+}

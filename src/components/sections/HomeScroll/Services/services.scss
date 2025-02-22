@@ -1,0 +1,51 @@
+#home-scroll {
+    .services {
+
+        width: calc(100vw + (100vw / 3));
+ 
+        @include responsive-width(100vw);
+
+        div:has(.column) {
+            position: relative;
+        }
+
+        .column {
+            @include center-absolute(120)
+        }
+
+        >.row:nth-child(1) {
+            height: 50%;
+
+            >div {
+
+                width: calc(100% / 4);
+                @include full-size-on-mobile('small');
+            }
+        }
+
+        >.row:nth-child(2) {
+            height: 50%;
+
+            >div:not(:nth-child(2)) {
+                width: 25%;
+                @include full-size-on-mobile('small');
+            }
+
+            >div:nth-child(2) {
+
+                width: 50%;
+                @include full-size-on-mobile();
+
+                .text-wrapper {
+
+                    max-width: 1000px;
+
+                    p {
+                        margin-bottom: 27px;
+
+                    }
+                }
+            }
+        }
+    }
+}

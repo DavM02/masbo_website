@@ -18,6 +18,6 @@ export default function useMediaQ(query) {
       mediaQuery.removeEventListener('change', checkMedia);
     };
   }, [ query ]);
-
+ 
   return match;
 }
