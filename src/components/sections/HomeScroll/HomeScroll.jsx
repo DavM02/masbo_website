@@ -6,6 +6,7 @@ import InvestmentProjects from './Investment/InvestmentProjects'
 import About from './About/About'
 import ArchitectureEngineering from './Architecture/ArchitectureEngineering'
 import ConstructionInterior from './Construction/ConstructionInterior'
+import Team from './Team/Team'
 export default function HomeScroll() {
  
 
@@ -26,6 +27,8 @@ export default function HomeScroll() {
         <Services />
 
         <InvestmentProjects /> 
+
+        <Team />
       </div>
 
       <ScrollIndicator />

@@ -5,11 +5,11 @@
 @import './ProjectsList/projects.scss';
 @import './ScrollIndicator/scrollIndicator.scss';
 @import './Services/services.scss';
-
+@import './Team/team.scss';
 
 #home-scroll {
     height: 100vh !important;
-    width: calc(1762px + 3271px + (100vw * 4) + (100vw / 3)) !important;
+    width: calc(1762px + 3271px + (100vw * 5) + (100vw / 3)) !important;
     will-change: transform;
 
     h1 {
@@ -25,7 +25,7 @@
         height: 100%;
     }
 
-    @include responsive-width(700vw);
+    @include responsive-width(800vw);
 
     div[class*="placeholder"]:not(.projects-list div, .architecture div:nth-child(3)) {
         overflow: hidden;

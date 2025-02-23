@@ -31,21 +31,18 @@ export default function Projects() {
 
     const data = gsap.utils.toArray(".projects-list .placeholder-1")
    
-    data.forEach((placeholder) => {
-            
-      gsap.set(placeholder, {
-        clipPath: "inset(0 100% 0 0)"
-      });
-      gsap.to(placeholder, {
-        ease: "none",
-        clipPath: "inset(0)",  
-        scrollTrigger: {
-          trigger: ".projects-list",
-          start: "left 30%",
-          toggleActions: "play none none none",
-          ...options,
-        }
-      });
+    gsap.set(data, {
+      clipPath: "inset(0 100% 0 0)"
+    });
+    gsap.to(data, {
+      ease: "none",
+      clipPath: "inset(0)",  
+      scrollTrigger: {
+        trigger: ".projects-list",
+        start: "left 30%",
+        toggleActions: "play none none none",
+        ...options,
+      }
     });
   })
  

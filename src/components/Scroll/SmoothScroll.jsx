@@ -63,7 +63,7 @@ export default function SmoothScroll({ children }) {
       if (width && height) {
  
         let scrollTween = gsap.to("#home-scroll > .row", {
-          x: isLargeScreen ? "-600vw" : () => -(1762 + 3271 + window.innerWidth * 3 + (window.innerWidth / 3)), 
+          x: isLargeScreen ? "-700vw" : () => -(1762 + 3271 + window.innerWidth * 4 + (window.innerWidth / 3)), 
           ease: "none",
           scrollTrigger: {
             trigger: "#home-scroll",
