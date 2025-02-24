@@ -3,7 +3,7 @@ import Header from '@components/layout/Header/Header'
 import { AnimatePresence } from 'framer-motion'
 import { Routes, Route, useLocation} from 'react-router-dom'
 import SmoothScroll from '@components/Scroll/SmoothScroll'
-import MainContextProvider from '@context/MainContext'
+ import Footer from '@components/layout/Footer/Footer'
 
 export function App() {
  
@@ -13,7 +13,7 @@ export function App() {
     <>
    
 
-      <MainContextProvider>
+ 
         <Header />
 
         <SmoothScroll>
@@ -34,11 +34,9 @@ export function App() {
             </AnimatePresence>
     
           </main>
-
-          {/* <footer
-            style={{height: '400px', backgroundColor: 'red', width: '100%'}}></footer> */}
+ <Footer/>
         </SmoothScroll>
-      </MainContextProvider>
+ 
     </>
   )
 }

@@ -1,3 +1,4 @@
+@use './media.scss';
 #home {
     height: 100vh;
     min-height: 700px;
@@ -44,48 +45,21 @@
             white-space: nowrap;
         }
 
-        @media all and (max-width: 782px) {
-
-            &>.row:nth-child(1) {
-
-                flex-direction: column;
-                height: 100%;
-                justify-content: space-between;
-                align-items: flex-start;
-            }
-
-            & {
-                bottom: 76px;
-                height: calc(100% - (163px + 76px));
-
-            }
-
-            p {
-                margin-left: 25px;
-            }
-        }
-
-        @media all and (max-width: 950px) {
-            p br:not(:nth-child(1)) {
-                display: none;
-            }
-        }
     }
 }
 
-#home,
-#home-scroll .container {
-    p {
-        position: relative;
+#home .text-wrapper p,
+#home-scroll .text-wrapper>*:nth-child(2) {
 
-        &::after {
-            content: "";
-            position: absolute;
-            background-color: $white;
-            width: 1px;
-            height: 100%;
-            left: -25px;
-            top: 0;
-        }
+    position: relative;
+
+    &::after {
+        content: "";
+        position: absolute;
+        background-color: $white;
+        width: 1px;
+        height: 100%;
+        left: -25px;
+        top: 0;
     }
 }

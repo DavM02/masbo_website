@@ -1,218 +1,75 @@
+@import './About/about.scss';
+@import './Architecture/architecture.scss';
+@import './Construction/construction.scss';
+@import './Investment/investment.scss';
+@import './ProjectsList/projects.scss';
+@import './ScrollIndicator/scrollIndicator.scss';
+@import './Services/services.scss';
+@import './Team/team.scss';
+
 #home-scroll {
     height: 100vh !important;
-    width: 395vw !important;
+    width: calc(1762px + 3271px + (100vw * 5) + (100vw / 3)) !important;
+    will-change: transform;
 
-    @media all and (max-width: 1024px) {
-        height: unset !important;
-        width: initial !important;
-
-        .row:not(ul) {
-            flex-direction: column !important;
-        }
-
-        div[class*="placeholder"] {
-            height: clamp(15.3125rem, 2.3864rem + 64.6307vw, 43.75rem) !important;
-            width: initial !important;
-            min-width: initial !important;
-            min-height: initial !important;
-        }
-
+    h1 {
+        white-space: nowrap;
     }
-
-    .container {
-        max-width: unset;
-
-        .row:not(ul) {
-            margin-bottom: 80px;
-        }
-
-        ul {
-            margin-bottom: 70px;
-
-            li {
-                cursor: initial !important;
-            }
-        }
-
-
-    }
-
 
     &>.row:nth-child(1) {
+        background-image: url("/src/assets/lines.svg");
+        background-size: contain;
+        background-position: -2px 0;
+        background-repeat: no-repeat;
+        will-change: transform;
         height: 100%;
+    }
 
+    @include responsive-width(800vw);
 
-        &:nth-child(1) {
-            background-image: url("/src/assets/lines.svg");
-            background-size: contain;
-            background-position: -2px 0;
-            background-repeat: no-repeat;
-        }
+    div[class*="placeholder"]:not(.projects-list div, .architecture div:nth-child(3)) {
+        overflow: hidden;
 
-        &>div {
+        span {
+            vertical-align: bottom;
+            position: relative;
 
-            width: 100vw;
-
-            &:not(:nth-child(1)) {
-
-                margin-top: 73px;
-                height: calc(100% - 73px) !important;
-            }
-
-            @media all and (max-width: 1024px) {
-                width: 100% !important;
-            }
-
-
-            &:nth-child(2) {
-
-                &>div {
-                    &:nth-child(1) {
-                        div {
-                            height: calc(100% / 3);
-                            min-width: 482px;
-
-                            &:nth-child(1) {
-
-                                background-color: $blue;
-                            }
-
-                            &:nth-child(2) {
-                                background-color: $gray;
-
-                            }
-                        }
-                    }
-
-                    &:nth-child(2) {
-                        overflow: hidden;
-                        position: relative;
-                        width: -webkit-fill-available;
-                        // min-width: 771px;
-
-                        &::after {
-                            @include overlay($overlay, 50%)
-                        }
-                    }
-
-                    &:nth-child(3) {
-                        overflow: hidden;
-                        position: relative;
-                        min-width: 509px;
-
-                        &>div {
-
-                            height: 50%;
-                        }
-
-                        &::after {
-                            @include overlay($overlay, 50%)
-                        }
-                    }
-
-                }
-
-
-            }
-
-            &:nth-child(3) {
-
-                width: 195vw;
-
-                &>div {
-                    &:nth-child(1) {
-                        div {
-                            height: 50%;
-                            min-width: 765px;
-
-                            &:nth-child(1) {
-                                overflow: hidden;
-                                position: relative;
-
-                                &::after {
-                                    @include overlay($overlay, 50%)
-                                }
-                            }
-
-                            &:nth-child(2) {
-                                background-color: $blue;
-                            }
-                        }
-
-
-                    }
-
-                    &:nth-child(2) {
-                        overflow: hidden;
-                        position: relative;
-                        width: -webkit-fill-available;
-
-                        &::after {
-                            @include overlay($overlay, 50%)
-                        }
-                    }
-
-                    &:nth-child(3) {
-
-                        &>div {
-                            min-width: 482px;
-                            height: calc(100% / 3);
-
-                            &:nth-child(1) {
-                                background-color: $gray;
-                            }
-
-                            &:nth-child(2),
-                            &:nth-child(3) {
-                                overflow: hidden;
-                                position: relative;
-
-                                &::after {
-                                    @include overlay($overlay, 50%)
-                                }
-                            }
-                        }
-
-
-
-                    }
-
-                    &:nth-child(4) {
-                        overflow: hidden;
-                        position: relative;
-// min-height: 771px;
-width: -webkit-fill-available;
-                        &::after {
-                            @include overlay($overlay, 50%)
-                        }
-                    }
-
-                    &:nth-child(5) {
-                        >div:nth-child(1) {
-                            position: relative;
-                            min-width: 482px;
-                            height: calc(100%/3 * 2);
-
-                            &::after {
-                                @include overlay($overlay, 50%)
-                            }
-                        }
-
-                        >div:nth-child(2) {
-                            height: calc(100%/3);
-                            background-color: $blue;
-                        }
-
-                    }
-
-
-
-                }
+            &::after {
+                @include overlay($overlay, 50%)
             }
         }
+    }
 
+    div:has(.description) {
+        position: relative;
 
+        .description {
+            @include center-absolute(6);
+            min-width: 260px;
 
+            p {
+                margin: 13px 0 32px;
+                max-width: 600px;
+            }
+        }
 
     }
+
+    section {
+
+        &:not(:nth-child(1)) {
+            margin-top: 73px;
+        }
+
+        &:not(.team, .about) {
+            height: calc(100% - 73px - 8px);
+        }
+
+        width: 100vw;
+
+
+        @include full-size-on-mobile();
+    }
 }
+
+@import './media.scss';

@@ -1,12 +1,15 @@
 @import './styles/typography.scss';
 @import './styles/reset.css';
 @import "./styles/helpers.css";
+@import "./components/ui/buttons/buttons.scss";
 
 @media all and (max-width: 320px) {
     body {
         width: 320px;
     }
 }
+
+
 
 body,
 html {
@@ -33,8 +36,7 @@ main {
 #scroll-wrapper {
     inset: 0;
     width: 100%;
-    // padding-top: calc(30px + 55px + var(--nav-height) + (var(--header-container-padding) * 2));
-    // background-color: var(--white);
+    perspective: 1px;
 }
 
 .scroll-content {
@@ -139,4 +141,19 @@ body {
 
 .placeholder-3 {
     background-color: $gray;
+}
+
+.socials {
+    position: absolute;
+    height: 100%;
+    left: 50px;
+z-index: 105;
+    li {
+        cursor: pointer;
+        &:hover path {
+            fill: $white
+        }
+    }
+
+
 }

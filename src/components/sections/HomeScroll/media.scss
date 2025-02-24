@@ -1,0 +1,136 @@
+#home-scroll {
+
+    @media all and (max-width: 1024px),
+    (max-height: 694px) {
+        height: unset !important;
+        width: initial !important;
+
+        .row:not(ul, button .row, .about .row) {
+            flex-direction: column !important;
+        }
+
+        &>.row:nth-child(1) {
+            background-size: 1928px 1045px !important;
+        }
+
+        .projects-list {
+
+            .text-wrapper {
+                margin: 70px 0 50px 25px !important;
+                gap: 15px;
+
+                h1 {
+                    margin-left: -25px;
+                }
+
+            }
+
+            ul.data {
+                margin-bottom: 70px;
+                flex-direction: column;
+                gap: 30px;
+                align-items: center;
+            }
+        }
+
+        .services {
+
+            >.row {
+                height: initial !important;
+            }
+
+            .text-wrapper {
+                gap: 15px;
+                margin-left: 25px;
+                padding: 70px 0;
+
+                h1 {
+                    margin-left: -25px;
+                }
+            }
+
+        }
+
+    }
+
+    .about {
+        &:nth-child(1) {
+
+            @media all and (max-height: 1370px) and (max-width: 1334px) {
+                .container {
+
+                    >.row:nth-child(1) {
+                        justify-content: space-between;
+                        gap: 35px;
+                    }
+
+                    .play {
+                        position: static;
+                        transform: none;
+                    }
+
+                }
+            }
+
+            @media all and (max-height: 840px),
+            (max-width: 1024px) {
+                  .container{
+
+                    >.row:nth-child(1) { 
+                        justify-content: space-between;
+                        gap: 35px;
+                        margin-left: 25px;
+                        margin-top: 47px;
+
+                        +ul {
+                            gap: 40px;
+                        }
+                    }
+
+                    .play {
+                        position: static;
+                        transform: none;
+                    }
+
+                    .text-wrapper {
+                        flex-direction: column;
+                        align-items: baseline;
+                        gap: 15px;
+                        width: calc(100% - clamp(5.5rem, 5.0222rem + 2.3891vw, 7.25rem) - 35px);
+
+                        h1 {
+                            transform: translateX(-25px);
+                        }
+
+                        p {
+                            max-width: 458px;
+                        }
+
+                        br:not(:nth-child(1)) {
+                            display: none;
+                        }
+                    }
+
+                }
+
+            }
+        }
+    }
+
+
+    .team {
+        @media all and (max-width: 768px) {
+            ul {
+                transform: none !important;
+            }
+
+            h1, p {
+                text-align: start !important;
+            }
+
+            .center-y {
+                align-items: flex-start;
+            }
+        }
+    }
+}

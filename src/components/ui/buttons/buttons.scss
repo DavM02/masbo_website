@@ -1,0 +1,22 @@
+.main-button {
+    display: inline-block;
+    &:hover {
+       button {
+        background-color: $brown;
+       }
+    }
+    button {
+        background-color: $blue;
+        border-radius: 30px;
+        padding: 12px 21px;
+        letter-spacing: 0.4px;
+        text-transform: capitalize;
+        font-size: 14px;
+        cursor: pointer;
+        transition: $transition-1 1s background-color;
+    }
+
+    .row {
+        flex-wrap: nowrap;
+    }
+}

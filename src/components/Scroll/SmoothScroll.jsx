@@ -1,23 +1,28 @@
-import { useLayoutEffect, useRef, useContext } from "preact/hooks";
+import { useRef } from "preact/hooks";
 import Scrollbar from "smooth-scrollbar";
-import { MainContext } from "@context/MainContext";
 import { gsap } from "gsap/all";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import useMediaQ from "@hooks/useMediaQ"
-
-gsap.registerPlugin(ScrollTrigger);
+import useAnimation from "@hooks/useAnimation";
+import { useGSAP } from '@gsap/react';
+import { setScrollTween, setScrollBar, clearScrollBar, clearScrollTween } from "./ScrollAccess";
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export default function SmoothScroll({ children }) {
-  const { scrollbarAccess } = useContext(MainContext);
+
   const scrollRef = useRef(null);
 
-  const q = useMediaQ("(min-width: 1025px)")
- 
-  useLayoutEffect(() => {
+  const { width, height, isLargeScreen} = useAnimation()
+console.log(ScrollTrigger.getAll())
+
+  useGSAP(() => {
+
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+
     let scrollbar;
     let resizeObserver;
-    const ctx = gsap.context(() => {});  
-
+  
     const initScrollbar = () => {
       if (scrollRef.current) {
         scrollbar = Scrollbar.init(scrollRef.current, {
@@ -27,15 +32,9 @@ export default function SmoothScroll({ children }) {
           delegateTo: document
         });
 
-        scrollbarAccess.current = scrollbar;
-
-        scrollbarAccess.current.addListener(({offset}) => {
-          if (offset.y > 3) {
-            scrollbarAccess.current.containerEl.previousElementSibling.style.backgroundColor = "#151517"
-          } else {
-            scrollbarAccess.current.containerEl.previousElementSibling.style.backgroundColor = "transparent"
-          }
-        })
+ 
+        setScrollBar(scrollbar)
+ 
         ScrollTrigger.scrollerProxy(scrollRef.current, {
           scrollTop(value) {
             if (arguments.length) {
@@ -59,31 +58,31 @@ export default function SmoothScroll({ children }) {
         ScrollTrigger.refresh();
       }
     };
-
+    
     const createAnimation = () => {
-      ctx.revert();  
-
-      if (q) {
-        ctx.add(() => {
-          gsap.to("#home-scroll > .row", {
-            x: "-300vw",
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: "#home-scroll",
-              start: "top top",
-              end: () => "+=" + window.innerHeight,
-              pin: true,
-              scrub: true
-            }
-          });
+      if (width && height) {
+ 
+        let scrollTween = gsap.to("#home-scroll > .row", {
+          x: isLargeScreen ? "-700vw" : () => -(1762 + 3271 + window.innerWidth * 4 + (window.innerWidth / 3)), 
+          ease: "none",
+          scrollTrigger: {
+            trigger: "#home-scroll",
+            start: "top top",
+            end: () => "+=" + window.innerHeight,
+            pin: true,
+            scrub: true,
+            invalidateOnRefresh: true
+          }
         });
 
-        ScrollTrigger.refresh();
-      }
-    };
+        setScrollTween(scrollTween)
+      };
+
+    }
 
     const handleResize = () => {
       ScrollTrigger.refresh();
+
     };
 
     resizeObserver = new ResizeObserver(handleResize);
@@ -91,29 +90,30 @@ export default function SmoothScroll({ children }) {
       resizeObserver.observe(scrollRef.current);
     }
 
-    if ("scrollRestoration" in window.history) {
-      window.history.scrollRestoration = "manual";
-    }
-
-    initScrollbar();
+    if((width && height) || isLargeScreen) {
+      initScrollbar();
+    } 
     createAnimation();
-
+ 
     return () => {
-      ctx.revert();  
-      if (scrollbar) {
-        scrollbar.destroy();
-      }
+ 
+      clearScrollBar()
+      ScrollTrigger.killAll()
       if (resizeObserver) {
         resizeObserver.disconnect();
       }
+ 
     };
-  }, [ q, scrollbarAccess ]);
+  },  
+  {dependencies: [ width,
+    height,
+    isLargeScreen ], scope: scrollRef, revertOnUpdate: true});
 
   return (
     <div
       id="scroll-wrapper"
       style={{
-        position: "fixed",
+        position: width && height ? "fixed" : "static",
         height: "100%"
       }}
       ref={scrollRef}>
