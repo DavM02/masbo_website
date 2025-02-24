@@ -59,6 +59,9 @@
 
         &:not(:nth-child(1)) {
             margin-top: 73px;
+        }
+
+        &:not(.team, .about) {
             height: calc(100% - 73px - 8px);
         }
 

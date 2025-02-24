@@ -1,5 +1,6 @@
 #home-scroll {
     .team {
+        height: calc(100% - 73px) !important;
         background-image: url('/src/assets/bg.jpg');
         background-size: cover;
         background-repeat: repeat;
@@ -29,6 +30,10 @@
                 max-width: 836px;
             }
 
+            ul {
+                transform: translateX(30px);
+            }
+
             li {
                 cursor: initial;
                 border-radius: 50%;
@@ -43,8 +48,7 @@
                 }
 
                 img {
-                    height: 71px;
-                    width: 71px;
+                    height:  clamp(2.6875rem, 2.2698rem + 1.8065vw, 4.4375rem);
                     aspect-ratio: 1/1;
                 }
             }

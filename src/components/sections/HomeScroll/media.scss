@@ -116,4 +116,21 @@
             }
         }
     }
+
+
+    .team {
+        @media all and (max-width: 768px) {
+            ul {
+                transform: none !important;
+            }
+
+            h1, p {
+                text-align: start !important;
+            }
+
+            .center-y {
+                align-items: flex-start;
+            }
+        }
+    }
 }

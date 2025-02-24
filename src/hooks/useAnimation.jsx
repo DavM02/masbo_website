@@ -35,7 +35,7 @@ export default function useAnimation(gsapAnimation = () => {}, scope, returnFn =
           };
 
           if (match) {
-            console.log( getScrollTween())
+           
             options.containerAnimation = getScrollTween()
           } 
      
@@ -43,13 +43,16 @@ export default function useAnimation(gsapAnimation = () => {}, scope, returnFn =
 
         })
       }
+      return () => {
+        if (returnFn) {
 
-
-      if (returnFn) {
-        return () => {
           returnFn()
+ 
         }
+       
       }
+
+
     },
     {
       dependencies: [ width,

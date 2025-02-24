@@ -36,7 +36,6 @@ export function clearScrollBar() {
 export function clearScrollTween() {
   const tween = getScrollTween();
  
- 
   if (tween) {
     tweenMap.delete(tweenKey);
   }

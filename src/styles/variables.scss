@@ -44,8 +44,12 @@ $transition-1: cubic-bezier(0.645, 0.045, 0.355, 1);
 
         @if $size {
             @if ($size =='large') {
-                height: clamp(30.25rem, 22.4495rem + 33.282vw, 43.75rem) !important;
-            }
+                
+                height: calc(clamp(30.25rem, 22.4495rem + 33.282vw, 43.75rem) + 100px) !important;
+                & > div::nth-child(1) {
+                    padding: 50px 0;
+                }
+             }
 
             @else {
                 height: clamp(15.25rem, 6.005rem + 39.4453vw, 31.25rem) !important;

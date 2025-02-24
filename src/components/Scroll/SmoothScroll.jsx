@@ -12,7 +12,7 @@ export default function SmoothScroll({ children }) {
   const scrollRef = useRef(null);
 
   const { width, height, isLargeScreen} = useAnimation()
-
+console.log(ScrollTrigger.getAll())
 
   useGSAP(() => {
 
@@ -98,7 +98,7 @@ export default function SmoothScroll({ children }) {
     return () => {
  
       clearScrollBar()
-      clearScrollTween()
+      ScrollTrigger.killAll()
       if (resizeObserver) {
         resizeObserver.disconnect();
       }
