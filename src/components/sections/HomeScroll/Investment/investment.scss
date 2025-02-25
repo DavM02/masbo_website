@@ -1,7 +1,8 @@
 #home-scroll {
     .investment-projects {
-
-        .section-block {
+        width: calc(100vw + (100vw / 3));
+        @include responsive-width(100vw);
+         .section-block {
 
             &:nth-child(1),
             &:nth-child(3) {

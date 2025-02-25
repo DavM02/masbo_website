@@ -1,7 +1,7 @@
 import { useGSAP } from "@gsap/react";
 import useMediaQ from "./useMediaQ";
-import { getScrollBar, getScrollTween } from "../components/Scroll/ScrollAccess";
-
+import { getScrollBar } from "../components/Scroll/ScrollAccess";
+import {ScrollTrigger} from "gsap/ScrollTrigger";
 export default function useAnimation(gsapAnimation = () => {}, scope, returnFn = () => {}) {
  
 
@@ -29,18 +29,19 @@ export default function useAnimation(gsapAnimation = () => {}, scope, returnFn =
 
       if (gsapAnimation) {
         requestAnimationFrame(() => {
-    
+        
           const options = {
             scroller: match ? "#scroll-wrapper" : window,
           };
-
+          
           if (match) {
            
-            options.containerAnimation = getScrollTween()
+            options.containerAnimation = ScrollTrigger.getById("_home-scroll");
+        
           } 
-     
-          gsapAnimation(options);  
-
+      
+          gsapAnimation(options); 
+    
         })
       }
       return () => {

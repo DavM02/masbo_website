@@ -4,7 +4,7 @@ import { gsap } from "gsap/all";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import useAnimation from "@hooks/useAnimation";
 import { useGSAP } from '@gsap/react';
-import { setScrollTween, setScrollBar, clearScrollBar, clearScrollTween } from "./ScrollAccess";
+import { setScrollTween, setScrollBar, clearScrollBar } from "./ScrollAccess";
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export default function SmoothScroll({ children }) {
@@ -12,7 +12,7 @@ export default function SmoothScroll({ children }) {
   const scrollRef = useRef(null);
 
   const { width, height, isLargeScreen} = useAnimation()
-console.log(ScrollTrigger.getAll())
+ 
 
   useGSAP(() => {
 
@@ -59,30 +59,29 @@ console.log(ScrollTrigger.getAll())
       }
     };
     
-    const createAnimation = () => {
-      if (width && height) {
+    // const createAnimation = () => {
+    //   if (width && height) {
  
-        let scrollTween = gsap.to("#home-scroll > .row", {
-          x: isLargeScreen ? "-700vw" : () => -(1762 + 3271 + window.innerWidth * 4 + (window.innerWidth / 3)), 
-          ease: "none",
-          scrollTrigger: {
-            trigger: "#home-scroll",
-            start: "top top",
-            end: () => "+=" + window.innerHeight,
-            pin: true,
-            scrub: true,
-            invalidateOnRefresh: true
-          }
-        });
+    //     let scrollTween = gsap.to("#home-scroll > .row", {
+    //       x: isLargeScreen ? "-700vw" : () => -(1762 + 3271 + window.innerWidth * 4 + (window.innerWidth / 3 * 2)), 
+    //       ease: "none",
+    //       scrollTrigger: {
+    //         trigger: "#home-scroll",
+    //         start: "top top",
+    //         end: () => "+=" + window.innerHeight,
+    //         pin: true,
+    //         scrub: true,
+    //         invalidateOnRefresh: true
+    //       }
+    //     });
 
-        setScrollTween(scrollTween)
-      };
+    //     setScrollTween(scrollTween)
+    //   };
 
-    }
+    // }
 
     const handleResize = () => {
       ScrollTrigger.refresh();
-
     };
 
     resizeObserver = new ResizeObserver(handleResize);
@@ -93,7 +92,7 @@ console.log(ScrollTrigger.getAll())
     if((width && height) || isLargeScreen) {
       initScrollbar();
     } 
-    createAnimation();
+    // createAnimation();
  
     return () => {
  

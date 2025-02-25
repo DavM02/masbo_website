@@ -18,7 +18,7 @@ export default function ServiceItem({ img, icon, title, className }) {
           alt='icon'
           src={icon} />
 
-        <h6>{title}</h6>
+        <h5>{title}</h5>
       </div>
     </div>
   );

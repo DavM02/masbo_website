@@ -21,17 +21,23 @@ export default function Header() {
     });
 
     if ((width && height) || isLargeScreen) {
-      gsap.to("#home-scroll", {
+      gsap.to("header", {
         scrollTrigger: {
-          trigger: "#home-scroll",
-          start: "top top",
-          end: "bottom bottom",
+          trigger: ".about",
+          start: "left 0%",
+          end: "right 0%",
           onEnter: () => {
             gsap.set("header", { backgroundColor: "transparent" });
           },
           onEnterBack: () => {
+            gsap.set("header", { backgroundColor: "transparent" });
+          },
+          onLeaveBack: () => {
             gsap.set("header", { clearProps: "backgroundColor" });
           },
+          onLeave: () => {
+            gsap.set("header", { clearProps: "backgroundColor" });
+          }
         },
       });
     }

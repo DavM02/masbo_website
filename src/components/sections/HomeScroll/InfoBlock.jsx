@@ -6,7 +6,7 @@ const InfoBlock = ({ icon, title, text }) => (
       alt="icon"
       src={icon} />
 
-    <h6>{title}</h6>
+    <h5>{title}</h5>
 
     <p
       className="to-middle text-center text-white capitalize"

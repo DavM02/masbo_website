@@ -9,7 +9,9 @@
     }
 }
 
-
+.pin-spacer {
+    will-change: width, height, padding;
+}
 
 body,
 html {
@@ -147,13 +149,14 @@ body {
     position: absolute;
     height: 100%;
     left: 50px;
-z-index: 105;
+    z-index: 105;
+
     li {
         cursor: pointer;
+
         &:hover path {
             fill: $white
         }
     }
-
 
 }

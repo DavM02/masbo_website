@@ -3,9 +3,7 @@ const tweenMap = new WeakMap();
 const tweenKey = {}
 
 export function setScrollTween(tween) {
-  if (getScrollTween()) {
-    getScrollTween().kill()
-  }
+  clearScrollTween()
   tweenMap.set(tweenKey, tween);
   
 }

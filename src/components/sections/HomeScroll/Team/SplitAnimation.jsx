@@ -7,10 +7,11 @@ export default function SplitAnimation() {
   const titleRef = useRef(null);
 
   const titleText = "Meeting our team"
-  .split("")
-  .map((letter, i) => (
-    <span key={i}>{letter === " " ? "\u00A0" : letter}</span>
-  ));
+    .split("")
+    .map((letter, i) => (
+      <span
+        key={i}>{letter === " " ? "\u00A0" : letter}</span>
+    ));
 
   useAnimation((options) => {
     const items = gsap.utils.toArray(".team li");
@@ -49,14 +50,20 @@ export default function SplitAnimation() {
     });
   });
 
-  return <>
-  <h1 ref={titleRef}>{titleText}</h1> 
-  <ul className="row">
+  return (<>
+    <h1
+      ref={titleRef}>{titleText}</h1> 
+
+    <ul
+      className="row">
       {teamImages.map((el, i) => (
-        <li key={i}>
-          <img src={el} alt={`team-img-${i + 1}`} />
+        <li
+          key={i}>
+          <img
+            src={el}
+            alt={`team-img-${i + 1}`} />
         </li>
       ))}
     </ul>
-    </>    
+  </>)    
 }
