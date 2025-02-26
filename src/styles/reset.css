@@ -51,9 +51,13 @@ textarea {
   resize: none;
 }
 
-/* section {
-  background-attachment: fixed;
-} */
+section {
+  /* background-attachment: fixed; */
+
+  
+    contain: layout paint;
+ 
+}
 
 /* 
 
