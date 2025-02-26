@@ -128,7 +128,7 @@
                 text-align: start !important;
             }
 
-            .center-y {
+            .center-y:not(button .center-y) {
                 align-items: flex-start;
             }
         }

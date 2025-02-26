@@ -5,8 +5,9 @@
         background-size: cover;
         background-repeat: repeat;
         position: relative;
-        @include full-size-on-mobile();
         padding: 100px 0;
+        @include full-size-on-mobile();
+
 
         &::after {
             @include overlay($black, 50%)
@@ -39,6 +40,8 @@
                 border-radius: 50%;
                 outline: 2.4px solid $white;
                 overflow: hidden;
+                height: clamp(2.6875rem, 2.2698rem + 1.8065vw, 4.4375rem);
+                aspect-ratio: 1/1;
 
                 @for $item from 1 through 5 {
 
@@ -47,10 +50,6 @@
                     }
                 }
 
-                img {
-                    height:  clamp(2.6875rem, 2.2698rem + 1.8065vw, 4.4375rem);
-                    aspect-ratio: 1/1;
-                }
             }
         }
     }
