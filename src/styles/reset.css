@@ -52,10 +52,7 @@ textarea {
 }
 
 section {
-  /* background-attachment: fixed; */
-
-  
-    contain: layout paint;
+  background-attachment: fixed;
  
 }
 

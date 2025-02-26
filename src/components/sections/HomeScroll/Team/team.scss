@@ -3,6 +3,7 @@
         height: calc(100% - 72px) !important;
         background-image: url('/src/assets/bg.jpg');
         background-size: cover;
+        background-attachment: initial !important;
         background-repeat: repeat;
         position: relative;
         padding: 100px 0;
