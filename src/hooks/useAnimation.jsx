@@ -1,6 +1,6 @@
 import { useGSAP } from "@gsap/react";
 import useMediaQ from "./useMediaQ";
-import { getScrollBar } from "../components/Scroll/ScrollAccess";
+import { getScrollBar, getScrollTween } from "../components/Scroll/ScrollAccess";
 import {ScrollTrigger} from "gsap/ScrollTrigger";
 export default function useAnimation(gsapAnimation = () => {}, scope, returnFn = () => {}) {
  
@@ -36,7 +36,7 @@ export default function useAnimation(gsapAnimation = () => {}, scope, returnFn =
           
           if (match) {
            
-            options.containerAnimation = ScrollTrigger.getById("_home-scroll");
+            options.containerAnimation = getScrollTween()
         
           } 
       

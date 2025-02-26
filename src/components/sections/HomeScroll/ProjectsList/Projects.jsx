@@ -4,7 +4,6 @@ import img12 from "@assets/img-12.jpg"
 import { gsap } from 'gsap';
 import useAnimation from '@hooks/useAnimation'
 import ProjectItem from "./ProjectItem";
-import {ScrollTrigger} from "gsap/ScrollTrigger";
 
 const data = [
   {
@@ -45,7 +44,7 @@ export default function Projects() {
         ...options,
       }
     });
-
+ 
   })
  
 

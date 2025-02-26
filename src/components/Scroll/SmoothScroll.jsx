@@ -59,26 +59,27 @@ export default function SmoothScroll({ children }) {
       }
     };
     
-    // const createAnimation = () => {
-    //   if (width && height) {
+    const createAnimation = () => {
+      if (width && height) {
  
-    //     let scrollTween = gsap.to("#home-scroll > .row", {
-    //       x: isLargeScreen ? "-700vw" : () => -(1762 + 3271 + window.innerWidth * 4 + (window.innerWidth / 3 * 2)), 
-    //       ease: "none",
-    //       scrollTrigger: {
-    //         trigger: "#home-scroll",
-    //         start: "top top",
-    //         end: () => "+=" + window.innerHeight,
-    //         pin: true,
-    //         scrub: true,
-    //         invalidateOnRefresh: true
-    //       }
-    //     });
+        let scrollTween = gsap.to("#home-scroll > .row", {
+          x: isLargeScreen ? "-700vw" : () => -(1762 + 3271 + window.innerWidth * 4 + (window.innerWidth / 3 * 2)), 
+          ease: "none",
+          scrollTrigger: {
+            trigger: "#home-scroll",
+            start: "top top",
+            end: () => "+=" + window.innerHeight,
+            pin: true,
+            scrub: true,
+            invalidateOnRefresh: true,
 
-    //     setScrollTween(scrollTween)
-    //   };
+          }
+        });
 
-    // }
+        setScrollTween(scrollTween)
+      };
+
+    }
 
     const handleResize = () => {
       ScrollTrigger.refresh();
@@ -92,7 +93,7 @@ export default function SmoothScroll({ children }) {
     if((width && height) || isLargeScreen) {
       initScrollbar();
     } 
-    // createAnimation();
+    createAnimation();
  
     return () => {
  
