@@ -99,11 +99,19 @@ body {
         left: 0;
         background: url("/src/assets/noise.gif") repeat;
         z-index: 888;
-        opacity: 7%;
+        opacity: 15%;
         pointer-events: none;
-        filter: brightness(0.5);
-        // mix-blend-mode: soft-light;
+        mix-blend-mode: soft-light;
         background-size: 150px;
+
+        @media (hover: none) {
+            & {
+                mix-blend-mode: unset;
+                -webkit-mix-blend-mode: unset;
+                filter: brightness(0.5);
+                opacity: 7%;
+            }
+        }
     }
 }
 
