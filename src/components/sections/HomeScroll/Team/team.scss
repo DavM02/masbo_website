@@ -41,11 +41,12 @@
                 cursor: initial;
                 border-radius: 50%;
                 outline: 2.4px solid $white;
+                outline-offset: -1px;
                 overflow: hidden;
 
 
                 img {
-                height: $imgSize;
+                    height: $imgSize;
                     width: $imgSize;
                 }
 

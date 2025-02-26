@@ -99,16 +99,11 @@ body {
         left: 0;
         background: url("/src/assets/noise.gif") repeat;
         z-index: 888;
-        opacity: 3%;
+        opacity: 15%;
         pointer-events: none;
+        backdrop-filter: brightness(1.1) contrast(1.1);
         // mix-blend-mode: soft-light;
-        filter: contrast(1.2) brightness(0.9);
-        background-size: 350px;
-        // will-change: transform;
-        // image-rendering: pixelated;
-        // transform: translateZ(0);
-        // perspective: 1px;
-        // background-attachment: local;
+        background-size: 150px;
     }
 }
 
