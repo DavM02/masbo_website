@@ -10,7 +10,6 @@
 }
 
 
-
 .pin-spacer {
     will-change: width, height, padding;
 }
@@ -106,13 +105,13 @@ body {
         z-index: 888;
         opacity: 15%;
         pointer-events: none;
-        mix-blend-mode: soft-light;
+        // mix-blend-mode: soft-light;
         background-size: 150px;
-        will-change: transform;
-        image-rendering: pixelated;
-        transform: translateZ(0);
-        perspective: 1px;
-        background-attachment: local;
+        // will-change: transform;
+        // image-rendering: pixelated;
+        // transform: translateZ(0);
+        // perspective: 1px;
+        // background-attachment: local;
     }
 }
 
