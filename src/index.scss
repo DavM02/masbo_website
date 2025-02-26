@@ -101,8 +101,7 @@ body {
         z-index: 888;
         opacity: 15%;
         pointer-events: none;
-        backdrop-filter: brightness(1.1) contrast(1.1);
-        // mix-blend-mode: soft-light;
+        mix-blend-mode: soft-light;
         background-size: 150px;
     }
 }
