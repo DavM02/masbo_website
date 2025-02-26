@@ -23,8 +23,10 @@ html {
 }
 
 body,
+#app {
+height: auto;
+}
 html,
-#app,
 #root {
     /* width: 100%; */
     height: 100%;
@@ -32,6 +34,7 @@ html,
 
 main {
     min-height: 100vh;
+    height: auto;
     // flex-grow: 1;
 }
 
@@ -103,11 +106,11 @@ body {
         pointer-events: none;
         mix-blend-mode: soft-light;
         background-size: 150px;
-        will-change: transform;
-        image-rendering: pixelated;
-        transform: translateZ(0);
-        perspective: 1px;
-        background-attachment: local;
+        // will-change: transform;
+        // image-rendering: pixelated;
+        // transform: translateZ(0);
+        // perspective: 1px;
+        // background-attachment: local;
     }
 }
 
