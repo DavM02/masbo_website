@@ -103,8 +103,11 @@ body {
         pointer-events: none;
         mix-blend-mode: soft-light;
         background-size: 150px;
+        will-change: transform;
         image-rendering: pixelated;
-        background-attachment: fixed;
+        transform: translateZ(0);
+        perspective: 1px;
+        background-attachment: local;
     }
 }
 
