@@ -13,6 +13,11 @@
     will-change: width, height, padding;
 }
 
+html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
 body,
 html {
     overscroll-behavior: none;
@@ -104,7 +109,7 @@ body {
         mix-blend-mode: soft-light;
         background-size: 150px;
 
-        @media (hover: none) {
+        @include touch-only {
             & {
                 mix-blend-mode: unset;
                 -webkit-mix-blend-mode: unset;

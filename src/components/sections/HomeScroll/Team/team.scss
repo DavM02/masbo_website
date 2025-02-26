@@ -3,15 +3,14 @@
         height: calc(100% - 72px) !important;
         background-image: url('/src/assets/bg.jpg');
         background-size: cover;
-        background-attachment: initial !important;
         background-repeat: repeat;
+        background-position: center;
         position: relative;
         padding: 100px 0;
         @include full-size-on-mobile();
 
-
         &::after {
-            @include overlay($black, 50%)
+            @include overlay($overlay, 50%)
         }
 
         .container {

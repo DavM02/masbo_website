@@ -38,18 +38,21 @@ $transition-1: cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
 @mixin full-size-on-mobile($size: null, $width: 1024px, $height: 694px) {
-    @media all and (max-width: $width), (max-height: $height) {
+
+    @media all and (max-width: $width),
+    (max-height: $height) {
         width: 100% !important;
         margin-top: 0 !important;
 
         @if $size {
             @if ($size =='large') {
-                
+
                 height: calc(clamp(30.25rem, 22.4495rem + 33.282vw, 43.75rem) + 100px) !important;
-                & > div::nth-child(1) {
+
+                &>div::nth-child(1) {
                     padding: 50px 0;
                 }
-             }
+            }
 
             @else {
                 height: clamp(15.25rem, 6.005rem + 39.4453vw, 31.25rem) !important;
@@ -63,5 +66,38 @@ $transition-1: cubic-bezier(0.645, 0.045, 0.355, 1);
     @media all and (min-height: 2200px) and (min-width: 1500px),
     (min-width: 3000px) {
         width: $width !important;
+    }
+}
+
+@mixin touch-only {
+    @media (hover: none) {
+        @content;
+    }
+}
+
+@mixin hover-with-dot() {
+    position: relative;
+
+    &::after {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background-color: $white;
+        content: "";
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+        left: -12px;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: $transition-1 0.5s opacity;
+    }
+
+    &:hover,
+    &.active {
+
+        &::after {
+            opacity: 1;
+        }
     }
 }

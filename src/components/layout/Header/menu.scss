@@ -1,30 +1,7 @@
 header {
     a:not(.logo) {
 
-        position: relative;
-
-        &::after {
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            background-color: $white;
-            content: "";
-            position: absolute;
-            opacity: 0;
-            pointer-events: none;
-            left: -12px;
-            top: 50%;
-            transform: translateY(-50%);
-            transition: $transition-1 0.5s opacity;
-        }
-
-        &:hover,
-        &.active {
-
-            &::after {
-                opacity: 1;
-            }
-        }
+        @include hover-with-dot()
     }
 
     .menu-bars {

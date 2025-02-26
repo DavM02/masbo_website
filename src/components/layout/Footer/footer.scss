@@ -132,6 +132,10 @@ footer {
         border-top: 0.2px solid $line-bg;
     }
 
+    li {
+        @include hover-with-dot()
+    }
+
     @media all and (max-width: 903px) {
 
         .line {
