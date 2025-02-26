@@ -37,12 +37,17 @@
             }
 
             li {
+                $imgSize: clamp(2.6875rem, 2.2698rem + 1.8065vw, 4.4375rem);
                 cursor: initial;
                 border-radius: 50%;
                 outline: 2.4px solid $white;
                 overflow: hidden;
-                height: clamp(2.6875rem, 2.2698rem + 1.8065vw, 4.4375rem);
-                aspect-ratio: 1/1;
+
+
+                img {
+                height: $imgSize;
+                    width: $imgSize;
+                }
 
                 @for $item from 1 through 5 {
 
