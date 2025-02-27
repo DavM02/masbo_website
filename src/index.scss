@@ -2,7 +2,7 @@
 @import './styles/reset.css';
 @import "./styles/helpers.css";
 @import "./components/ui/buttons/buttons.scss";
-
+ 
 @media all and (max-width: 320px) {
     body {
         width: 320px;
@@ -44,6 +44,7 @@ main {
     inset: 0;
     width: 100%;
     perspective: 1px;
+    backface-visibility: hidden;
 }
 
 .scroll-content {
@@ -53,6 +54,9 @@ main {
     // flex-direction: column;
     will-change: transform;
     height: inherit;
+    backface-visibility: hidden;
+    perspective: 1px;
+
 }
 
 .scrollbar-thumb-y {
@@ -65,7 +69,14 @@ main {
     width: 11px !important;
 }
 
+.lazy-load-image-background.opacity {
+    opacity: 0;
+}
 
+.lazy-load-image-background.opacity.lazy-load-image-loaded {
+    opacity: 1;
+    transition: opacity .7s .3s;
+}
 
 div[id*="page"],
 section {
@@ -118,35 +129,17 @@ body {
             }
         }
     }
-}
 
-.lazy-load-image-background.blur {
-    filter: blur(15px);
+    &.safari {
+        &::after {
+            mix-blend-mode: unset;
+            -webkit-mix-blend-mode: unset;
+            filter: brightness(0.5);
+            opacity: 7%;
+        }
+    }
 }
-
-.lazy-load-image-background.blur.lazy-load-image-loaded {
-    filter: blur(0);
-    transition: filter 0.3s;
-}
-
-.lazy-load-image-background.blur>img {
-    opacity: 0;
-}
-
-.lazy-load-image-background.blur.lazy-load-image-loaded>img {
-    opacity: 1;
-    transition: opacity 0.3s;
-}
-
-.lazy-load-image-background.opacity {
-    opacity: 0;
-}
-
-.lazy-load-image-background.opacity.lazy-load-image-loaded {
-    opacity: 1;
-    transition: opacity 0.3s;
-}
-
+ 
 .placeholder-1 {
     background-color: $blue;
 }

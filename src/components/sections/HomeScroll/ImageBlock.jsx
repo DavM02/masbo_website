@@ -7,7 +7,7 @@ const ImageBlock = ({ src, alt, className }) => (
       src={src}
       width="100%"
       height="100%"
-      effect="blur"
+      effect="opacity"
       alt={alt} />
   </div>
 );

@@ -8,7 +8,7 @@ export default function ProjectItem({el}) {
           src={el.img}
           width={"100%"}
           height={"127px"}
-          effect="blur"
+          effect="opacity"
           alt={'project-image'} />
       </div>
 

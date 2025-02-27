@@ -51,9 +51,9 @@ textarea {
   resize: none;
 }
 
-/* section {
-  background-attachment: fixed;
-} */
+section:not(.safari section) {
+  background-attachment: fixed !important;
+}
 
 /* 
 

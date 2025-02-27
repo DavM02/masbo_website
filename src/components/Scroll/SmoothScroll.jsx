@@ -72,7 +72,7 @@ export default function SmoothScroll({ children }) {
             pin: true,
             scrub: true,
             invalidateOnRefresh: true,
-
+            force3D: true,
           }
         });
 

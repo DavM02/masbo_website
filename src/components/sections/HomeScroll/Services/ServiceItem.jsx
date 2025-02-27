@@ -8,7 +8,7 @@ export default function ServiceItem({ img, icon, title, className }) {
         src={img}
         width={'100%'}
         height={'100%'}
-        effect='blur'
+        effect='opacity'
         alt={title} />
 
       <div
