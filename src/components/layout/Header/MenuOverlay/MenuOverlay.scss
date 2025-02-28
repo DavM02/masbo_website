@@ -49,7 +49,7 @@
             }
 
 
-            a {
+            a:not(:has(svg)) {
                 @include hover-with-dot()
             }
         }
