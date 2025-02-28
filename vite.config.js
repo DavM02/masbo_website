@@ -11,7 +11,7 @@ import mergeLonghand from "postcss-merge-longhand";
 import mergeRulePlus from "postcss-merge-rules-plus";
 import svgr from "vite-plugin-svgr";
 import sortMediaQueries from 'postcss-sort-media-queries'
-
+import postcssPresetEnv from 'postcss-preset-env';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
@@ -24,7 +24,7 @@ export default defineConfig({
     allowedHosts: [ "q5r5mx-5173.csb.app" ],
   },
   build: {
-    // minify: false,
+    minify: false,
     rollupOptions: {
       plugins: [ terser() ],
     },
@@ -72,7 +72,13 @@ export default defineConfig({
       plugins: [ autoprefixer,
         mergeLonghand,
         mergeRulePlus.default,
-        sortMediaQueries
+        sortMediaQueries,
+        postcssPresetEnv({
+          stage: 2,
+          features: {
+            'nesting-rules': true
+          }
+        })
       ],
     },
     preprocessorOptions: {

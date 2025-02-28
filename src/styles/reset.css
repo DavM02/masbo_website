@@ -55,6 +55,11 @@ section:not(.safari section) {
   background-attachment: fixed !important;
 }
 
+section {
+  backface-visibility: hidden !important;
+  min-height: 0vw;
+}
+
 /* 
 
 

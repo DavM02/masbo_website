@@ -26,18 +26,6 @@ footer {
                 display: flex;
                 width: 100%;
                 padding-bottom: 42px;
-
-                a {
-                    width: 29px;
-                    height: 29px;
-                    aspect-ratio: 1/1;
-                    border-radius: 50%;
-                    border: 1px solid $text-gray;
-
-                    path {
-                        fill: $text-gray;
-                    }
-                }
             }
         }
 
@@ -109,7 +97,7 @@ footer {
     }
 
     .line {
-        background-color: $line-bg;
+        background-color: line-bg(0.5);
         width: 0.5px;
         height: auto;
     }
@@ -123,16 +111,20 @@ footer {
         }
     }
 
+    a:has(svg) {
+        margin-top: 4px;
+    }
+
     .logo {
         margin-bottom: 25px;
     }
 
     .label {
         padding: 20px 0;
-        border-top: 0.2px solid $line-bg;
+        border-top: 0.2px solid line-bg(0.5);
     }
 
-    li {
+    li:not(.mobile-socials li) {
         @include hover-with-dot()
     }
 

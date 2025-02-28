@@ -22,6 +22,7 @@
                 .placeholder-1 {
                     width: 100%;
                     height: 127px;
+                    will-change: clip-path;
                 }
 
                 @for $item from 1 through $count {

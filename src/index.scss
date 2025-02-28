@@ -2,7 +2,7 @@
 @import './styles/reset.css';
 @import "./styles/helpers.css";
 @import "./components/ui/buttons/buttons.scss";
- 
+
 @media all and (max-width: 320px) {
     body {
         width: 320px;
@@ -139,7 +139,7 @@ body {
         }
     }
 }
- 
+
 .placeholder-1 {
     background-color: $blue;
 }
@@ -166,4 +166,18 @@ body {
         }
     }
 
+}
+
+.mobile-socials {
+    a {
+        width: 29px;
+        height: 29px;
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+        border: 1px solid $text-gray;
+
+        path {
+            fill: $text-gray;
+        }
+    }
 }

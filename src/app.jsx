@@ -8,7 +8,7 @@ import Footer from '@components/layout/Footer/Footer'
 export function App() {
  
   const location = useLocation()
-
+  
   return (
     <>
   

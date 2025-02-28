@@ -1,7 +1,7 @@
 @import './menu.scss';
 
 header {
-    border-bottom: 0.5px solid $line-bg;
+    border-bottom: 0.5px solid line-bg(0.5);
     z-index: 55;
     position: fixed;
     top: 0;

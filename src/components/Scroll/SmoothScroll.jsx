@@ -5,7 +5,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import useAnimation from "@hooks/useAnimation";
 import { useGSAP } from '@gsap/react';
 import { setScrollTween, setScrollBar, clearScrollBar } from "./ScrollAccess";
+import { ScrollbarPlugin } from "smooth-scrollbar";
 gsap.registerPlugin(ScrollTrigger, useGSAP);
+
 
 export default function SmoothScroll({ children }) {
 
@@ -121,3 +123,17 @@ export default function SmoothScroll({ children }) {
     </div>
   );
 }
+
+class OverflowPlugin extends ScrollbarPlugin {
+  static pluginName = "overflow";
+
+  static defaultOptions = {
+    open: false,
+  };
+
+  transformDelta(delta) {
+    return this.options.open ? { x: 0, y: 0 } : delta;
+  }
+}
+
+Scrollbar.use(OverflowPlugin);

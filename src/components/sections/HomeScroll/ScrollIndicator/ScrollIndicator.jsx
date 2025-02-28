@@ -22,7 +22,6 @@ export default function ScrollIndicator() {
     
   })
  
-
   return (width && height &&
     createPortal(<div
       className="scroll-indicator">

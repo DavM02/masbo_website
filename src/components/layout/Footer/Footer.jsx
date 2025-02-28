@@ -74,15 +74,15 @@ export default function Footer() {
            
 
             <ul>
-              <li> <h4> <Link>  Arhitexture</Link></h4> </li> 
+              <li> <Link>  Arhitexture</Link> </li> 
 
-              <li> <h4> <Link>Modern design</Link></h4> </li> 
+              <li>   <Link>Modern design</Link> </li> 
 
-              <li> <h4> <Link>Our Services</Link></h4> </li> 
+              <li>   <Link>Our Services</Link> </li> 
 
-              <li> <h4> <Link>How we work</Link></h4> </li> 
+              <li>   <Link>How we work</Link> </li> 
 
-              <li> <h4> <Link>Order the project</Link></h4> </li> 
+              <li>   <Link>Order the project</Link> </li> 
             </ul>
           </div>
 
@@ -90,13 +90,13 @@ export default function Footer() {
             <h5>Hot links</h5>
 
             <ul>
-              <li> <h4> <Link>       Our team</Link></h4> </li> 
+              <li>   <Link>       Our team</Link> </li> 
 
-              <li> <h4> <Link>Our Services</Link></h4> </li> 
+              <li>   <Link>Our Services</Link> </li> 
 
-              <li> <h4> <Link>   How to order </Link></h4> </li> 
+              <li>   <Link>   How to order </Link> </li> 
 
-              <li> <h4> <Link>Last project</Link></h4> </li> 
+              <li>   <Link>Last project</Link> </li> 
             </ul>
           </div>
 
@@ -114,7 +114,7 @@ export default function Footer() {
                   <Facebook />
                 </a>
 
-                <h4>Facebook</h4>
+                <h4>  Facebook</h4>
                 
               </li>
 
@@ -126,7 +126,7 @@ export default function Footer() {
                   <Instagram />
                 </a>
 
-                <h4>Instagram</h4>
+                <h4>   Instagram</h4>
           
               
                 
@@ -137,7 +137,7 @@ export default function Footer() {
                 <a
                   href='#'> <Twitter /></a>
 
-                <h4>Twiter</h4>
+                <h4>  Twiter</h4>
                 
               </li>
 
@@ -146,7 +146,7 @@ export default function Footer() {
                 <a
                   href='#'><Youtube /></a>
 
-                <h4>Youtube</h4>
+                <h4>   Youtube</h4>
                 
               </li>
 
@@ -155,7 +155,7 @@ export default function Footer() {
                 <a
                   href='#'> <Telegram /></a>
 
-                <h4>Telegram</h4>
+                <h4>    Telegram</h4>
                 
               </li>
             </ul>

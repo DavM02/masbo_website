@@ -5,7 +5,7 @@ import useAnimation from "@hooks/useAnimation";
 import MenuBars from "./MenuBars";
 import Menu from "./Menu";
 import Logo from "./Logo";
-
+ 
 export default function Header() {
   const { width, height, isLargeScreen } = useAnimation((options) => {
     gsap.to("header", {
@@ -43,6 +43,8 @@ export default function Header() {
     }
   },);
 
+ 
+
   return (
     <header>
       <div
@@ -68,6 +70,8 @@ export default function Header() {
           </div>
         </div>
       </div>
+
+
     </header>
   );
 }

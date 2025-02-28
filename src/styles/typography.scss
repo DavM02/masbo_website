@@ -33,7 +33,7 @@ h2,
 h3,
 h4,
 h5,
-h5 {
+h5, h6, footer li:not(:has(svg)) a, .menu-overlay li:not(:has(svg)) a {
     color: $white;
     font-family: "font-main-bold";
 }
@@ -97,12 +97,17 @@ h2 {
     line-height: 65.5px;
 }
 
-h4 {
+h3, .menu-overlay li:not(:has(svg), .mobile-footer li) a {
+    font-size: clamp(1.375rem, 1.2233rem + 0.6472vw, 2rem);
+    line-height: clamp(1.664375rem, 1.4808rem + 0.7832vw, 2.420625rem);
+}
+
+h4, footer li:not(:has(svg)) a {
     font-size: 22px;
     line-height: 42px;
 }
 
-h5 {
+h5, .mobile-footer li:not(:has(svg)) a {
     letter-spacing: 0.4px;
 
     &:not(.static) {

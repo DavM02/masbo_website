@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import useMediaQ from "@hooks/useMediaQ";
+ 
 
 export default function Menu() {
   const navLinks = [
@@ -27,6 +28,8 @@ export default function Menu() {
         </li>
       ))}
     </ul>
+
+
   </nav>)
 
 }
