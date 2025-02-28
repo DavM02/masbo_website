@@ -540,8 +540,8 @@ body {
   position: relative;
 }
 
-body:not(.safari) {
-  background-attachment: fixed !important;
+body:not(.safari) section {
+  background-attachment: fixed;
 }
 
 body::after {
@@ -602,7 +602,7 @@ body.safari::after {
 }
 
 @media (hover: none) {
-  body {
+  body section {
     background-attachment: scroll !important;
     background-attachment: initial !important;
   }
