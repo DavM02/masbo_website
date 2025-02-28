@@ -608,6 +608,12 @@ body.safari::after {
     background-attachment: scroll !important;
     background-attachment: initial !important;
   }
+  body::after {
+    mix-blend-mode: initial;
+    -webkit-mix-blend-mode: unset;
+    filter: brightness(0.5);
+    opacity: 0.07;
+  }
 }#home, #home::after {
   width: 100%;
 }
