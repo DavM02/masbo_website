@@ -51,9 +51,7 @@ textarea {
   resize: none;
 }
 
-body:not(.safari):not(.ios) section {
-  background-attachment: fixed !important;
-}
+
 
 section {
   backface-visibility: hidden !important;

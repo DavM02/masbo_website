@@ -106,6 +106,14 @@ body {
     background-color: $black;
     position: relative;
 
+    &:not(.safari) {
+        background-attachment: fixed !important;
+    }
+
+    @include touch-only {
+        background-attachment: unset !important;
+    }
+
     &::after {
         content: "";
         top: 0;
