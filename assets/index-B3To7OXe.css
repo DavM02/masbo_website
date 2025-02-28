@@ -73,9 +73,9 @@ textarea {
   resize: none;
 }
 
-body:not(.safari):not(.ios) section {
+/* body:not(.safari):not(.ios) section {
   background-attachment: fixed !important;
-}
+} */
 
 section, #scroll-wrapper, .scroll-content {
   backface-visibility: hidden !important;
@@ -1175,10 +1175,10 @@ header .container > .row > div:nth-last-of-type(1) {
 #transition-root .menu-overlay .row:has(ul):not(.schemes) {
   width: 100%;
 }
-#transition-root .menu-overlay .row:has(ul):not(.schemes) a {
+#transition-root .menu-overlay .row:has(ul):not(.schemes) a:not(:has(svg)) {
   position: relative;
 }
-#transition-root .menu-overlay .row:has(ul):not(.schemes) a::after {
+#transition-root .menu-overlay .row:has(ul):not(.schemes) a:not(:has(svg))::after {
   width: 7px;
   height: 7px;
   border-radius: 50%;
@@ -1192,7 +1192,7 @@ header .container > .row > div:nth-last-of-type(1) {
   transform: translateY(-50%);
   transition: cubic-bezier(0.645, 0.045, 0.355, 1) 0.5s opacity;
 }
-#transition-root .menu-overlay .row:has(ul):not(.schemes) a:hover::after, #transition-root .menu-overlay .row:has(ul):not(.schemes) a.active::after {
+#transition-root .menu-overlay .row:has(ul):not(.schemes) a:not(:has(svg)):hover::after, #transition-root .menu-overlay .row:has(ul):not(.schemes) a:not(:has(svg)).active::after {
   opacity: 1;
 }
 #transition-root .menu-overlay .schemes {
