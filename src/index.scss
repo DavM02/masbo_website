@@ -137,14 +137,14 @@ body {
         mix-blend-mode: soft-light;
         background-size: 150px;
 
-        // @include touch-only {
-        //     & {
-        //         mix-blend-mode: unset;
-        //         -webkit-mix-blend-mode: unset;
-        //         filter: brightness(0.5);
-        //         opacity: 7%;
-        //     }
-        // }
+        @include touch-only {
+            & {
+                mix-blend-mode: unset;
+                -webkit-mix-blend-mode: unset;
+                filter: brightness(0.5);
+                opacity: 7%;
+            }
+        }
     }
 
     &.safari {
