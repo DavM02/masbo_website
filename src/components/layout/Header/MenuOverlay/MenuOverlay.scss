@@ -65,15 +65,18 @@
 
                 img {
                     object-fit: contain;
+                    margin-bottom: 10px;
                 }
+
+
             }
         }
 
-        p {
+        p:not(.mobile-footer p) {
             z-index: 5;
             max-width: 531px;
             height: 11%;
-            margin-top: 10%;
+            margin-top: 15%;
         }
 
         @media all and (max-width: 600px) {
@@ -125,6 +128,8 @@
                 img {
                     display: none;
                 }
+
+
             }
 
             >.row {

@@ -92,7 +92,7 @@ function MenuOverlay({ openTl, closeTl,}) {
       openTl.current?.kill();
       closeTl.current?.kill();
       gsap.set(".transition path", {
-        attr: { d: closeEnd, }
+        attr: { d: closeEnd, fill: "#E9E9E9" }
       });
       gsap.set('.close-menu', { clearProps: "pointerEvents" })
       getScrollBar()?.updatePluginOptions('overflow', { open: false })

@@ -6,6 +6,7 @@ import Youtube from "@assets/icons/youtube.svg?react";
 
 export default function MobileSocials() {
 
+
   const socials = [
     {
       name: "facebook",
@@ -29,19 +30,22 @@ export default function MobileSocials() {
     },
   ];
 
+  
+
+
   return (
     <ul
       className='mobile-socials gap-15 s-between'>
       {
         socials.map((el, i) => {
-          <li
+          return (<li
             key={i}>
             <a
               href='#'
               className='center-gr'>
               {el.icon}    
             </a>
-          </li>
+          </li>)
         })
       }
     </ul>
