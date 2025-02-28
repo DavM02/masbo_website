@@ -4,6 +4,7 @@ import Twitter from "@assets/icons/twitter.svg?react";
 import Telegram from "@assets/icons/telegram.svg?react";
 import Youtube from "@assets/icons/youtube.svg?react";
 
+
 export default function MobileSocials() {
 
 

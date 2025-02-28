@@ -1,5 +1,5 @@
 
-import MobileSocials from "@components/MobileSocials/MobileSocials";
+import MobileSocials from "@components/shared/MobileSocials/MobileSocials";
 import HotLinks from "./HotLinks";
 export default function MobileFooter() {
   return (

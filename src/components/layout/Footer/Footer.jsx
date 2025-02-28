@@ -8,7 +8,7 @@ import Telegram from "@assets/icons/telegram.svg?react";
 import Youtube from "@assets/icons/youtube.svg?react";
 import { Link } from 'react-router-dom';
 import logo from "@assets/icons/MASBO_Logo 2.svg";
-import MobileSocials from '@components/MobileSocials/MobileSocials';
+import MobileSocials from '@components/shared/MobileSocials/MobileSocials';
 
 export default function Footer() {
   return (<footer>
