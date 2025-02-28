@@ -27,6 +27,8 @@
 
   <script type="module" src="/src/main.jsx"></script>
   <script>
+
+  document.addEventListener("DOMContentLoaded", function () {
     if (navigator.userAgent.includes("Safari") && !navigator.userAgent.includes("Chrome")) {
       document.body.classList.add("safari");
     }
@@ -35,9 +37,10 @@
       return /iPhone|iPad|iPod/i.test(navigator.userAgent);
     }
 
-   if(isIOS()) {
-    document.body.classList.add("ios");
-   }
+    if (isIOS()) {
+      document.body.classList.add("ios");
+    }
+  });
 
   </script>
 
