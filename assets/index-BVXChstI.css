@@ -73,6 +73,10 @@ textarea {
   resize: none;
 }
 
+body:not(.safari):not(.ios) section {
+  background-attachment: fixed !important;
+}
+
 section, #scroll-wrapper, .scroll-content {
   backface-visibility: hidden !important;
 }
@@ -555,7 +559,7 @@ body.safari::after {
   mix-blend-mode: initial;
   -webkit-mix-blend-mode: unset;
   filter: brightness(0.5);
-  opacity: 0.07;
+  opacity: 0.09;
 }
 
 .placeholder-3 {
@@ -597,22 +601,12 @@ body.safari::after {
   }
 }
 
-@media (hover: hover) {
-  body:not(.safari) section {
-    background-attachment: fixed;
-  }
-}
-
 @media (hover: none) {
-  body section {
-    background-attachment: scroll !important;
-    background-attachment: initial !important;
-  }
   body::after {
     mix-blend-mode: initial;
     -webkit-mix-blend-mode: unset;
     filter: brightness(0.5);
-    opacity: 0.07;
+    opacity: 0.09;
   }
 }#home, #home::after {
   width: 100%;

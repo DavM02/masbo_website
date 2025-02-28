@@ -3930,14 +3930,14 @@ function _l({ openTl: e19, closeTl: t2 }) {
   const n2 = Ma("(max-width: 600px)");
   return ka(() => (e19.current = Ca.timeline({ paused: true }).to(".transition path", { duration: 0.8, ease: "power3.in", attr: { d: vl, fill: "#1D1D20" }, onStart: () => {
     var _a3;
-    Ca.set("body", { className: "overlay-opened" }), (_a3 = za()) == null ? void 0 : _a3.updatePluginOptions("overflow", { open: true });
+    document.body.classList.add("overlay-opened"), (_a3 = za()) == null ? void 0 : _a3.updatePluginOptions("overflow", { open: true });
   } }).to(".transition path", { duration: 0.4, ease: "power3.out", attr: { d: vl } }).from([".menu-overlay .logo", ".close-menu", ".lang", ".menu-overlay p", ".mobile-footer h5"], { opacity: 0, y: -20, duration: 0.5, stagger: 0.2 }, "-=0.5").from(".menu-overlay ul li", { opacity: 0, x: -30, duration: 0.4, stagger: 0.05, onComplete: () => {
     Ca.set(".close-menu", { pointerEvents: "all" });
   } }, "-=1.2"), t2.current = Ca.timeline({ paused: true }).to(".menu-overlay ul li", { opacity: 0, x: 30, duration: 0.3, stagger: 0.05, onStart: () => {
     Ca.set(".close-menu", { pointerEvents: "none" });
   } }, "-=0,7").to([".menu-overlay  .logo", ".close-menu", ".lang", ".menu-overlay p", ".mobile-footer h5"], { opacity: 0, y: -20, duration: 0.3, stagger: 0.1 }, "-=0.4").to(".transition path", { duration: 0.5, ease: "power3.in", attr: { d: "M0 2015.3V-2054C1307.5 -3053.78 2532 -3088.78 3988 -2051.5V2015.3C3988 2015.3 3089.5 1135.22 2003 1135.22C916.5 1135.22 0 2015.3 0 2015.3Z", fill: "#E9E9E9" } }, "-=0.4").to(".transition path", { duration: 0.3, ease: "power3.out", attr: { d: "M0 0.0825195V-3665.86C1499.5 -3667 2271 -3665.86 3989 -3667V0.0825195C3989 0.0825195 2773.81 0.0825195 1979 0.0825195C1129 0.0825195 0 0.0825195 0 0.0825195Z" }, onComplete: () => {
     var _a3;
-    Ca.set(".transition path", { attr: { d: gl } }), Ca.set(".close-menu", { clearProps: "pointerEvents" }), (_a3 = za()) == null ? void 0 : _a3.updatePluginOptions("overflow", { open: false }), document.body.removeAttribute("class");
+    Ca.set(".transition path", { attr: { d: gl } }), Ca.set(".close-menu", { clearProps: "pointerEvents" }), (_a3 = za()) == null ? void 0 : _a3.updatePluginOptions("overflow", { open: false }), document.body.classList.remove("overlay-opened");
   } }), () => {
     var _a3, _b2, _c2;
     (_a3 = e19.current) == null ? void 0 : _a3.kill(), (_b2 = t2.current) == null ? void 0 : _b2.kill(), Ca.set(".transition path", { attr: { d: gl, fill: "#E9E9E9" } }), Ca.set(".close-menu", { clearProps: "pointerEvents" }), (_c2 = za()) == null ? void 0 : _c2.updatePluginOptions("overflow", { open: false }), document.body.removeAttribute("class");
