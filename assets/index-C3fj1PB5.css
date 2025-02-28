@@ -601,7 +601,17 @@ body.safari::after {
   }
 }
 
+@media (hover: hover) {
+  body:not(.safari) section {
+    background-attachment: fixed;
+  }
+}
+
 @media (hover: none) {
+  body section {
+    background-attachment: scroll !important;
+    background-attachment: initial !important;
+  }
   body::after {
     mix-blend-mode: initial;
     -webkit-mix-blend-mode: unset;
