@@ -77,13 +77,10 @@ section:not(.safari section):not(.ios section) {
   background-attachment: fixed !important;
 }
 
-section, #scroll-wrapper, .scroll-content {
+/* section {
   backface-visibility: hidden !important;
-}
-
-section {
   min-height: 0vw;
-}
+} */
 
 /* 
 
@@ -484,6 +481,7 @@ main {
 
 #scroll-wrapper, .scroll-content {
   perspective: 1px;
+  backface-visibility: hidden;
 }
 
 #scroll-wrapper, body::after {
