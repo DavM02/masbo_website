@@ -3903,9 +3903,7 @@ function ol() {
   return $(Ju, { className: "logo", to: "/", children: $("img", { className: "icon", src: il, alt: "logo" }) });
 }
 function al() {
-  return $("ul", { className: "mobile-socials gap-15 s-between", children: [{ name: "facebook", icon: $(kt, {}) }, { name: "instagram", icon: $(Pt, {}) }, { name: "twitter", icon: $(Mt, {}) }, { name: "youtube", icon: $(At, {}) }, { name: "telegram", icon: $(Nt, {}) }].map((e19, t2) => {
-    e19.icon;
-  }) });
+  return $("ul", { className: "mobile-socials gap-15 s-between", children: [{ name: "facebook", icon: $(kt, {}) }, { name: "instagram", icon: $(Pt, {}) }, { name: "twitter", icon: $(Mt, {}) }, { name: "youtube", icon: $(At, {}) }, { name: "telegram", icon: $(Nt, {}) }].map((e19, t2) => $("li", { children: $("a", { href: "#", className: "center-gr", children: e19.icon }) }, t2)) });
 }
 const sl = [["/about", "About Us"], ["/portfolio", "Portfolio"], ["/team", "Team"], ["/services", "Services"], ["/news", "News"], ["/contact", "Contact"]], ul = [["/technologies", "Technologies"], ["/approach", "Our approach"], ["/projects", "Last projects"], ["/team", "Become a part of team"], ["/investment", "For investors"]];
 function ll() {
@@ -3942,7 +3940,7 @@ function _l({ openTl: e19, closeTl: t2 }) {
     Ca.set(".transition path", { attr: { d: gl } }), Ca.set(".close-menu", { clearProps: "pointerEvents" }), (_a3 = za()) == null ? void 0 : _a3.updatePluginOptions("overflow", { open: false }), document.body.removeAttribute("class");
   } }), () => {
     var _a3, _b2, _c2;
-    (_a3 = e19.current) == null ? void 0 : _a3.kill(), (_b2 = t2.current) == null ? void 0 : _b2.kill(), Ca.set(".transition path", { attr: { d: gl } }), Ca.set(".close-menu", { clearProps: "pointerEvents" }), (_c2 = za()) == null ? void 0 : _c2.updatePluginOptions("overflow", { open: false }), document.body.removeAttribute("class");
+    (_a3 = e19.current) == null ? void 0 : _a3.kill(), (_b2 = t2.current) == null ? void 0 : _b2.kill(), Ca.set(".transition path", { attr: { d: gl, fill: "#E9E9E9" } }), Ca.set(".close-menu", { clearProps: "pointerEvents" }), (_c2 = za()) == null ? void 0 : _c2.updatePluginOptions("overflow", { open: false }), document.body.removeAttribute("class");
   }), { dependencies: [n2, open], revertOnUpdate: true }), Ge($("div", { className: "menu-overlay row center-y", children: [$(ml, {}), $(ol, {}), $("div", { className: "row s-between gap-50", children: [$(hl, {}), !n2 && $(fl, {}), $("div", { className: "column s-between", children: [$(dl, {}), !n2 && $("p", { className: "to-middle text-white capitalize", children: "We offer a full range of services from interior design, individual cottages to the design and construction of residential complexes. For our customers, we are known as a reliable partner with high standards of quality and responsibility." })] }), n2 && $(cl, {})] }), $(Ts, { onClick: () => t2.current.restart() })] }), document.querySelector("#transition-root"));
 }
 function yl() {

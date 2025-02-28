@@ -73,7 +73,7 @@ textarea {
   resize: none;
 }
 
-section:not(.safari section) {
+section:not(.safari section):not(.ios section) {
   background-attachment: fixed !important;
 }
 
@@ -1158,7 +1158,7 @@ header .container > .row > div:nth-last-of-type(1) {
 #transition-root .transition path {
   will-change: path;
 }
-#transition-root .logo, #transition-root .menu-overlay p, #transition-root .close-menu {
+#transition-root .logo, #transition-root .menu-overlay p:not(.mobile-footer p), #transition-root .close-menu {
   z-index: 5;
 }
 #transition-root .logo {
@@ -1209,11 +1209,12 @@ header .container > .row > div:nth-last-of-type(1) {
 #transition-root .menu-overlay .schemes li img {
   -o-object-fit: contain;
      object-fit: contain;
+  margin-bottom: 10px;
 }
-#transition-root .menu-overlay p {
+#transition-root .menu-overlay p:not(.mobile-footer p) {
   max-width: 531px;
   height: 11%;
-  margin-top: 10%;
+  margin-top: 15%;
 }
 #transition-root .close-menu, #transition-root .close-menu .close-menu-wrapper {
   border-radius: 50%;
