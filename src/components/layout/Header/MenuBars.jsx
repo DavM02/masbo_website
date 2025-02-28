@@ -5,7 +5,6 @@ export default function MenuBars() {
   const openTl = useRef(null);
   const closeTl = useRef(null);
 
-  
 
   return (
     <div
@@ -23,6 +22,7 @@ export default function MenuBars() {
       <MenuOverlay
         openTl={openTl}
         closeTl={closeTl} />
+
     </div>
   );
 }

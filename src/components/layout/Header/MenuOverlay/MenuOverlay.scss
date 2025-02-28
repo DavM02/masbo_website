@@ -56,12 +56,16 @@
 
         .schemes {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: 220px 1fr;
+            grid-template-columns: 240px 240px;
+            grid-template-rows: 220px 220px;
             gap: 50px;
 
             li {
                 cursor: initial !important;
+
+                img {
+                    object-fit: contain;
+                }
             }
         }
 
@@ -69,20 +73,32 @@
             z-index: 5;
             max-width: 531px;
             height: 11%;
-            margin-top: 5%;
+            margin-top: 10%;
         }
 
         @media all and (max-width: 600px) {
 
-            br {
+            br:not(p br) {
                 display: none;
             }
 
             .mobile-footer {
                 z-index: 4;
                 width: 100%;
-                padding-top: 22px;
-                border-top: 1px solid line-bg(0.2);
+              
+                margin-top: 34px;
+
+
+                .lang {
+                border-bottom: 1px solid line-bg(0.2);
+                margin-bottom: 22px;
+                }
+
+                .line {
+                    width: 1px;
+                    height: 81px;
+                    background-color: line-bg(0.2);
+                }
 
                 .mobile-socials {
                     margin-top: 55px;
@@ -106,7 +122,7 @@
                 grid-template-rows: unset;
                 text-align: center;
 
-                svg {
+                img {
                     display: none;
                 }
             }

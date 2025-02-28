@@ -39,7 +39,7 @@ h5, h6, footer li:not(:has(svg)) a, .menu-overlay li:not(:has(svg)) a {
 }
 
 .font-bold {
-    font-family: "font-main-bold";
+    font-family: "font-main-bold" !important;
 }
 
 .font-reg {

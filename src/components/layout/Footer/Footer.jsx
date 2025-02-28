@@ -8,6 +8,7 @@ import Telegram from "@assets/icons/telegram.svg?react";
 import Youtube from "@assets/icons/youtube.svg?react";
 import { Link } from 'react-router-dom';
 import logo from "@assets/icons/MASBO_Logo 2.svg";
+import MobileSocials from '@components/MobileSocials/MobileSocials';
 
 export default function Footer() {
   return (<footer>
@@ -170,48 +171,7 @@ export default function Footer() {
       
     <div
       className='container'>
-      <ul
-        className='mobile-socials gap-15 s-between'>
-        <li>
-          <a
-            href='#'
-            className='center-gr'>
-            <Facebook />       
-          </a>
-        </li>
-
-        <li>
-          <a
-            href='#'
-            className='center-gr'>
-            <Instagram />           
-          </a>
-        </li>
-
-        <li>
-          <a
-            href='#'
-            className='center-gr'>
-            <Twitter />      
-          </a>
-        </li>
-
-        <li>
-          <a
-            href='#'
-            className='center-gr'>
-            <Youtube />
-          </a>
-        </li>
-
-        <li>
-          <a
-            href='#'
-            className='center-gr'>
-            <Telegram />
-          </a>
-        </li>
-      </ul>
+      <MobileSocials />
     </div>
 
     <div
