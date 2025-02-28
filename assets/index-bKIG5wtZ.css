@@ -73,14 +73,17 @@ textarea {
   resize: none;
 }
 
-section:not(.safari section):not(.ios section) {
+section:not(.ios section) {
   background-attachment: fixed !important;
 }
 
-/* section {
+section, #scroll-wrapper, .scroll-content {
   backface-visibility: hidden !important;
+}
+
+section {
   min-height: 0vw;
-} */
+}
 
 /* 
 
@@ -481,7 +484,6 @@ main {
 
 #scroll-wrapper, .scroll-content {
   perspective: 1px;
-  backface-visibility: hidden;
 }
 
 #scroll-wrapper, body::after {
