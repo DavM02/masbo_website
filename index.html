@@ -26,11 +26,22 @@
   <div id="transition-root"></div>
 
   <script type="module" src="/src/main.jsx"></script>
-  <script async>
+  <script>
+
+  document.addEventListener("DOMContentLoaded", function () {
     if (navigator.userAgent.includes("Safari") && !navigator.userAgent.includes("Chrome")) {
       document.body.classList.add("safari");
     }
-    
+
+    function isIOS() {
+      return /iPhone|iPad|iPod/i.test(navigator.userAgent);
+    }
+
+    if (isIOS()) {
+      document.body.classList.add("ios");
+    }
+  });
+
   </script>
 
 </body>

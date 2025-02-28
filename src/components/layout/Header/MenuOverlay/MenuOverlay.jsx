@@ -34,7 +34,7 @@ function MenuOverlay({ openTl, closeTl,}) {
         duration: 0.8, ease: 'power3.in',
         attr: { d: openStart, fill: "#1D1D20" },
         onStart: () => {
-          gsap.set('body', { className: "overlay-opened" });
+          document.body.classList.add('overlay-opened')
           getScrollBar()?.updatePluginOptions('overflow', { open: true })
         },
 
@@ -78,7 +78,7 @@ function MenuOverlay({ openTl, closeTl,}) {
           });
           gsap.set('.close-menu', { clearProps: "pointerEvents" })
           getScrollBar()?.updatePluginOptions('overflow', { open: false })
-          document.body.removeAttribute('class')
+          document.body.classList.remove('overlay-opened')
 
         }
       });
