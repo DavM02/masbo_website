@@ -1,5 +1,19 @@
+import useAnimation from "@hooks/useAnimation"
+import { useEffect } from "preact/hooks"
+import { getScrollBar } from "../../../Scroll/ScrollAccess"
+export default function Path({closeTl}) {
 
-export default function Path() {
+  const { width, height, isLargeScreen } = useAnimation()
+  
+  useEffect(() => {
+    if (closeTl.current.isActive()) {
+      getScrollBar()?.updatePluginOptions('overflow', { open: true })
+    }
+
+  }, [ width,
+    height,
+    isLargeScreen ])
+
   return (
     <svg
       className="transition"

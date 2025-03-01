@@ -107,7 +107,8 @@ function MenuOverlay({ openTl, closeTl,}) {
   return   createPortal(
     <div
       className='menu-overlay row center-y'>
-      <Path />
+      <Path
+        closeTl={closeTl} />
 
       <Logo />
 

@@ -1,7 +1,5 @@
 #transition-root {
 
-    
-
     .transition {
         position: fixed;
         top: 0;
@@ -33,6 +31,33 @@
         height: 100%;
         width: 100%;
         padding: calc($header-padding-y + 18px + 49px) $header-padding 31px;
+        scrollbar-width: thin;
+        scrollbar-color: transparent transparent;
+
+        &::-webkit-scrollbar {
+            width: 10px;
+
+            height: 10px;
+
+        }
+
+
+        &::-webkit-scrollbar-track {
+            background: transparent;
+
+        }
+
+
+        &::-webkit-scrollbar-thumb {
+            background: transparent;
+
+
+        }
+
+
+        &::-webkit-scrollbar-thumb:hover {
+            background: transparent;
+        }
 
         @media all and (max-width: 1200px),
         (max-height: 800px) {
@@ -73,76 +98,10 @@
         }
 
         p:not(.mobile-footer p) {
-            z-index: 5;
             max-width: 531px;
             height: 11%;
             margin-top: 15%;
         }
-
-        @media all and (max-width: 600px) {
-
-            br:not(p br) {
-                display: none;
-            }
-
-            .mobile-footer {
-                z-index: 4;
-                width: 100%;
- 
-
-                .lang {
-                border-bottom: 1px solid line-bg(0.2);
-                margin-bottom: 22px;
-                }
-
-                .line {
-                    width: 1px;
-                    height: 81px;
-                    background-color: line-bg(0.2);
-                }
-
-                .mobile-socials {
-                    margin-top: 55px;
-                    display: flex;
-                }
-
-                .hot-links {
-                    margin: 24px 0;
-
-                    li {
-                        padding: 6px 12px;
-                        border: 1px solid $white;
-                        border-radius: 30px;
-                    }
-                }
-            }
-
-            .schemes {
-                gap: 10px;
-                grid-template-columns: unset;
-                grid-template-rows: unset;
-                text-align: center;
-
-                img {
-                    display: none;
-                }
-
-
-            }
-
-            >.row {
-                gap: 35px;
-
-                >div:not(.mobile-footer) {
-                    width: 100%;
-                    align-items: center;
-                    text-align: center;
-                }
-
-            }
-
-        }
-
 
     }
 
@@ -229,7 +188,7 @@
 
 body.overlay-opened {
     .menu-overlay {
-        overflow: scroll !important;
+        overflow-y: scroll !important;
         pointer-events: all !important;
     }
 
@@ -239,3 +198,5 @@ body.overlay-opened {
 
     overflow: hidden;
 }
+
+@import './media.scss'
