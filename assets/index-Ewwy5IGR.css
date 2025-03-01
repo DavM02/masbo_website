@@ -1160,7 +1160,7 @@ header .container > .row > div:nth-last-of-type(1) {
 #transition-root .transition path {
   will-change: path;
 }
-#transition-root .logo, #transition-root .menu-overlay p:not(.mobile-footer p), #transition-root .close-menu {
+#transition-root .logo, #transition-root .close-menu {
   z-index: 5;
 }
 #transition-root .logo {
@@ -1173,6 +1173,18 @@ header .container > .row > div:nth-last-of-type(1) {
 #transition-root .menu-overlay {
   z-index: 555;
   padding: 77px clamp(1.0625rem, 0.4994rem + 2.8157vw, 3.125rem) 31px;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+#transition-root .menu-overlay::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+#transition-root .menu-overlay::-webkit-scrollbar-track, #transition-root .menu-overlay::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+#transition-root .menu-overlay::-webkit-scrollbar-thumb:hover {
+  background: transparent;
 }
 #transition-root .menu-overlay .row:has(ul):not(.schemes) {
   width: 100%;
@@ -1269,7 +1281,7 @@ header .container > .row > div:nth-last-of-type(1) {
   background-color: inherit;
 }
 body.overlay-opened .menu-overlay {
-  overflow: scroll !important;
+  overflow-y: scroll !important;
   pointer-events: all !important;
 }
 @media all and (max-width: 1200px) {

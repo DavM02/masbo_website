@@ -3922,8 +3922,12 @@ const pl = [{ scheme: "/masbo_website/assets/scheme-1-CvbvJQS8.png", title: "pri
 function dl() {
   return $("ul", { className: "schemes", children: pl.map(({ scheme: e19, title: t2 }, n2) => $("li", { className: "column s-between", children: [$("img", { alt: "scheme", src: e19 }), $("h5", { className: "static capitalize", children: t2 })] }, n2)) });
 }
-function ml() {
-  return $("svg", { className: "transition", viewBox: "0 0 3988 3185", preserveAspectRatio: "none", children: $("path", { className: "path", fill: "#E9E9E9", d: "M0 8026.8V3957.5C1307.5 2957.72 2532 2922.72 3988 3960V8026.8C3988 8026.8 3089.5 7146.72 2003 7146.72C916.5 7146.72 0 8026.8 0 8026.8Z", vectorEffect: "non-scaling-stroke" }) });
+function ml({ closeTl: e19 }) {
+  const { width: t2, height: n2, isLargeScreen: r2 } = Ia();
+  return ue(() => {
+    var _a3;
+    e19.current.isActive() && ((_a3 = za()) == null ? void 0 : _a3.updatePluginOptions("overflow", { open: true }));
+  }, [t2, n2, r2]), $("svg", { className: "transition", viewBox: "0 0 3988 3185", preserveAspectRatio: "none", children: $("path", { className: "path", fill: "#E9E9E9", d: "M0 8026.8V3957.5C1307.5 2957.72 2532 2922.72 3988 3960V8026.8C3988 8026.8 3089.5 7146.72 2003 7146.72C916.5 7146.72 0 8026.8 0 8026.8Z", vectorEffect: "non-scaling-stroke" }) });
 }
 const vl = "M0 4069V-8C2516.76 -7.99976 1409.21 -8.00024 3990 -5.49619V4069C3990 4069 3091.05 3187.25 2004 3187.25C916.96 3187.25 0 4069 0 4069Z", gl = "M0 8026.8V3957.5C1307.5 2957.72 2532 2922.72 3988 3960V8026.8C3988 8026.8 3089.5 7146.72 2003 7146.72C916.5 7146.72 0 8026.8 0 8026.8Z";
 function _l({ openTl: e19, closeTl: t2 }) {
@@ -3941,7 +3945,7 @@ function _l({ openTl: e19, closeTl: t2 }) {
   } }), () => {
     var _a3, _b2, _c2;
     (_a3 = e19.current) == null ? void 0 : _a3.kill(), (_b2 = t2.current) == null ? void 0 : _b2.kill(), Ca.set(".transition path", { attr: { d: gl, fill: "#E9E9E9" } }), Ca.set(".close-menu", { clearProps: "pointerEvents" }), (_c2 = za()) == null ? void 0 : _c2.updatePluginOptions("overflow", { open: false }), document.body.removeAttribute("class");
-  }), { dependencies: [n2, open], revertOnUpdate: true }), Ge($("div", { className: "menu-overlay row center-y", children: [$(ml, {}), $(ol, {}), $("div", { className: "row s-between gap-50", children: [$(hl, { isMobile: n2 }), !n2 && $(fl, {}), $("div", { className: "column s-between", children: [$(dl, {}), !n2 && $("p", { className: "to-middle text-white capitalize", children: "We offer a full range of services from interior design, individual cottages to the design and construction of residential complexes. For our customers, we are known as a reliable partner with high standards of quality and responsibility." })] }), n2 && $(cl, {})] }), $(Ts, { onClick: () => t2.current.restart() })] }), document.querySelector("#transition-root"));
+  }), { dependencies: [n2, open], revertOnUpdate: true }), Ge($("div", { className: "menu-overlay row center-y", children: [$(ml, { closeTl: t2 }), $(ol, {}), $("div", { className: "row s-between gap-50", children: [$(hl, { isMobile: n2 }), !n2 && $(fl, {}), $("div", { className: "column s-between", children: [$(dl, {}), !n2 && $("p", { className: "to-middle text-white capitalize", children: "We offer a full range of services from interior design, individual cottages to the design and construction of residential complexes. For our customers, we are known as a reliable partner with high standards of quality and responsibility." })] }), n2 && $(cl, {})] }), $(Ts, { onClick: () => t2.current.restart() })] }), document.querySelector("#transition-root"));
 }
 function yl() {
   const e19 = ce(null), t2 = ce(null);
