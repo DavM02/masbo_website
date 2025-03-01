@@ -73,12 +73,6 @@ textarea {
   resize: none;
 }
 
-body:not(.safari):not(.ios) section {
-    
-      background-attachment: fixed !important;
- 
-}
-
 section, #scroll-wrapper, .scroll-content {
   backface-visibility: hidden !important;
 }
@@ -600,6 +594,12 @@ body.safari::after {
 @media all and (max-width: 320px) {
   body {
     width: 320px;
+  }
+}
+
+@media (hover: hover) {
+  body:not(.safari):not(.ios) section {
+    background-attachment: fixed !important;
   }
 }
 
