@@ -31,7 +31,7 @@ function MenuOverlay({ openTl, closeTl,}) {
 
     openTl.current = gsap.timeline({ paused: true })
       .to(".transition path", {
-        duration: 0.8, ease: 'power3.in',
+        duration: 1, ease: 'power3.in',
         attr: { d: openStart, fill: "#1D1D20" },
         onStart: () => {
           document.body.classList.add('overlay-opened')
