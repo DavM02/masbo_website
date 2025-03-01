@@ -73,9 +73,11 @@ textarea {
   resize: none;
 }
 
-/* body:not(.safari):not(.ios) section {
-  background-attachment: fixed !important;
-} */
+body:not(.safari):not(.ios) section {
+    
+      background-attachment: fixed !important;
+ 
+}
 
 section, #scroll-wrapper, .scroll-content {
   backface-visibility: hidden !important;
@@ -601,17 +603,7 @@ body.safari::after {
   }
 }
 
-@media (hover: hover) {
-  body:not(.safari) section {
-    background-attachment: fixed;
-  }
-}
-
 @media (hover: none) {
-  body section {
-    background-attachment: scroll !important;
-    background-attachment: initial !important;
-  }
   body::after {
     mix-blend-mode: initial;
     -webkit-mix-blend-mode: unset;
@@ -1299,7 +1291,6 @@ body.overlay-opened .menu-overlay {
   }
   #transition-root .menu-overlay .mobile-footer {
     z-index: 4;
-    margin-top: 34px;
   }
   #transition-root .menu-overlay .mobile-footer .lang {
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);

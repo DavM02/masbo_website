@@ -3915,8 +3915,8 @@ function cl() {
 function fl() {
   return $("div", { className: "column s-between", children: [$("ul", { className: "column gap-20", children: ul.map(([e19, t2]) => $("li", { children: $(Ju, { to: e19, children: t2 }) }, e19)) }), $("p", { className: "to-middle text-white capitalize", children: [$("span", { className: "font-bold", children: "Tel:" }), " +3 (096) 029-81-18, +3 (063) 023-81-18", $("br", {}), $("span", { className: "font-bold", children: "Email:" }), " office@masbo.com.ua"] })] });
 }
-function hl() {
-  return $("div", { className: "column s-between", children: [$("ul", { className: "column gap-20", children: sl.map(([e19, t2]) => $("li", { children: $(Ju, { to: e19, children: t2 }) }, e19)) }), $("p", { className: "to-middle text-white capitalize", children: [$("span", { className: "font-bold", children: " Address: " }), " Ukraine, Kyiv region, 08200 Irpen,", $("br", {}), " Stelmakh street 9a, office 206"] })] });
+function hl({ isMobile: e19 }) {
+  return $("div", { className: "column s-between", children: [$("ul", { className: "column gap-20", children: sl.map(([e20, t2]) => $("li", { children: $(Ju, { to: e20, children: t2 }) }, e20)) }), !e19 && $("p", { className: "to-middle text-white capitalize", children: [$("span", { className: "font-bold", children: " Address: " }), " Ukraine, Kyiv region, 08200 Irpen,", $("br", {}), " Stelmakh street 9a, office 206"] })] });
 }
 const pl = [{ scheme: "/masbo_website/assets/scheme-1-CvbvJQS8.png", title: "private houses" }, { scheme: "/masbo_website/assets/scheme-2-BlV3S1Bv.png", title: "interiors" }, { scheme: "/masbo_website/assets/scheme-3-LDANCKLm.png", title: $(w, { children: ["commercial ", $("br", {}), " real estate"] }) }, { scheme: "/masbo_website/assets/scheme-4-DEwb1c8-.png", title: $(w, { children: ["urban ", $("br", {}), " development"] }) }];
 function dl() {
@@ -3928,20 +3928,20 @@ function ml() {
 const vl = "M0 4069V-8C2516.76 -7.99976 1409.21 -8.00024 3990 -5.49619V4069C3990 4069 3091.05 3187.25 2004 3187.25C916.96 3187.25 0 4069 0 4069Z", gl = "M0 8026.8V3957.5C1307.5 2957.72 2532 2922.72 3988 3960V8026.8C3988 8026.8 3089.5 7146.72 2003 7146.72C916.5 7146.72 0 8026.8 0 8026.8Z";
 function _l({ openTl: e19, closeTl: t2 }) {
   const n2 = Ma("(max-width: 600px)");
-  return ka(() => (e19.current = Ca.timeline({ paused: true }).to(".transition path", { duration: 0.8, ease: "power3.in", attr: { d: vl, fill: "#1D1D20" }, onStart: () => {
+  return ka(() => (e19.current = Ca.timeline({ paused: true }).to(".transition path", { duration: 1, ease: "power3.in", attr: { d: vl, fill: "#1D1D20" }, onStart: () => {
     var _a3;
     document.body.classList.add("overlay-opened"), (_a3 = za()) == null ? void 0 : _a3.updatePluginOptions("overflow", { open: true });
   } }).to(".transition path", { duration: 0.4, ease: "power3.out", attr: { d: vl } }).from([".menu-overlay .logo", ".close-menu", ".lang", ".menu-overlay p", ".mobile-footer h5"], { opacity: 0, y: -20, duration: 0.5, stagger: 0.2 }, "-=0.5").from(".menu-overlay ul li", { opacity: 0, x: -30, duration: 0.4, stagger: 0.05, onComplete: () => {
     Ca.set(".close-menu", { pointerEvents: "all" });
   } }, "-=1.2"), t2.current = Ca.timeline({ paused: true }).to(".menu-overlay ul li", { opacity: 0, x: 30, duration: 0.3, stagger: 0.05, onStart: () => {
     Ca.set(".close-menu", { pointerEvents: "none" });
-  } }, "-=0,7").to([".menu-overlay  .logo", ".close-menu", ".lang", ".menu-overlay p", ".mobile-footer h5"], { opacity: 0, y: -20, duration: 0.3, stagger: 0.1 }, "-=0.4").to(".transition path", { duration: 0.5, ease: "power3.in", attr: { d: "M0 2015.3V-2054C1307.5 -3053.78 2532 -3088.78 3988 -2051.5V2015.3C3988 2015.3 3089.5 1135.22 2003 1135.22C916.5 1135.22 0 2015.3 0 2015.3Z", fill: "#E9E9E9" } }, "-=0.4").to(".transition path", { duration: 0.3, ease: "power3.out", attr: { d: "M0 0.0825195V-3665.86C1499.5 -3667 2271 -3665.86 3989 -3667V0.0825195C3989 0.0825195 2773.81 0.0825195 1979 0.0825195C1129 0.0825195 0 0.0825195 0 0.0825195Z" }, onComplete: () => {
+  } }, "-=0,7").to([".menu-overlay  .logo", ".close-menu", ".lang", ".menu-overlay p", ".mobile-footer h5"], { opacity: 0, y: -20, duration: 0.3, stagger: 0.1 }, "-=0.4").to(".transition path", { duration: 0.5, ease: "power3.in", attr: { d: "M0 2015.3V-2054C1307.5 -3053.78 2532 -3088.78 3988 -2051.5V2015.3C3988 2015.3 3089.5 1135.22 2003 1135.22C916.5 1135.22 0 2015.3 0 2015.3Z", fill: "#E9E9E9" } }, n2 ? "-=0.6" : "-=0.4").to(".transition path", { duration: 0.3, ease: "power3.out", attr: { d: "M0 0.0825195V-3665.86C1499.5 -3667 2271 -3665.86 3989 -3667V0.0825195C3989 0.0825195 2773.81 0.0825195 1979 0.0825195C1129 0.0825195 0 0.0825195 0 0.0825195Z" }, onComplete: () => {
     var _a3;
     Ca.set(".transition path", { attr: { d: gl } }), Ca.set(".close-menu", { clearProps: "pointerEvents" }), (_a3 = za()) == null ? void 0 : _a3.updatePluginOptions("overflow", { open: false }), document.body.classList.remove("overlay-opened");
   } }), () => {
     var _a3, _b2, _c2;
     (_a3 = e19.current) == null ? void 0 : _a3.kill(), (_b2 = t2.current) == null ? void 0 : _b2.kill(), Ca.set(".transition path", { attr: { d: gl, fill: "#E9E9E9" } }), Ca.set(".close-menu", { clearProps: "pointerEvents" }), (_c2 = za()) == null ? void 0 : _c2.updatePluginOptions("overflow", { open: false }), document.body.removeAttribute("class");
-  }), { dependencies: [n2, open], revertOnUpdate: true }), Ge($("div", { className: "menu-overlay row center-y", children: [$(ml, {}), $(ol, {}), $("div", { className: "row s-between gap-50", children: [$(hl, {}), !n2 && $(fl, {}), $("div", { className: "column s-between", children: [$(dl, {}), !n2 && $("p", { className: "to-middle text-white capitalize", children: "We offer a full range of services from interior design, individual cottages to the design and construction of residential complexes. For our customers, we are known as a reliable partner with high standards of quality and responsibility." })] }), n2 && $(cl, {})] }), $(Ts, { onClick: () => t2.current.restart() })] }), document.querySelector("#transition-root"));
+  }), { dependencies: [n2, open], revertOnUpdate: true }), Ge($("div", { className: "menu-overlay row center-y", children: [$(ml, {}), $(ol, {}), $("div", { className: "row s-between gap-50", children: [$(hl, { isMobile: n2 }), !n2 && $(fl, {}), $("div", { className: "column s-between", children: [$(dl, {}), !n2 && $("p", { className: "to-middle text-white capitalize", children: "We offer a full range of services from interior design, individual cottages to the design and construction of residential complexes. For our customers, we are known as a reliable partner with high standards of quality and responsibility." })] }), n2 && $(cl, {})] }), $(Ts, { onClick: () => t2.current.restart() })] }), document.querySelector("#transition-root"));
 }
 function yl() {
   const e19 = ce(null), t2 = ce(null);
