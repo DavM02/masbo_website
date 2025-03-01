@@ -1,6 +1,6 @@
 import { menuLinks } from "./Links"
 import { Link } from "react-router-dom"
-export default function MenuLinks() {
+export default function MenuLinks({isMobile}) {
   return (
     <div
       className='column s-between'>
@@ -15,14 +15,16 @@ export default function MenuLinks() {
         ))}
       </ul>
 
-      <p
+      {!isMobile &&       <p
            
         className='to-middle text-white capitalize'>
         <span
           className='font-bold'> Address: </span> Ukraine, Kyiv region, 08200 Irpen,
 
         <br /> Stelmakh street 9a, office 206
-      </p>
+      </p>}
+
+
 
 
     </div>

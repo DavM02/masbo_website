@@ -68,7 +68,7 @@ function MenuOverlay({ openTl, closeTl,}) {
       .to(".transition path", {
         duration: 0.5, ease: 'power3.in',
         attr: { d: openEnd, fill: "#E9E9E9" }
-      }, '-=0.4')
+      }, isMobile ? '-=0.6' : '-=0.4')
       .to(".transition path", {
         duration: 0.3, ease: 'power3.out',
         attr: { d: closeStart, },
@@ -115,7 +115,8 @@ function MenuOverlay({ openTl, closeTl,}) {
       <div
         className='row s-between gap-50'>
 
-        <MenuLinks />
+        <MenuLinks
+          isMobile={isMobile} />
 
         {
           !isMobile && <ExtraLinks />
