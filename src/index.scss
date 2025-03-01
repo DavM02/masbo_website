@@ -106,6 +106,16 @@ body {
     background-color: $black;
     position: relative;
 
+    &:not(.safari):not(.ios) {
+
+        @include mouse-only {
+            section {
+                background-attachment: fixed !important;
+            }
+        }
+
+    }
+
     &::after {
         content: "";
         top: 0;
