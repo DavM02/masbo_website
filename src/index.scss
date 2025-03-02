@@ -145,7 +145,7 @@ body {
             background-attachment: scroll !important;
         }
 
-        & {
+        &::after {
             mix-blend-mode: unset;
             -webkit-mix-blend-mode: unset;
             filter: brightness(0.5);
