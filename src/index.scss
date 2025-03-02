@@ -2,7 +2,7 @@
 @import './styles/reset.css';
 @import "./styles/helpers.css";
 @import "./components/ui/buttons/buttons.scss";
-
+@import "./components/shared/MobileSocials/mobileSocials.scss";
 @media all and (max-width: 320px) {
     body {
         width: 320px;
@@ -106,14 +106,8 @@ body {
     background-color: $black;
     position: relative;
 
-    &:not(.safari):not(.ios) {
-
-        @include mouse-only {
-            section {
-                background-attachment: fixed !important;
-            }
-        }
-
+    section {
+        background-attachment: fixed !important;
     }
 
     &::after {
@@ -121,7 +115,7 @@ body {
         top: 0;
         position: fixed;
         width: 100%;
-        height: 100%;
+        height: 100lvh;
         left: 0;
         background: url("/src/assets/noise.gif") repeat;
         z-index: 888;
@@ -140,14 +134,26 @@ body {
         }
     }
 
-    &.safari {
-        &::after {
+    @supports (-webkit-touch-callout: none) {
+        section {
+            background-attachment: scroll !important;
+        }
+    }
+
+    @supports (-webkit-hyphens: none) {
+        section {
+            background-attachment: scroll !important;
+        }
+
+        & {
             mix-blend-mode: unset;
             -webkit-mix-blend-mode: unset;
             filter: brightness(0.5);
             opacity: 9%;
         }
+
     }
+
 }
 
 .placeholder-1 {
@@ -176,18 +182,4 @@ body {
         }
     }
 
-}
-
-.mobile-socials {
-    a {
-        width: 29px;
-        height: 29px;
-        aspect-ratio: 1/1;
-        border-radius: 50%;
-        border: 1px solid $text-gray;
-
-        path {
-            fill: $text-gray;
-        }
-    }
 }

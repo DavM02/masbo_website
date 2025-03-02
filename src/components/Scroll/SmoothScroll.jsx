@@ -3,122 +3,126 @@ import Scrollbar from "smooth-scrollbar";
 import { gsap } from "gsap/all";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import useAnimation from "@hooks/useAnimation";
-import { useGSAP } from '@gsap/react';
+import { useGSAP } from "@gsap/react";
 import { setScrollTween, setScrollBar, clearScrollBar } from "./ScrollAccess";
 import { ScrollbarPlugin } from "smooth-scrollbar";
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
-
 export default function SmoothScroll({ children }) {
-
   const scrollRef = useRef(null);
 
-  const { width, height, isLargeScreen} = useAnimation()
- 
+  const { width, height, isLargeScreen } = useAnimation();
 
-  useGSAP(() => {
-
-    if ("scrollRestoration" in window.history) {
-      window.history.scrollRestoration = "manual";
-    }
-
-    let scrollbar;
-    let resizeObserver;
-  
-    const initScrollbar = () => {
-      if (scrollRef.current) {
-        scrollbar = Scrollbar.init(scrollRef.current, {
-          damping: 0.06,
-          alwaysShowTrack: true,
-          renderByPixels: true,
-          delegateTo: document
-        });
-
- 
-        setScrollBar(scrollbar)
- 
-        ScrollTrigger.scrollerProxy(scrollRef.current, {
-          scrollTop(value) {
-            if (arguments.length) {
-              scrollbar.scrollTop = value;
-            }
-            return scrollbar.scrollTop;
-          },
-          getBoundingClientRect() {
-            return {
-              top: 0,
-              left: 0,
-              width: window.innerWidth,
-              height: window.innerHeight
-            };
-          }
-        });
-
-        scrollbar.addListener(ScrollTrigger.update);
-        ScrollTrigger.defaults({ scroller: scrollRef.current });
-
-        ScrollTrigger.refresh();
+  useGSAP(
+    () => {
+      if ("scrollRestoration" in window.history) {
+        window.history.scrollRestoration = "manual";
       }
-    };
-    
-    const createAnimation = () => {
-      if (width && height) {
  
-        let scrollTween = gsap.to("#home-scroll > .row", {
-          x: isLargeScreen ? "-700vw" : () => -(1762 + 3271 + window.innerWidth * 4 + (window.innerWidth / 3 * 2)), 
-          ease: "none",
-          scrollTrigger: {
-            trigger: "#home-scroll",
-            start: "top top",
-            end: () => "+=" + window.innerHeight,
-            pin: true,
-            scrub: true,
-            invalidateOnRefresh: true,
-            force3D: true,
-          }
-        });
+      let scrollbar;
+      let resizeObserver;
 
-        setScrollTween(scrollTween)
+      const initScrollbar = () => {
+        if (scrollRef.current) {
+          scrollbar = Scrollbar.init(scrollRef.current, {
+            damping: 0.06,
+            alwaysShowTrack: true,
+            renderByPixels: true,
+            delegateTo: document,
+          });
+
+          setScrollBar(scrollbar);
+
+          ScrollTrigger.scrollerProxy(scrollRef.current, {
+            scrollTop(value) {
+              if (arguments.length) {
+                scrollbar.scrollTop = value;
+              }
+              return scrollbar.scrollTop;
+            },
+            getBoundingClientRect() {
+              return {
+                top: 0,
+                left: 0,
+                width: window.innerWidth,
+                height: window.innerHeight,
+              };
+            },
+          });
+
+          scrollbar.addListener(ScrollTrigger.update);
+          ScrollTrigger.defaults({ scroller: scrollRef.current });
+
+          ScrollTrigger.refresh();
+        }
       };
 
-    }
+      const createAnimation = () => {
+        if (width && height) {
+          let scrollTween = gsap.to("#home-scroll > .row", {
+            x: isLargeScreen
+              ? "-700vw"
+              : () =>
+                  -(
+                    1762 +
+                    3271 +
+                    window.innerWidth * 4 +
+                    (window.innerWidth / 3) * 2
+                  ),
+            ease: "none",
+            scrollTrigger: {
+              trigger: "#home-scroll",
+              start: "top top",
+              end: () => "+=" + window.innerHeight,
+              pin: true,
+              scrub: true,
+              invalidateOnRefresh: true,
+              force3D: true,
+            },
+          });
 
-    const handleResize = () => {
-      ScrollTrigger.refresh();
-    };
+          setScrollTween(scrollTween);
+        }
+      };
 
-    resizeObserver = new ResizeObserver(handleResize);
-    if (scrollRef.current) {
-      resizeObserver.observe(scrollRef.current);
-    }
+      const handleResize = () => {
+        ScrollTrigger.refresh();
+      };
 
-    if((width && height) || isLargeScreen) {
-      initScrollbar();
-    } 
-    createAnimation();
- 
-    return () => {
- 
-      clearScrollBar()
-      ScrollTrigger.killAll()
-      if (resizeObserver) {
-        resizeObserver.disconnect();
+      resizeObserver = new ResizeObserver(handleResize);
+      if (scrollRef.current) {
+        resizeObserver.observe(scrollRef.current);
       }
- 
-    };
-  },  
-  {dependencies: [ width,
-    height,
-    isLargeScreen ], scope: scrollRef, revertOnUpdate: true});
+
+      if ((width && height) || isLargeScreen) {
+        initScrollbar();
+      }
+      createAnimation();
+
+      return () => {
+        clearScrollBar();
+        ScrollTrigger.killAll();
+        if (resizeObserver) {
+          resizeObserver.disconnect();
+        }
+      };
+    },
+    {
+      dependencies: [width, height, isLargeScreen],
+      scope: scrollRef,
+      revertOnUpdate: true,
+    }
+  );
 
   return (
     <div
       id="scroll-wrapper"
       style={{
         position: width && height ? "fixed" : "static",
-        height: "100%"
+        height: "100%",
       }}
-      ref={scrollRef}>
+      ref={scrollRef}
+    >
       {children}
     </div>
   );

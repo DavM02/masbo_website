@@ -1,16 +1,15 @@
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const ImageBlock = ({ src, alt, className }) => (
-  <div
-    className={className}>
+  <div className={className}>
     <LazyLoadImage
       src={src}
       width="100%"
       height="100%"
       effect="opacity"
-      alt={alt} />
+      alt={alt}
+    />
   </div>
 );
 
-
-export default ImageBlock
+export default ImageBlock;
