@@ -1,0 +1,62 @@
+#home-scroll {
+    .team {
+        height: calc(100% - 72px) !important;
+        background-image: url('/src/assets/bg.jpg');
+        background-size: cover;
+        background-repeat: repeat;
+        background-position: center;
+        position: relative;
+        padding: 100px 0;
+        @include full-size-on-mobile();
+
+        &::after {
+            @include overlay($overlay, 50%)
+        }
+
+        .container {
+            position: relative;
+            z-index: 55;
+
+            h1 {
+                font-size: clamp(1.625rem, 0.3204rem + 5.5663vw, 7rem);
+                line-height: unset;
+                letter-spacing: -1.5px;
+
+                span {
+                    display: inline-block;
+                }
+            }
+
+            p {
+                max-width: 836px;
+            }
+
+            ul {
+                transform: translateX(30px);
+            }
+
+            li {
+                $imgSize: clamp(2.6875rem, 2.2698rem + 1.8065vw, 4.4375rem);
+                cursor: initial;
+                border-radius: 50%;
+                outline: 2.4px solid $white;
+                outline-offset: -1px;
+                overflow: hidden;
+
+
+                img {
+                    height: $imgSize;
+                    width: $imgSize;
+                }
+
+                @for $item from 1 through 5 {
+
+                    &:nth-child(#{$item+1}) {
+                        transform: translateX(#{-10px * $item+1});
+                    }
+                }
+
+            }
+        }
+    }
+}

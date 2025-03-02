@@ -1,11 +1,21 @@
 @import './styles/typography.scss';
 @import './styles/reset.css';
 @import "./styles/helpers.css";
-
+@import "./components/ui/buttons/buttons.scss";
+@import "./components/shared/MobileSocials/mobileSocials.scss";
 @media all and (max-width: 320px) {
     body {
         width: 320px;
     }
+}
+
+.pin-spacer {
+    will-change: width, height, padding;
+}
+
+html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 body,
@@ -33,8 +43,8 @@ main {
 #scroll-wrapper {
     inset: 0;
     width: 100%;
-    // padding-top: calc(30px + 55px + var(--nav-height) + (var(--header-container-padding) * 2));
-    // background-color: var(--white);
+    perspective: 1px;
+    backface-visibility: hidden;
 }
 
 .scroll-content {
@@ -44,6 +54,9 @@ main {
     // flex-direction: column;
     will-change: transform;
     height: inherit;
+    backface-visibility: hidden;
+    perspective: 1px;
+
 }
 
 .scrollbar-thumb-y {
@@ -56,7 +69,14 @@ main {
     width: 11px !important;
 }
 
+.lazy-load-image-background.opacity {
+    opacity: 0;
+}
 
+.lazy-load-image-background.opacity.lazy-load-image-loaded {
+    opacity: 1;
+    transition: opacity .7s .3s;
+}
 
 div[id*="page"],
 section {
@@ -86,12 +106,16 @@ body {
     background-color: $black;
     position: relative;
 
+    section {
+        background-attachment: fixed !important;
+    }
+
     &::after {
         content: "";
         top: 0;
         position: fixed;
         width: 100%;
-        height: 100%;
+        height: 100lvh;
         left: 0;
         background: url("/src/assets/noise.gif") repeat;
         z-index: 888;
@@ -99,34 +123,37 @@ body {
         pointer-events: none;
         mix-blend-mode: soft-light;
         background-size: 150px;
+
+        @include touch-only {
+            & {
+                mix-blend-mode: unset;
+                -webkit-mix-blend-mode: unset;
+                filter: brightness(0.5);
+                opacity: 9%;
+            }
+        }
     }
-}
 
-.lazy-load-image-background.blur {
-    filter: blur(15px);
-}
+    @supports (-webkit-touch-callout: none) {
+        section {
+            background-attachment: scroll !important;
+        }
+    }
 
-.lazy-load-image-background.blur.lazy-load-image-loaded {
-    filter: blur(0);
-    transition: filter 0.3s;
-}
+    @supports (-webkit-hyphens: none) {
+        section {
+            background-attachment: scroll !important;
+        }
 
-.lazy-load-image-background.blur>img {
-    opacity: 0;
-}
+        & {
+            mix-blend-mode: unset;
+            -webkit-mix-blend-mode: unset;
+            filter: brightness(0.5);
+            opacity: 9%;
+        }
 
-.lazy-load-image-background.blur.lazy-load-image-loaded>img {
-    opacity: 1;
-    transition: opacity 0.3s;
-}
+    }
 
-.lazy-load-image-background.opacity {
-    opacity: 0;
-}
-
-.lazy-load-image-background.opacity.lazy-load-image-loaded {
-    opacity: 1;
-    transition: opacity 0.3s;
 }
 
 .placeholder-1 {
@@ -139,4 +166,20 @@ body {
 
 .placeholder-3 {
     background-color: $gray;
+}
+
+.socials {
+    position: absolute;
+    height: 100%;
+    left: 50px;
+    z-index: 105;
+
+    li {
+        cursor: pointer;
+
+        &:hover path {
+            fill: $white
+        }
+    }
+
 }

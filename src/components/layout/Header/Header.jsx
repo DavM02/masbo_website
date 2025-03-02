@@ -1,116 +1,77 @@
-import { Link } from 'react-router-dom';
-import logo from '@assets/icons/MASBO_Logo 2.svg';
-import { useEffect, useState } from 'preact/hooks';
-import useMediaQ from '../../../hooks/useMediaQ';
-import './header.scss';
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { gsap } from 'gsap';
+import "./header.scss";
+
+import { gsap } from "gsap";
+import useAnimation from "@hooks/useAnimation";
+import MenuBars from "./MenuBars";
+import Menu from "./Menu";
+import Logo from "./Logo";
  
 export default function Header() {
- 
-  const query = useMediaQ("(min-width: 920px)");
-  const query2 = useMediaQ("(min-width: 1025px)")
-  const [ hideFill, setHideFill ] = useState(false)
+  const { width, height, isLargeScreen } = useAnimation((options) => {
+    gsap.to("header", {
+      scrollTrigger: {
+        scroller: options.scroller,
+        trigger: "main",
+        start: "3px top",
+        onEnter: () =>
+          gsap.set("header", { className: "scrolled", clearProps: "backgroundColor" }),
+        onLeaveBack: () =>
+          gsap.set("header", { className: "static", clearProps: "backgroundColor" }),
+      },
+    });
 
-  useEffect(() => {
-
-    const ctx = gsap.context(() => {});  
- 
-
-    const createAnimation = () => {
-      ctx.revert();  
-
-    
-      ctx.add(() => {
-        gsap.to("#home-scroll", {
-          scrollTrigger: {
-            trigger: "#home-scroll",
-            start: "top top",        
-            end: "bottom bottom",   
-            onEnter: () => setHideFill(true),
-            onEnterBack: () =>  setHideFill(false),
+    if ((width && height) || isLargeScreen) {
+      gsap.to("header", {
+        scrollTrigger: {
+          trigger: ".about",
+          start: "left 0%",
+          end: "right 0%",
+          onEnter: () => {
+            gsap.set("header", { backgroundColor: "transparent" });
+          },
+          onEnterBack: () => {
+            gsap.set("header", { backgroundColor: "transparent" });
+          },
+          onLeaveBack: () => {
+            gsap.set("header", { clearProps: "backgroundColor" });
+          },
+          onLeave: () => {
+            gsap.set("header", { clearProps: "backgroundColor" });
           }
-        });
+        },
       });
-
-      ScrollTrigger.refresh();
- 
-    };
-
-    createAnimation()
-
-    return () => {
-      ctx.revert();  
     }
-
-
-  
-  }, [ query2 ])
+  },);
 
  
+
   return (
-    <header
-      className={hideFill ? 'hide-fill' : 'static'}>
+    <header>
       <div
-        className='container'>
+        className="container">
         <div
-          className='row s-between'>
+          className="row s-between">
           <div
-            className='row center-y'>
-            <Link
-              className='logo'
-              to={'/'}>
-              <img
-                className='icon'
-                src={logo}
-                alt='logo' />
-            </Link>
+            className="row center-y">
+            <Logo />
 
-            {query && (
-              <nav>
-                <ul
-                  className='row'>
-                  <li><Link
-                    className='text-white fs-14 capitalize'>About us</Link></li>
-
-                  <li><Link
-                    className='text-white fs-14 capitalize'>Portfolio</Link></li>
-
-                  <li><Link
-                    className='text-white fs-14 capitalize'>Team</Link></li>
-
-                  <li><Link
-                    className='text-white fs-14 capitalize'>Services</Link></li>
-
-                  <li><Link
-                    className='text-white fs-14 capitalize'>News</Link></li>
-
-                  <li><Link
-                    className='text-white fs-14 capitalize'>Contacts</Link></li>
-                </ul>
-              </nav>
-            )}
+            <Menu />
           </div>
 
           <div
-            className='row center-y'>
+            className="row center-y">
             <div
-              className='order-project'>
+              className="order-project">
               <span
-                className='fs-14 text-white capitalize'>Order the project</span>
+                className="fs-14 text-white capitalize">Order the project</span>
             </div>
 
-            <div
-              className='menu-bars column gap-5 end-y'>
-              <div></div>
-
-              <div></div>
-
-              <div></div>
-            </div>
+            <MenuBars />
           </div>
         </div>
       </div>
+
+
     </header>
   );
 }

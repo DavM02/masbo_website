@@ -1,0 +1,48 @@
+#home-scroll {
+    .projects-list {
+
+
+
+        .text-wrapper {
+            margin: 0 0 80px 0;
+
+            p {
+                max-width: 753px;
+                margin-bottom: 27px;
+            }
+        }
+
+        ul {
+
+            li {
+                max-width: 344px;
+                width: -webkit-fill-available;
+                $count: 3;
+
+                .placeholder-1 {
+                    width: 100%;
+                    height: 127px;
+                    will-change: clip-path;
+                }
+
+                @for $item from 1 through $count {
+                    &:nth-child(#{$item}) .placeholder-1 {
+                        transition: $transition-1 0.7s clip-path #{($item * 0.3)}s;
+                    }
+                }
+
+                span.up-case {
+                    line-height: 24px;
+                    font-size: 12px;
+                    display: block;
+                    margin: 19px 0 11px;
+                }
+
+                h5 {
+                    margin-bottom: 5px;
+                }
+
+            }
+        }
+    }
+}

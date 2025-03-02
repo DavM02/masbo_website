@@ -9,11 +9,15 @@
 
 @font-face {
     font-family: "font-main-bold";
-    src: url("/src/assets/fonts/Inter-Bold.woff") format("woff2"),
+    src: url("/src/assets/fonts/Inter-Bold.woff2") format("woff2"),
         url("/src/assets/fonts/Inter-Bold.woff") format("woff"),
         url("/src/assets/fonts/Inter-Bold.ttf") format("truetype"),
         url("/src/assets/fonts/Inter-Bold.eot") format("embedded-opentype"),
         url("/src/assets/fonts/Inter-Bold.otf") format("opentype"),
+}
+
+.text-center {
+    text-align: center;
 }
 
 .up-case {
@@ -29,13 +33,13 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h5, h6, footer li:not(:has(svg)) a, .menu-overlay li:not(:has(svg)) a {
     color: $white;
     font-family: "font-main-bold";
 }
 
 .font-bold {
-    font-family: "font-main-bold";
+    font-family: "font-main-bold" !important;
 }
 
 .font-reg {
@@ -58,29 +62,25 @@ h6 {
     font-weight: 100;
 }
 
+.fs-12 {
+    font-size: 12px;
+    font-family: "font-main";
+    line-height: 18px;
+    font-weight: lighter;
+}
+
 p {
     font-family: "font-main";
     letter-spacing: 0.5px;
-    font-weight: bolder;
-    font-size: 14px;
+    font-weight: 500;
 
-
-    &.to-middle {
+    &.to-middle:not(.to-small) {
         font-size: clamp(0.6875rem, 0.642rem + 0.1942vw, 0.875rem);
         line-height: clamp(1.125rem, 1.034rem + 0.3883vw, 1.5rem);
         ;
     }
 
-    &.to-small {
-        line-height: clamp(1rem, 0.8786rem + 0.5178vw, 1.5rem);
-        font-size: clamp(0.5625rem, 0.4867rem + 0.3236vw, 0.875rem);
-    }
-}
-
-span {
-    &.to-small {
-        font-family: "font-main";
-        letter-spacing: 0.5px;
+    &.to-small:not(.to-middle) {
         line-height: clamp(1rem, 0.8786rem + 0.5178vw, 1.5rem);
         font-size: clamp(0.5625rem, 0.4867rem + 0.3236vw, 0.875rem);
     }
@@ -97,9 +97,31 @@ h2 {
     line-height: 65.5px;
 }
 
-h6 {
-    font-size: clamp(0.75rem, 0.6893rem + 0.2589vw, 1rem);
-    ;
-    line-height: clamp(1.1125rem, 1.0184rem + 0.4013vw, 1.5rem);
+h3, .menu-overlay li:not(:has(svg), .mobile-footer li) a {
+    font-size: clamp(1.375rem, 1.2233rem + 0.6472vw, 2rem);
+    line-height: clamp(1.664375rem, 1.4808rem + 0.7832vw, 2.420625rem);
+}
+
+h4, footer li:not(:has(svg)) a {
+    font-size: 22px;
+    line-height: 42px;
+}
+
+h5, .mobile-footer li:not(:has(svg)) a {
     letter-spacing: 0.4px;
+
+    &:not(.static) {
+        font-size: clamp(0.75rem, 0.6893rem + 0.2589vw, 1rem);
+        line-height: clamp(1.1125rem, 1.0184rem + 0.4013vw, 1.5rem);
+    }
+
+    &.static {
+        font-size: 16px;
+        line-height: 24px;
+    }
+}
+
+h6 {
+    font-size: 12px;
+    line-height: 22px;
 }

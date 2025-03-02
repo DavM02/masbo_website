@@ -1,123 +1,143 @@
-import { useLayoutEffect, useRef, useContext } from "preact/hooks";
+import { useRef } from "preact/hooks";
 import Scrollbar from "smooth-scrollbar";
-import { MainContext } from "@context/MainContext";
 import { gsap } from "gsap/all";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import useMediaQ from "@hooks/useMediaQ"
-
-gsap.registerPlugin(ScrollTrigger);
+import useAnimation from "@hooks/useAnimation";
+import { useGSAP } from "@gsap/react";
+import { setScrollTween, setScrollBar, clearScrollBar } from "./ScrollAccess";
+import { ScrollbarPlugin } from "smooth-scrollbar";
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export default function SmoothScroll({ children }) {
-  const { scrollbarAccess } = useContext(MainContext);
   const scrollRef = useRef(null);
 
-  const q = useMediaQ("(min-width: 1025px)")
- 
-  useLayoutEffect(() => {
-    let scrollbar;
-    let resizeObserver;
-    const ctx = gsap.context(() => {});  
+  const { width, height, isLargeScreen } = useAnimation();
 
-    const initScrollbar = () => {
-      if (scrollRef.current) {
-        scrollbar = Scrollbar.init(scrollRef.current, {
-          damping: 0.06,
-          alwaysShowTrack: true,
-          renderByPixels: true,
-          delegateTo: document
-        });
-
-        scrollbarAccess.current = scrollbar;
-
-        scrollbarAccess.current.addListener(({offset}) => {
-          if (offset.y > 3) {
-            scrollbarAccess.current.containerEl.previousElementSibling.style.backgroundColor = "#151517"
-          } else {
-            scrollbarAccess.current.containerEl.previousElementSibling.style.backgroundColor = "transparent"
-          }
-        })
-        ScrollTrigger.scrollerProxy(scrollRef.current, {
-          scrollTop(value) {
-            if (arguments.length) {
-              scrollbar.scrollTop = value;
-            }
-            return scrollbar.scrollTop;
-          },
-          getBoundingClientRect() {
-            return {
-              top: 0,
-              left: 0,
-              width: window.innerWidth,
-              height: window.innerHeight
-            };
-          }
-        });
-
-        scrollbar.addListener(ScrollTrigger.update);
-        ScrollTrigger.defaults({ scroller: scrollRef.current });
-
-        ScrollTrigger.refresh();
+  useGSAP(
+    () => {
+      if ("scrollRestoration" in window.history) {
+        window.history.scrollRestoration = "manual";
       }
-    };
+ 
+      let scrollbar;
+      let resizeObserver;
 
-    const createAnimation = () => {
-      ctx.revert();  
+      const initScrollbar = () => {
+        if (scrollRef.current) {
+          scrollbar = Scrollbar.init(scrollRef.current, {
+            damping: 0.06,
+            alwaysShowTrack: true,
+            renderByPixels: true,
+            delegateTo: document,
+          });
 
-      if (q) {
-        ctx.add(() => {
-          gsap.to("#home-scroll > .row", {
-            x: "-300vw",
-            ease: "power2.out",
+          setScrollBar(scrollbar);
+
+          ScrollTrigger.scrollerProxy(scrollRef.current, {
+            scrollTop(value) {
+              if (arguments.length) {
+                scrollbar.scrollTop = value;
+              }
+              return scrollbar.scrollTop;
+            },
+            getBoundingClientRect() {
+              return {
+                top: 0,
+                left: 0,
+                width: window.innerWidth,
+                height: window.innerHeight,
+              };
+            },
+          });
+
+          scrollbar.addListener(ScrollTrigger.update);
+          ScrollTrigger.defaults({ scroller: scrollRef.current });
+
+          ScrollTrigger.refresh();
+        }
+      };
+
+      const createAnimation = () => {
+        if (width && height) {
+          let scrollTween = gsap.to("#home-scroll > .row", {
+            x: isLargeScreen
+              ? "-700vw"
+              : () =>
+                  -(
+                    1762 +
+                    3271 +
+                    window.innerWidth * 4 +
+                    (window.innerWidth / 3) * 2
+                  ),
+            ease: "none",
             scrollTrigger: {
               trigger: "#home-scroll",
               start: "top top",
               end: () => "+=" + window.innerHeight,
               pin: true,
-              scrub: true
-            }
+              scrub: true,
+              invalidateOnRefresh: true,
+              force3D: true,
+            },
           });
-        });
 
+          setScrollTween(scrollTween);
+        }
+      };
+
+      const handleResize = () => {
         ScrollTrigger.refresh();
+      };
+
+      resizeObserver = new ResizeObserver(handleResize);
+      if (scrollRef.current) {
+        resizeObserver.observe(scrollRef.current);
       }
-    };
 
-    const handleResize = () => {
-      ScrollTrigger.refresh();
-    };
+      if ((width && height) || isLargeScreen) {
+        initScrollbar();
+      }
+      createAnimation();
 
-    resizeObserver = new ResizeObserver(handleResize);
-    if (scrollRef.current) {
-      resizeObserver.observe(scrollRef.current);
+      return () => {
+        clearScrollBar();
+        ScrollTrigger.killAll();
+        if (resizeObserver) {
+          resizeObserver.disconnect();
+        }
+      };
+    },
+    {
+      dependencies: [width, height, isLargeScreen],
+      scope: scrollRef,
+      revertOnUpdate: true,
     }
-
-    if ("scrollRestoration" in window.history) {
-      window.history.scrollRestoration = "manual";
-    }
-
-    initScrollbar();
-    createAnimation();
-
-    return () => {
-      ctx.revert();  
-      if (scrollbar) {
-        scrollbar.destroy();
-      }
-      if (resizeObserver) {
-        resizeObserver.disconnect();
-      }
-    };
-  }, [ q, scrollbarAccess ]);
+  );
 
   return (
     <div
       id="scroll-wrapper"
       style={{
-        position: "fixed",
-        height: "100%"
+        position: width && height ? "fixed" : "static",
+        height: "100%",
       }}
-      ref={scrollRef}>
+      ref={scrollRef}
+    >
       {children}
     </div>
   );
 }
+
+class OverflowPlugin extends ScrollbarPlugin {
+  static pluginName = "overflow";
+
+  static defaultOptions = {
+    open: false,
+  };
+
+  transformDelta(delta) {
+    return this.options.open ? { x: 0, y: 0 } : delta;
+  }
+}
+
+Scrollbar.use(OverflowPlugin);

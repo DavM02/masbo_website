@@ -1,0 +1,36 @@
+#home-scroll {
+    section {
+
+        &.about {
+            .container {
+                max-width: unset;
+                position: relative;
+                height: 100%;
+
+                >.row:not(ul) {
+                    margin-bottom: 80px;
+                }
+
+                ul:not(.socials) {
+                    margin-bottom: 70px;
+
+                    li {
+                        cursor: initial !important;
+                    }
+                }
+
+                .play {
+                    @include center-absolute(120);
+                    pointer-events: all;
+                    cursor: pointer;
+                    border-radius: 50%;
+                    aspect-ratio: 1/1;
+                    width: clamp(5.5rem, 5.0222rem + 2.3891vw, 7.25rem);
+                    border: 1px solid rgb(255, 2555, 255, 50%);
+
+                }
+
+            }
+        }
+    }
+}

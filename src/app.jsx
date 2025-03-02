@@ -3,42 +3,39 @@ import Header from '@components/layout/Header/Header'
 import { AnimatePresence } from 'framer-motion'
 import { Routes, Route, useLocation} from 'react-router-dom'
 import SmoothScroll from '@components/Scroll/SmoothScroll'
-import MainContextProvider from '@context/MainContext'
+import Footer from '@components/layout/Footer/Footer'
 
 export function App() {
  
   const location = useLocation()
-
+  
   return (
     <>
-   
+  
+      <Header />
 
-      <MainContextProvider>
-        <Header />
-
-        <SmoothScroll>
+      <SmoothScroll>
           
-          <main>
+        <main>
 
-            <AnimatePresence
-              mode="wait"
-              initial={false}>
-              <Routes
-                location={location}
-                key={location.pathname}>
-                <Route
-                  path="/"
-                  element={<HomePage />} />
-              </Routes>
+          <AnimatePresence
+            mode="wait"
+            initial={false}>
+            <Routes
+              location={location}
+              key={location.pathname}>
+              <Route
+                path="/"
+                element={<HomePage />} />
+            </Routes>
 
-            </AnimatePresence>
+          </AnimatePresence>
     
-          </main>
+        </main>
 
-          {/* <footer
-            style={{height: '400px', backgroundColor: 'red', width: '100%'}}></footer> */}
-        </SmoothScroll>
-      </MainContextProvider>
+        <Footer />
+      </SmoothScroll>
+ 
     </>
   )
 }

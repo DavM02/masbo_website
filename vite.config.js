@@ -1,24 +1,28 @@
 import { defineConfig } from "vite";
-import preact from '@preact/preset-vite'
-import alias from '@rollup/plugin-alias';
-import path from 'path';
-import autoprefixer from 'autoprefixer';
-// import mergeRules from 'postcss-merge-rules';
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
-import {visualizer} from "rollup-plugin-visualizer";
-import { terser } from 'rollup-plugin-terser';
-import mergeLonghand from 'postcss-merge-longhand';
-import mergeRulePlus from 'postcss-merge-rules-plus';
-
+import preact from "@preact/preset-vite";
+import alias from "@rollup/plugin-alias";
+import path from "path";
+import autoprefixer from "autoprefixer";
+import { fileURLToPath } from "url";
+import { dirname } from "path";
+import { visualizer } from "rollup-plugin-visualizer";
+import { terser } from "rollup-plugin-terser";
+import mergeLonghand from "postcss-merge-longhand";
+import mergeRulePlus from "postcss-merge-rules-plus";
+import svgr from "vite-plugin-svgr";
+import sortMediaQueries from 'postcss-sort-media-queries'
+import postcssPresetEnv from 'postcss-preset-env';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 export default defineConfig({
-  base: '/masbo_website/', 
+  base: "/masbo_website/",
   // optimizeDeps: {
-  //   exclude: [ "gsap" ], 
+  //   exclude: [ "gsap" ],
   // },
+  server: {
+    allowedHosts: [ "q5r5mx-5173.csb.app" ],
+  },
   build: {
     minify: false,
     rollupOptions: {
@@ -31,50 +35,56 @@ export default defineConfig({
     alias({
       entries: [
         {
-          find: '@components',
-          replacement:path.resolve(__dirname, './src/components')  
+          find: "@components",
+          replacement: path.resolve(__dirname, "./src/components"),
         },
         {
-          find: '@sections',
-          replacement: path.resolve(__dirname, './src/components/sections')  
+          find: "@sections",
+          replacement: path.resolve(__dirname, "./src/components/sections"),
         },
         {
-          find: '@styles',
-          replacement: path.resolve(__dirname, './src/styles'),
+          find: "@styles",
+          replacement: path.resolve(__dirname, "./src/styles"),
         },
         {
-          find: '@assets',
-          replacement: path.resolve(__dirname, './src/assets') 
+          find: "@assets",
+          replacement: path.resolve(__dirname, "./src/assets"),
         },
         {
-          find: '@pages',
-          replacement:path.resolve(__dirname, './src/pages')  
+          find: "@pages",
+          replacement: path.resolve(__dirname, "./src/pages"),
         },
         {
-          find: '@hooks',
-          replacement:path.resolve(__dirname, './src/hooks')  
+          find: "@hooks",
+          replacement: path.resolve(__dirname, "./src/hooks"),
         },
         {
-          find: '@context',
-          replacement:path.resolve(__dirname, './src/context')  
-        }
-      ] 
-    })
+          find: "@context",
+          replacement: path.resolve(__dirname, "./src/context"),
+        },
+      ],
+    }),
+    svgr(),
   ],
   css: {
-    preprocessorMaxWorkers: 4,  
+    preprocessorMaxWorkers: 4,
     postcss: {
-      plugins: [
-        autoprefixer,
+      plugins: [ autoprefixer,
         mergeLonghand,
-        mergeRulePlus.default 
-      ]
+        mergeRulePlus.default,
+        sortMediaQueries,
+        postcssPresetEnv({
+          stage: 2,
+          features: {
+            'nesting-rules': true
+          }
+        })
+      ],
     },
     preprocessorOptions: {
       scss: {
-        additionalData: `@use "${path.resolve(__dirname, 'src/styles/variables.scss')}" as *;`,
-      }
+        additionalData: `@use "${path.resolve(__dirname, "src/styles/variables.scss")}" as *;`,
+      },
     },
   },
-  
 });
