@@ -578,7 +578,7 @@ body::after {
   body section {
     background-attachment: scroll !important;
   }
-  body {
+  body::after {
     mix-blend-mode: initial;
     -webkit-mix-blend-mode: unset;
     filter: brightness(0.5);
