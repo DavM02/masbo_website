@@ -10501,7 +10501,7 @@ function qk() {
 }
 function Gk() {
   const t19 = M_();
-  return $(w, { children: [$(Bb, {}), $(Is, { children: $(Yk, { children: [$("main", { children: $(Qc, { mode: "wait", initial: false, children: $(Y_, { location: t19, children: [$(H_, { path: "/", element: $(Fy, {}) }), $(H_, { path: "about", element: $(qk, {}) })] }, t19.pathname) }) }), $(Xk, {})] }) })] });
+  return $(w, { children: $(Is, { children: [$(Bb, {}), $(Yk, { children: [$("main", { children: $(Qc, { mode: "wait", initial: false, children: $(Y_, { location: t19, children: [$(H_, { path: "/", element: $(Fy, {}) }), $(H_, { path: "about", element: $(qk, {}) })] }, t19.pathname) }) }), $(Xk, {})] })] }) });
 }
 Hk.use((_a2 = class extends Rk {
   transformDelta(t19) {
