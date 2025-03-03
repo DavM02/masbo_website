@@ -1167,6 +1167,11 @@ header .container > .row > div:nth-last-of-type(1) {
   width: 100%;
   height: 100%;
 }
+#transition-root .transition, #transition-root .menu-overlay {
+  bottom: 0;
+  right: 0;
+  min-height: 100lvh;
+}
 #transition-root .transition path {
   will-change: path;
 }
@@ -1181,10 +1186,7 @@ header .container > .row > div:nth-last-of-type(1) {
   overflow: hidden;
 }
 #transition-root .menu-overlay {
-  bottom: 0;
-  right: 0;
   z-index: 555;
-  min-height: 100lvh;
   padding: 77px clamp(1.0625rem, 0.4994rem + 2.8157vw, 3.125rem) 31px;
   scrollbar-width: thin;
   scrollbar-color: transparent transparent;
