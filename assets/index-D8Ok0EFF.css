@@ -16,12 +16,12 @@
 } */
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: unset !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-img:not(.icon), .full-height, .center-flex, body, html, #app, #root, .socials {
+img:not(.icon), .full-height, .center-flex, body, html, #app, #root, body::after, .socials {
   height: 100%;
 }
 
@@ -559,7 +559,7 @@ body section {
 body::after {
   content: "";
   position: fixed;
-  height: 100lvh;
+  min-height: 100lvh;
   background: url("/masbo_website/assets/noise-BlxTny2C.gif") repeat;
   z-index: 888;
   opacity: 0.15;
@@ -1182,6 +1182,7 @@ header .container > .row > div:nth-last-of-type(1) {
 }
 #transition-root .menu-overlay {
   z-index: 555;
+  min-height: 100lvh;
   padding: 77px clamp(1.0625rem, 0.4994rem + 2.8157vw, 3.125rem) 31px;
   scrollbar-width: thin;
   scrollbar-color: transparent transparent;
