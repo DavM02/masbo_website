@@ -559,7 +559,7 @@ body section {
 body::after {
   content: "";
   position: fixed;
-  min-height: 100dvh;
+  min-height: 100lvh;
   background: url("/masbo_website/assets/noise-BlxTny2C.gif") repeat;
   z-index: 888;
   opacity: 0.15;
@@ -1184,7 +1184,7 @@ header .container > .row > div:nth-last-of-type(1) {
   bottom: 0;
   right: 0;
   z-index: 555;
-  min-height: 100dvh;
+  min-height: 100lvh;
   padding: 77px clamp(1.0625rem, 0.4994rem + 2.8157vw, 3.125rem) 31px;
   scrollbar-width: thin;
   scrollbar-color: transparent transparent;
