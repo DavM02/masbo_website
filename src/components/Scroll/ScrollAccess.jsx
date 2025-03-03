@@ -26,8 +26,10 @@ export function getScrollBar() {
 export function clearScrollBar() {
 
   if (getScrollBar()) {
+ 
     getScrollBar().destroy()
     scrollMap.delete(scrollKey);
+ 
   }
 }
 

@@ -83,7 +83,7 @@ export default defineConfig({
     },
     preprocessorOptions: {
       scss: {
-        additionalData: `@use "${path.resolve(__dirname, "src/styles/variables.scss")}" as *;`,
+        additionalData: `@use "${path.resolve(__dirname, "src/styles/variablesAndMixins.scss")}" as *;`,
       },
     },
   },

@@ -115,7 +115,8 @@ body {
         top: 0;
         position: fixed;
         width: 100%;
-        height: 100lvh;
+        min-height: 100lvh;
+        height: 100%;
         left: 0;
         background: url("/src/assets/noise.gif") repeat;
         z-index: 888;
@@ -140,7 +141,7 @@ body {
         }
     }
 
-    @supports (-webkit-hyphens: none) {
+    @include safari-only {
         section {
             background-attachment: scroll !important;
         }
@@ -151,7 +152,6 @@ body {
             filter: brightness(0.5);
             opacity: 9%;
         }
-
     }
 
 }
@@ -183,3 +183,4 @@ body {
     }
 
 }
+ 

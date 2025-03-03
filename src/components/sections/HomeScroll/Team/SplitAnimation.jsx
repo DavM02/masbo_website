@@ -14,9 +14,11 @@ export default function SplitAnimation() {
     ));
 
   useAnimation((options) => {
+  
+ 
     const items = gsap.utils.toArray(".team li");
     const spans = titleRef.current.querySelectorAll("span");
-
+      
     gsap.set(spans, { opacity: 0, y: 20 });
     gsap.to(spans, {
       opacity: 1,
@@ -29,7 +31,7 @@ export default function SplitAnimation() {
         trigger: ".team",
         start: "left 40%",
         toggleActions: "play none none none",
-        ...options,
+        ...options
       },
     });
 
@@ -45,10 +47,12 @@ export default function SplitAnimation() {
         trigger: ".team",
         start: "left 40%",
         toggleActions: "play none none none",
-        ...options,
+        ...options
       },
     });
-  });
+  })
+  
+
 
   return (<>
     <h1

@@ -1,6 +1,8 @@
 import { useGSAP } from "@gsap/react";
 import useMediaQ from "./useMediaQ";
 import { getScrollBar, getScrollTween } from "../components/Scroll/ScrollAccess";
+import { MainContext } from "@context/MainContext";
+import { useContext } from "preact/hooks";
 export default function useAnimation(gsapAnimation = () => {}, scope, returnFn = () => {}) {
  
 
@@ -9,6 +11,8 @@ export default function useAnimation(gsapAnimation = () => {}, scope, returnFn =
   const isLargeScreen = useMediaQ(
     "(min-height: 2200px) and (min-width: 1500px), (min-width: 3000px)"
   );
+
+  const {triggerInit} = useContext(MainContext)
 
   const match = (width && height) || isLargeScreen;
 
@@ -26,7 +30,7 @@ export default function useAnimation(gsapAnimation = () => {}, scope, returnFn =
   useGSAP(
     () => {
 
-      if (gsapAnimation) {
+      if (gsapAnimation && triggerInit) {
         requestAnimationFrame(() => {
         
           const options = {
@@ -36,7 +40,7 @@ export default function useAnimation(gsapAnimation = () => {}, scope, returnFn =
           if (match) {
            
             options.containerAnimation = getScrollTween()
-        
+ 
           } 
       
           gsapAnimation(options); 
@@ -57,7 +61,8 @@ export default function useAnimation(gsapAnimation = () => {}, scope, returnFn =
     {
       dependencies: [ width,
         height,
-        isLargeScreen ],
+        isLargeScreen,
+        triggerInit ],
       revertOnUpdate: true,
       ...scope,
     }

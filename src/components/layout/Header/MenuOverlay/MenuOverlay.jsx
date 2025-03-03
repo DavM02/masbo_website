@@ -114,7 +114,7 @@ function MenuOverlay({ openTl, closeTl }) {
           });
           gsap.set(".close-menu", { clearProps: "pointerEvents" });
           getScrollBar()?.updatePluginOptions("overflow", { open: false });
-          document.body.classList.remove("overlay-opened");
+          document.body.removeAttribute('class')
         },
       });
   };
@@ -134,25 +134,31 @@ function MenuOverlay({ openTl, closeTl }) {
         document.body.removeAttribute("class");
       };
     },
-    { dependencies: [isMobile, open], revertOnUpdate: true }
+    { dependencies: [ isMobile, open ], revertOnUpdate: true }
   );
 
   return createPortal(
-    <div className="menu-overlay row center-y">
+    <div
+      className="menu-overlay row center-y">
       <Path />
 
       <Logo />
 
-      <div className="row s-between gap-50">
-        <MenuLinks isMobile={isMobile} />
+      <div
+        className="row s-between gap-50">
+        <MenuLinks
+          onClick={() => closeTl.current.restart()}
+          isMobile={isMobile} />
 
         {!isMobile && <ExtraLinks />}
 
-        <div className="column s-between">
+        <div
+          className="column s-between">
           <SchemeList />
 
           {!isMobile && (
-            <p className="to-middle text-white capitalize">
+            <p
+              className="to-middle text-white capitalize">
               We offer a full range of services from interior design, individual
               cottages to the design and construction of residential complexes.
               For our customers, we are known as a reliable partner with high
@@ -164,7 +170,8 @@ function MenuOverlay({ openTl, closeTl }) {
         {isMobile && <MobileFooter />}
       </div>
 
-      <CloseMenu onClick={() => closeTl.current.restart()} />
+      <CloseMenu
+        onClick={() => closeTl.current.restart()} />
     </div>,
     document.querySelector("#transition-root")
   );

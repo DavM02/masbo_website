@@ -1,5 +1,6 @@
 import Home from "@sections/Home/Home"
 import HomeScroll from "@sections/HomeScroll/HomeScroll"
+import PageTransition from "@components/PageTransition/PageTransition"
  
 
  
@@ -7,7 +8,7 @@ import HomeScroll from "@sections/HomeScroll/HomeScroll"
 export default function HomePage() {
  
   return (
-    <div
+    <PageTransition
       id='home-page'> 
  
       <Home />
@@ -15,6 +16,6 @@ export default function HomePage() {
       <HomeScroll />
 
 
-    </div>
+    </PageTransition>
   )
 }

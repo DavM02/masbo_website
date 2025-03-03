@@ -1,15 +1,18 @@
-import { useRef } from "preact/hooks";
+import {  useRef } from "preact/hooks";
 import Scrollbar from "smooth-scrollbar";
 import { gsap } from "gsap/all";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import useAnimation from "@hooks/useAnimation";
 import { useGSAP } from "@gsap/react";
-import { setScrollTween, setScrollBar, clearScrollBar } from "./ScrollAccess";
+import {  setScrollBar, clearScrollBar, getScrollBar } from "./ScrollAccess";
 import { ScrollbarPlugin } from "smooth-scrollbar";
+ 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export default function SmoothScroll({ children }) {
+ 
   const scrollRef = useRef(null);
+
 
   const { width, height, isLargeScreen } = useAnimation();
 
@@ -18,7 +21,7 @@ export default function SmoothScroll({ children }) {
       if ("scrollRestoration" in window.history) {
         window.history.scrollRestoration = "manual";
       }
- 
+
       let scrollbar;
       let resizeObserver;
 
@@ -57,33 +60,7 @@ export default function SmoothScroll({ children }) {
         }
       };
 
-      const createAnimation = () => {
-        if (width && height) {
-          let scrollTween = gsap.to("#home-scroll > .row", {
-            x: isLargeScreen
-              ? "-700vw"
-              : () =>
-                  -(
-                    1762 +
-                    3271 +
-                    window.innerWidth * 4 +
-                    (window.innerWidth / 3) * 2
-                  ),
-            ease: "none",
-            scrollTrigger: {
-              trigger: "#home-scroll",
-              start: "top top",
-              end: () => "+=" + window.innerHeight,
-              pin: true,
-              scrub: true,
-              invalidateOnRefresh: true,
-              force3D: true,
-            },
-          });
-
-          setScrollTween(scrollTween);
-        }
-      };
+  
 
       const handleResize = () => {
         ScrollTrigger.refresh();
@@ -96,19 +73,25 @@ export default function SmoothScroll({ children }) {
 
       if ((width && height) || isLargeScreen) {
         initScrollbar();
+        
       }
-      createAnimation();
+
+      if (document.body.classList.contains('overlay-opened')) {
+        getScrollBar()?.updatePluginOptions('overflow', { open: true })
+      }
 
       return () => {
         clearScrollBar();
-        ScrollTrigger.killAll();
+        ScrollTrigger.killAll()
         if (resizeObserver) {
           resizeObserver.disconnect();
         }
       };
     },
     {
-      dependencies: [width, height, isLargeScreen],
+      dependencies: [ width,
+        height,
+        isLargeScreen, ],
       scope: scrollRef,
       revertOnUpdate: true,
     }
@@ -121,8 +104,7 @@ export default function SmoothScroll({ children }) {
         position: width && height ? "fixed" : "static",
         height: "100%",
       }}
-      ref={scrollRef}
-    >
+      ref={scrollRef}>
       {children}
     </div>
   );

@@ -4,7 +4,8 @@ import { AnimatePresence } from 'framer-motion'
 import { Routes, Route, useLocation} from 'react-router-dom'
 import SmoothScroll from '@components/Scroll/SmoothScroll'
 import Footer from '@components/layout/Footer/Footer'
-
+import AboutPage from '@pages/AboutPage/AboutPage'
+import MainContextProvider from '@context/MainContext'
 export function App() {
  
   const location = useLocation()
@@ -12,29 +13,41 @@ export function App() {
   return (
     <>
   
-      <Header />
+ 
 
-      <SmoothScroll>
+      <MainContextProvider>
+        <Header />
+
+        <SmoothScroll>
           
-        <main>
+          <main>
 
-          <AnimatePresence
-            mode="wait"
-            initial={false}>
-            <Routes
-              location={location}
-              key={location.pathname}>
-              <Route
-                path="/"
-                element={<HomePage />} />
-            </Routes>
+            <AnimatePresence
+              mode="wait"
+              initial={false}>
+              <Routes
+                location={location}
+                key={location.pathname}>
+                <Route
+                  path="/"
+                  element={<HomePage />} />
 
-          </AnimatePresence>
+                <Route
+                  path='about'
+                  element={<AboutPage />}>
+
+                </Route>
+              </Routes>
+
+            </AnimatePresence>
     
-        </main>
+          </main>
 
-        <Footer />
-      </SmoothScroll>
+          <Footer />
+        </SmoothScroll>
+      </MainContextProvider>
+
+
  
     </>
   )

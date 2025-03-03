@@ -1,5 +1,5 @@
 import "./header.scss";
-
+ 
 import { gsap } from "gsap";
 import useAnimation from "@hooks/useAnimation";
 import MenuBars from "./MenuBars";
@@ -43,7 +43,7 @@ export default function Header() {
     }
   },);
 
- 
+
 
   return (
     <header>
