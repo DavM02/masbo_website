@@ -486,7 +486,7 @@ html,
   /* width: 100%; */
 }
 
-main, body::after {
+main {
   min-height: 100vh;
 }
 
@@ -559,6 +559,7 @@ body section {
 body::after {
   content: "";
   position: fixed;
+  min-height: 100dvh;
   background: url("/masbo_website/assets/noise-BlxTny2C.gif") repeat;
   z-index: 888;
   opacity: 0.15;
@@ -1181,7 +1182,7 @@ header .container > .row > div:nth-last-of-type(1) {
 }
 #transition-root .menu-overlay {
   z-index: 555;
-  min-height: 100vh;
+  min-height: 100dvh;
   padding: 77px clamp(1.0625rem, 0.4994rem + 2.8157vw, 3.125rem) 31px;
   scrollbar-width: thin;
   scrollbar-color: transparent transparent;
