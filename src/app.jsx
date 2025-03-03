@@ -13,10 +13,10 @@ export function App() {
   return (
     <>
   
- 
+      <Header />
 
       <MainContextProvider>
-        <Header />
+     
 
         <SmoothScroll>
           

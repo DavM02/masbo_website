@@ -10,6 +10,7 @@ export default function Header() {
   const { width, height, isLargeScreen } = useAnimation((options) => {
     gsap.to("header", {
       scrollTrigger: {
+        id: 'header_trigger_1',
         scroller: options.scroller,
         trigger: "main",
         start: "3px top",
@@ -23,6 +24,7 @@ export default function Header() {
     if ((width && height) || isLargeScreen) {
       gsap.to("header", {
         scrollTrigger: {
+          id: 'header_trigger_2',
           trigger: ".about",
           start: "left 0%",
           end: "right 0%",
