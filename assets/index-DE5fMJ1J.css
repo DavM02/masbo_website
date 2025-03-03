@@ -1192,8 +1192,7 @@ header .container > .row > div:nth-last-of-type(1) {
   scrollbar-color: transparent transparent;
 }
 #transition-root .menu-overlay::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+  width: 0px;
 }
 #transition-root .menu-overlay::-webkit-scrollbar-track, #transition-root .menu-overlay::-webkit-scrollbar-thumb {
   background: transparent;

@@ -7978,7 +7978,7 @@ function Vb() {
 }
 function Bb() {
   const { width: t19, height: e2, isLargeScreen: n2 } = Fs((r2) => {
-    Ts.to("header", { scrollTrigger: { scroller: r2.scroller, trigger: "main", start: "3px top", onEnter: () => Ts.set("header", { className: "scrolled", clearProps: "backgroundColor" }), onLeaveBack: () => Ts.set("header", { className: "static", clearProps: "backgroundColor" }) } }), (t19 && e2 || n2) && Ts.to("header", { scrollTrigger: { trigger: ".about", start: "left 0%", end: "right 0%", onEnter: () => {
+    Ts.to("header", { scrollTrigger: { id: "header_trigger_1", scroller: r2.scroller, trigger: "main", start: "3px top", onEnter: () => Ts.set("header", { className: "scrolled", clearProps: "backgroundColor" }), onLeaveBack: () => Ts.set("header", { className: "static", clearProps: "backgroundColor" }) } }), (t19 && e2 || n2) && Ts.to("header", { scrollTrigger: { id: "header_trigger_2", trigger: ".about", start: "left 0%", end: "right 0%", onEnter: () => {
       Ts.set("header", { backgroundColor: "transparent" });
     }, onEnterBack: () => {
       Ts.set("header", { backgroundColor: "transparent" });
@@ -10501,7 +10501,7 @@ function qk() {
 }
 function Gk() {
   const t19 = M_();
-  return $(w, { children: $(Is, { children: [$(Bb, {}), $(Yk, { children: [$("main", { children: $(Qc, { mode: "wait", initial: false, children: $(Y_, { location: t19, children: [$(H_, { path: "/", element: $(Fy, {}) }), $(H_, { path: "about", element: $(qk, {}) })] }, t19.pathname) }) }), $(Xk, {})] })] }) });
+  return $(w, { children: [$(Bb, {}), $(Is, { children: $(Yk, { children: [$("main", { children: $(Qc, { mode: "wait", initial: false, children: $(Y_, { location: t19, children: [$(H_, { path: "/", element: $(Fy, {}) }), $(H_, { path: "about", element: $(qk, {}) })] }, t19.pathname) }) }), $(Xk, {})] }) })] });
 }
 Hk.use((_a2 = class extends Rk {
   transformDelta(t19) {
