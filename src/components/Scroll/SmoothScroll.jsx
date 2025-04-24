@@ -18,9 +18,6 @@ export default function SmoothScroll({ children }) {
 
   useGSAP(
     () => {
-      if ("scrollRestoration" in window.history) {
-        window.history.scrollRestoration = "manual";
-      }
 
       let scrollbar;
       let resizeObserver;
