@@ -33,7 +33,7 @@ function MenuOverlay({ openTl, closeTl }) {
       .to(".transition path", {
         duration: 1,
         ease: "power3.in",
-        attr: { d: openStart, fill: "#1D1D20" },
+        attr: { d: openStart },
         onStart: () => {
           document.body.classList.add("overlay-opened");
           getScrollBar()?.updatePluginOptions("overflow", { open: true });
@@ -100,7 +100,7 @@ function MenuOverlay({ openTl, closeTl }) {
         {
           duration: 0.5,
           ease: "power3.in",
-          attr: { d: openEnd, fill: "#E9E9E9" },
+          attr: { d: openEnd },
         },
         isMobile ? "-=0.6" : "-=0.4"
       )
@@ -127,7 +127,7 @@ function MenuOverlay({ openTl, closeTl }) {
         openTl.current?.kill();
         closeTl.current?.kill();
         gsap.set(".transition path", {
-          attr: { d: closeEnd, fill: "#E9E9E9" },
+          attr: { d: closeEnd},
         });
         gsap.set(".close-menu", { clearProps: "pointerEvents" });
         getScrollBar()?.updatePluginOptions("overflow", { open: false });

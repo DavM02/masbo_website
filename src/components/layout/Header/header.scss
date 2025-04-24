@@ -1,11 +1,11 @@
 @import './menu.scss';
 
-html:has([data-mode="light"]) {
+html:not(:has(#home-page)) {
     header {
         background-color: $white;
 
         .logo {
-            filter: brightness(0.11111);
+            mix-blend-mode: exclusion;
         }
 
         .menu-bars div {
@@ -26,8 +26,11 @@ html:has([data-mode="light"]) {
 
         .order-project {
             opacity: 1;
+            mix-blend-mode: normal;
+
             span {
                 color: $text-gray;
+                font-weight: 600;
             }
         }
     }
@@ -44,8 +47,8 @@ header {
     left: 0;
     width: 100%;
     transition: $transition-1 background-color 1s;
-
     .logo {
+
         &:hover {
             opacity: 0.5;
         }
@@ -54,7 +57,8 @@ header {
     a {
         line-height: 16.94px !important;
         font-weight: 600 !important;
-        transition: $transition-1 all 0.5s;
+        transition: $transition-1 color 0.5s, $transition-1 opacity 0.5s;
+        ;
     }
 
     &.static {
@@ -72,13 +76,8 @@ header {
         .order-project {
             position: relative;
             opacity: 80%;
-            filter: saturate(1);
+            mix-blend-mode: hard-light;
             cursor: pointer;
-
-            span {
-                transition: $transition-1 all 0.5s;
-                font-weight: 600;
-            }
 
 
             &::after {
