@@ -5,10 +5,10 @@ import PageTransition from "@components/PageTransition/PageTransition"
 
  
 
-export default function HomePage() {
+function HomePage() {
  
   return (
-    <PageTransition
+    <div
       id='home-page'> 
  
       <Home />
@@ -16,6 +16,8 @@ export default function HomePage() {
       <HomeScroll />
 
 
-    </PageTransition>
+    </div>
   )
 }
+
+export default PageTransition(HomePage)

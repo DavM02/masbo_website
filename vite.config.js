@@ -34,6 +34,7 @@ export default defineConfig({
     preact(),
     alias({
       entries: [
+      
         {
           find: "@components",
           replacement: path.resolve(__dirname, "./src/components"),

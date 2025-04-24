@@ -1,7 +1,7 @@
 import Numbers from "./Numbers"
 import useAnimation from '@hooks/useAnimation'
 import play from "@assets/icons/play.svg"
-import Socials from "../Socials"
+import Socials from "../../../shared/Socials/Socials"
 
 export default function About() {
 

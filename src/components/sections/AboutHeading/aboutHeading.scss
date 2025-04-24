@@ -1,0 +1,25 @@
+#about-heading {
+    position: relative;
+    margin-top: 72.44px;
+    background-color: $white;
+    background: url('../../../assets/bg-2.jpg') center no-repeat;
+    background-size: cover;
+
+    &::after {
+        @include overlay($black, 60%);
+    }
+
+
+    path {
+        fill: $white;
+    }
+
+    h1 {
+        position: relative;
+        z-index: 44;
+    }
+
+    .row {
+        min-height: 375px;
+    }
+}

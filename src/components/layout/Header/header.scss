@@ -25,6 +25,7 @@ html:has([data-mode="light"]) {
         }
 
         .order-project {
+            opacity: 1;
             span {
                 color: $text-gray;
             }

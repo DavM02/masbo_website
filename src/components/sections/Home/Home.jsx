@@ -1,14 +1,15 @@
 import "./home.scss";
-import Socials from "../HomeScroll/Socials";
-import useAnimation from "@hooks/useAnimation";
+import Socials from "@components/shared/Socials/Socials";
+ 
 import ScrollDown from "./ScrollDown";
 export default function Home() {
-  const { width, height } = useAnimation();
+
 
   return (
     <section
       id="home">
-      {width && height && <Socials />}
+ 
+      <Socials />
 
       <div
         className="container">

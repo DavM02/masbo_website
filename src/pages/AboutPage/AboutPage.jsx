@@ -1,11 +1,14 @@
 import PageTransition from "@components/PageTransition/PageTransition";
+import AboutHeading from "@components/sections/AboutHeading/AboutHeading";
 
 
-export default function AboutPage() {
+function AboutPage() {
   return (
-    <PageTransition
+    <div
       id="about-page">
-     
-    </PageTransition>
+      <AboutHeading />
+    </div>
   )
 }
+
+export default  PageTransition(AboutPage)

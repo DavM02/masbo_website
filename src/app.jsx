@@ -17,8 +17,7 @@ export function App() {
         <Header />
 
         <SmoothScroll>
-          <main
-            data-mode={location.pathname === "/" ? "dark" : "light"}>
+          <main>
             <AnimatePresence
               mode="wait"
               initial={false}>
