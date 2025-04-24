@@ -1,7 +1,7 @@
 import { gsap } from "gsap";
 import { createPortal } from "preact/compat";
 import CloseMenu from "./CloseMenu";
-import "./MenuOverlay.scss";
+import "./menuOverlay.scss";
 import Logo from "../Logo";
 
 import { useGSAP } from "@gsap/react";
@@ -142,7 +142,8 @@ function MenuOverlay({ openTl, closeTl }) {
       className="menu-overlay row center-y">
       <Path />
 
-      <Logo />
+      <Logo
+        onClick={() => closeTl.current.restart()} />
 
       <div
         className="row s-between gap-50">

@@ -10,8 +10,10 @@ export default function ExtraLinks() {
         className='column gap-20'>
         {extraLinks.map(([ path, label ]) => (
           <li
-            key={path}><Link
-              to={path}>{label}</Link></li>
+            key={path}>
+            <Link
+              to={path}>{label}
+            </Link></li>
         ))}
       </ul>
 

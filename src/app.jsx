@@ -9,19 +9,16 @@ import MainContextProvider from '@context/MainContext'
 export function App() {
  
   const location = useLocation()
-  
+ 
   return (
     <>
-  
- 
-
       <MainContextProvider>
+
         <Header />
 
         <SmoothScroll>
-          
-          <main>
-
+          <main
+            data-mode={location.pathname === "/" ? "dark" : "light"}>
             <AnimatePresence
               mode="wait"
               initial={false}>
@@ -38,17 +35,13 @@ export function App() {
 
                 </Route>
               </Routes>
-
             </AnimatePresence>
-    
           </main>
 
           <Footer />
+
         </SmoothScroll>
       </MainContextProvider>
-
-
- 
     </>
   )
 }

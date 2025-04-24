@@ -16,6 +16,7 @@ import { MainContext } from "@context/MainContext";
 export default function HomeScroll() { 
   const {width, height, isLargeScreen} = useAnimation()
   const { setTriggerInit } = useContext(MainContext)
+ 
   useGSAP(() => {
     const createAnimation = () => {
       if (width && height) {
@@ -41,7 +42,6 @@ export default function HomeScroll() {
             force3D: true,
           },
         });
-
         setScrollTween(scrollTween);
       }
     };

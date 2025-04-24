@@ -24,7 +24,7 @@ export default defineConfig({
     allowedHosts: [ "q5r5mx-5173.csb.app" ],
   },
   build: {
-    minify: false,
+    // minify: false,
     rollupOptions: {
       plugins: [ terser() ],
     },

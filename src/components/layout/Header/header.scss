@@ -1,5 +1,41 @@
 @import './menu.scss';
 
+html:has([data-mode="light"]) {
+    header {
+        background-color: $white;
+
+        .logo {
+            filter: brightness(0.11111);
+        }
+
+        .menu-bars div {
+            background-color: $gray;
+        }
+
+        nav a {
+            color: $gray;
+
+            &::after {
+                background-color: $blue;
+            }
+
+            &:hover {
+                color: $blue;
+            }
+        }
+
+        .order-project {
+            span {
+                color: $text-gray;
+                font-weight: 600;
+            }
+        }
+    }
+
+
+
+}
+
 header {
     border-bottom: 0.5px solid line-bg(0.5);
     z-index: 55;
@@ -9,8 +45,16 @@ header {
     width: 100%;
     transition: $transition-1 background-color 1s;
 
+    .logo {
+        &:hover {
+            opacity: 0.5;
+        }
+    }
+
     a {
         line-height: 16.94px !important;
+        font-weight: 600 !important;
+        transition: $transition-1 all 0.5s;
     }
 
     &.static {
@@ -28,8 +72,13 @@ header {
         .order-project {
             position: relative;
             opacity: 80%;
-            mix-blend-mode: hard-light;
+            filter: saturate(1);
             cursor: pointer;
+
+            span {
+                transition: $transition-1 all 0.5s;
+
+            }
 
 
             &::after {

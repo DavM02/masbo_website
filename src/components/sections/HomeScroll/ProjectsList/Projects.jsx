@@ -1,8 +1,6 @@
 import img2 from "@assets/img-2.jpg"
 import img11 from "@assets/img-11.jpg"
 import img12 from "@assets/img-12.jpg"
-import { gsap } from 'gsap';
-import useAnimation from '@hooks/useAnimation'
 import ProjectItem from "./ProjectItem";
 
 const data = [
@@ -25,28 +23,6 @@ const data = [
 
 export default function Projects() {
 
-
-  useAnimation((options) => {
-
-    const data = gsap.utils.toArray(".projects-list .placeholder-1")
-
-    gsap.set(data, {
-      clipPath: "inset(0 100% 0 0)"
-    });
-  
-    gsap.to(data, {
-      ease: "none",
-      clipPath: "inset(0)",  
-      scrollTrigger: {
-        trigger: ".projects-list",
-        start: "left 30%",
-        toggleActions: "play none none none",
-        ...options,
-      }
-    });
- 
-  })
- 
 
   return (
     <ul

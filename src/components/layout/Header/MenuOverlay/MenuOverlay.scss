@@ -42,27 +42,13 @@
  
         &::-webkit-scrollbar {
             width:0px;
- 
-
-        }
+         }
 
 
-        &::-webkit-scrollbar-track {
-            background: transparent;
-
-        }
-
-
-        &::-webkit-scrollbar-thumb {
-            background: transparent;
-
-
-        }
-
-
-        &::-webkit-scrollbar-thumb:hover {
+        &::-webkit-scrollbar-track,   &::-webkit-scrollbar-thumb, &::-webkit-scrollbar-thumb:hover {
             background: transparent;
         }
+
 
         @media all and (max-width: 1200px),
         (max-height: 800px) {
