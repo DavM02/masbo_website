@@ -1,6 +1,7 @@
 import PageTransition from "@components/PageTransition/PageTransition";
 import AboutHeading from "@components/sections/AboutHeading/AboutHeading";
 import Goals from "@components/sections/Goals/Goals";
+import Details from "@components/sections/Details/Details";
 
 
 function AboutPage() {
@@ -10,6 +11,8 @@ function AboutPage() {
       <AboutHeading />
 
       <Goals />
+
+      <Details />
     </div>
   )
 }

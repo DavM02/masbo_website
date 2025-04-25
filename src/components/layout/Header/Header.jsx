@@ -7,21 +7,24 @@ import Menu from "./Menu";
 import Logo from "./Logo";
  
 export default function Header() {
-  const { width, height, isLargeScreen } = useAnimation((options) => {
-    gsap.to("header", {
-      scrollTrigger: {
-        id: 'header_trigger_1',
-        scroller: options.scroller,
-        trigger: "main",
-        start: "3px top",
-        onEnter: () =>
-          gsap.set("header", { className: "scrolled", clearProps: "backgroundColor" }),
-        onLeaveBack: () =>
-          gsap.set("header", { className: "static", clearProps: "backgroundColor" }),
-      },
-    });
+  const { width, height, isLargeScreen, isFirstPage } = useAnimation((options) => {
 
-    if ((width && height) || isLargeScreen) {
+    if (isFirstPage) {
+      gsap.to("header", {
+        scrollTrigger: {
+          id: 'header_trigger_1',
+          scroller: options.scroller,
+          trigger: "main",
+          start: "3px top",
+          onEnter: () =>
+            gsap.set("header", { className: "scrolled", clearProps: "backgroundColor" }),
+          onLeaveBack: () =>
+            gsap.set("header", { className: "static", clearProps: "backgroundColor" }),
+        },
+      });
+    }
+
+    if (isFirstPage && ((width && height) || isLargeScreen)) {
       gsap.to("header", {
         scrollTrigger: {
           id: 'header_trigger_2',

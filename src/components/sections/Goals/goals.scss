@@ -1,5 +1,4 @@
 #goals {
-  padding: clamp(3rem, 2.3022rem + 2.9773vw, 5.875rem) 0;
 
   .container {
     &>.row:nth-child(1) {
@@ -24,6 +23,10 @@
       li {
         border-bottom: 1px solid $white-secondary;
         padding-bottom: 11px;
+
+        .display {
+          transition: $transition-1 0.5s transform;
+        }
 
         span {
           margin-bottom: 5px;

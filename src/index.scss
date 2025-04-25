@@ -23,194 +23,207 @@ html:not(:has(#home-page)) {
             content: "";
             position: absolute;
             max-width: 1280px;
-            width: 100%;
+            height: 100%;
             transform: translateX(-50%);
             left: 50%;
             top: 0;
-            height: 100%;
+            width: 95%;
             $color: $white-secondary;
             background-image: linear-gradient(to right,
                     $color 0,
                     $color 1px,
                     transparent 1px,
 
-                    transparent 33.3333%,
-                    $color 33.3333%,
-                    $color calc(33.3333% + 1px),
-                    transparent calc(33.3333% + 1px),
+                    transparent 20%,
+                    $color 20%,
+                    $color calc(20% + 1px),
+                    transparent calc(20% + 1px),
 
-                    transparent 66.6666%,
-                    $color 66.6666%,
-                    $color calc(66.6666% + 1px),
-                    transparent calc(66.6666% + 1px),
+                    transparent 40%,
+                    $color 40%,
+                    $color calc(40% + 1px),
+                    transparent calc(40% + 1px),
+
+                    transparent 60%,
+                    $color 60%,
+                    $color calc(60% + 1px),
+                    transparent calc(60% + 1px),
+
+                    transparent 80%,
+                    $color 80%,
+                    $color calc(80% + 1px),
+                    transparent calc(80% + 1px),
 
                     transparent calc(100% - 1px),
                     $color calc(100% - 1px),
                     $color 100%);
+        }}
+
+        .container:not(header .container, footer .container) {
+            max-width: calc(1204px + ($container-padding * 2)) !important;
+        }
+
+        section {
+            padding: $section-padding 0;
         }
     }
 
-    .container:not(header .container, footer .container) {
-        max-width: calc(1204px + ($container-padding * 2))  !important;
+    .pin-spacer {
+        will-change: width, height, padding;
     }
-}
 
-.pin-spacer {
-    will-change: width, height, padding;
-}
+    html {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
 
-html {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
+    body,
+    html {
+        overscroll-behavior: none;
+    }
 
-body,
-html {
-    overscroll-behavior: none;
-}
+    ::selection {
+        background-color: $blue;
+    }
 
-::selection {
-    background-color: $blue;
-}
+    body,
+    html,
+    #app,
+    #root {
+        /* width: 100%; */
+        height: 100%;
+    }
 
-body,
-html,
-#app,
-#root {
-    /* width: 100%; */
-    height: 100%;
-}
+    main {
+        min-height: 100vh;
+        // flex-grow: 1;
+    }
 
-main {
-    min-height: 100vh;
-    // flex-grow: 1;
-}
+    #scroll-wrapper {
+        inset: 0;
+        width: 100%;
+        perspective: 1px;
+        backface-visibility: hidden;
+    }
 
-#scroll-wrapper {
-    inset: 0;
-    width: 100%;
-    perspective: 1px;
-    backface-visibility: hidden;
-}
+    .scroll-content {
+        min-height: 100% !important;
+        /* height: inherit; */
+        // display: flex !important;
+        // flex-direction: column;
+        will-change: transform;
+        height: inherit;
+        backface-visibility: hidden;
+        perspective: 1px;
 
-.scroll-content {
-    min-height: 100% !important;
-    /* height: inherit; */
-    // display: flex !important;
-    // flex-direction: column;
-    will-change: transform;
-    height: inherit;
-    backface-visibility: hidden;
-    perspective: 1px;
+    }
 
-}
+    .scrollbar-thumb-y {
+        background-color: $white !important;
+        cursor: grab;
+    }
 
-.scrollbar-thumb-y {
-    background-color: $white !important;
-    cursor: grab;
-}
+    .scrollbar-track-y {
+        mix-blend-mode: exclusion;
+        background-color: transparent !important;
+        width: 11px !important;
+    }
 
-.scrollbar-track-y {
-    mix-blend-mode: exclusion;
-    background-color: transparent !important;
-    width: 11px !important;
-}
+    .lazy-load-image-background.opacity {
+        opacity: 0;
+    }
 
-.lazy-load-image-background.opacity {
-    opacity: 0;
-}
+    .lazy-load-image-background.opacity.lazy-load-image-loaded {
+        opacity: 1;
+        transition: opacity .7s .3s;
+    }
 
-.lazy-load-image-background.opacity.lazy-load-image-loaded {
-    opacity: 1;
-    transition: opacity .7s .3s;
-}
+    div[id*="page"],
+    section {
+        overflow: hidden;
+    }
 
-div[id*="page"],
-section {
-    overflow: hidden;
-}
-
-.scrollbar-track-x {
-    display: none !important;
-}
-
-@media all and (max-width: 1023px) {
-
-    html body .scrollbar-track-y,
-    html body .scrollbar-thumb-y {
+    .scrollbar-track-x {
         display: none !important;
     }
-}
 
-.container {
-    display: block;
-    margin: 0 auto;
-    max-width: 1492px;
-    padding: 0 $container-padding;
-}
+    @media all and (max-width: 1023px) {
 
-body {
-    background-color: $black;
-    position: relative;
-
-    section {
-        background-attachment: fixed !important;
+        html body .scrollbar-track-y,
+        html body .scrollbar-thumb-y {
+            display: none !important;
+        }
     }
 
-    &::after {
-        content: "";
-        top: 0;
-        position: fixed;
-        width: 100%;
-        min-height: 100lvh;
-        height: 100%;
-        left: 0;
-        background: url("/src/assets/noise.gif") repeat;
-        z-index: 888;
-        opacity: 15%;
-        pointer-events: none;
-        mix-blend-mode: soft-light;
-        background-size: 150px;
+    .container {
+        display: block;
+        margin: 0 auto;
+        max-width: 1492px;
+        padding: 0 $container-padding;
+    }
 
-        @include touch-only {
-            & {
+    body {
+        background-color: $black;
+        position: relative;
+
+        section {
+            background-attachment: fixed !important;
+        }
+
+        &::after {
+            content: "";
+            top: 0;
+            position: fixed;
+            width: 100%;
+            min-height: 100lvh;
+            height: 100%;
+            left: 0;
+            background: url("/src/assets/noise.gif") repeat;
+            z-index: 888;
+            opacity: 15%;
+            pointer-events: none;
+            mix-blend-mode: soft-light;
+            background-size: 150px;
+
+            @include touch-only {
+                & {
+                    mix-blend-mode: unset;
+                    -webkit-mix-blend-mode: unset;
+                    filter: brightness(0.5);
+                    opacity: 9%;
+                }
+            }
+        }
+
+        @supports (-webkit-touch-callout: none) {
+            section {
+                background-attachment: scroll !important;
+            }
+        }
+
+        @include safari-only {
+            section {
+                background-attachment: scroll !important;
+            }
+
+            &::after {
                 mix-blend-mode: unset;
                 -webkit-mix-blend-mode: unset;
                 filter: brightness(0.5);
                 opacity: 9%;
             }
         }
+
     }
 
-    @supports (-webkit-touch-callout: none) {
-        section {
-            background-attachment: scroll !important;
-        }
+    .placeholder-1 {
+        background-color: $blue;
     }
 
-    @include safari-only {
-        section {
-            background-attachment: scroll !important;
-        }
-
-        &::after {
-            mix-blend-mode: unset;
-            -webkit-mix-blend-mode: unset;
-            filter: brightness(0.5);
-            opacity: 9%;
-        }
+    .placeholder-2 {
+        background-color: $black;
     }
 
-}
-
-.placeholder-1 {
-    background-color: $blue;
-}
-
-.placeholder-2 {
-    background-color: $black;
-}
-
-.placeholder-3 {
-    background-color: $gray;
-}
+    .placeholder-3 {
+        background-color: $gray;
+    }

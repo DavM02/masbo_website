@@ -16,6 +16,8 @@ export default function useAnimation(gsapAnimation = () => {}, scope, returnFn =
 
   const match = (width && height) || isLargeScreen;
 
+  const isFirstPage = window.location.hash.split('#')[1] === "/"
+
   function scrollTo(selector, options) {
     if (match) {
       getScrollBar()?.scrollIntoView(
@@ -26,10 +28,11 @@ export default function useAnimation(gsapAnimation = () => {}, scope, returnFn =
       document.getElementById(selector)?.scrollIntoView({ behavior: "smooth" });
     }
   }
+
  
   useGSAP(
     () => {
-      const isFirstPage = window.location.hash.split('/')[2] === ""
+
       if (!isFirstPage ?  gsapAnimation : (gsapAnimation && triggerInit)) {
         requestAnimationFrame(() => {
  
@@ -74,5 +77,6 @@ export default function useAnimation(gsapAnimation = () => {}, scope, returnFn =
     width,
     height,
     scrollTo,
+    isFirstPage
   };
 }

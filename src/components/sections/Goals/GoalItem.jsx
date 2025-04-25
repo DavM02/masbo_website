@@ -20,7 +20,8 @@ export default function GoalItem({ text, isOpen, onClick }) {
         className="fs-14 text-dark font-bold capitalize">{text}</span>
 
       <div
-        className="display">
+        className="display"
+        style={{transform: isOpen ? 'rotate(360deg)' : 'none'}}>
         <img
           src={icon}
           alt="icon" />
