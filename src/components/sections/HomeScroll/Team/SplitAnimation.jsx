@@ -3,18 +3,19 @@ import useAnimation from "@hooks/useAnimation";
 import { teamImages } from "./TeamImages";
 import { gsap } from "gsap";
 
+const titleText = "Meeting our team"
+  .split("")
+  .map((letter, i) => (
+    <span
+      key={i}>{letter === " " ? "\u00A0" : letter}</span>
+  ));
+
+
 export default function SplitAnimation() {
   const titleRef = useRef(null);
 
-  const titleText = "Meeting our team"
-    .split("")
-    .map((letter, i) => (
-      <span
-        key={i}>{letter === " " ? "\u00A0" : letter}</span>
-    ));
 
   useAnimation((options) => {
-  
  
     const items = gsap.utils.toArray(".team li");
     const spans = titleRef.current.querySelectorAll("span");

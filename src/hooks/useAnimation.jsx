@@ -26,18 +26,19 @@ export default function useAnimation(gsapAnimation = () => {}, scope, returnFn =
       document.getElementById(selector)?.scrollIntoView({ behavior: "smooth" });
     }
   }
-
+ 
   useGSAP(
     () => {
-
-      if (gsapAnimation && triggerInit) {
+      const isFirstPage = window.location.pathname.split('/')[2] === ""
+      if (!isFirstPage ?  gsapAnimation : (gsapAnimation && triggerInit)) {
         requestAnimationFrame(() => {
-        
+ 
           const options = {
             scroller: match ? "#scroll-wrapper" : window,
           };
           
-          if (match) {
+          
+          if (match && isFirstPage) {
            
             options.containerAnimation = getScrollTween()
  

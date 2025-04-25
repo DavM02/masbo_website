@@ -1,0 +1,50 @@
+#goals {
+  padding: clamp(3rem, 2.3022rem + 2.9773vw, 5.875rem) 0;
+
+  .container {
+    &>.row:nth-child(1) {
+      padding-bottom: 3px;
+      border-bottom: 1px solid $black;
+      margin-bottom: 63px;
+    }
+
+    &>div:nth-child(2) > div:nth-child(2) {
+      max-width: 433px;
+      width: 100%;
+    }
+
+    ul {
+      gap: 16px;
+      .display {
+        img {
+          object-fit: contain;
+        }
+      }
+
+      li {
+        border-bottom: 1px solid $white-secondary;
+        padding-bottom: 11px;
+
+        span {
+          margin-bottom: 5px;
+        }
+
+        p {
+          width: 100%;
+        }
+      }
+    }
+
+
+    h3 {
+      @media all and (max-width: 420px) {
+        font-size: 17.5px !important;
+      }
+    }
+
+    p:not(ul p) {
+      max-width: 587px;
+      margin-top: 30px;
+    }
+  }
+}

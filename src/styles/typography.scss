@@ -33,7 +33,10 @@ h2,
 h3,
 h4,
 h5,
-h5, h6, footer li:not(:has(svg)) a, .menu-overlay li:not(:has(svg)) a {
+h5,
+h6,
+footer li:not(:has(svg)) a,
+.menu-overlay li:not(:has(svg)) a {
     color: $white;
     font-family: "font-main-bold";
 }
@@ -50,8 +53,16 @@ h5, h6, footer li:not(:has(svg)) a, .menu-overlay li:not(:has(svg)) a {
     color: $white;
 }
 
+.text-dark {
+    color: $text-black;
+}
+
 .text-gray {
-    color: $text-gray;
+    color: $gray;
+}
+
+.text-dark {
+    color: $black;
 }
 
 .fs-14 {
@@ -71,7 +82,7 @@ h5, h6, footer li:not(:has(svg)) a, .menu-overlay li:not(:has(svg)) a {
 
 p {
     font-family: "font-main";
-    letter-spacing: 0.5px;
+    letter-spacing: 0.3px;
     font-weight: 500;
 
     &.to-middle:not(.to-small) {
@@ -83,6 +94,11 @@ p {
     &.to-small:not(.to-middle) {
         line-height: clamp(1rem, 0.8786rem + 0.5178vw, 1.5rem);
         font-size: clamp(0.5625rem, 0.4867rem + 0.3236vw, 0.875rem);
+    }
+
+    &.static {
+        font-size: 14px;
+        line-height: 24px;
     }
 }
 
@@ -97,17 +113,20 @@ h2 {
     line-height: 65.5px;
 }
 
-h3, .menu-overlay li:not(:has(svg), .mobile-footer li) a {
+h3,
+.menu-overlay li:not(:has(svg), .mobile-footer li) a {
     font-size: clamp(1.375rem, 1.2233rem + 0.6472vw, 2rem);
     line-height: clamp(1.664375rem, 1.4808rem + 0.7832vw, 2.420625rem);
 }
 
-h4, footer li:not(:has(svg)) a {
+h4,
+footer li:not(:has(svg)) a {
     font-size: 22px;
     line-height: 42px;
 }
 
-h5, .mobile-footer li:not(:has(svg)) a {
+h5,
+.mobile-footer li:not(:has(svg)) a {
     letter-spacing: 0.4px;
 
     &:not(.static) {

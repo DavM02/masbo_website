@@ -13,11 +13,11 @@ export default function AboutHeading() {
           className="row center-y">
           <h1
             className="capitalize">
-            Perfect is when <br />
+            Perfection is a modern  <br /> solution made with love
 
-            a Modern solution with <br />
-          
-            love to life
+            <br /> for life.
+
+
           </h1>
         </div>
       </div>

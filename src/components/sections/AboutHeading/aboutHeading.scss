@@ -1,14 +1,13 @@
 #about-heading {
-    position: relative;
     margin-top: 72.44px;
     background-color: $white;
     background: url('../../../assets/bg-2.jpg') center no-repeat;
     background-size: cover;
 
-    &::after {
-        @include overlay($black, 60%);
-    }
 
+    &::after {
+        @include overlay($black, 50%);
+    }
 
     path {
         fill: $white;
