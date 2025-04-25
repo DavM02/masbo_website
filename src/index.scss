@@ -9,7 +9,7 @@
     }
 }
 
-html:not(:has(#home-page)) {
+body:has(#about-page) {
     main {
         background-color: $white;
         position: relative;

@@ -1,8 +1,8 @@
 import { useRef, useEffect } from "react";
 import './draggableSlider.scss';
 import { getScrollBar } from "../Scroll/ScrollAccess";
+
 export default function DraggableSlider({ width = 'max(500px, calc(100vw/4))', height = "max(500px, calc(100vw/4))", images }) {
- 
   const wrapperRef = useRef(null);
   const sliderRef = useRef(null);
   const isDragging = useRef(false);
@@ -17,8 +17,8 @@ export default function DraggableSlider({ width = 'max(500px, calc(100vw/4))', h
     isDragging.current = true;
     startX.current = e.clientX;
 
-    getScrollBar()?.updatePluginOptions('overflow', { open: true })
-    sliderRef.current.classList.add("is-grabbing")
+    getScrollBar()?.updatePluginOptions('overflow', { open: true });
+    sliderRef.current.classList.add("is-grabbing");
     sliderRef.current.style.transition = 'cubic-bezier(0.215, 0.610, 0.355, 1) 0.5s transform';
   };
 
@@ -36,51 +36,67 @@ export default function DraggableSlider({ width = 'max(500px, calc(100vw/4))', h
     newTranslate = clamp(newTranslate, minTranslate, maxTranslate);
 
     currentTranslate.current = newTranslate;
-
     dragStyle.current = { transform: `translateX(${newTranslate}px)` };
-    sliderRef.current.style.transform = dragStyle.current.transform;  
+    sliderRef.current.style.transform = dragStyle.current.transform;
   };
 
   const handleMouseUp = () => {
     if (!isDragging.current) return;
-    getScrollBar()?.updatePluginOptions('overflow', { open: false })
+    getScrollBar()?.updatePluginOptions('overflow', { open: false });
     isDragging.current = false;
-    sliderRef.current.classList.remove("is-grabbing")
+    sliderRef.current.classList.remove("is-grabbing");
     prevTranslate.current = currentTranslate.current;
- 
   };
 
   const handleTouchStart = (e) => handleMouseDown(e.touches[0]);
-  const handleTouchMove = (e) => handleMouseMove(e.touches[0]);
-  const handleTouchEnd = () => handleMouseUp();
 
-  const handleResize = () => {
-     
+  const handleTouchMove = (e) => {
+    if (!isDragging.current) return;
+
+    const accelerationFactor = 1.5; // 👈 ускорение для тач
+    const touch = e.touches[0];
+    const delta = (touch.clientX - startX.current) * accelerationFactor;
+
     const wrapperWidth = wrapperRef.current.offsetWidth;
     const sliderWidth = sliderRef.current.scrollWidth;
 
     const maxTranslate = 0;
     const minTranslate = wrapperWidth - sliderWidth;
 
-    
+    let newTranslate = prevTranslate.current + delta;
+    newTranslate = clamp(newTranslate, minTranslate, maxTranslate);
+
+    currentTranslate.current = newTranslate;
+    dragStyle.current = { transform: `translateX(${newTranslate}px)` };
+    sliderRef.current.style.transform = dragStyle.current.transform;
+  };
+
+  const handleTouchEnd = () => handleMouseUp();
+
+  const handleResize = () => {
+    const wrapperWidth = wrapperRef.current.offsetWidth;
+    const sliderWidth = sliderRef.current.scrollWidth;
+
+    const maxTranslate = 0;
+    const minTranslate = wrapperWidth - sliderWidth;
+
     currentTranslate.current = Math.max(Math.min(currentTranslate.current, maxTranslate), minTranslate);
- 
     sliderRef.current.style.transform = `translateX(${currentTranslate.current}px)`;
   };
 
   useEffect(() => {
     window.addEventListener("mouseup", handleMouseUp);
     window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("touchend", handleTouchEnd);
-    window.addEventListener("touchmove", handleTouchMove);
-    window.addEventListener("resize", handleResize);  
+    window.addEventListener("touchend", handleTouchEnd, { passive: false });
+    window.addEventListener("touchmove", handleTouchMove, { passive: false });
+    window.addEventListener("resize", handleResize);
 
     return () => {
       window.removeEventListener("mouseup", handleMouseUp);
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("touchend", handleTouchEnd);
       window.removeEventListener("touchmove", handleTouchMove);
-      window.removeEventListener("resize", handleResize);  
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
@@ -98,7 +114,7 @@ export default function DraggableSlider({ width = 'max(500px, calc(100vw/4))', h
           className="slider-content row"
           style={{ height }}
           onTransitionEnd={() => {
-            sliderRef.current.style.transition = '';  
+            sliderRef.current.style.transition = '';
           }}>
           {images.map((el, i) => (
             <li

@@ -1,3 +1,4 @@
 1. add data router
 2. prevetn scroll when navigation between pahes..
 3. replace contents
+4. add navlinks active
