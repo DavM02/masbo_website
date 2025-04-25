@@ -1,0 +1,9 @@
+#about-slider {
+    li {
+        position: relative;
+
+        &::after {
+            @include overlay($overlay, 50%);
+        }
+    }
+}
