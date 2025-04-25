@@ -49,12 +49,12 @@ export default function DraggableSlider({ width = 'max(500px, calc(100vw/4))', h
   };
 
   const handleTouchStart = (e) => {
-    e.preventDefault()
-    handleMouseDown(e.touches[0])
-  };
+    e.preventDefault() 
+    handleMouseDown(e.touches[0]);
+  }
 
   const handleTouchMove = (e) => {
-    e.preventDefault();  
+    // e.preventDefault();  
     if (!isDragging.current) return;
 
     const accelerationFactor = 1.5;  
@@ -89,11 +89,14 @@ export default function DraggableSlider({ width = 'max(500px, calc(100vw/4))', h
   };
 
   useEffect(() => {
+    const wrapper = wrapperRef.current;
+
     window.addEventListener("mouseup", handleMouseUp);
     window.addEventListener("mousemove", handleMouseMove);
     window.addEventListener("touchend", handleTouchEnd, { passive: false });
     window.addEventListener("touchmove", handleTouchMove, { passive: false });
     window.addEventListener("resize", handleResize);
+    wrapper.addEventListener('touchstart', handleTouchStart, { passive: false });
 
     return () => {
       window.removeEventListener("mouseup", handleMouseUp);
@@ -101,6 +104,8 @@ export default function DraggableSlider({ width = 'max(500px, calc(100vw/4))', h
       window.removeEventListener("touchend", handleTouchEnd);
       window.removeEventListener("touchmove", handleTouchMove);
       window.removeEventListener("resize", handleResize);
+      wrapper.removeEventListener('touchstart', handleTouchStart);
+
     };
   }, []);
 
@@ -111,8 +116,7 @@ export default function DraggableSlider({ width = 'max(500px, calc(100vw/4))', h
         className="slider-wrapper"
         ref={wrapperRef}
         style={{ height }}
-        onMouseDown={handleMouseDown}
-        onTouchStart={handleTouchStart}>
+        onMouseDown={handleMouseDown}>
         <ul
           ref={sliderRef}
           className="slider-content row"
