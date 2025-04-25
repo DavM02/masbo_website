@@ -48,12 +48,16 @@ export default function DraggableSlider({ width = 'max(500px, calc(100vw/4))', h
     prevTranslate.current = currentTranslate.current;
   };
 
-  const handleTouchStart = (e) => handleMouseDown(e.touches[0]);
+  const handleTouchStart = (e) => {
+    e.preventDefault()
+    handleMouseDown(e.touches[0])
+  };
 
   const handleTouchMove = (e) => {
+    e.preventDefault();  
     if (!isDragging.current) return;
 
-    const accelerationFactor = 1.5; // 👈 ускорение для тач
+    const accelerationFactor = 1.5;  
     const touch = e.touches[0];
     const delta = (touch.clientX - startX.current) * accelerationFactor;
 
