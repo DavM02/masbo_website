@@ -36,8 +36,8 @@ export default function GoalsIntro() {
         ref={titleRef}
         className="text-gray">
         {lines.map((line, lineIndex) => (
-          <div
-            style={{overflow: "hidden"}}
+          <span
+            style={{ overflow: "hidden", display: "block"}}
             key={lineIndex}>
             {line.split(" ").map((word, wordIndex) => (
               <span
@@ -46,7 +46,7 @@ export default function GoalsIntro() {
                 {word}
               </span>
             ))}
-          </div>
+          </span>
         ))}
       </h3>
 

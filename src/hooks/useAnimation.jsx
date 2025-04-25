@@ -29,7 +29,7 @@ export default function useAnimation(gsapAnimation = () => {}, scope, returnFn =
  
   useGSAP(
     () => {
-      const isFirstPage = window.location.pathname.split('/')[2] === ""
+      const isFirstPage = window.location.hash.split('/')[2] === ""
       if (!isFirstPage ?  gsapAnimation : (gsapAnimation && triggerInit)) {
         requestAnimationFrame(() => {
  
