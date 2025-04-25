@@ -54,10 +54,9 @@ export default function DraggableSlider({ width = 'max(500px, calc(100vw/4))', h
   }
 
   const handleTouchMove = (e) => {
-    // e.preventDefault();  
     if (!isDragging.current) return;
 
-    const accelerationFactor = 1.5;  
+    const accelerationFactor = 3;  
     const touch = e.touches[0];
     const delta = (touch.clientX - startX.current) * accelerationFactor;
 
@@ -93,7 +92,7 @@ export default function DraggableSlider({ width = 'max(500px, calc(100vw/4))', h
 
     window.addEventListener("mouseup", handleMouseUp);
     window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("touchend", handleTouchEnd, { passive: false });
+    window.addEventListener("touchend", handleTouchEnd);
     window.addEventListener("touchmove", handleTouchMove, { passive: false });
     window.addEventListener("resize", handleResize);
     wrapper.addEventListener('touchstart', handleTouchStart, { passive: false });
