@@ -19,7 +19,7 @@ export default function DraggableSlider({ width = 'max(500px, calc(100vw/4))', h
       freeMode={true}
       modules={[ FreeMode ]}
       grabCursor={true}
-      speed={300}>
+      speed={1000}>
       
       {images.map((el, i) => (
         <SwiperSlide 
