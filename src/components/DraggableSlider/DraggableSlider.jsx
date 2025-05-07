@@ -7,7 +7,7 @@ import 'swiper/css/free-mode';
 
 import { FreeMode } from 'swiper/modules';
  
-export default function DraggableSlider({ width = 'max(500px, calc(100vw/4))', height = "max(500px, calc(100vw/4))", images,  }) {
+export default function DraggableSlider({ images }) {
  
  
   return (
@@ -15,7 +15,20 @@ export default function DraggableSlider({ width = 'max(500px, calc(100vw/4))', h
       onSlideChangeTransitionStart={() =>  getScrollBar()?.updatePluginOptions("overflow", { open: true })}
       onSlideChangeTransitionEnd={() => getScrollBar()?.updatePluginOptions("overflow", { open: false })}
       spaceBetween={0}
-      slidesPerView={2}
+      breakpoints={{
+        1200: {
+          slidesPerView: 4,
+        },
+        992: {
+          slidesPerView: 3,
+        },
+        768: {
+          slidesPerView: 2,
+        },
+        480: {
+          slidesPerView: 1,
+        },
+      }}
       freeMode={true}
       modules={[ FreeMode ]}
       grabCursor={true}
@@ -23,7 +36,6 @@ export default function DraggableSlider({ width = 'max(500px, calc(100vw/4))', h
       
       {images.map((el, i) => (
         <SwiperSlide 
-          // style={{ width, height}}
           key={i}>
           <img
             src={el}
