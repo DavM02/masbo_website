@@ -15,7 +15,7 @@ export default function DraggableSlider({ width = 'max(500px, calc(100vw/4))', h
       onSlideChangeTransitionStart={() =>  getScrollBar()?.updatePluginOptions("overflow", { open: true })}
       onSlideChangeTransitionEnd={() => getScrollBar()?.updatePluginOptions("overflow", { open: false })}
       spaceBetween={0}
-      slidesPerView="auto"
+      slidesPerView={2}
       freeMode={true}
       modules={[ FreeMode ]}
       grabCursor={true}
