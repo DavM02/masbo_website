@@ -57,173 +57,178 @@ html:has(#about-page) {
                     transparent calc(100% - 1px),
                     $color calc(100% - 1px),
                     $color 100%);
-        }}
-
-        .container:not(header .container, footer .container) {
-            max-width: calc(1204px + ($container-padding * 2)) !important;
-        }
-
-        section {
-            padding: $section-padding 0;
         }
     }
 
-    .pin-spacer {
-        will-change: width, height, padding;
+    .container:not(header .container, footer .container) {
+        max-width: calc(1204px + ($container-padding * 2)) !important;
     }
 
-    html {
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-    }
-
-    body,
-    html {
-        overscroll-behavior: none;
-    }
-
-    ::selection {
-        background-color: $blue;
-    }
-
-    body,
-    html,
-    #app,
-    #root {
-        /* width: 100%; */
-        height: 100%;
-    }
-
-    main {
-        min-height: 100vh;
-        // flex-grow: 1;
-    }
-
-    #scroll-wrapper {
-        inset: 0;
-        width: 100%;
-        perspective: 1px;
-        backface-visibility: hidden;
-    }
-
-    .scroll-content {
-        min-height: 100% !important;
-        /* height: inherit; */
-        // display: flex !important;
-        // flex-direction: column;
-        will-change: transform;
-        height: inherit;
-        backface-visibility: hidden;
-        perspective: 1px;
-
-    }
-
-    .scrollbar-thumb-y {
-        background-color: $white !important;
-        cursor: grab;
-    }
-
-    .scrollbar-track-y {
-        mix-blend-mode: exclusion;
-        background-color: transparent !important;
-        width: 11px !important;
-    }
-
-    .lazy-load-image-background.opacity {
-        opacity: 0;
-    }
-
-    .lazy-load-image-background.opacity.lazy-load-image-loaded {
-        opacity: 1;
-        transition: opacity .7s .3s;
-    }
-
-    div[id*="page"],
     section {
-        overflow: hidden;
+        padding: $section-padding 0;
     }
+}
 
-    .scrollbar-track-x {
+.pin-spacer {
+    will-change: width, height, padding;
+}
+
+html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body,
+html {
+    overscroll-behavior: none;
+}
+
+::selection {
+    background-color: $blue;
+}
+
+body,
+html,
+#app,
+#root {
+    /* width: 100%; */
+    height: 100%;
+}
+
+main {
+    min-height: 100vh;
+    // flex-grow: 1;
+}
+
+#scroll-wrapper {
+    inset: 0;
+    width: 100%;
+    perspective: 1px;
+    backface-visibility: hidden;
+}
+
+.scroll-content {
+    min-height: 100% !important;
+    /* height: inherit; */
+    // display: flex !important;
+    // flex-direction: column;
+    will-change: transform;
+    height: inherit;
+    backface-visibility: hidden;
+    perspective: 1px;
+
+}
+
+.scrollbar-thumb-y {
+    background-color: $white !important;
+    cursor: grab;
+}
+
+.scrollbar-track-y {
+    mix-blend-mode: exclusion;
+    background-color: transparent !important;
+    width: 11px !important;
+}
+
+.lazy-load-image-background.opacity {
+    opacity: 0;
+}
+
+.lazy-load-image-background.opacity.lazy-load-image-loaded {
+    opacity: 1;
+    transition: opacity .7s .3s;
+}
+
+div[id*="page"],
+section {
+    overflow: hidden;
+}
+
+.scrollbar-track-x {
+    display: none !important;
+}
+
+@media all and (max-width: 1023px) {
+
+    html body .scrollbar-track-y,
+    html body .scrollbar-thumb-y {
         display: none !important;
     }
+}
 
-    @media all and (max-width: 1023px) {
+.container {
+    display: block;
+    margin: 0 auto;
+    max-width: 1492px;
+    padding: 0 $container-padding;
+}
 
-        html body .scrollbar-track-y,
-        html body .scrollbar-thumb-y {
-            display: none !important;
-        }
+body {
+    background-color: $black;
+    position: relative;
+
+    section {
+        background-attachment: fixed !important;
     }
 
-    .container {
-        display: block;
-        margin: 0 auto;
-        max-width: 1492px;
-        padding: 0 $container-padding;
-    }
+    &::after {
+        content: "";
+        top: 0;
+        position: fixed;
+        width: 100%;
+        min-height: 100lvh;
+        height: 100%;
+        left: 0;
+        background: url("/src/assets/noise.gif") repeat;
+        z-index: 888;
+        opacity: 15%;
+        pointer-events: none;
+        mix-blend-mode: soft-light;
+        background-size: 150px;
 
-    body {
-        background-color: $black;
-        position: relative;
-
-        section {
-            background-attachment: fixed !important;
-        }
-
-        &::after {
-            content: "";
-            top: 0;
-            position: fixed;
-            width: 100%;
-            min-height: 100lvh;
-            height: 100%;
-            left: 0;
-            background: url("/src/assets/noise.gif") repeat;
-            z-index: 888;
-            opacity: 15%;
-            pointer-events: none;
-            mix-blend-mode: soft-light;
-            background-size: 150px;
-
-            @include touch-only {
-                & {
-                    mix-blend-mode: unset;
-                    -webkit-mix-blend-mode: unset;
-                    filter: brightness(0.5);
-                    opacity: 9%;
-                }
-            }
-        }
-
-        @supports (-webkit-touch-callout: none) {
-            section {
-                background-attachment: scroll !important;
-            }
-        }
-
-        @include safari-only {
-            section {
-                background-attachment: scroll !important;
-            }
-
-            &::after {
+        @include touch-only {
+            & {
                 mix-blend-mode: unset;
                 -webkit-mix-blend-mode: unset;
                 filter: brightness(0.5);
                 opacity: 9%;
             }
         }
-
     }
 
-    .placeholder-1 {
-        background-color: $blue;
+    @supports (-webkit-touch-callout: none) {
+        section {
+            background-attachment: scroll !important;
+        }
     }
 
-    .placeholder-2 {
-        background-color: $black;
+    @include safari-only {
+        section {
+            background-attachment: scroll !important;
+        }
+
+        &::after {
+            mix-blend-mode: unset;
+            -webkit-mix-blend-mode: unset;
+            filter: brightness(0.5);
+            opacity: 9%;
+        }
     }
 
-    .placeholder-3 {
-        background-color: $gray;
-    }
+}
+
+.placeholder-1 {
+    background-color: $blue;
+}
+
+.placeholder-2 {
+    background-color: $black;
+}
+
+.placeholder-3 {
+    background-color: $gray;
+}
+
+.swiper-wrapper {
+    will-change: transform;
+}
