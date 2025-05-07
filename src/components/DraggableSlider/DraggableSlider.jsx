@@ -23,7 +23,7 @@ export default function DraggableSlider({ width = 'max(500px, calc(100vw/4))', h
       
       {images.map((el, i) => (
         <SwiperSlide 
-          style={{ width, height}}
+          // style={{ width, height}}
           key={i}>
           <img
             src={el}
