@@ -1,7 +1,17 @@
 header {
     a:not(.logo) {
 
-        @include hover-with-dot()
+        @include hover-with-dot();
+        color: $gray;
+
+        &::after {
+            background-color: $blue;
+        }
+
+        &:hover,
+        &.active {
+            color: $blue;
+        }
     }
 
     .menu-bars {
@@ -13,7 +23,7 @@ header {
         div {
             height: 2px;
             transition: $transition-1 width 0.5s, $transition-1 background-color 0.5s;
-            background-color: $white;
+            background-color: $gray;
         }
 
         div {

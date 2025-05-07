@@ -9,7 +9,7 @@
     }
 }
 
-body:has(#about-page) {
+html:has(#about-page) {
     main {
         background-color: $white;
         position: relative;

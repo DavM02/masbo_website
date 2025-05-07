@@ -1,36 +1,41 @@
 @import './menu.scss';
 
-html:not(:has(#home-page)) {
+html:has(#home-page) {
     header {
-        background-color: $white;
+        background-color: transparent;
 
-        .logo {
-            mix-blend-mode: exclusion;
+        &.static {
+            background-color: transparent;
         }
 
+        &.scrolled {
+            background-color: $black;
+        }
+
+
         .menu-bars div {
-            background-color: $gray;
+            background-color: $white;
+
         }
 
         nav a {
-            color: $gray;
+
+            color: $white;
 
             &::after {
-                background-color: $blue;
+                background-color: $white;
             }
 
-            &:hover, &.active {
-                color: $blue;
-            }
+
         }
 
         .order-project {
-            opacity: 1;
-            mix-blend-mode: normal;
+            opacity: 80%;
+            mix-blend-mode: hard-light;
 
             span {
-                color: $text-gray;
-                font-weight: 600;
+                color: $white;
+                font-weight: 100 !important;
             }
         }
     }
@@ -40,6 +45,7 @@ html:not(:has(#home-page)) {
 }
 
 header {
+    background-color: $white;
     border-bottom: 0.5px solid line-bg(0.5);
     z-index: 55;
     position: fixed;
@@ -47,7 +53,9 @@ header {
     left: 0;
     width: 100%;
     transition: $transition-1 background-color 1s;
+
     .logo {
+        mix-blend-mode: exclusion;
 
         &:hover {
             opacity: 0.5;
@@ -61,24 +69,20 @@ header {
         ;
     }
 
-    &.static {
-        background-color: transparent;
-    }
-
-    &.scrolled {
-        background-color: $black;
-    }
-
     .container {
         max-width: unset;
         padding: $header-padding-y $header-padding;
 
         .order-project {
             position: relative;
-            opacity: 80%;
-            mix-blend-mode: hard-light;
             cursor: pointer;
+            opacity: 1;
+            mix-blend-mode: normal;
 
+            span {
+                color: $text-gray;
+                font-weight: 600;
+            }
 
             &::after {
                 content: "";

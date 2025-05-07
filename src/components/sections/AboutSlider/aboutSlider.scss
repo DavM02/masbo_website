@@ -1,6 +1,10 @@
 #about-slider {
     .swiper-slide {
-    
+
+        @media all and (max-width: 900px) {
+            width: 300px !important;
+            height: 300px !important;
+        }
 
         &::after {
             @include overlay($overlay, 50%);
