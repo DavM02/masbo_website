@@ -29,6 +29,11 @@ export default function DraggableSlider({ images }) {
           slidesPerView: 1,
         },
       }}
+      
+      touchStartPreventDefault={false}
+      touchMoveStopPropagation={true}
+      passiveListeners={false}
+
       freeMode={true}
       modules={[ FreeMode ]}
       grabCursor={true}

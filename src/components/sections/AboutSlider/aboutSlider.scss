@@ -2,8 +2,8 @@
     .swiper-slide {
 
         aspect-ratio: 1 / 1 !important;
-        &::after {
-            @include overlay($overlay, 50%);
-        }
+        // &::after {
+        //     @include overlay($overlay, 50%);
+        // }
     }
 }
