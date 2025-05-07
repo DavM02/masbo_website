@@ -14,7 +14,6 @@ const titleText = "Meeting our team"
 export default function SplitAnimation() {
   const titleRef = useRef(null);
 
-
   useAnimation((options) => {
  
     const items = gsap.utils.toArray(".team li");

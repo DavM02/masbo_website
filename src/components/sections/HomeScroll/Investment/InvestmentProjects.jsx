@@ -3,7 +3,7 @@ import img17 from "@assets/img-17.jpg";
 import img18 from "@assets/img-18.jpg";
 import img19 from "@assets/img-19.jpg";
 import img20 from "@assets/img-20.jpg";
-import icon6 from "@assets/icons/icon-6.svg"
+import Icon6 from "@assets/icons/icon-6.svg?react"
 import ImageBlock from "../ImageBlock";
 import InfoBlock from "../InfoBlock";
 import MainButton from "@components/ui/buttons/MainButton"
@@ -50,7 +50,8 @@ export default function InvestmentProjects() {
             className="placeholder-1" />
 
           <InfoBlock
-            icon={icon6}
+            percentage={"15%"}
+            icon={<Icon6 />}
             title={"Investment projects"}
             text={"MasBo is an architectural group working in <br/> the field of architecture and urban planning."} />
 

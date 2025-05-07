@@ -1,6 +1,6 @@
 #about-slider {
-    li {
-        position: relative;
+    .swiper-slide {
+    
 
         &::after {
             @include overlay($overlay, 50%);

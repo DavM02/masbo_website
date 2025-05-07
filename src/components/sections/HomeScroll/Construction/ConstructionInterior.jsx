@@ -9,9 +9,9 @@ import img8 from "@assets/img-8.jpg";
 import img9 from "@assets/img-9.jpg";
 import img10 from "@assets/img-10.jpg";
 
-import icon1 from "@assets/icons/icon-1.svg";
-import icon3 from "@assets/icons/icon-3.svg";
-import icon4 from "@assets/icons/icon-4.svg";
+import Icon1 from "@assets/icons/icon-1.svg?react";
+import Icon3 from "@assets/icons/icon-3.svg?react";
+import Icon4 from "@assets/icons/icon-4.svg?react";
  
 
 export default function ConstructionInterior() {
@@ -28,7 +28,8 @@ export default function ConstructionInterior() {
             className="placeholder-1" />
 
           <InfoBlock
-            icon={icon3}
+            percentage={"55%"}
+            icon={<Icon3 />}
             title="Construction"
             text="MasBo is an architectural group working in <br/> the field of architecture and urban planning." />
         </div>
@@ -65,7 +66,8 @@ export default function ConstructionInterior() {
         <div
           className="section-block">
           <InfoBlock
-            icon={icon4}
+            percentage={"45%"}
+            icon={<Icon4 />}
             title="Interior"
             text="MasBo is an architectural group working in <br/> the field of architecture and urban planning." />
 
@@ -117,7 +119,8 @@ export default function ConstructionInterior() {
             className="placeholder-2" />
 
           <InfoBlock
-            icon={icon1}
+            percentage={"14%"}
+            icon={<Icon1 />}
             title="Landscape Design"
             text="MasBo is an architectural group working in <br/> the field of architecture and urban planning." />
         </div>

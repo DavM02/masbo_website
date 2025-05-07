@@ -6,8 +6,8 @@ import img2 from "@assets/img-2.jpg";
 import img3 from "@assets/img-3.jpg";
 import img4 from "@assets/img-4.jpg";
 
-import icon1 from "@assets/icons/icon-1.svg";
-import icon2 from "@assets/icons/icon-2.svg";
+import Icon1 from "@assets/icons/icon-1.svg?react";
+import Icon2 from "@assets/icons/icon-2.svg?react";
 
 import ImageBlock from "../ImageBlock";
 
@@ -20,12 +20,13 @@ export default function ArchitectureEngineering() {
         <div
           className="section-block full-height">
           <InfoBlock
-            icon={icon1}
+            percentage={"14%"}
+            icon={<Icon1 />}
             title="Architecture"
             text="MasBo is an architectural group working in  <br/> the field of architecture and urban planning." />
 
           <InfoBlock
-            icon={icon2}
+            icon={<Icon2 />}
             title="Engineering"
             text="Modern solutions for the modern city." />
 

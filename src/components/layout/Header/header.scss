@@ -19,7 +19,7 @@ html:not(:has(#home-page)) {
                 background-color: $blue;
             }
 
-            &:hover {
+            &:hover, &.active {
                 color: $blue;
             }
         }

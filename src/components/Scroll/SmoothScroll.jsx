@@ -6,8 +6,9 @@ import useAnimation from "@hooks/useAnimation";
 import { useGSAP } from "@gsap/react";
 import {  setScrollBar, clearScrollBar, getScrollBar } from "./ScrollAccess";
 import { ScrollbarPlugin } from "smooth-scrollbar";
+import {DrawSVGPlugin} from "gsap/DrawSVGPlugin";
+gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin, useGSAP);
  
-gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export default function SmoothScroll({ children }) {
  

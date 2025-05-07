@@ -1,5 +1,5 @@
 import { menuLinks } from "../Links"
-import { Link } from "react-router-dom"
+import {  NavLink } from "react-router-dom"
 export default function MenuLinks({isMobile, onClick}) {
   return (
     <div
@@ -9,9 +9,10 @@ export default function MenuLinks({isMobile, onClick}) {
         className='column gap-20'>
         {menuLinks.map(([ path, label ]) => (
           <li
-            key={path}><Link
+            key={path}>
+            <NavLink
               onClick={onClick}
-              to={path}>{label}</Link></li>
+              to={path}>{label}</NavLink></li>
         ))}
       </ul>
 
@@ -23,9 +24,6 @@ export default function MenuLinks({isMobile, onClick}) {
 
           <br /> Stelmakh street 9a, office 206
         </p>}
-
-
-
 
     </div>
   )

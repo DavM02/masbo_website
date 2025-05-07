@@ -13,11 +13,12 @@
     "@gsap/react": "^2.1.2",
     "@tanstack/react-query": "^5.66.0",
     "framer-motion": "^12.0.11",
-    "gsap": "^3.12.7",
+    "gsap": "^3.13.0",
     "preact": "^10.25.3",
     "react-lazy-load-image-component": "^1.6.3",
     "react-router-dom": "^7.1.5",
-    "smooth-scrollbar": "^8.8.4"
+    "smooth-scrollbar": "^8.8.4",
+    "swiper": "^11.2.6"
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.9.3",
