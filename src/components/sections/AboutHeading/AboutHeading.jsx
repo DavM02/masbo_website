@@ -8,17 +8,20 @@ export default function AboutHeading() {
       <Socials />
 
       <div
-        className="container">
+        className='bg'>
         <div
-          className="row center-y">
-          <h1
-            className="capitalize">
-            Perfection is a modern  <br /> solution made with love
+          className="container">
+          <div
+            className="row center-y">
+            <h1
+              className="capitalize">
+              Perfection is a modern  <br /> solution made with love
 
-            <br /> for life.
+              <br /> for life.
 
 
-          </h1>
+            </h1>
+          </div>
         </div>
       </div>
     </section>
