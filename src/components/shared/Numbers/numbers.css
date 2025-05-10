@@ -1,0 +1,5 @@
+@media all and (max-width: 693px) {
+    .numbers li {
+        min-width: 185px;
+    }
+}

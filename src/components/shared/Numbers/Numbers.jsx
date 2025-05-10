@@ -1,6 +1,6 @@
 import { gsap } from 'gsap';
 import useAnimation from '@hooks/useAnimation'
-
+import './numbers.css'
 const numbers = [
   { num: 123, title: "successful projects" },
   { num: 1235, title: "people who work with us" },
@@ -8,10 +8,10 @@ const numbers = [
   {num: 1012, title: "Modern interiors "}
 ]
 
-export default function Numbers() {
+export default function Numbers({trigger}) {
 
   useAnimation((options) => {
-    const numItems = gsap.utils.toArray("li h2")
+    const numItems = gsap.utils.toArray(".numbers li h2")
     numItems.forEach((counter, i) => {
 
       gsap.to(counter, {
@@ -20,7 +20,7 @@ export default function Numbers() {
         ease: "power1.out",
         snap: { innerText: 1 },
         scrollTrigger: {
-          trigger: ".about .container",
+          trigger,
           start: "top 20%",
           toggleActions: "play none none none",
           scroller: options.scroller,
@@ -34,7 +34,7 @@ export default function Numbers() {
   
   return (
     <ul
-      className='row wrap gap-150'>
+      className={"numbers row s-between wrap gap-40"} >
       {numbers.map((el, i) => {
         return (
           <li

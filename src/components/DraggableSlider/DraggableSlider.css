@@ -27,7 +27,7 @@
 
 .embla__container {
     cursor: grab;
-    transition: 0.35s transform cubic-bezier(0.215, 0.610, 0.355, 1);
+    transition: 0.3s transform cubic-bezier(0.215, 0.610, 0.355, 1);
     display: flex;
     touch-action: pan-y pinch-zoom;
     will-change: transform;

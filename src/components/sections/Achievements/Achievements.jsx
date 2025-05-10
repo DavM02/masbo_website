@@ -4,6 +4,7 @@ import { gsap } from "gsap";
 import { useRef } from 'preact/hooks';
 import bg from "@assets/bg-3.webp"
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import Numbers from '@components/shared/Numbers/Numbers';
 export default function Achievements() {
  
   const containerRef = useRef(null)
@@ -41,7 +42,12 @@ export default function Achievements() {
             effect="opacity"
             alt={"bg"} />
         </div>  
+
+        <Numbers
+          trigger={"#achievements .container"} />
       </div>
+
+
     </section>
   )
 }

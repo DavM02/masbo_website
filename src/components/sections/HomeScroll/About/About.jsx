@@ -1,7 +1,7 @@
-import Numbers from "./Numbers"
+import Numbers from "@components/shared/Numbers/Numbers"
 import useAnimation from '@hooks/useAnimation'
 import play from "@assets/icons/play.svg"
-import Socials from "../../../shared/Socials/Socials"
+import Socials from "@components/shared/Socials/Socials"
 
 export default function About() {
 
@@ -45,7 +45,8 @@ export default function About() {
           </div>
         </div>
       
-        <Numbers />
+        <Numbers
+          trigger={".about .container"} />
                 
         {width && height && <Socials />}
       </div>

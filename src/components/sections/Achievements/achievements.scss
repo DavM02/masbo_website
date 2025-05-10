@@ -9,8 +9,27 @@
             position: absolute;
             bottom: -15%;
             left: 0;
- 
+
 
         }
     }
+
+    .numbers {
+        margin-top: 33px;
+
+        li {
+            cursor: initial !important;
+        }
+
+        span {
+            font-weight: 700;
+        }
+
+        span,
+        h2 {
+            color: $text-black;
+        }
+    }
+
+
 }

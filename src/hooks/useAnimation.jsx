@@ -16,7 +16,7 @@ export default function useAnimation(gsapAnimation = () => {}, scope, returnFn =
 
   const match = (width && height) || isLargeScreen;
 
-  const isFirstPage = window.location.hash.split('#')[1] === "/#" || window.location.hash.length === 0
+  const isFirstPage = window.location.hash.split('#')[1] === "/" || window.location.hash.length === 0
  
   function scrollTo(selector, options) {
     if (match) {
