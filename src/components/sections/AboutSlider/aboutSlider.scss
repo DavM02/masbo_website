@@ -1,9 +1,14 @@
 #about-slider {
-    .swiper-slide {
 
+
+    .embla__slide {
+ 
+        position: relative;
+ 
         aspect-ratio: 1 / 1 !important;
-        // &::after {
-        //     @include overlay($overlay, 50%);
-        // }
+
+        &::after {
+            @include overlay($overlay, 50%);
+        }
     }
 }

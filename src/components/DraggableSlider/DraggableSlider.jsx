@@ -1,52 +1,73 @@
 import { getScrollBar } from "../Scroll/ScrollAccess";
-import { Swiper, SwiperSlide } from 'swiper/react';
+import useEmblaCarousel from 'embla-carousel-react'
+import { useEffect, useCallback } from "preact/hooks";
+import './DraggableSlider.css'
+export default function DraggableSlider({ images, options }) {
  
+  const [ emblaRef, emblaApi ] = useEmblaCarousel(options)
+  
+  const handleOpen = useCallback(() => {
+    getScrollBar()?.updatePluginOptions("overflow", { open: true })
+       
+  }, [])
+  
+  const handleClose = useCallback(() => {
+    getScrollBar()?.updatePluginOptions("overflow", { open: false })
+ 
+  }, [])
+  
+  useEffect(() => {
+    if (emblaApi) {
+      emblaApi.on('pointerDown', handleOpen);
+      emblaApi.on('pointerUp', handleClose);
+    }
+  }, [ emblaApi,
+    handleClose,
+    handleOpen ]);
 
-import 'swiper/css';
-import 'swiper/css/free-mode';
-
-import { FreeMode } from 'swiper/modules';
- 
-export default function DraggableSlider({ images }) {
- 
- 
   return (
-    <Swiper
-      onSlideChangeTransitionStart={() =>  getScrollBar()?.updatePluginOptions("overflow", { open: true })}
-      onSlideChangeTransitionEnd={() => getScrollBar()?.updatePluginOptions("overflow", { open: false })}
-      spaceBetween={0}
-      breakpoints={{
-        1200: {
-          slidesPerView: 4,
-        },
-        992: {
-          slidesPerView: 3,
-        },
-        768: {
-          slidesPerView: 2,
-        },
-        480: {
-          slidesPerView: 1,
-        },
-      }}
-      
-      touchStartPreventDefault={false}
-      touchMoveStopPropagation={true}
-      passiveListeners={false}
+    <div
+      className="embla">
+      <div
+        className="embla__viewport"
+        ref={emblaRef}>
+        <div
+          className="embla__container">
+          
+          {images.map((el, i) => (
+            <div
+              key={i}
+              className="embla__slide">
+              <img
+                src={el}
+                alt={`slider-img-${i + 1}`} />
+            </div>
+          ))}
+        </div>
+      </div>
 
-      freeMode={true}
-      modules={[ FreeMode ]}
-      grabCursor={true}
-      speed={1000}>
-      
-      {images.map((el, i) => (
-        <SwiperSlide 
-          key={i}>
-          <img
-            src={el}
-            alt={`slider-img-${i + 1}`} />
-        </SwiperSlide>
-      ))}
-    </Swiper>
+ 
+    </div>
+  // <Flicking
+  //   inputType={[ "touch", "mouse" ]} 
+  //   onMoveStart={onMoveStart}
+  //   onMoveEnd={onMoveEnd}
+  //   horizontal={true}
+  //   circular={false}
+  //   moveType="freeScroll"  
+  //   deceleration={0.0035}  
+  //   bounce={250}          
+  //   autoResize={true}
+  //   bound={true}>
+  //   {images.map((el, i) => (
+  //     <div
+  //       key={i}
+  //       className="flicking-panel">
+  //       <img
+  //         src={el}
+  //         alt={`slider-img-${i + 1}`} />
+  //     </div>
+  //   ))}
+  // </Flicking>
   );
 }

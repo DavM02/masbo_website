@@ -16,7 +16,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 export default defineConfig({
-  base: "/masbo_website/",
+  base: "/masbo_website/#",
   // optimizeDeps: {
   //   exclude: [ "gsap" ],
   // },
@@ -34,7 +34,6 @@ export default defineConfig({
     preact(),
     alias({
       entries: [
-      
         {
           find: "@components",
           replacement: path.resolve(__dirname, "./src/components"),

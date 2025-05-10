@@ -1,0 +1,49 @@
+.embla {
+    margin: auto;
+    --slide-size: 100%;
+}
+
+@media (min-width: 768px) {
+    .embla {
+        --slide-size: 50%;
+    }
+}
+
+@media (min-width: 992px) {
+    .embla {
+        --slide-size: 33.33%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .embla {
+        --slide-size: 25%;
+    }
+}
+
+.embla__viewport {
+    overflow: hidden;
+}
+
+.embla__container {
+    cursor: grab;
+    display: flex;
+    touch-action: pan-y pinch-zoom;
+    will-change: transform;
+}
+
+.embla__container:active {
+    cursor: grabbing;
+}
+
+.embla__slide {
+    transform: translate3d(0, 0, 0);
+    flex: 0 0 var(--slide-size);
+    min-width: 0;
+}
+
+
+.embla__selected-snap-display {
+    justify-self: flex-end;
+    align-self: center;
+}

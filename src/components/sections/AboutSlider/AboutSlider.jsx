@@ -24,7 +24,8 @@ export default function AboutSlider() {
           img1,
           img2,
           img3,
-          img4 ]} />
+          img4 ]}
+        options={ { dragFree: true, duration: 50 }} />
     </section>
   )
 }
