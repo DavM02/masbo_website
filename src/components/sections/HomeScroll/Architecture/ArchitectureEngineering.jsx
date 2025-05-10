@@ -1,5 +1,5 @@
 import InfoBlock from "../InfoBlock";
-import MainButton from "@components/ui/buttons/MainButton";
+import MainButton from "@ui/buttons/MainButton";
 
 import img1 from "@assets/img-1.jpg";
 import img2 from "@assets/img-2.jpg";

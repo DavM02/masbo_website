@@ -1,29 +1,37 @@
 import { getScrollBar } from "../Scroll/ScrollAccess";
 import useEmblaCarousel from 'embla-carousel-react'
-import { useEffect, useCallback } from "preact/hooks";
+import { useEffect, useCallback, useState } from "preact/hooks";
 import './DraggableSlider.css'
+
 export default function DraggableSlider({ images, options }) {
- 
-  const [ emblaRef, emblaApi ] = useEmblaCarousel(options)
-  
+  const [ emblaRef, emblaApi ] = useEmblaCarousel({
+    ...options,
+  })
+  const [ isTransitioning, setIsTransitioning ] = useState(false)
+
   const handleOpen = useCallback(() => {
     getScrollBar()?.updatePluginOptions("overflow", { open: true })
-       
+    setIsTransitioning(true)
   }, [])
-  
+
   const handleClose = useCallback(() => {
     getScrollBar()?.updatePluginOptions("overflow", { open: false })
- 
-  }, [])
   
+  }, [])
+
   useEffect(() => {
-    if (emblaApi) {
-      emblaApi.on('pointerDown', handleOpen);
-      emblaApi.on('pointerUp', handleClose);
+    if (!emblaApi) return
+
+    emblaApi.on('pointerDown', handleOpen)
+    emblaApi.on('pointerUp', handleClose)
+
+    return () => {
+      emblaApi.off('pointerDown', handleOpen)
+      emblaApi.off('pointerUp', handleClose)
     }
   }, [ emblaApi,
-    handleClose,
-    handleOpen ]);
+    handleOpen,
+    handleClose ])
 
   return (
     <div
@@ -32,8 +40,8 @@ export default function DraggableSlider({ images, options }) {
         className="embla__viewport"
         ref={emblaRef}>
         <div
-          className="embla__container">
-          
+          onTransitionEnd={() =>  setIsTransitioning(false)}
+          className={`embla__container ${!isTransitioning ? 'no-transition' : 'is-transitioning'}`}>
           {images.map((el, i) => (
             <div
               key={i}
@@ -45,29 +53,6 @@ export default function DraggableSlider({ images, options }) {
           ))}
         </div>
       </div>
-
- 
     </div>
-  // <Flicking
-  //   inputType={[ "touch", "mouse" ]} 
-  //   onMoveStart={onMoveStart}
-  //   onMoveEnd={onMoveEnd}
-  //   horizontal={true}
-  //   circular={false}
-  //   moveType="freeScroll"  
-  //   deceleration={0.0035}  
-  //   bounce={250}          
-  //   autoResize={true}
-  //   bound={true}>
-  //   {images.map((el, i) => (
-  //     <div
-  //       key={i}
-  //       className="flicking-panel">
-  //       <img
-  //         src={el}
-  //         alt={`slider-img-${i + 1}`} />
-  //     </div>
-  //   ))}
-  // </Flicking>
-  );
+  )
 }

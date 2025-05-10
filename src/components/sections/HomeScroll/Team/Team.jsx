@@ -1,4 +1,4 @@
-import MainButton from "@components/ui/buttons/MainButton";
+import MainButton from "@ui/buttons/MainButton";
 import SplitAnimation from "./SplitAnimation";
 
 export default function Team() {

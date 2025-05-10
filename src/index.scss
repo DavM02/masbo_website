@@ -1,7 +1,7 @@
 @import './styles/typography.scss';
 @import './styles/reset.css';
 @import "./styles/helpers.css";
-@import "./components/ui/buttons/buttons.scss";
+@import "./components/shared/ui/buttons/buttons.scss";
 @import "./components/shared/MobileSocials/mobileSocials.scss";
 @media all and (max-width: 320px) {
     body {

@@ -1,6 +1,6 @@
 import ImageBlock from "../ImageBlock";
 import InfoBlock from "../InfoBlock";
-import MainButton from "@components/ui/buttons/MainButton";
+import MainButton from "@ui/buttons/MainButton";
 
 import img5 from "@assets/img-5.jpg";
 import img6 from "@assets/img-6.jpg";

@@ -5,7 +5,7 @@ import DetailsTabs from './DetailsTabs'
 import WorkingProcess from './WorkingProcess'
 import Advantages from './Advantages'
 import LastProjects from './LastProjects'
-import SmoothAppearance from '../../ui/SmoothAppearance'
+import SmoothAppearance from '@ui/SmoothAppearance'
 
 export default function Details() {
   const [ activeTab, setActiveTab ] = useState('working')

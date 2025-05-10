@@ -1,4 +1,4 @@
-import MainButton from '@components/ui/buttons/MainButton';
+import MainButton from '@ui/buttons/MainButton';
 
 export default function ServiceTextBlock() {
   return (

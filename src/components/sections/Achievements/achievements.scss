@@ -1,0 +1,16 @@
+#achievements {
+    .bg {
+        position: relative;
+        overflow: hidden;
+        height: 438px;
+        width: 100%;
+
+        &>span:nth-child(1) {
+            position: absolute;
+            bottom: -15%;
+            left: 0;
+ 
+
+        }
+    }
+}

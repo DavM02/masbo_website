@@ -1,4 +1,4 @@
-import MainButton from '@components/ui/buttons/MainButton'
+import MainButton from '@ui/buttons/MainButton'
 import Projects from './Projects'
  
 export default function ProjectsList() {

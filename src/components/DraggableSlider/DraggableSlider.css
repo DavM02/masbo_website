@@ -27,6 +27,7 @@
 
 .embla__container {
     cursor: grab;
+    transition: 0.35s transform cubic-bezier(0.215, 0.610, 0.355, 1);
     display: flex;
     touch-action: pan-y pinch-zoom;
     will-change: transform;
@@ -34,6 +35,7 @@
 
 .embla__container:active {
     cursor: grabbing;
+    
 }
 
 .embla__slide {
@@ -42,8 +44,6 @@
     min-width: 0;
 }
 
-
-.embla__selected-snap-display {
-    justify-self: flex-end;
-    align-self: center;
-}
+ .no-transition {
+     transition: none !important;
+ }

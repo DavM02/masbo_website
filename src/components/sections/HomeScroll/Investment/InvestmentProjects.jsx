@@ -6,7 +6,7 @@ import img20 from "@assets/img-20.jpg";
 import Icon6 from "@assets/icons/icon-6.svg?react"
 import ImageBlock from "../ImageBlock";
 import InfoBlock from "../InfoBlock";
-import MainButton from "@components/ui/buttons/MainButton"
+import MainButton from "@ui/buttons/MainButton"
 export default function InvestmentProjects() {
   return (
     <section

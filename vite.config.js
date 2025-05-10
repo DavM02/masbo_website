@@ -39,6 +39,10 @@ export default defineConfig({
           replacement: path.resolve(__dirname, "./src/components"),
         },
         {
+          find: "@ui",
+          replacement: path.resolve(__dirname, "./src/components/shared/ui"),
+        },
+        {
           find: "@sections",
           replacement: path.resolve(__dirname, "./src/components/sections"),
         },
