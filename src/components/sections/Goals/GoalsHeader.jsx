@@ -3,10 +3,10 @@ export default function GoalsHeader() {
     <div
       className="row s-between">
       <span
-        className="fs-14 text-dark up-case">our goals</span>
+        className="fs-14 text-black up-case">our goals</span>
 
       <span
-        className="fs-14 text-dark up-case">01</span>
+        className="fs-14 text-black up-case">01</span>
     </div>
   )
 }

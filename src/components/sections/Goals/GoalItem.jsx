@@ -17,7 +17,7 @@ export default function GoalItem({ text, isOpen, onClick }) {
       className="row s-between wrap"
       onClick={onClick}>
       <span
-        className="fs-14 text-dark font-bold capitalize">{text}</span>
+        className="fs-14 text-black font-bold capitalize">{text}</span>
 
       <div
         className="display"
