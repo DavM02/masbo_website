@@ -1,47 +1,42 @@
 import "./home.scss";
-import Socials from "@components/shared/Socials/Socials";
- 
+import Intro from "@components/Intro/Intro"; 
 import ScrollDown from "./ScrollDown";
+import bg from "@assets/bg.avif"
 export default function Home() {
 
 
   return (
-    <section
+    <Intro
+      bg={bg}
       id="home">
       <div
-        className="bg">
-         
-        <Socials />
+        className="container">
+        <ScrollDown />
 
         <div
-          className="container">
-          <ScrollDown />
-
+          className="text-wrapper">
           <div
-            className="text-wrapper">
-            <div
-              className="row center-y gap-50">
-              <h1
-                className="capitalize">
-                from idea
-                <br /> to life
-              </h1>
+            className="row center-y gap-50">
+            <h1
+              className="capitalize">
+              from idea
+              <br /> to life
+            </h1>
 
-              <p
-                className="to-small text-white capitalize">
-                Arhitecture modern technology
-                <br /> MasBo is an architectural group working in the field of
-                architecture and
+            <p
+              className="to-small text-white capitalize">
+              Arhitecture modern technology
+              <br /> MasBo is an architectural group working in the field of
+              architecture and
 
-                <br /> urban planning. For our customers, we are known as a
-                reliable partner
+              <br /> urban planning. For our customers, we are known as a
+              reliable partner
 
-                <br /> with high standards of quality and responsibility.
-              </p>
-            </div>
+              <br /> with high standards of quality and responsibility.
+            </p>
           </div>
         </div>
       </div>
-    </section>
+    </Intro>
   );
 }

@@ -1,0 +1,14 @@
+.intro {
+    background-color: $gray-secondary;
+    .bg {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background-size: cover !important;
+        transition: $transition-1 1s opacity;
+
+        &::after {
+            @include overlay($black, 50%);
+        }
+    }
+}

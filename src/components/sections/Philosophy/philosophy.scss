@@ -34,10 +34,10 @@
 
         .image {
             position: absolute;
+            background-color: $gray-secondary;
 
             &:nth-child(1) {
                 width: max(108.8px, min(165px, 34vw));
-                ;
                 height: min(18vh, 181px);
                 top: 54px;
             }

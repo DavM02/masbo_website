@@ -1,5 +1,5 @@
 1. add data router
-2. prevent scroll when navigation between pahes..
+2. prevent scroll when navigation between pages..
 3. replace contents
 4. add navlinks active - done.
-5. add section bg transition
+5. add section bg transition - done
