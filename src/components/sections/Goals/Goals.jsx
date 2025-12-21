@@ -1,7 +1,7 @@
 import './goals.scss'
 import SectionHeader from '@components/shared/SectionHeader/SectionHeader'
 import GoalsIntro from './GoalsIntro'
-import AccordionList from '../../shared/ui/Accordion/AccordionList'
+import AccordionList from '@ui/Accordion/AccordionList'
 
 const items = [
   'Building the Future Cities',

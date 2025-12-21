@@ -5,5 +5,5 @@
 5. add section bg transition - done
 6. fix scroll in large screen - done
 7. fix media for flex-wrap - done
-8. add responsive for reviews 
+8. add responsive for reviews  - done
 9. add pics for reviews. - done

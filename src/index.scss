@@ -9,7 +9,7 @@
     }
 }
 
-html:has(#about-page), html:has(#services-page) {
+html:has(#about-page), html:has(#services-page), html:has(#team-page) {
     main {
         background-color: $white;
         position: relative;

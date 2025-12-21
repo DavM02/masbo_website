@@ -7,6 +7,7 @@ import Footer from '@components/layout/Footer/Footer'
 import AboutPage from '@pages/AboutPage/AboutPage'
 import ServicesPage from '@pages/ServicesPage/ServicesPage'
 import MainContextProvider from '@context/MainContext'
+import TeamPage from '@pages/TeamPage/TeamPage'
 export function App() {
  
   const location = useLocation()
@@ -36,6 +37,10 @@ export function App() {
                 <Route
                   path="services"
                   element={<ServicesPage />} />
+                
+                <Route
+                  path="team"
+                  element={<TeamPage />} />
               </Routes>
             </AnimatePresence>
           </main>

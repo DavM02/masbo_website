@@ -68,7 +68,8 @@
         .embla__slide {
 
             position: relative;
-
+            perspective: 1px;
+            backface-visibility: hidden;
 
             &>span:nth-child(1) {
                 display: block !important;

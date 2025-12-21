@@ -18,7 +18,7 @@ export default function TextLineAnimation({lines}) {
       ease: "power3.out",
       scrollTrigger: {
         trigger: titleRef.current,
-        start: "top 85%",
+        start: "top 95%",
         toggleActions: "play none none none",
         ...options,
       },
