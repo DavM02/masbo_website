@@ -1,7 +1,7 @@
 
 import img1 from "@assets/img-25.jpg";
 import img2 from "@assets/img-26.jpg";
-import img3 from "@assets/img-27.jpg";
+import img3 from "@assets/img-1.jpg";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 export default function Images() {
   return (
