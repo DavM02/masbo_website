@@ -6,9 +6,9 @@ import Icon5 from "@assets/icons/icon-5.svg?react";
 import Icon6 from "@assets/icons/icon-6.svg?react";
 
 import img1 from '@assets/img-1.jpg';
-import img2 from '@assets/img-29.jpg';
-import img3 from '@assets/img-30.jpg';
-import img4 from '@assets/img-31.jpg';
+import img2 from '@assets/img-1.jpg';
+import img3 from '@assets/img-1.jpg';
+import img4 from '@assets/img-1.jpg';
 
 
 const servicesData = [
