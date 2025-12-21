@@ -1,22 +1,22 @@
 @use './media.scss';
+
 #home {
     height: 100vh;
     min-height: 700px;
     width: 100%;
-    background: url('/src/assets/bg.avif') center no-repeat;
-    background-size: cover;
     position: relative;
-
-
-    &::after {
-        @include overlay($black, 60%);
-    }
 
     .container {
         height: 100%;
         position: relative;
         z-index: 56;
         max-width: unset;
+    }
+
+    .bg {
+        &::after {
+            @include overlay($black, 60%);
+        }
     }
 
     .scroll-down {

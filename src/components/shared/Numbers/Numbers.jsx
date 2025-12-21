@@ -8,7 +8,7 @@ const numbers = [
   {num: 1012, title: "Modern interiors "}
 ]
 
-export default function Numbers({trigger}) {
+export default function Numbers() {
 
   useAnimation((options) => {
     const numItems = gsap.utils.toArray(".numbers li h2")
@@ -20,8 +20,8 @@ export default function Numbers({trigger}) {
         ease: "power1.out",
         snap: { innerText: 1 },
         scrollTrigger: {
-          trigger,
-          start: "top 20%",
+          trigger: numItems,
+          start: "top 85%",
           toggleActions: "play none none none",
           scroller: options.scroller,
         },

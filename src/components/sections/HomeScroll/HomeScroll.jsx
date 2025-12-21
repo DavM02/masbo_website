@@ -9,6 +9,7 @@ import ConstructionInterior from './Construction/ConstructionInterior'
 import Team from './Team/Team'
 import { useGSAP } from '@gsap/react'
 import { gsap } from 'gsap'
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { setScrollTween } from '../../Scroll/ScrollAccess'
 import useAnimation from "@hooks/useAnimation"
 import { useContext } from "preact/hooks";
@@ -19,6 +20,7 @@ export default function HomeScroll() {
  
   useGSAP(() => {
     const createAnimation = () => {
+    
       if (width && height) {
         let scrollTween = gsap.to("#home-scroll > .row", {
           x: isLargeScreen
@@ -45,10 +47,14 @@ export default function HomeScroll() {
         setScrollTween(scrollTween);
       }
     };
-
+   
     requestAnimationFrame(() => {
+      ScrollTrigger.getById("home_trigger")?.kill()
       createAnimation()
+     
+
       setTriggerInit(true)
+ 
     }
     )
 

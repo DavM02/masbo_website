@@ -9,7 +9,7 @@
     }
 }
 
-html:has(#about-page) {
+html:has(#about-page), html:has(#services-page) {
     main {
         background-color: $white;
         position: relative;
@@ -85,6 +85,7 @@ html {
 
 ::selection {
     background-color: $blue;
+    color: $white;
 }
 
 body,

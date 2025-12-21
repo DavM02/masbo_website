@@ -45,8 +45,7 @@ export default function About() {
           </div>
         </div>
       
-        <Numbers
-          trigger={".about .container"} />
+        <Numbers />
                 
         {width && height && <Socials />}
       </div>

@@ -11,7 +11,7 @@ import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
 gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin, useGSAP);
  
 export default function SmoothScroll({ children }) {
- 
+  console.log('e')
   const scrollRef = useRef(null);
 
   const { width, height, isLargeScreen } = useAnimation();
@@ -57,7 +57,6 @@ export default function SmoothScroll({ children }) {
         }
       };
 
-  
 
       const handleResize = () => {
         ScrollTrigger.refresh();
@@ -68,7 +67,7 @@ export default function SmoothScroll({ children }) {
         resizeObserver.observe(scrollRef.current);
       }
 
-      if ((width && height) || isLargeScreen) {
+      if (width && height) {
         initScrollbar();
         
       }
@@ -78,8 +77,8 @@ export default function SmoothScroll({ children }) {
       }
 
       return () => {
-        clearScrollBar();
         ScrollTrigger.killAll()
+        clearScrollBar();
         if (resizeObserver) {
           resizeObserver.disconnect();
         }
@@ -93,6 +92,9 @@ export default function SmoothScroll({ children }) {
       revertOnUpdate: true,
     }
   );
+
+
+
 
   return (
     <div

@@ -1,0 +1,12 @@
+#services-details {
+    padding: 0 !important;
+    margin: 55px 0 44px 0;
+    ul {
+        width: 100%;
+        max-width: max(calc(50% - 35px/2), 500px);
+    }
+
+    .container > .row:nth-child(1) {
+        row-gap: 16px;
+    }
+}

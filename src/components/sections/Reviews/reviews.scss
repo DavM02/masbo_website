@@ -1,0 +1,113 @@
+#reviews {
+
+    .reviews {
+        display: grid;
+        grid-template-columns: 10px 1fr 10px;
+    }
+
+    .review-item {
+        cursor: initial;
+        margin-top: 27.22px;
+        min-height: 330px;
+
+        p {
+            max-width: 681px;
+
+            span {
+
+                &:nth-child(1),
+                &:nth-last-child(1) {
+                    position: relative;
+                    display: inline-block;
+
+                    &::after {
+                        position: absolute;
+                        top: 0;
+                        left: -10px;
+                        content: "“";
+                        font-size: inherit;
+                        color: inherit;
+                        line-height: inherit;
+                    }
+                }
+
+                &:nth-last-child(1)::after {
+                    content: "”";
+                    left: initial;
+                    right: -10px;
+                }
+
+                display: block;
+            }
+        }
+    }
+
+
+    .nav-count {
+        margin-top: 30px;
+    }
+
+    .line {
+        position: relative;
+        width: 25%;
+        height: 1.5px;
+        background-color: $white-secondary;
+
+        &::after {
+            position: absolute;
+            left: 0;
+            top: 0;
+            content: "";
+            width: 100%;
+            z-index: 1;
+            clip-path: inset(0 100% 0 0);
+            transition: 0.8s clip-path $transition-1;
+            background-color: $black;
+            height: 100%;
+        }
+
+        &.start::after {
+            clip-path: inset(0 0 0 0);
+        }
+    }
+
+    .number {
+        width: 18px;
+        height: 17px;
+        display: inline-block;
+        position: relative;
+
+        span {
+            position: absolute;
+            left: 0;
+            right: 0;
+        }
+    }
+
+    .nav-left,
+    .nav-right {
+        margin-top: 13%;
+        cursor: pointer;
+
+        path {
+            transition: $transition-1 stroke .5s;
+        }
+
+        &:hover {
+            path {
+                stroke: $blue;
+            }
+        }
+    }
+
+    .review-image {
+        width: 65px;
+        height: 65px;
+        background-color: $gray-secondary;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+
+}
+
+@import url('./media.scss');

@@ -16,7 +16,7 @@ function PageTransition(Component) {
     //   // || currentLocation.pathname === nextLocation.pathname
     // });
 
-
+   
  
     useEffect(() => {
 

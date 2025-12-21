@@ -1,0 +1,29 @@
+#reviews {
+    @media all and (max-width: 500px) {
+        .reviews {
+            grid-template-columns: none;
+
+        }
+
+        .line {
+            width: 50% !important;
+        }
+
+        .nav-left,
+        .nav-right {
+            position: absolute;
+            bottom: 37px;
+        }
+
+        .nav-right {
+            right: $container-padding;
+        }
+    }
+
+    @media all and (max-width: 420px) {
+        .review-item p {
+            font-size: 10px;
+            line-height: 16px;
+        }
+    }
+}

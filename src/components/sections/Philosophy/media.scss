@@ -1,0 +1,7 @@
+#philosophy {
+    @media all and (max-width: 1100px) {
+        > .container > .row {
+            flex-wrap: wrap;
+        }
+    }
+}

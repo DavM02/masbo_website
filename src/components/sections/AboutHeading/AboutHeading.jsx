@@ -1,29 +1,25 @@
-import Socials from '@components/shared/Socials/Socials'
-import './aboutHeading.scss'
-
+import Intro from '@components/shared/Intro/Intro'
+import bg from "@assets/bg-2.jpg"
 export default function AboutHeading() {
   return (
-    <section
+    <Intro
+      bg={bg}
       id="about-heading">
-      <Socials />
 
       <div
-        className='bg'>
+        className="container">
         <div
-          className="container">
-          <div
-            className="row center-y">
-            <h1
-              className="capitalize">
-              Perfection is a modern  <br /> solution made with love
+          className="row center-y">
+          <h1
+            className="capitalize">
+            Perfection is a modern  <br /> solution made with love
 
-              <br /> for life.
+            <br /> for life.
 
 
-            </h1>
-          </div>
+          </h1>
         </div>
       </div>
-    </section>
+    </Intro>
   )
 }

@@ -1,0 +1,63 @@
+#philosophy {
+
+    padding: $section-padding 0 0 0 !important;
+
+    .text-line-animation+p {
+        max-width: 583px;
+    }
+
+    .text-line-animation+p,
+    ul {
+        margin-top: 30px;
+    }
+
+    ul {
+        img {
+            width: 17.14px;
+            height: 11.06px;
+
+        }
+
+        li {
+            cursor: initial !important;
+            max-width: 456px;
+        }
+    }
+
+
+    .images {
+        max-width: 490px;
+        position: relative;
+        min-height: 376px;
+        height: 100%;
+        width: 100%;
+
+        .image {
+            position: absolute;
+            background-color: $gray-secondary;
+
+            &:nth-child(1) {
+                width: max(108.8px, min(165px, 34vw));
+                height: min(18vh, 181px);
+                top: 54px;
+            }
+
+            &:nth-child(3) {
+                width: max(118.4px, min(186px, 37vw));
+                height: clamp(12.5rem, 11.875rem + 3.125vw, 15.625rem);
+                right: max(118.4px, min(186px, 37vw));
+                top: 24%;
+            }
+
+            &:nth-child(2) {
+                height: clamp(12.5rem, 11.875rem + 3.125vw, 15.625rem);
+                width: max(118.4px, min(186px, 37vw));
+                right: 0;
+                top: 0;
+            }
+        }
+    }
+
+}
+
+@import url('./media.scss');

@@ -72,12 +72,13 @@
     align-self: center;
 }
 
+
 .end-x {
     justify-content: flex-end;
 }
 
 .start-y {
-    align-items: flex-start;
+    align-items: baseline;
 }
 
 .column {

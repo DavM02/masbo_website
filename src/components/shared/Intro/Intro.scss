@@ -1,0 +1,37 @@
+.intro {
+    background-color: $gray-secondary;
+
+    &[id*="heading"] {
+
+        margin-top: 72.44px;
+        padding: 0 !important;
+
+        path {
+            fill: $white;
+        }
+
+        h1 {
+            position: relative;
+            z-index: 44;
+        }
+
+        .row {
+            min-height: 375px;
+        }
+
+        .bg {
+            &::after {
+                @include overlay($dark, 50%);
+            }
+        }
+
+    }
+
+    .bg {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background-size: cover !important;
+        transition: $transition-1 1s opacity;
+    }
+}

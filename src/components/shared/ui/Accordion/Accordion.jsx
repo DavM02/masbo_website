@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import icon from '@assets/icons/plus.svg'
-
+import './accordion.scss'
 const animation = {
   initial: { height: 0, overflow: 'hidden' },
   animate: { height: 'auto' },
@@ -11,13 +11,13 @@ const animation = {
     1 ] }
 }
 
-export default function GoalItem({ text, isOpen, onClick }) {
+export default function Accordion({ heading, text, isOpen, onClick }) {
   return (
     <li
-      className="row s-between wrap"
+      className="accordion row s-between wrap"
       onClick={onClick}>
       <span
-        className="fs-14 text-dark font-bold capitalize">{text}</span>
+        className="fs-14 heading-black font-bold capitalize">{heading}</span>
 
       <div
         className="display"
@@ -31,12 +31,9 @@ export default function GoalItem({ text, isOpen, onClick }) {
         mode="wait">
         {isOpen && (
           <motion.p
-            className="static text-gray capitalize"
+            className="static heading-gray capitalize"
             {...animation}>
-            We offer innovative engineering solutions that ensure the successful achievement of the client's goals.
-            Because engineering is a result-oriented strategy in action. An individual approach and
-            attention to detail in the development of engineering systems allows us to obtain reliable,
-            verified solutions. Simply put, we think over the operation of facilities based on practical experience and scientific knowledge.
+            {text}
           </motion.p>
         )}
       </AnimatePresence>

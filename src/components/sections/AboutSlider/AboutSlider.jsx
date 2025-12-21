@@ -1,4 +1,4 @@
-import DraggableSlider from '@components/DraggableSlider/DraggableSlider'
+import DraggableSlider from '@components/shared/DraggableSlider/DraggableSlider'
 import './aboutSlider.scss'
 import img1 from '@assets/img-21.jpg'
 import img2 from '@assets/img-22.jpg'
@@ -9,23 +9,24 @@ export default function AboutSlider() {
     <section
       id='about-slider'>
       <DraggableSlider
-        images={[ img1,
-          img2,
-          img3,
-          img4,
-          img1,
-          img2,
-          img3,
-          img4,
-          img1,
-          img2,
-          img3,
-          img4,
-          img1,
-          img2,
-          img3,
-          img4 ]}
-        options={ { dragFree: true, duration: 50 }} />
+        images={[ {src: img1},
+          {src: img2},
+          {src: img3},
+          {src: img4},
+          {src: img1},
+          {src: img2},
+          {src: img3},
+          {src: img4 },
+          {src: img1},
+          {src: img2},
+          {src: img3},
+          {src: img4},
+          {src: img1},
+          {src: img2},
+          {src: img3},
+          {src: img4}
+        ]}
+        options={ { dragFree: true}} />
     </section>
   )
 }

@@ -12,6 +12,8 @@ import mergeRulePlus from "postcss-merge-rules-plus";
 import svgr from "vite-plugin-svgr";
 import sortMediaQueries from 'postcss-sort-media-queries'
 import postcssPresetEnv from 'postcss-preset-env';
+import purgeCss from 'vite-plugin-purgecss'
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
@@ -69,6 +71,9 @@ export default defineConfig({
       ],
     }),
     svgr(),
+    purgeCss({
+      content: [ './index.html', './src/**/*.{js,jsx,ts,tsx}' ]
+    }),
   ],
   css: {
     preprocessorMaxWorkers: 4,

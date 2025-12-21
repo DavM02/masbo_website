@@ -1,16 +1,14 @@
 import "./home.scss";
-import Socials from "@components/shared/Socials/Socials";
- 
+import Intro from "@components/shared/Intro/Intro"; 
 import ScrollDown from "./ScrollDown";
+import bg from "@assets/bg.avif"
 export default function Home() {
 
 
   return (
-    <section
+    <Intro
+      bg={bg}
       id="home">
- 
-      <Socials />
-
       <div
         className="container">
         <ScrollDown />
@@ -39,6 +37,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-    </section>
+    </Intro>
   );
 }

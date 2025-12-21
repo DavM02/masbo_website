@@ -8,15 +8,17 @@ export default function useAnimation(gsapAnimation = () => {}, scope, returnFn =
 
   const width = useMediaQ("(min-width: 1025px)");
   const height = useMediaQ("(min-height: 695px)");
+
+  const isFirstPage = window.location.hash.split('#')[1] === "/" || window.location.hash.length === 0
+
   const isLargeScreen = useMediaQ(
     "(min-height: 2200px) and (min-width: 1500px), (min-width: 3000px)"
-  );
+  ) && isFirstPage;
 
   const {triggerInit} = useContext(MainContext)
 
   const match = (width && height) || isLargeScreen;
 
-  const isFirstPage = window.location.hash.split('#')[1] === "/" || window.location.hash.length === 0
  
   function scrollTo(selector, options) {
     if (match) {
@@ -65,7 +67,6 @@ export default function useAnimation(gsapAnimation = () => {}, scope, returnFn =
     {
       dependencies: [ width,
         height,
-        isLargeScreen,
         triggerInit ],
       revertOnUpdate: true,
       ...scope,

@@ -1,7 +1,13 @@
 import './goals.scss'
-import GoalsHeader from './GoalsHeader'
+import SectionHeader from '@components/shared/SectionHeader/SectionHeader'
 import GoalsIntro from './GoalsIntro'
-import GoalsList from './GoalsList'
+import AccordionList from '../../shared/ui/Accordion/AccordionList'
+
+const items = [
+  'Building the Future Cities',
+  'Unique and Influential Design',
+  'Award-Winning Arhitecture'
+]
 
 export default function Goals() {
   return (
@@ -9,13 +15,18 @@ export default function Goals() {
       id="goals">
       <div
         className="container">
-        <GoalsHeader />
+        <SectionHeader
+          headline="our goals"
+          num={1} />
 
         <div
           className="row s-between wrap gap-45">
           <GoalsIntro />
 
-          <GoalsList />
+          <div>
+            <AccordionList
+              items={items} />
+          </div>
         </div>
       </div>
     </section>

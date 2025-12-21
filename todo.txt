@@ -1,5 +1,9 @@
 1. add data router
-2. prevent scroll when navigation between pahes..
-3. replace contents
+2. prevent scroll when navigation between pages..
+3. replace contents + images in slider
 4. add navlinks active - done.
-5. add section bg transition
+5. add section bg transition - done
+6. fix scroll in large screen - done
+7. fix media for flex-wrap - done
+8. add responsive for reviews 
+9. add pics for reviews. - done

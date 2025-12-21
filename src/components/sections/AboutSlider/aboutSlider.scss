@@ -4,12 +4,19 @@
 
     .embla__slide {
 
-        position: relative;
+
 
         aspect-ratio: 1 / 1 !important;
+        overflow: hidden;
 
-        &::after {
-            @include overlay($overlay, 50%);
+        &>span:nth-child(1) {
+            position: relative;
+
+            &::after {
+                @include overlay($overlay, 50%);
+            }
         }
+
+
     }
 }

@@ -39,13 +39,13 @@ export default function LastProjects() {
                   key={i}
                   id={i}>
                   <span
-                    className="fs-14 font-bold text-dark">{el[0]}</span>
+                    className="fs-14 font-bold text-black">{el[0]}</span>
 
                   <span
                     className="fs-14 font-bold">{el[1]}</span>
 
                   <span
-                    className="fs-14 font-bold text-dark">{el[2]}</span>
+                    className="fs-14 font-bold text-black">{el[2]}</span>
 
                   <span
                     className="fs-14 font-bold">{el[3]}</span>  

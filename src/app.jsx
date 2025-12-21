@@ -5,6 +5,7 @@ import { Routes, Route, useLocation} from 'react-router-dom'
 import SmoothScroll from '@components/Scroll/SmoothScroll'
 import Footer from '@components/layout/Footer/Footer'
 import AboutPage from '@pages/AboutPage/AboutPage'
+import ServicesPage from '@pages/ServicesPage/ServicesPage'
 import MainContextProvider from '@context/MainContext'
 export function App() {
  
@@ -31,6 +32,10 @@ export function App() {
                 <Route
                   path="about"
                   element={<AboutPage />} />
+                
+                <Route
+                  path="services"
+                  element={<ServicesPage />} />
               </Routes>
             </AnimatePresence>
           </main>

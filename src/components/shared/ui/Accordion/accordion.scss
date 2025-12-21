@@ -1,0 +1,28 @@
+.accordion-list {
+
+    gap: 16px;
+
+    .display {
+        img {
+            object-fit: contain;
+        }
+    }
+
+    li {
+        border-bottom: 1px solid $white-secondary;
+        padding-bottom: 11px;
+
+        .display {
+            transition: $transition-1 0.5s transform;
+        }
+
+        span {
+            margin-bottom: 5px;
+        }
+
+        p {
+            width: 100%;
+        }
+    }
+
+}

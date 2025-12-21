@@ -4,10 +4,10 @@
         height: 29px;
         aspect-ratio: 1/1;
         border-radius: 50%;
-        border: 1px solid $text-gray;
+        border: 1px solid $gray-secondary;
 
         path {
-            fill: $text-gray;
+            fill: $gray-secondary;
         }
     }
 }

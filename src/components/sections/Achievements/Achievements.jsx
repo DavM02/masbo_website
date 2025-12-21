@@ -43,8 +43,7 @@ export default function Achievements() {
             alt={"bg"} />
         </div>  
 
-        <Numbers
-          trigger={"#achievements .container"} />
+        <Numbers />
       </div>
 
 

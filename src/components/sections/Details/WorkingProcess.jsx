@@ -25,10 +25,10 @@ export default function WorkingProcess() {
         <li
           key={index}>
           <h2
-            className="text-dark">{`0${index + 1}.`}</h2>
+            className="text-black">{`0${index + 1}.`}</h2>
 
           <span
-            className="fs-14 font-bold text-dark">{step.title}</span>
+            className="fs-14 font-bold text-black">{step.title}</span>
 
           <p
             className="to-middle text-gray capitalize">{step.text}</p>

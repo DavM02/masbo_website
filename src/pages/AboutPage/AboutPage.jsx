@@ -1,9 +1,10 @@
 import PageTransition from "@components/PageTransition/PageTransition";
-import AboutHeading from "@components/sections/AboutHeading/AboutHeading";
-import Goals from "@components/sections/Goals/Goals";
-import Details from "@components/sections/Details/Details";
-import AboutSlider from "@components/sections/AboutSlider/AboutSlider";
-import Achievements from "@components/sections/Achievements/Achievements";
+import AboutHeading from "@sections/AboutHeading/AboutHeading";
+import Goals from "@sections/Goals/Goals";
+import Details from "@sections/Details/Details";
+import AboutSlider from "@sections/AboutSlider/AboutSlider";
+import Achievements from "@sections/Achievements/Achievements";
+import Philosophy from "@sections/Philosophy/Philosophy";
 
 
 function AboutPage() {
@@ -17,6 +18,8 @@ function AboutPage() {
       <Details />
 
       <AboutSlider />
+
+      <Philosophy />
 
       <Achievements />
     </div>

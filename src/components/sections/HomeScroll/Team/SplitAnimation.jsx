@@ -13,8 +13,7 @@ const titleText = "Meeting our team"
 
 export default function SplitAnimation() {
   const titleRef = useRef(null);
-
-  useAnimation((options) => {
+  const {width, height} = useAnimation((options) => {
  
     const items = gsap.utils.toArray(".team li");
     const spans = titleRef.current.querySelectorAll("span");
@@ -29,7 +28,7 @@ export default function SplitAnimation() {
       ease: "expo.out",
       scrollTrigger: {
         trigger: ".team",
-        start: "left 40%",
+        start: (width && height) ? "left 40%" : "top 80%",
         toggleActions: "play none none none",
         ...options
       },
@@ -45,15 +44,16 @@ export default function SplitAnimation() {
       ease: "expo.out",
       scrollTrigger: {
         trigger: ".team",
-        start: "left 40%",
+        start: (width && height) ? "left 40%" : "top 80%",
         toggleActions: "play none none none",
         ...options
       },
     });
   })
+
   
 
-
+  
   return (<>
     <h1
       ref={titleRef}>{titleText}</h1> 

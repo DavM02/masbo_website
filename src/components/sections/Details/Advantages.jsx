@@ -25,10 +25,10 @@ export default function Advantages() {
         <li
           key={index}>
           <h2
-            className="text-dark">{`0${index + 1}.`}</h2>
+            className="text-black">{`0${index + 1}.`}</h2>
 
           <span
-            className="fs-14 font-bold text-dark">{adv.title}</span>
+            className="fs-14 font-bold text-black">{adv.title}</span>
 
           <p
             className="to-middle text-gray capitalize">{adv.text}</p>
