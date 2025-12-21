@@ -1,6 +1,6 @@
 import StarIcon from "@assets/icons/star.svg?react"
 import { AnimatePresence, motion } from 'framer-motion'
-import { LazyLoadImage } from 'react-lazy-load-image-component'
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 export default function ReviewSlide({
   review,
@@ -20,7 +20,7 @@ export default function ReviewSlide({
           src={review.img}
           width="100%"
           height="100%"
-          effect="blur" />
+          effect="opacity" />
       </div>
 
       <ul

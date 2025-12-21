@@ -81,6 +81,7 @@
             }
 
             .service-description {
+                opacity: 1 !important;
                 position: absolute;
                 z-index: 4;
                 left: 6%;
@@ -90,6 +91,7 @@
                 user-select: none;
 
                 p {
+                    opacity: 1 !important;
                     font-weight: 600;
                     max-width: 840px;
                     margin: 20px 0;
