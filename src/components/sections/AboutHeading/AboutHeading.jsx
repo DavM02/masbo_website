@@ -1,5 +1,5 @@
 import Intro from '@components/shared/Intro/Intro'
-import bg from "@assets/bg-2.jpg"
+import bg from "@assets/bg.jpg"
 export default function AboutHeading() {
   return (
     <Intro
