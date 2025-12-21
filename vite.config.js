@@ -44,14 +44,14 @@ export default defineConfig({
       ],
     }),
     svgr(), // SVG как компоненты
-    purgeCss({ // Удаляем неиспользуемый CSS
-      content: [ './index.html', './src/**/*.{js,jsx,ts,tsx}' ],
-      safelist: [
-        // 'active',       // класс, который точно не удаляем
-        /^lazy/,        // все классы, начинающиеся с lazy
-        // 'modal-open',   // конкретный селектор
-      ]
-    }),
+    // purgeCss({ // Удаляем неиспользуемый CSS
+    //   content: [ './index.html', './src/**/*.{js,jsx,ts,tsx}' ],
+    //   safelist: [
+    //     // 'active',       // класс, который точно не удаляем
+    //     /^lazy/,        // все классы, начинающиеся с lazy
+    //     // 'modal-open',   // конкретный селектор
+    //   ]
+    // }),
   ],
   css: {
     preprocessorMaxWorkers: 4, // Максимальное количество воркеров для SCSS
