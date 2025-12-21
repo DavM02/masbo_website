@@ -1,7 +1,7 @@
 #reviews {
     @media all and (max-width: 500px) {
         .reviews {
-            grid-template-columns: none;
+            grid-template-columns: none !important;
 
         }
 
@@ -11,12 +11,12 @@
 
         .nav-left,
         .nav-right {
-            position: absolute;
-            bottom: 37px;
+            position: absolute !important;
+            bottom: 37px !important;
         }
 
         .nav-right {
-            right: $container-padding;
+            right: $container-padding !important;
         }
     }
 
