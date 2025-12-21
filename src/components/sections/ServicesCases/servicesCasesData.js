@@ -4,7 +4,7 @@ import img3  from '@assets/img-1.jpg';
 import img4 from '@assets/img-1.jpg';
 import img5 from '@assets/img-32.jpg';
 import img6 from '@assets/img-33.jpg';
-import img7  from '@assets/img-1.jpg';
+import img7 from '@assets/img-34.jpg';
 
 export const categories = [
   { label: 'All Projects', count: 23 },
