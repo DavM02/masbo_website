@@ -1,6 +1,6 @@
  
 import Intro from '@components/shared/Intro/Intro'
-import bg from "@assets/bg.jpg"
+import bg from "@assets/bg-4.jpg"
 
 export default function ServicesHeading() {
   return (
