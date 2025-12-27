@@ -64,6 +64,8 @@
     .embla__container {
         height: 500px !important;
         flex-direction: column !important;
+        perspective: 1px;
+        backface-visibility: hidden;
 
         .embla__slide {
 
