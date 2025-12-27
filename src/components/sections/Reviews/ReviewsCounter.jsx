@@ -1,9 +1,11 @@
 import { AnimatePresence, motion } from 'framer-motion'
 
-export default function ReviewsCounter({ slideId, total, line, direction }) {
+export default function ReviewsCounter({ slideId, total, line, direction, left, right }) {
   return (
     <div
       className="nav-count row gap-20 center-y center-x">
+      {left ?? left}
+
       <div
         className="number">
         <AnimatePresence
@@ -25,8 +27,11 @@ export default function ReviewsCounter({ slideId, total, line, direction }) {
         className={`line ${line ? "start" : "static"}`}
         style={{ transform: !line ? "scaleX(-100%)" : "scaleX(100%)" }} />
 
+
       <span
         className="fs-12 text-black">0{total}</span>
+      
+      {right ?? right}
     </div>
   )
 }

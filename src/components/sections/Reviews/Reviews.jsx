@@ -1,17 +1,18 @@
 import './reviews.scss'
-import { useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-
-import useMediaQ from '@hooks/useMediaQ'
+import useMediaQ from "@hooks/useMediaQ";
 import SmoothAppearance from '@ui/SmoothAppearance'
-
+import { useRef, useState  } from 'preact/hooks'
 import ReviewsNav from './ReviewsNav'
 import ReviewSlide from './ReviewSlide'
 import ReviewsCounter from './ReviewsCounter'
-
 import reviewsData from './reviewsData'
 
+
 export default function Reviews() {
+
+  const mediaQ = useMediaQ("(max-width: 500px)")
+
   const [ slideId, setSlideId ] = useState(0)
   const [ initAnim, setInitAnim ] = useState(true)
   const [ isTransitioning, setIsTransitioning ] = useState(false)
@@ -41,6 +42,26 @@ export default function Reviews() {
     return result
   }
 
+  const left = (<ReviewsNav
+    side="left"
+    disabled={isTransitioning}
+    onClick={() => {
+      direction.current = "left"
+      setIsTransitioning(true)
+      setLine(true)
+      setInitAnim(false)
+    }} />)
+
+  const right = (<ReviewsNav
+    side="right"
+    disabled={isTransitioning}
+    onClick={() => {
+      direction.current = "right"
+      setIsTransitioning(true)
+      setLine(true)
+      setInitAnim(false)
+    }} />)
+
   return (
     <section
       id="reviews">
@@ -59,15 +80,8 @@ export default function Reviews() {
 
         <div
           className="reviews center-x center-y">
-          <ReviewsNav
-            side="left"
-            disabled={isTransitioning}
-            onClick={() => {
-              direction.current = "left"
-              setIsTransitioning(true)
-              setLine(true)
-              setInitAnim(false)
-            }} />
+
+          {!mediaQ && left}
 
           <ul>
             <AnimatePresence
@@ -93,18 +107,12 @@ export default function Reviews() {
             </AnimatePresence>
           </ul>
 
-          <ReviewsNav
-            side="right"
-            disabled={isTransitioning}
-            onClick={() => {
-              direction.current = "right"
-              setLine(true)
-              setIsTransitioning(true)
-              setInitAnim(false)
-            }} />
+          {!mediaQ && right}
         </div>
 
         <ReviewsCounter
+          left={mediaQ ? left : null}
+          right={mediaQ ? right : null}
           slideId={slideId}
           total={reviewsData.length}
           line={line}

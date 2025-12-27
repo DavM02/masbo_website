@@ -1,17 +1,7 @@
 #reviews {
     @media all and (max-width: 500px) {
         .reviews {
-
-            .nav-left,
-            .nav-right {
-                height: 100%;
-                position: relative;
-                svg {
-                    position: absolute !important;
-                    bottom: -46px !important;
-                  
-                }
-            }
+            grid-template-columns: none !important;
 
         }
 
