@@ -1,5 +1,5 @@
-import LeftArrow from "@assets/icons/arrow-right.svg?react"
-import RightArrow from "@assets/icons/arrow-right.svg?react"
+import LeftArrow from "@assets/icons/arrow-left-black.svg"
+import RightArrow from "@assets/icons/arrow-right-black.svg"
 
 export default function ReviewsNav({ side, onClick, disabled }) {
   const Arrow = side === 'left' ? LeftArrow : RightArrow
@@ -7,9 +7,10 @@ export default function ReviewsNav({ side, onClick, disabled }) {
   return (
     <div
       className={`nav-${side}`}
+      onClick={onClick}
       style={{ pointerEvents: !disabled ? 'all' : 'none' }}>
-      <Arrow
-        onClick={onClick} />
+      <img
+        src={Arrow} />
     </div>
   )
 }
