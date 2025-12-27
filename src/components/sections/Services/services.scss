@@ -64,14 +64,12 @@
     .embla__container {
         height: 500px !important;
         flex-direction: column !important;
-        perspective: 1px;
-        backface-visibility: hidden;
+ 
 
         .embla__slide {
 
             position: relative;
-            perspective: 1px;
-            backface-visibility: hidden;
+ 
 
             &>span:nth-child(1) {
                 display: block !important;
@@ -84,6 +82,7 @@
             }
 
             .service-description {
+                transition: none !important;
                 opacity: 1 !important;
                 position: absolute;
                 z-index: 40;
