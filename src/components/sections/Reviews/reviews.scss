@@ -90,16 +90,8 @@
     .nav-right {
         cursor: pointer;
         overflow: hidden;
-background-color: rgb(230, 73, 73);
-        path {
-            transition: $transition-1 stroke .5s;
-        }
+ 
 
-        &:hover {
-            path {
-                stroke: $blue;
-            }
-        }
     }
 
     .review-image {
