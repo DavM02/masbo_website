@@ -3,21 +3,21 @@
         .reviews {
             grid-template-columns: none !important;
 
+            .nav-left,
+            .nav-right {
+                position: absolute !important;
+                bottom: 37px !important;
+            }
+
+            .nav-right {
+                right: $container-padding !important;
+            }
         }
 
         .line {
             width: 50% !important;
         }
 
-        .nav-left,
-        .nav-right {
-            position: absolute !important;
-            bottom: 37px !important;
-        }
-
-        .nav-right {
-            right: $container-padding !important;
-        }
     }
 
     @media all and (max-width: 420px) {

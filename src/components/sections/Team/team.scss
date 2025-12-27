@@ -1,0 +1,80 @@
+#team {
+    .team-group-block {
+        margin-top: 65px;
+
+        h3.text-gray {
+            margin-bottom: 19px;
+        }
+
+        .team-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 44px;
+            padding: 0 clamp(1rem, 0.575rem + 2.125vw, 3.125rem);
+            ;
+
+            li {
+                min-height: 457px;
+                position: relative;
+
+                &:hover {
+                    .team-card-description {
+                        opacity: 1;
+                    }
+                }
+
+
+
+                .team-card-description {
+                    opacity: 0;
+                    transition: $transition-1 0.5s opacity;
+                    pointer-events: none;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    z-index: 4;
+                    column-gap: 5%;
+
+                    @mixin touch-only {
+                        & {
+                            opacity: 1 !important;
+                        }
+                    }
+
+                    &::after {
+                        content: "";
+                        @include overlay($dark, 40%);
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        z-index: -1;
+                    }
+
+                    padding: 80px 10%;
+
+                    .line {
+                        height: 100%;
+                        width: 1px;
+                        background-color: $white;
+                    }
+
+                    h3+p {
+                        margin-bottom: 7%;
+                    }
+
+                    .self-end-y {
+                        margin-bottom: -6px;
+                    }
+
+                }
+            }
+        }
+    }
+
+
+}
