@@ -47,7 +47,9 @@ export default defineConfig({
     purgeCss({ // Удаляем неиспользуемый CSS
       content: [ './index.html', './src/**/*.{js,jsx,ts,tsx}' ],
       safelist: [
-        /^scrollbar/, /^lazy/,        // все классы, начинающиеся с lazy
+        /^scrollbar/,
+        /^lazy/,
+        /^nav/      // все классы, начинающиеся с lazy
         // 'modal-open',   // конкретный селектор
       ]
     }),
