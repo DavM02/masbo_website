@@ -3,12 +3,17 @@
     .reviews {
         display: grid;
         grid-template-columns: 10px 1fr 10px;
+
+       > ul {
+            margin-top: 27.22px;
+            min-height: 330px;
+        }
+
     }
 
     .review-item {
         cursor: initial;
-        margin-top: 27.22px;
-        min-height: 330px;
+
 
         p {
             max-width: 681px;

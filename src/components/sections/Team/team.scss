@@ -38,12 +38,6 @@
                     z-index: 4;
                     column-gap: 5%;
 
-                    @mixin touch-only {
-                        & {
-                            opacity: 1 !important;
-                        }
-                    }
-
                     &::after {
                         content: "";
                         @include overlay($dark, 40%);
@@ -69,6 +63,12 @@
 
                     .self-end-y {
                         margin-bottom: -6px;
+                    }
+
+                    @include touch-only {
+                        & {
+                            opacity: 1 !important;
+                        }
                     }
 
                 }
