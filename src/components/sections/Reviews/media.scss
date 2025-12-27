@@ -1,18 +1,18 @@
 #reviews {
     @media all and (max-width: 500px) {
-        .reviews {
-            grid-template-columns: none !important;
+        // .reviews {
+        //     grid-template-columns: none !important;
 
-            .nav-left,
-            .nav-right {
-                position: absolute !important;
-                bottom: -3px !important;
-            }
+        //     .nav-left,
+        //     .nav-right {
+        //         position: absolute !important;
+        //         bottom: -3px !important;
+        //     }
 
-            .nav-right {
-                right: $container-padding !important;
-            }
-        }
+        //     .nav-right {
+        //         right: $container-padding !important;
+        //     }
+        // }
 
         .line {
             width: 50% !important;
