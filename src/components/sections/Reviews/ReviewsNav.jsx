@@ -1,5 +1,5 @@
-import LeftArrow from "@assets/icons/arrow-left-black.svg?react"
-import RightArrow from "@assets/icons/arrow-right-black.svg?react"
+import LeftArrow from "@assets/icons/arrow-right.svg?react"
+import RightArrow from "@assets/icons/arrow-right.svg?react"
 
 export default function ReviewsNav({ side, onClick, disabled }) {
   const Arrow = side === 'left' ? LeftArrow : RightArrow

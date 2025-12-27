@@ -89,10 +89,8 @@
     .nav-left,
     .nav-right {
         cursor: pointer;
-        width: 10px;
-        height: 16px;
         overflow: hidden;
-
+background-color: black;
         path {
             transition: $transition-1 stroke .5s;
         }
