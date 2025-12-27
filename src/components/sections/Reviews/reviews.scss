@@ -1,5 +1,7 @@
 #reviews {
-
+.container {
+    position: relative;
+}
     .reviews {
         display: grid;
         grid-template-columns: 10px 1fr 10px;
@@ -92,8 +94,6 @@
         overflow: hidden;
 
         path {
-            width: 10px;
-            height: 16px;
             transition: $transition-1 stroke .5s;
         }
 
