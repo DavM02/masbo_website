@@ -71,9 +71,9 @@ export default function ReviewSlide({
               <motion.span
                 key={i}
                 variants={{
-                  hidden: { y: 20, opacity: 0 },
-                  visible: { y: 0, opacity: 1 },
-                  exit: { y: 20, opacity: 0 }
+                  // hidden: { y: 20, opacity: 0 },
+                  // visible: { y: 0, opacity: 1 },
+                  // exit: { y: 20, opacity: 0 }
                 }}
                 transition={{ ease: "easeOut" }}>
                 {line}
