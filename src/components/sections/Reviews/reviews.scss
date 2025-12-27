@@ -2,15 +2,17 @@
 
     .container {
         position: relative;
+        height: 600px;
     }
 
     .reviews {
         display: grid;
+     
         grid-template-columns: 10px 1fr 10px;
 
        > ul {
             margin-top: 27.22px;
-            min-height: 430px;
+            // min-height: 330px;
         }
 
     }
