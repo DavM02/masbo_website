@@ -1,5 +1,9 @@
 #reviews {
 
+    .container {
+        position: relative;
+    }
+
     .reviews {
         display: grid;
         grid-template-columns: 10px 1fr 10px;

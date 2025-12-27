@@ -77,7 +77,7 @@ export default function Team() {
                   width="100%"
                   height="100%"
                   effect="opacity"
-                  alt={`Team member ${i + 1}`} />
+                  alt={`team member ${i + 1}`} />
 
                 <div
                   className="team-card-description row">

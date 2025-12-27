@@ -66,7 +66,7 @@
                     }
 
                     @include touch-only {
-                        & {
+                        &:has(.lazy-load-image-loaded) {
                             opacity: 1 !important;
                         }
                     }
