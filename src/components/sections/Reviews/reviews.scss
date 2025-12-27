@@ -86,10 +86,14 @@
 
     .nav-left,
     .nav-right {
-        margin-top: 13%;
         cursor: pointer;
+        width: 10px;
+        height: 16px;
+        overflow: hidden;
 
         path {
+            width: 10px;
+            height: 16px;
             transition: $transition-1 stroke .5s;
         }
 
