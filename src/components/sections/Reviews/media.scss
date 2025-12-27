@@ -3,10 +3,19 @@
         .reviews {
             grid-template-columns: none !important;
 
+            .nav-left,
+            .nav-right {
+                position: absolute !important;
+                bottom: 37px !important;
+            }
+
+            .nav-right {
+                right: $container-padding !important;
+            }
         }
 
         .line {
-            width: 100% !important;
+            width: 50% !important;
         }
 
     }
