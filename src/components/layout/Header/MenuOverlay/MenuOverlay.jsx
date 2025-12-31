@@ -63,7 +63,9 @@ function MenuOverlay({ openTl, closeTl }) {
           duration: 0.4,
           stagger: 0.05,
           onComplete: () => {
-            gsap.set(".close-menu", { pointerEvents: "all" });
+            gsap.set([ ".close-menu",
+              ".row.s-between.gap-50",
+              ".logo" ], { pointerEvents: "all" });
           },
         },
         "-=1.2"
@@ -79,7 +81,9 @@ function MenuOverlay({ openTl, closeTl }) {
           duration: 0.3,
           stagger: 0.05,
           onStart: () => {
-            gsap.set(".close-menu", { pointerEvents: "none" });
+            gsap.set([ ".close-menu",
+              ".row.s-between.gap-50",
+              ".logo" ], { pointerEvents: "none" });
           },
         },
         "-=0,7"
@@ -112,7 +116,9 @@ function MenuOverlay({ openTl, closeTl }) {
           gsap.set(".transition path", {
             attr: { d: closeEnd },
           });
-          gsap.set(".close-menu", { clearProps: "pointerEvents" });
+          gsap.set([ ".close-menu",
+            ".row.s-between.gap-50",
+            ".logo" ], { clearProps: "pointerEvents" });
           getScrollBar()?.updatePluginOptions("overflow", { open: false });
           document.body.removeAttribute('class')
         },
@@ -129,7 +135,9 @@ function MenuOverlay({ openTl, closeTl }) {
         gsap.set(".transition path", {
           attr: { d: closeEnd},
         });
-        gsap.set(".close-menu", { clearProps: "pointerEvents" });
+        gsap.set([ ".close-menu",
+          ".row.s-between.gap-50",
+          ".logo" ], { clearProps: "pointerEvents" });
         getScrollBar()?.updatePluginOptions("overflow", { open: false });
         document.body.removeAttribute("class");
       };
