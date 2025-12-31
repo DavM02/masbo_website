@@ -49,12 +49,14 @@ textarea {
 
 input {
   width: 100%;
+  border-radius: 0 !important;
 }
 
 textarea {
   resize: none;
   width: 100%;
   overflow: hidden;
+    border-radius: 0 !important;
 }
 
 section {
