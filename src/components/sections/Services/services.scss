@@ -64,16 +64,16 @@
     .embla__container {
         height: 500px !important;
         flex-direction: column !important;
- 
+
 
         .embla__slide {
 
             position: relative;
- 
+            height: 500px;
 
             &>span:nth-child(1) {
                 display: block !important;
-                height: 500px;
+
                 position: absolute;
                 top: 0;
                 left: 0;
@@ -87,7 +87,7 @@
                 transition: none !important;
                 opacity: 1 !important;
                 position: absolute;
-                z-index: 40;
+                z-index: 70;
                 left: 6%;
                 padding-right: 6%;
                 top: 50%;
