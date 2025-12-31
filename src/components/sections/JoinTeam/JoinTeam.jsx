@@ -17,7 +17,7 @@ export default function JoinTeam() {
 
           <p
             className='static text-gray text-center capitalize'>
-            We offer innovative engineering solutions that ensure the successful achievement of the client's goals. Because engineering is a result-oriented strategy in action. An i
+            We offer innovative engineering solutions that ensure the successful achievement of the client&apos;s goals. Because engineering is a result-oriented strategy in action. An i
           </p>
         </div>
 

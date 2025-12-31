@@ -15,7 +15,7 @@ function TeamPage() {
 
       <JoinTeam />
 
-      <JoinForm/>
+      <JoinForm />
     </div>
   )
 }

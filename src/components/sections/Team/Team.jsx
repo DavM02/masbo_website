@@ -1,7 +1,7 @@
 import SectionHeader from "@components/shared/SectionHeader/SectionHeader";
 import './team.scss';
 import TeamGroup from "./TeamGroup";
-import teams from "./Team";
+import teams from "./Teams";
 
 export default function Team() {
   const images = import.meta.glob('/src/assets/team/team-img*.jpg', {
