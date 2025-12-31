@@ -50,7 +50,7 @@ export default function Services() {
             ref={sliderRef}
             setCurrentIndex={(index) =>  setCurrentIndex(index)}
             images={ServicesData.map(({ image, label, description }, index) => ({
-              // src: image,
+              src: image,
               children: (
                 <div
                   className="service-description"
