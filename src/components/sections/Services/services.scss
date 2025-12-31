@@ -84,14 +84,13 @@
             }
 
             .service-description {
+                height: 100%;
+                position: relative;
                 transition: none !important;
                 opacity: 1 !important;
-                position: absolute;
                 z-index: 70;
-                left: 6%;
+                padding-left: 6%;
                 padding-right: 6%;
-                top: 50%;
-                transform: translateY(-50%);
                 user-select: none;
 
                 p {
