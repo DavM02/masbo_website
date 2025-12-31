@@ -15,7 +15,7 @@
             ;
 
             li {
-                min-height: 457px;
+                height: max(457px, 55vh);
                 position: relative;
 
                 &:hover {

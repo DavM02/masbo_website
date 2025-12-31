@@ -7,3 +7,6 @@
 7. fix media for flex-wrap - done
 8. add responsive for reviews  - done
 9. add pics for reviews. - done
+10. adjust max width for reviews 
+11. add normal names/contacts for team - done
+12. fix service-item disapearing 
