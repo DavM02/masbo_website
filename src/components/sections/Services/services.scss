@@ -72,7 +72,7 @@
             height: 500px;
 
             &>span:nth-child(1) {
-                opacity: 1 !important;
+
                 display: block !important;
 
                 position: absolute;
@@ -85,6 +85,7 @@
             }
 
             .service-description {
+                will-change: opacity, transform;
                 height: 100%;
                 position: relative;
                 transition: none !important;
