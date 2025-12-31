@@ -17,7 +17,7 @@ export default function Accordion({ heading, text, isOpen, onClick }) {
       className="accordion row s-between wrap"
       onClick={onClick}>
       <span
-        className="fs-14 heading-black font-bold capitalize">{heading}</span>
+        className="fs-14 font-bold text-black capitalize">{heading}</span>
 
       <div
         className="display"

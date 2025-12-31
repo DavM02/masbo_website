@@ -9,4 +9,5 @@
 9. add pics for reviews. - done
 10. adjust max width for reviews 
 11. add normal names/contacts for team - done
-12. fix service-item disapearing 
+12. fix service-item disapearing  - done
+13. add lazy loading

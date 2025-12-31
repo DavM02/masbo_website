@@ -131,6 +131,21 @@ main {
     width: 11px !important;
 }
 
+input {
+    padding-bottom: 8px;
+}
+
+input,
+textarea {
+    border-bottom: 1px solid $gray;
+    margin-bottom: 30px;
+}
+
+textarea {
+    min-height: 60px;
+}
+
+
 .lazy-load-image-background.opacity {
     opacity: 0;
 }

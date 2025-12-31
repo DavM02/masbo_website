@@ -1,0 +1,54 @@
+#join-team {
+    padding-top: 0px !important;
+
+    > .column h3 {
+        margin-bottom: 25px;
+    }
+
+    h3+p {
+        max-width: 605px;
+        margin-bottom: 60px;
+    }
+
+    ul {
+        li {
+            cursor: initial !important;
+
+        }
+
+        p {
+            max-width: 432px;
+        }
+
+    }
+
+    .vacancy {
+       margin-top: 40px;
+
+        >.row:nth-child(1) {
+            margin-bottom: 20px;
+        }
+
+       border-bottom: 1px solid $white-secondary;
+       padding-bottom: 40px;
+    }
+
+    h5 {
+        line-height: 24px;
+        font-size: 24px;
+    }
+
+    h6.text-gray {
+        background-color: $white-secondary;
+        padding: 3px 11px;
+        white-space: nowrap;
+    }
+
+    h6.text-white {
+        background-color: $gray;
+        padding: 3px 11px;
+        white-space: nowrap;
+    }
+}
+
+@import url('./media.scss');

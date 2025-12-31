@@ -1,0 +1,8 @@
+#join-form {
+    @media all and (max-width:450px) {
+        .gap-45 {
+            flex-direction: column;
+            gap: 0;
+        }
+    }
+}

@@ -138,5 +138,14 @@ h5,
 
 h6 {
     font-size: 12px;
-    line-height: 22px;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+}
+
+::placeholder,
+input {
+    color: $gray;
+    text-transform: capitalize; font-family: "font-main";
+    letter-spacing: 0.3px;
+    font-weight: 500;
 }

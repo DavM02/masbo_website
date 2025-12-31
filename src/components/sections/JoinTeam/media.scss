@@ -1,0 +1,11 @@
+@media all and (max-width: 1127px) {
+    .vacancy {
+        > .row:nth-child(2) {
+            > div:nth-child(1) {
+                padding-bottom: 40px;
+                width: 100%;
+                border-bottom: 1px solid $white-secondary;
+            }
+        }
+    }
+}
