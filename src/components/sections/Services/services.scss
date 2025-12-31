@@ -74,7 +74,9 @@
             &>span:nth-child(1) {
                 display: block !important;
                 height: 500px;
-                position: relative;
+                position: absolute;
+                top: 0;
+                left: 0;
 
                 &::after {
                     @include overlay($overlay, 70%)

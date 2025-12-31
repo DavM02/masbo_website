@@ -62,8 +62,6 @@ const DraggableSlider = forwardRef(({ images, options, ...props}, ref) => {
             <div
               key={i}
               className={`embla__slide placeholder-${(i % 3) + 1}`}>
-              {el?.children}
-
               <LazyLoadImage
                 width={"100%"}
                 height={"100%"}
@@ -71,7 +69,7 @@ const DraggableSlider = forwardRef(({ images, options, ...props}, ref) => {
                 src={el.src}
                 alt={`slider-img-${i + 1}`} />
 
-             
+              {el?.children}
             </div>
           ))}
         </div>
