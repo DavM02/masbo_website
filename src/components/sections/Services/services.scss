@@ -64,20 +64,17 @@
     .embla__container {
         height: 500px !important;
         flex-direction: column !important;
-
+ 
 
         .embla__slide {
 
             position: relative;
-            height: 500px;
+ 
 
             &>span:nth-child(1) {
-
                 display: block !important;
-
-                position: absolute;
-                top: 0;
-                left: 0;
+                height: 500px;
+                position: relative;
 
                 &::after {
                     @include overlay($overlay, 70%)
@@ -86,13 +83,14 @@
 
             .service-description {
                 will-change: opacity, transform;
-                height: 100%;
-                position: relative;
                 transition: none !important;
                 opacity: 1 !important;
-                z-index: 70;
-                padding-left: 6%;
+                position: absolute;
+                z-index: 40;
+                left: 6%;
                 padding-right: 6%;
+                top: 50%;
+                transform: translateY(-50%);
                 user-select: none;
 
                 p {

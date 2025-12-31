@@ -53,7 +53,7 @@ export default function Services() {
               src: image,
               children: (
                 <div
-                  className="service-description column center-x"
+                  className="service-description"
                   key={index}>
                   <h3>{label}</h3>
 
