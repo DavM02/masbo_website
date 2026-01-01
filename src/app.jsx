@@ -9,6 +9,7 @@ import MainContextProvider from '@context/MainContext'
 import TeamPage from '@pages/TeamPage/TeamPage'
 import PortfolioPage from '@pages/PortfolioPage/PortfolioPage'
 import AboutPage from '@pages/AboutPage/AboutPage'
+import PageLoading from '@components/PageLoading/PageLoading'
 export function App() {
  
   const location = useLocation()
@@ -53,7 +54,11 @@ export function App() {
           <Footer />
 
         </SmoothScroll>
+
+ 
       </MainContextProvider>
+
+      <PageLoading />
     </>
   )
 }
