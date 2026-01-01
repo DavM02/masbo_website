@@ -50,11 +50,13 @@ textarea {
 input {
   width: 100%;
   border-radius: 0 !important;
+  background-color: transparent !important;
 }
 
 textarea {
   resize: none;
   width: 100%;
+  background-color: transparent !important;
   overflow: hidden;
     border-radius: 0 !important;
 }

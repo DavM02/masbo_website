@@ -4,10 +4,11 @@ import { AnimatePresence } from 'framer-motion'
 import { Routes, Route, useLocation} from 'react-router-dom'
 import SmoothScroll from '@components/Scroll/SmoothScroll'
 import Footer from '@components/layout/Footer/Footer'
-import AboutPage from '@pages/AboutPage/AboutPage'
 import ServicesPage from '@pages/ServicesPage/ServicesPage'
 import MainContextProvider from '@context/MainContext'
 import TeamPage from '@pages/TeamPage/TeamPage'
+import PortfolioPage from '@pages/PortfolioPage/PortfolioPage'
+import AboutPage from '@pages/AboutPage/AboutPage'
 export function App() {
  
   const location = useLocation()
@@ -41,6 +42,10 @@ export function App() {
                 <Route
                   path="team"
                   element={<TeamPage />} />
+                
+                <Route
+                  path="portfolio"
+                  element={<PortfolioPage />} />
               </Routes>
             </AnimatePresence>
           </main>

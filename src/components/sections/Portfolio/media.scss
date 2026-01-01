@@ -1,0 +1,18 @@
+#portfolio {
+    @media all and (max-width: 1371px) {
+        .tags {
+            .line {
+                width: 100%;
+            }
+        }
+    }
+
+    @media all and (max-width: 540px) {
+        .row.self-end-y.gap-35 {
+            flex-direction: column;
+            .self-center-y {
+                align-self: flex-start;
+            }
+        }
+    }
+}

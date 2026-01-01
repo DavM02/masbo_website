@@ -8,7 +8,7 @@ import useAnimation from "@hooks/useAnimation";
 
 export default function Socials() {
 
-  const { width, height } = useAnimation();
+  const { width } = useAnimation();
 
   const socials = [
     {
@@ -35,7 +35,7 @@ export default function Socials() {
 
   return (
     
-    width && height && <ul
+    width && <ul
       className="socials column center-x gap-40">
       {socials.map((el, i) => (
         <li

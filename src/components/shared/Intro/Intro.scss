@@ -1,6 +1,19 @@
 .intro {
     background-color: $gray-secondary;
 
+
+    &#portfolio-heading {
+        background-color: transparent;
+
+        & .bg::after {
+            content: none !important;
+        }
+
+        path {
+            fill: $black;
+        }
+    }
+
     &[id*="heading"] {
         // position: relative;
         margin-top: 72.44px;

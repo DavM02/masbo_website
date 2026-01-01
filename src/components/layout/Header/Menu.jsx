@@ -4,7 +4,7 @@ import { menuLinks } from "./Links";
  
 export default function Menu() {
 
-  const query = useMediaQ("(min-width: 920px)");
+  const query = useMediaQ("(min-width: 921px)");
 
  
   return (query && <nav>

@@ -11,3 +11,4 @@
 11. add normal names/contacts for team - done
 12. fix service-item disapearing  - done
 13. add lazy loading
+14. add loading for portofolio + data fethcing + filter url

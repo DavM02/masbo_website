@@ -9,7 +9,7 @@
     }
 }
 
-html:has(#about-page), html:has(#services-page), html:has(#team-page) {
+html:has(#about-page), html:has(#services-page), html:has(#team-page), html:has(#portfolio-page) {
     main {
         background-color: $white;
         position: relative;
@@ -123,6 +123,10 @@ main {
 .scrollbar-thumb-y {
     background-color: $white !important;
     cursor: grab;
+}
+
+.scrollbar-track {
+    background-color: transparent !important;
 }
 
 .scrollbar-track-y {

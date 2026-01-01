@@ -22,7 +22,7 @@ export default function Intro({ id, bg, children}) {
 
       <div
         className='bg'
-        style={{ opacity: show ? '1' : '0', background: `url(${bg}) center no-repeat`}}>
+        style={{ opacity: bg ? (show ? '1' : '0') : '1', background: bg ? `url(${bg}) center no-repeat` : "transparent"}}>
  
         {children}
  

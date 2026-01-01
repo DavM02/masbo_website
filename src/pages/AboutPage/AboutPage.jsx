@@ -26,4 +26,4 @@ function AboutPage() {
   )
 }
 
-export default  PageTransition(AboutPage)
+export default PageTransition(AboutPage)

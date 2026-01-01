@@ -39,7 +39,7 @@ export default function JoinForm() {
                 placeholder="phone number*" />
 
               <AutoTextarea
-                placeholder="message" />
+                placeholder="message*" />
 
               <MainButton
                 arrow={false}

@@ -1,0 +1,85 @@
+#portfolio {
+    padding-top: 0 !important;
+
+    .line:not(.portfolio-card-description .line) {
+        background-color: $black;
+        height: 1px;
+        min-width: 39%;
+        pointer-events: initial;
+    }
+
+    li {
+        &.active {
+
+            h3,
+            h5 {
+                text-decoration: line-through;
+            }
+
+            h5 {
+                text-decoration-thickness: 2px;
+            }
+
+            .dot {
+                opacity: 1;
+            }
+        }
+
+        .dot {
+            background-color: $black;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 10px;
+            opacity: 0;
+            transition: $transition-1 0.5s opacity;
+        }
+
+    }
+
+    .categories {
+        margin: 50px 0 30px;
+    }
+
+    li.portfolio-card {
+        min-height: clamp(18.5625rem, 16rem + 12.8125vw, 31.375rem);
+        height: 100%;
+        position: relative;
+        cursor: initial;
+
+        .portfolio-card-description {
+
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 0;
+            z-index: 2;
+            width: 100%;
+            height: 80%;
+            padding: 0 8%;
+
+            .line {
+                height: 100%;
+                min-height: 50%;
+                width: 1px;
+                background-color: $white;
+            }
+
+            h3 {
+                margin-bottom: 20px;
+            }
+        }
+
+
+        >span:nth-child(1) {
+            position: absolute;
+
+            &::after {
+                backdrop-filter: blur(10px);
+                @include overlay($overlay, 50%);
+            }
+        }
+    }
+}
+
+@import url('./media.scss')
