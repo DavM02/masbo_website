@@ -1,4 +1,3 @@
-import './pageLoading.scss'
 import { createPortal } from "preact/compat";
 import Logo from '@assets/icons/main-logo.svg?react'
 import { useEffect, useState } from 'react';
