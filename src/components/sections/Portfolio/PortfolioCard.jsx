@@ -17,7 +17,7 @@ export default function PortfolioCard({ item }) {
           className="line"></div>
 
         <div
-          className="row self-end-y gap-35">
+          className="row self-end-y s-between gap-35">
           <div>
             <h3
               className="text-white capitalize">{item.title}</h3>

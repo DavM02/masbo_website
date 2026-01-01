@@ -10,8 +10,16 @@
     @media all and (max-width: 540px) {
         .row.self-end-y.gap-35 {
             flex-direction: column;
+
             .self-center-y {
                 align-self: flex-start;
+            }
+        }
+
+        .portfolio-card-description {
+
+            .line {
+                clip-path: initial !important;
             }
         }
     }
