@@ -34,22 +34,22 @@ export default function PageLoading() {
         ease: "sine.out",
       })
 
-    //   .to(
-    //     ".page-loading .strips div",
-    //     {
-    //       clipPath: "inset(0 100% 0 0)",
-    //       duration: 0.9,
-    //       ease: "sine.inOut",
-    //       stagger: 0.05,  
-    //       onComplete: () => 
-    //       {
-    //         setShow(false)
-    //         document.body.style.overflow = 'initial'
-    //         getScrollBar()?.updatePluginOptions("overflow", { open: false });
-    //       }
-    //     },
-    //     "-=0.3" 
-    //   );
+      .to(
+        ".page-loading .strips div",
+        {
+          clipPath: "inset(0 100% 0 0)",
+          duration: 0.9,
+          ease: "sine.inOut",
+          stagger: 0.05,  
+          onComplete: () => 
+          {
+            setShow(false)
+            document.body.style.overflow = 'initial'
+            getScrollBar()?.updatePluginOptions("overflow", { open: false });
+          }
+        },
+        "-=0.3" 
+      );
 
   }, []);
 
