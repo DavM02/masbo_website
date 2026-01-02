@@ -1,21 +1,20 @@
 import { createPortal } from "preact/compat";
 import Logo from '@assets/icons/main-logo.svg?react'
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { getScrollBar } from '../Scroll/ScrollAccess';
 import { gsap } from "gsap";
 
 
-export default function PageLoading() {
+export default function PageLoading({ setShow}) {
 
-  const [ show, setShow ] = useState(true)
 
   useEffect(() => {
     const tl = gsap.timeline({ delay: 0.3 });
-    if (show) {
-      getScrollBar()?.updatePluginOptions("overflow", { open: true });
-      document.body.style.overflow = 'hidden'
-      
-    }
+
+   
+    getScrollBar()?.updatePluginOptions("overflow", { open: true });
+    document.body.style.overflow = 'hidden'
+ 
    
     tl.fromTo(
       ".page-loading svg path",
@@ -42,7 +41,8 @@ export default function PageLoading() {
           stagger: 0.05,  
           onComplete: () => 
           {
-            setShow(false)
+            sessionStorage.setItem('animationCompleted', true)
+            setShow('hide')
             document.body.style.overflow = 'initial'
             getScrollBar()?.updatePluginOptions("overflow", { open: false });
           }
@@ -54,7 +54,7 @@ export default function PageLoading() {
 
 
   return (
-    createPortal(show &&  <div
+    createPortal(<div
       className="page-loading">
       <div
         className='center-flex'>

@@ -7,12 +7,22 @@ import Footer from '@components/layout/Footer/Footer'
 import ServicesPage from '@pages/ServicesPage/ServicesPage'
 import MainContextProvider from '@context/MainContext'
 import TeamPage from '@pages/TeamPage/TeamPage'
-import PortfolioPage from '@pages/PortfolioPage/PortfolioPage'
 import AboutPage from '@pages/AboutPage/AboutPage'
 import PageLoading from '@components/PageLoading/PageLoading'
+import { useState } from 'preact/hooks'
+import PortfolioInside from '@pages/PortfolioPage/PortfolioInside/PortfolioInside'
+import PortfolioPage from '@pages/PortfolioPage/PortfolioPage'
+import Portfolio from "@components/sections/Portfolio/Portfolio";
+
 export function App() {
  
   const location = useLocation()
+
+  const [ show, setShow ] = useState(
+    sessionStorage.getItem('animationCompleted') ||
+  document.referrer.includes('masbo')
+  );
+ 
  
   return (
     <>
@@ -45,8 +55,17 @@ export function App() {
                   element={<TeamPage />} />
                 
                 <Route
-                  path="portfolio"
-                  element={<PortfolioPage />} />
+                  path='portfolio'
+                  element={<PortfolioPage />}>
+                  
+                  <Route
+                    index
+                    element={<Portfolio />} />        
+
+                  <Route
+                    path=":slug"
+                    element={<PortfolioInside />} />  
+                </Route>
               </Routes>
             </AnimatePresence>
           </main>
@@ -58,7 +77,10 @@ export function App() {
  
       </MainContextProvider>
 
-      <PageLoading />
+      {(show === false || show === 'show') && <PageLoading
+
+        setShow={setShow} />}
+
     </>
   )
 }

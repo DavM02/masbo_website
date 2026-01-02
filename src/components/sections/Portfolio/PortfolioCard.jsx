@@ -1,7 +1,17 @@
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import MainButton from '@ui/buttons/MainButton';
+import { useNavigate } from 'react-router-dom';
+
 
 export default function PortfolioCard({ item }) {
+
+    const navigate = useNavigate();
+
+  const openProject = (slug) => {
+    navigate(slug);  
+  };
+
+
   return (
     <li
       className={`portfolio-card ${item.placeholder}`}>
@@ -32,6 +42,9 @@ export default function PortfolioCard({ item }) {
             className="self-center-y">
             <MainButton
               arrow
+              onClick={() => {
+                openProject(`project-${item.id}`)
+              }}
               type="button">
               read more
             </MainButton>

@@ -1,6 +1,7 @@
 import PageTransition from "@components/PageTransition/PageTransition";
 import PortfolioHeading from "@components/sections/PortfolioHeading/PortfolioHeading";
-import Portfolio from "@components/sections/Portfolio/Portfolio";
+
+import { Outlet } from "react-router-dom";
 
 
 function PortfolioPage() {
@@ -9,7 +10,7 @@ function PortfolioPage() {
       id="portfolio-page">
       <PortfolioHeading />
 
-      <Portfolio />
+      <Outlet />
     </div>
   )
 }

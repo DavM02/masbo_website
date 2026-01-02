@@ -1,0 +1,77 @@
+#portfolio-inside {
+    padding-top: 0 !important;
+
+    .main-img {
+        height: 502px;
+        width: 100%;
+        position: relative;
+        margin: 30px 0 50px;
+
+        span {
+            position: relative;
+
+            &::after {
+                @include overlay($overlay, 50%)
+            }
+        }
+
+    }
+
+    .project-overview {
+        max-width: 865px;
+
+        p {
+            margin-top: 20px;
+            margin-bottom: -2px;
+            transform: translateY(6px);
+        }
+
+        border-left: 1px solid $gray;
+        padding-left: 25px;
+    }
+
+    .project-description {
+        >div:nth-child(1) {
+            margin-bottom: 50px;
+        }
+
+        >div:nth-child(2) {
+            row-gap: 35px !important;
+            >div {
+                width: calc(50% - 40px);
+
+                @media all and (max-width: 810px) {
+                    width: 100%;
+                }
+            }
+        }
+
+    }
+
+    .project-details {
+        .row {
+            column-gap: 55px;
+            row-gap: 15px;
+        }
+
+        padding: 75px 0 15px;
+        margin-bottom: 30px;
+        border-bottom: 1px solid $white-secondary;
+    }
+
+    .problem-solving {
+
+        h5 {
+            margin-bottom: 20px;
+        }
+
+        li {
+            cursor: initial;
+            align-items: baseline;
+
+            svg {
+                transform: translateY(1px);
+            }
+        }
+    }
+}
