@@ -1,0 +1,33 @@
+#project-gallery {
+    padding-top: 0 !important;
+
+    .embla__container {
+        gap: 30px;
+    }
+
+    ;
+
+    .embla {
+        --slide-size: 50%;
+
+        .embla__slide {
+            height: clamp(13.75rem, 10.225rem + 17.625vw, 31.375rem);
+
+            span {
+                position: relative;
+
+                &::after {
+                    @include overlay($overlay, 50%)
+                }
+            }
+        }
+
+        @media all and (max-width: 480px) {
+
+            --slide-size: 80%;
+        }
+
+    }
+
+
+}

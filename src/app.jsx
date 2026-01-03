@@ -10,9 +10,8 @@ import TeamPage from '@pages/TeamPage/TeamPage'
 import AboutPage from '@pages/AboutPage/AboutPage'
 import PageLoading from '@components/PageLoading/PageLoading'
 import { useState } from 'preact/hooks'
-import PortfolioInside from '@pages/PortfolioPage/PortfolioInside/PortfolioInside'
 import PortfolioPage from '@pages/PortfolioPage/PortfolioPage'
-import Portfolio from "@components/sections/Portfolio/Portfolio";
+
 
 export function App() {
  
@@ -37,7 +36,7 @@ export function App() {
               initial={false}>
               <Routes
                 location={location}
-                key={location.pathname}>
+                key={location.pathname.split('/')[1]}>
                 <Route
                   path="/"
                   element={<HomePage />} />
@@ -45,27 +44,18 @@ export function App() {
                 <Route
                   path="about"
                   element={<AboutPage />} />
-                
+
                 <Route
                   path="services"
                   element={<ServicesPage />} />
-                
+
                 <Route
                   path="team"
                   element={<TeamPage />} />
-                
+              
                 <Route
-                  path='portfolio'
-                  element={<PortfolioPage />}>
-                  
-                  <Route
-                    index
-                    element={<Portfolio />} />        
-
-                  <Route
-                    path=":slug"
-                    element={<PortfolioInside />} />  
-                </Route>
+                  path="portfolio/*"
+                  element={<PortfolioPage />} />
               </Routes>
             </AnimatePresence>
           </main>

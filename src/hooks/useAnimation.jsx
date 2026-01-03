@@ -42,7 +42,7 @@ export default function useAnimation(gsapAnimation = () => {}, scope, returnFn =
             scroller: match ? "#scroll-wrapper" : window,
           };
           
-          
+
           if (match && isFirstPage) {
            
             options.containerAnimation = getScrollTween()
@@ -74,6 +74,7 @@ export default function useAnimation(gsapAnimation = () => {}, scope, returnFn =
   );
 
   return {
+    scroller: match ? "#scroll-wrapper" : window,
     isLargeScreen,
     width,
     height,

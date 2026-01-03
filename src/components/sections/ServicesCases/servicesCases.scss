@@ -95,50 +95,7 @@
         height: 500px;
     }
 
-    @media all and (max-width: 1140px) {
 
-        .column.gap-20 {
-            flex-direction: row;
-            flex-wrap: wrap;
-        }
-
-        >.row {
-            flex-direction: column;
-
-            .services-cases__slider,
-            >div:nth-child(1) {
-                width: 100%;
-                padding: 0 $container-padding
-            }
-        }
-
-        .embla {
-
-            --slide-size: 85%;
-        }
-    }
-
-    @media all and (max-width: 480px) {
-        .main-button {
-            position: absolute;
-            bottom: 0;
-            z-index: 3;
-            left: 50%;
-            transform: translateX(-50%);
-            white-space: nowrap;
-        }
-
-        .gap-70 {
-            gap: 0 !important;
-        }
-
-        .embla__slide {
-            height: 439px !important;
-        }
-
-        .services-cases__slider {
-            padding: 0 0 0 $container-padding!important;
-        }
-
-    }
 }
+
+@import url('./media.scss');

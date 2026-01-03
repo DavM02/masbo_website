@@ -1,0 +1,56 @@
+#stage-of-works {
+    padding: 0 !important;
+
+    .row,
+    .column {
+        width: 100% !important;
+
+
+    }
+
+    .row {
+        padding: 0 $container-padding;
+        min-height: 100vh;
+    }
+
+    .column {
+        padding: 72.44px $container-padding;
+        height: 100vh;
+    }
+
+
+
+    .circle {
+        border-radius: 50%;
+        outline: 1px solid $black;
+        outline-offset: -2px;
+        aspect-ratio: 1/1;
+        width: calc(100%/5 + 60px);
+        clip-path: inset(0 100% 0 0);
+
+
+    }
+
+    .column .circle {
+        width: auto;
+        height: calc(100%/5 + 60px);
+        clip-path: inset(0 0 100% 0);
+    }
+
+    .row .line {
+        height: 1px;
+        background-color: $black;
+        width: calc(100%/5 - 60px);
+        // width: 100%;
+        transform-origin: left center;
+    }
+
+    .column .line {
+        background-color: $black;
+        width: 1px;
+        height: calc(100%/5 - 60px);
+        transform-origin: center top;
+
+    }
+
+}
