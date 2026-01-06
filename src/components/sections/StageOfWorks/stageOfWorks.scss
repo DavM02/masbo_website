@@ -45,7 +45,7 @@
 
     .column .circle {
         width: auto;
-        height: calc(100%/5 + 60px);
+        height: min(calc(100%/5 + 60px))
 
     }
 

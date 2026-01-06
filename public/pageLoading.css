@@ -7,6 +7,14 @@
     z-index: 885;
 }
 
+.page-loading.index .strips>div {
+    background-color: #1C6BCF;
+}
+
+.page-loading.index svg path {
+    stroke:#E9E9E9;
+}
+
 .page-loading .strips {
     position: absolute;
     top: 0;

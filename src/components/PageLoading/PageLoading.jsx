@@ -3,11 +3,12 @@ import Logo from '@assets/icons/main-logo.svg?react'
 import { useEffect } from 'react';
 import { getScrollBar } from '../Scroll/ScrollAccess';
 import { gsap } from "gsap";
-
+import { useLocation } from "react-router-dom";
 
 export default function PageLoading({ setShow}) {
 
-
+  const pathname = useLocation().pathname
+ 
   useEffect(() => {
     const tl = gsap.timeline({ delay: 0.3 });
 
@@ -55,7 +56,7 @@ export default function PageLoading({ setShow}) {
 
   return (
     createPortal(<div
-      className="page-loading">
+      className={`page-loading ${pathname === "/" ? "index" : "_"}`}>
       <div
         className='center-flex'>
         <Logo

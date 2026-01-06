@@ -17,4 +17,23 @@
             display: none;
         }
     }
+
+    // width: -webkit-fill-available;
+    // height: min-content;
+
+    @media all and (max-width: 420px) and (min-height: 1920px) {
+        .circle {
+            width: -webkit-fill-available !important;
+            height: min-content !important;
+        }
+
+
+
+        .column {
+ 
+            .line {
+                height: 100% !important;
+            }
+        }
+    }
 }
