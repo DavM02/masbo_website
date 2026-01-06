@@ -1,0 +1,20 @@
+#stage-of-works {
+    @media all and (max-width:600px) and (max-height:600px) {
+        .circle {
+            width: calc(20% + 60px) !important;
+            height: initial !important;
+        }
+
+        .column {
+            height: initial !important;
+
+            .line {
+                height: 40px;
+            }
+        }
+
+        br {
+            display: none;
+        }
+    }
+}

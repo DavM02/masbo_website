@@ -21,6 +21,7 @@ export default function useAnimation(gsapAnimation = () => {}, scope, returnFn =
 
  
   function scrollTo(selector, options) {
+  
     if (match) {
       getScrollBar()?.scrollIntoView(
         document.getElementById(selector),

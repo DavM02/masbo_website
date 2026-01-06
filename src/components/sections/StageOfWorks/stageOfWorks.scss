@@ -1,11 +1,20 @@
 #stage-of-works {
-    padding: 0 !important;
+    padding-top: 0 !important;
+    min-height: 100vh !important;
+    height: 100%;
+
+    // br {
+    //     display: none;
+    // }
+
+    h5.text-center {
+        font-size: 2vw;
+        line-height: 2vw;
+    }
 
     .row,
     .column {
         width: 100% !important;
-
-
     }
 
     .row {
@@ -18,7 +27,13 @@
         height: 100vh;
     }
 
+    .pin-spacer .row .circle {
+        clip-path: inset(0 0 0 0);
+    }
 
+    .pin-spacer .row .circle {
+        clip-path: inset(0 0 100% 0);
+    }
 
     .circle {
         border-radius: 50%;
@@ -26,15 +41,12 @@
         outline-offset: -2px;
         aspect-ratio: 1/1;
         width: calc(100%/5 + 60px);
-        clip-path: inset(0 100% 0 0);
-
-
     }
 
     .column .circle {
         width: auto;
         height: calc(100%/5 + 60px);
-        clip-path: inset(0 0 100% 0);
+
     }
 
     .row .line {
@@ -53,4 +65,10 @@
 
     }
 
+    p {
+        margin-top: 30px;
+    }
+
 }
+
+@import url('./media.scss');

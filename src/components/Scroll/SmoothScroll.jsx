@@ -11,7 +11,7 @@ import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
 gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin, useGSAP);
  
 export default function SmoothScroll({ children }) {
-  console.log('e')
+ 
   const scrollRef = useRef(null);
 
   const { width, height, isLargeScreen } = useAnimation();
@@ -60,6 +60,7 @@ export default function SmoothScroll({ children }) {
 
       const handleResize = () => {
         ScrollTrigger.refresh();
+
       };
 
       resizeObserver = new ResizeObserver(handleResize);

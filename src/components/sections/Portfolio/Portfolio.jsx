@@ -4,6 +4,8 @@ import { portfolioData } from './PortfolioData';
 import PortfolioCard from './PortfolioCard';
 import { AnimatePresence, motion } from 'framer-motion';
 import SmoothAppearance from '@ui/SmoothAppearance'
+
+ 
 const tags = [
   'private houses',
   'commercial real estate',
@@ -15,6 +17,8 @@ const categories = [ 'interiors',
   'architecture',
   'landscape',
   'all' ];
+  
+
 
 export default function Portfolio() {
   const [ activeTag, setActiveTag ] = useState(tags[0]);
@@ -27,6 +31,14 @@ export default function Portfolio() {
 
     return tagMatch && categoryMatch;
   });
+
+  // useEffect(() => {
+  //   alert('ff')
+  //   requestAnimationFrame(() => {
+  //     ScrollTrigger.refresh(true)
+  //   })
+  // }, [])
+
 
   return (
     <section

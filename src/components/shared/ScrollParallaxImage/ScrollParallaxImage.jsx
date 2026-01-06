@@ -18,6 +18,7 @@ export default function ScrollParallaxImage({
         image.offsetHeight - containerRef.current.offsetHeight,
       ease: 'none',
       scrollTrigger: {
+        id: "#scrollImageParallax",
         trigger: containerRef.current,
         scrub: true,
         pin: false,

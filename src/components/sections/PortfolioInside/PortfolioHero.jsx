@@ -1,6 +1,7 @@
 import ScrollParallaxImage from '@components/shared/ScrollParallaxImage/ScrollParallaxImage'
-
 export default function PortfolioHero({ image }) {
+
+  
 
   return (
     <ScrollParallaxImage

@@ -11,6 +11,7 @@ import AboutPage from '@pages/AboutPage/AboutPage'
 import PageLoading from '@components/PageLoading/PageLoading'
 import { useState } from 'preact/hooks'
 import PortfolioPage from '@pages/PortfolioPage/PortfolioPage'
+ 
 
 
 export function App() {
@@ -21,6 +22,7 @@ export function App() {
     sessionStorage.getItem('animationCompleted') ||
   document.referrer.includes('masbo')
   );
+
  
  
   return (

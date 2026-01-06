@@ -13,3 +13,4 @@
 13. add lazy loading
 14. add loading for portofolio + data fethcing + filter url
 15. fix all scroll animations
+16. animations shpuld play after loading/page transition
