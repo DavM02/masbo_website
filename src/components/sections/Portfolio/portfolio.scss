@@ -11,7 +11,6 @@
     li {
         &.active {
 
-            h3,
             h5 {
                 text-decoration: line-through;
             }
@@ -20,24 +19,14 @@
                 text-decoration-thickness: 2px;
             }
 
-            .dot {
-                background-color: $black;
-            }
-        }
-
-        .dot {
-            background-color: $blue;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            margin-right: 10px;
-            transition: $transition-1 0.5s background-color;
         }
 
     }
 
+
     .categories {
         margin: 50px 0 30px;
+
     }
 
     li.portfolio-card {
@@ -58,7 +47,7 @@
             padding: 0 8%;
 
             .line {
-                    clip-path: inset(0 0 5px);
+                clip-path: inset(0 0 5px);
                 height: 100%;
                 min-height: 50%;
                 width: 1px;

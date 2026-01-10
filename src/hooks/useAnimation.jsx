@@ -28,7 +28,7 @@ export default function useAnimation(gsapAnimation = () => {}, scope, returnFn =
         options
       );
     } else {
-      document.getElementById(selector)?.scrollIntoView({ behavior: "smooth" });
+      document.getElementById(selector)?.scrollIntoView({ behavior: "smooth", });
     }
   }
 

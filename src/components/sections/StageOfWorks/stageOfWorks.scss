@@ -3,13 +3,9 @@
     min-height: 100vh !important;
     height: 100%;
 
-    // br {
-    //     display: none;
-    // }
-
     h5.text-center {
-        font-size: 2vw;
         line-height: 2vw;
+        font-size: 2vw;
     }
 
     .row,
@@ -46,7 +42,6 @@
     .column .circle {
         width: auto;
         height: min(calc(100%/5 + 60px))
-
     }
 
     .row .line {

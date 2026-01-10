@@ -3,9 +3,9 @@ import { useState } from 'react';
 import { portfolioData } from './PortfolioData';
 import PortfolioCard from './PortfolioCard';
 import { AnimatePresence, motion } from 'framer-motion';
-import SmoothAppearance from '@ui/SmoothAppearance'
+import SmoothAppearance from '@ui/SmoothAppearance';
+import Categories from '@components/shared/Categories/Categories';
 
- 
 const tags = [
   'private houses',
   'commercial real estate',
@@ -13,12 +13,12 @@ const tags = [
   'urban development',
 ];
 
-const categories = [ 'interiors',
+const categories = [
+  'interiors',
   'architecture',
   'landscape',
-  'all' ];
-  
-
+  'all',
+];
 
 export default function Portfolio() {
   const [ activeTag, setActiveTag ] = useState(tags[0]);
@@ -32,20 +32,13 @@ export default function Portfolio() {
     return tagMatch && categoryMatch;
   });
 
-  // useEffect(() => {
-  //   alert('ff')
-  //   requestAnimationFrame(() => {
-  //     ScrollTrigger.refresh(true)
-  //   })
-  // }, [])
-
-
   return (
     <section
       id="portfolio">
       <div
         className="container">
 
+        {/* TAGS — пока оставляем тут */}
         <ul
           className="tags row s-between center-y wrap gap-40">
           {tags.map(tag => (
@@ -62,26 +55,16 @@ export default function Portfolio() {
             className="line"></li>
         </ul>
 
-        <ul
-          className="categories row s-between wrap gap-30">
-          {categories.map(cat => (
-            <li
-              key={cat}
-              className={`row center-y ${activeCategory === cat ? 'active' : ''}`}
-              onClick={() => setActiveCategory(cat)}>
-              <div
-                className="dot"></div>
 
-              <h3
-                className="text-gray capitalize">{cat}</h3>
-            </li>
-          ))}
-        </ul>
+        <Categories
+          items={categories}
+          active={activeCategory}
+          onChange={setActiveCategory} />
 
         <AnimatePresence
-          mode='wait'>
+          mode="wait">
           <SmoothAppearance
-            blur={true}
+            blur
             Tag={motion.ul}
             key={activeTag + activeCategory}
             className="column gap-50">
@@ -90,8 +73,8 @@ export default function Portfolio() {
                 key={item.id}
                 item={item} />
             ))}
-        
-          </SmoothAppearance></AnimatePresence>
+          </SmoothAppearance>
+        </AnimatePresence>
 
       </div>
     </section>

@@ -11,6 +11,7 @@ import AboutPage from '@pages/AboutPage/AboutPage'
 import PageLoading from '@components/PageLoading/PageLoading'
 import { useState } from 'preact/hooks'
 import PortfolioPage from '@pages/PortfolioPage/PortfolioPage'
+import BlogPage from '@pages/BlogPage/BlogPage'
  
 
 
@@ -54,6 +55,10 @@ export function App() {
                 <Route
                   path="team"
                   element={<TeamPage />} />
+                
+                <Route
+                  path="news"
+                  element={<BlogPage />} />
               
                 <Route
                   path="portfolio/*"

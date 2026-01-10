@@ -6,7 +6,7 @@ import PageTransition from "@components/PageTransition/PageTransition";
 import { AnimatePresence } from 'framer-motion';
 import { Routes, Route, useLocation } from "react-router-dom";
 import { getScrollBar } from "@components/Scroll/ScrollAccess";
- import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
  
 function PortfolioPage() {
   const location = useLocation();
@@ -30,7 +30,7 @@ function PortfolioPage() {
           const scrollbar = getScrollBar();
 
           if (scrollbar) {
-            scrollbar.scrollTo(375, 0, 0);
+            scrollbar.scrollTo(0, 375, 0);
           } else {
             window.scrollTo({
               top: 375,

@@ -13,27 +13,33 @@
             }
         }
 
-        br {
-            display: none;
-        }
     }
 
     // width: -webkit-fill-available;
     // height: min-content;
 
-    @media all and (max-width: 420px) and (min-height: 1920px) {
+    @media all and (max-width: 600px) and (min-height: 1920px) {
         .circle {
             width: -webkit-fill-available !important;
             height: min-content !important;
         }
 
-
-
         .column {
- 
+
             .line {
                 height: 100% !important;
             }
+        }
+
+
+    }
+
+    @media all and (max-width: 600px) {
+
+
+        h5.text-center {
+            line-height: 15px;
+            font-size: 15px;
         }
     }
 }

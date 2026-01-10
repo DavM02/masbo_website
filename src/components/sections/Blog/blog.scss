@@ -1,0 +1,49 @@
+#blog {
+
+    .categories {
+        margin-bottom: 30px;
+    }
+
+    .blog-card {
+        cursor: initial;
+
+        .blog-card-image {
+            height: clamp(14.375rem, 11.875rem + 12.5vw, 26.875rem);
+            width: 100%;
+            margin-bottom: 50px;
+
+
+            >span:nth-child(1) {
+                position: relative;
+
+                &::after {
+                    @include overlay($overlay, 40%);
+                }
+            }
+
+        }
+
+        .line {
+            height: 1px;
+            background-color: $dark;
+            width: 55px;
+        }
+
+        span {
+            letter-spacing: 1.5px;
+        }
+
+        h3 {
+            max-width: 735px;
+        }
+
+        .main-button {
+            margin-top: 15px;
+        }
+
+        .blog-card-description {
+            border-left: 1px solid $dark;
+            padding-left: 20px;
+        }
+    }
+}

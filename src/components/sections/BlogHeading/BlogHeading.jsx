@@ -1,10 +1,10 @@
 import Intro from '@components/shared/Intro/Intro'
-import bg from "@assets/bg-2.jpg"
+import bg from "@assets/bg-6.jpg"
 export default function AboutHeading() {
   return (
     <Intro
       bg={bg}
-      id="about-heading">
+      id="blog-heading">
 
       <div
         className="container">
@@ -12,9 +12,8 @@ export default function AboutHeading() {
           className="row center-y">
           <h1
             className="capitalize">
-            Perfection is a modern  <br /> solution made with love
+            blog
 
-            <br /> for life.
 
           </h1>
         </div>
