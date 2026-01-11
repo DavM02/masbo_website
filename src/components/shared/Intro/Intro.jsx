@@ -17,7 +17,7 @@ export default function Intro({ id, bg, children}) {
   return (
     <section
       id={id}
-      className='intro' >
+      className='intro placeholder-1' >
       <Socials />
 
       <div

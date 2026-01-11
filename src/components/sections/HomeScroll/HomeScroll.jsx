@@ -1,6 +1,6 @@
 import './homeScrol.scss'
 import ScrollIndicator from './ScrollIndicator/ScrollIndicator'
-import ProjectsList from './ProjectsList/ProjectsList'
+import Projects from './Projects/Projects'
 import Services from './Services/Services'
 import InvestmentProjects from './Investment/InvestmentProjects'
 import About from './About/About'
@@ -78,7 +78,7 @@ export default function HomeScroll() {
 
         <ConstructionInterior />
 
-        <ProjectsList />
+        <Projects />
 
         <Services />
 

@@ -1,0 +1,25 @@
+#latest-news {
+    .container {
+        position: relative;
+    }
+
+    .line {
+        height: 1px;
+        width: calc(100% - $container-padding * 2);
+        background-color: $dark;
+        position: absolute;
+        top: calc(-1 * $section-padding);
+        
+    }
+
+    ul {
+        margin-top: 20px;
+
+        @media all and (max-width: 870px) {
+            flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        }
+    }
+    
+}

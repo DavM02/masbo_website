@@ -9,7 +9,7 @@
     }
 }
 
-html:has(#about-page), html:has(#blog-page), html:has(#services-page), html:has(#team-page), html:has(#portfolio-page) {
+html:has(#about-page), html:has(#blog-page), html:has(#blog-inside-page), html:has(#services-page), html:has(#team-page), html:has(#portfolio-page) {
     main {
         background-color: $white;
         position: relative;

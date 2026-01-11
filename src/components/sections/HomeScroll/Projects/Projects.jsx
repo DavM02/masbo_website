@@ -1,10 +1,10 @@
 import MainButton from '@ui/buttons/MainButton'
-import Projects from './Projects'
- 
-export default function ProjectsList() {
+import './projects.scss'
+import ProjectsList from '@components/shared/ProjectsList/ProjectsList'
+export default function Projects() {
   return (
     <section
-      className='projects-list'>
+      className='projects'>
       <div
         className='row center-y full-height'>
         <div
@@ -33,7 +33,7 @@ export default function ProjectsList() {
 
           </div>
 
-          <Projects />
+          <ProjectsList />
         </div>
       </div>
     </section>

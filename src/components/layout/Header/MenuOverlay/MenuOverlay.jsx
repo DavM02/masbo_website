@@ -142,7 +142,7 @@ function MenuOverlay({ openTl, closeTl }) {
         document.body.removeAttribute("class");
       };
     },
-    { dependencies: [ isMobile, open ], revertOnUpdate: true }
+    { dependencies: [ isMobile ], revertOnUpdate: true }
   );
 
   return createPortal(

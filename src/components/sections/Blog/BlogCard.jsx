@@ -1,7 +1,15 @@
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import MainButton from '@ui/buttons/MainButton';
+import { useNavigate } from 'react-router-dom';
 
-export default function BlogCard({item}) {
+export default function BlogCard({ item }) {
+    
+  const navigate = useNavigate();
+
+  const openBlog = (slug) => {
+    navigate(slug);  
+  };
+
   return (
     <li
       className={`blog-card`}>
@@ -39,8 +47,7 @@ export default function BlogCard({item}) {
             by {item.author}
           </span>
         </div>
-
-                              
+                    
         <h3
           className="text-gray capitalize">{item.title}</h3>
 
@@ -52,7 +59,9 @@ export default function BlogCard({item}) {
                    
       <MainButton
         arrow
-
+        onClick={() => {
+          openBlog(`blog-${item.id}`)
+        }}
         type="button">
         read more
       </MainButton>

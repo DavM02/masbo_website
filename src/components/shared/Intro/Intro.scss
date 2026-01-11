@@ -1,8 +1,8 @@
 .intro {
-    background-color: $gray-secondary;
 
 
-    &#portfolio-heading {
+    &#portfolio-heading,
+    &#blog-inside-heading {
         background-color: transparent;
 
         & .bg::after {
@@ -28,7 +28,7 @@
             z-index: 44;
         }
 
-        .row {
+        .container>div:nth-child(1) {
             min-height: 375px;
         }
 
@@ -36,6 +36,12 @@
             &::after {
                 @include overlay($dark, 50%);
             }
+        }
+
+        .line {
+            height: 1px;
+            background-color: $dark;
+            width: 55px;
         }
 
     }

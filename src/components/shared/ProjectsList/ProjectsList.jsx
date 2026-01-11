@@ -2,6 +2,7 @@ import img2 from "@assets/img-2.jpg"
 import img11 from "@assets/img-11.jpg"
 import img12 from "@assets/img-12.jpg"
 import ProjectItem from "./ProjectItem";
+import './projectsList.scss'
 
 const data = [
   {
@@ -21,12 +22,12 @@ const data = [
   }
 ]
 
-export default function Projects() {
+export default function ProjectsList() {
 
 
   return (
     <ul
-      className="data row gap-85">
+      className="projects-list row gap-85">
       {data.map((el, i) => (
         <ProjectItem
           el={el}

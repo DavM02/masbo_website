@@ -13,14 +13,14 @@ export default function ProjectItem({el}) {
       </div>
 
       <span
-        className='up-case font-reg text-white'>
+        className='fs-12 up-case'>
         {el.date}
       </span>
 
       <h5>{el.title}</h5>
 
       <p
-        className='to-middle text-white capitalize'>
+        className='to-middle capitalize'>
         {el.description}
       </p>
     </li> 

@@ -12,7 +12,7 @@ import PageLoading from '@components/PageLoading/PageLoading'
 import { useState } from 'preact/hooks'
 import PortfolioPage from '@pages/PortfolioPage/PortfolioPage'
 import BlogPage from '@pages/BlogPage/BlogPage'
- 
+import BlogInsidePage from './pages/BlogPage/BlogInsidePage/BlogInsidePage'
 
 
 export function App() {
@@ -24,7 +24,7 @@ export function App() {
   document.referrer.includes('masbo')
   );
 
- 
+ console.log(location.pathname)
  
   return (
     <>
@@ -39,7 +39,7 @@ export function App() {
               initial={false}>
               <Routes
                 location={location}
-                key={location.pathname.split('/')[1]}>
+                key={location.pathname === "/news" ? location.pathname : location.pathname.split('/')[1]}>
                 <Route
                   path="/"
                   element={<HomePage />} />
@@ -59,6 +59,18 @@ export function App() {
                 <Route
                   path="news"
                   element={<BlogPage />} />
+                
+                <Route
+                  path="news">
+                  <Route
+                    index
+                    element={<BlogPage />} />
+
+                  <Route
+                    path=":blogId"
+                    element={<BlogInsidePage />} />
+                </Route>
+
               
                 <Route
                   path="portfolio/*"

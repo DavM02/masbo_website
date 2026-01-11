@@ -1,0 +1,41 @@
+.projects-list {
+
+    li {
+        max-width: 344px;
+        width: -webkit-fill-available;
+
+        .placeholder-1 {
+            width: 100%;
+            height: 127px;
+        }
+
+        span.up-case {
+            display: block;
+            margin: 19px 0 11px;
+        }
+
+        h5 {
+            margin-bottom: 5px;
+        }
+
+    }
+}
+
+.projects {
+    .projects-list {
+        span, p, h5 {
+            color: $white !important;
+        }
+    }
+}
+
+#latest-news {
+    .projects-list {
+
+        span,
+        p,
+        h5 {
+            color: $gray !important;
+        }
+    }
+}
