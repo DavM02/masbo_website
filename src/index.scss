@@ -113,10 +113,10 @@ main {
     perspective: 1px;
     backface-visibility: hidden;
 
-    // &:has(#portfolio-page) {
+    &:has(#portfolio-page) {
     perspective: initial !important;
     backface-visibility: initial !important;
-    // }
+    }
 }
 
 .scroll-content {

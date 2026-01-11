@@ -42,7 +42,7 @@ export default function Contacts() {
               className='fs-14 text-gray capitalize'>
               <span
                 className='font-bold'>
-                Email:</span>  office@masbo.com.ua 
+                Email:</span> office@masbo.com.ua 
             
             </p>
           </div>

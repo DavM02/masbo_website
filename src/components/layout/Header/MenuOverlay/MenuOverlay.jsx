@@ -106,7 +106,7 @@ function MenuOverlay({ openTl, closeTl }) {
           ease: "power3.in",
           attr: { d: openEnd },
         },
-        isMobile ? "-=0.6" : "-=0.4"
+        isMobile ? "-=0.5" : "-=0.4"
       )
       .to(".transition path", {
         duration: 0.3,
