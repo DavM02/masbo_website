@@ -10,7 +10,7 @@ export default function PageLoading({ setShow}) {
   const pathname = useLocation().pathname
  
   useEffect(() => {
-    const tl = gsap.timeline({ delay: 0.3 });
+    const tl = gsap.timeline({ delay: 1 });
 
    
     getScrollBar()?.updatePluginOptions("overflow", { open: true });

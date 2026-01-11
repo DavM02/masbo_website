@@ -5,6 +5,7 @@ import useAnimation from "@hooks/useAnimation";
 import MenuBars from "./MenuBars";
 import Menu from "./Menu";
 import Logo from "./Logo";
+import OrderProject from "./OrderProject";
  
 export default function Header() {
   const { width, height, isLargeScreen, isFirstPage } = useAnimation((options) => {
@@ -65,11 +66,8 @@ export default function Header() {
 
           <div
             className="row center-y">
-            <div
-              className="order-project">
-              <span
-                className="fs-14 text-white capitalize">Order the project</span>
-            </div>
+
+            <OrderProject />
 
             <MenuBars />
           </div>

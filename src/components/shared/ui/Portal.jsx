@@ -1,23 +1,19 @@
-// import SmoothAppearance from "./SmoothAppearance"
-// import ReactDOM from "react-dom"
-// import { AnimatePresence } from "framer-motion"
+import { createPortal } from "preact/compat"
+import { AnimatePresence } from "framer-motion"
+ 
 
-// export default function Portal({ value, root, ...props }) {
-//     const content = (
-//         <SmoothAppearance {...props}>
-//             {props.children}
-//         </SmoothAppearance>
-//     )
+export default function Portal({ value, ...props }) {
+ 
 
-//     return (
-//         <AnimatePresence mode="wait">
-//             {value && <>
-//                 {
-//                     root
-//                         ? ReactDOM.createPortal(content, document.getElementById(root ?? 'modal-root'))
-//                         : content
-//                 }
-//             </>}
-//         </AnimatePresence>
-//     )
-// }
+  return (
+    <AnimatePresence
+          
+      mode="wait">
+      {value && <>
+        {
+          createPortal(props.children, document.getElementById('modal-root'))
+        }
+      </>}
+    </AnimatePresence>
+  )
+}

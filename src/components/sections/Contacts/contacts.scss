@@ -1,0 +1,16 @@
+#contacts {
+ 
+    .row div {
+        min-height: 48px;
+        padding-left: 15px;
+        border-left: 1px solid $black;
+    }
+
+    p {
+        max-width: 320px;
+    }
+
+    .section-header {
+        margin-bottom: $section-padding;
+    }
+}

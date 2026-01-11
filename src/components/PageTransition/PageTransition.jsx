@@ -115,7 +115,6 @@ function PageTransition(Component) {
               onAnimationComplete={(e) => {
                 if (!e.transition) {
 
-   
                   getScrollBar()?.updatePluginOptions('overflow', { open: false })
               
                 }

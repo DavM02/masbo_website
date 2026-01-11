@@ -1,17 +1,11 @@
 1. add data router
 2. prevent scroll when navigation between pages..
 3. replace contents + images in slider
-4. add navlinks active - done.
-5. add section bg transition - done
-6. fix scroll in large screen - done
-7. fix media for flex-wrap - done
-8. add responsive for reviews  - done
-9. add pics for reviews. - done
+
 10. adjust max width for reviews 
-11. add normal names/contacts for team - done
-12. fix service-item disapearing  - done
+
 13. add lazy loading
 14. add loading for portofolio + data fethcing + filter url
 15. fix all scroll animations
 16. animations shpuld play after loading/page transition
-17. fix br/media for 3000+ height, h5.
+

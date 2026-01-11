@@ -13,6 +13,7 @@ import { useState } from 'preact/hooks'
 import PortfolioPage from '@pages/PortfolioPage/PortfolioPage'
 import BlogPage from '@pages/BlogPage/BlogPage'
 import BlogInsidePage from './pages/BlogPage/BlogInsidePage/BlogInsidePage'
+import ContactsPage from '@pages/ContactsPage/ContactsPage'
 
 
 export function App() {
@@ -24,7 +25,7 @@ export function App() {
   document.referrer.includes('masbo')
   );
 
- console.log(location.pathname)
+  console.log(location.pathname)
  
   return (
     <>
@@ -71,6 +72,9 @@ export function App() {
                     element={<BlogInsidePage />} />
                 </Route>
 
+                <Route
+                  path="contact"
+                  element={<ContactsPage />} />
               
                 <Route
                   path="portfolio/*"

@@ -1,0 +1,15 @@
+.modal {
+    position: fixed;
+    background-color: $white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: min(max(320px, 90vw), 940px);;
+    max-height: min(80vh, 600px);
+    overflow: scroll;
+    z-index: 756;
+    padding: 60px 7vw;
+    border-radius: 7px;
+
+   
+}

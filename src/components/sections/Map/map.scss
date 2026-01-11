@@ -1,0 +1,12 @@
+#map {
+    padding-top: 0 !important;
+    #map-wrapper {
+            width: 100%;
+            filter: grayscale(1);
+    
+            iframe {
+                border: none;
+                outline: none;
+            }
+        }
+}

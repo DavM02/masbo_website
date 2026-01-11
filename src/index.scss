@@ -9,7 +9,13 @@
     }
 }
 
-html:has(#about-page), html:has(#blog-page), html:has(#blog-inside-page), html:has(#services-page), html:has(#team-page), html:has(#portfolio-page) {
+html:has(#about-page),
+html:has(#contacts-page),
+html:has(#blog-page),
+html:has(#blog-inside-page),
+html:has(#services-page),
+html:has(#team-page),
+html:has(#portfolio-page) {
     main {
         background-color: $white;
         position: relative;
@@ -108,8 +114,8 @@ main {
     backface-visibility: hidden;
 
     // &:has(#portfolio-page) {
-        perspective: initial !important;
-        backface-visibility:  initial !important;
+    perspective: initial !important;
+    backface-visibility: initial !important;
     // }
 }
 
@@ -253,4 +259,3 @@ body {
 .placeholder-3 {
     background-color: $gray;
 }
-

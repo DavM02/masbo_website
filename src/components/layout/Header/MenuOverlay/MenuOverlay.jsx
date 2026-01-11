@@ -1,6 +1,6 @@
 import { gsap } from "gsap";
 import { createPortal } from "preact/compat";
-import CloseMenu from "./CloseMenu";
+import CloseOverlay from "@ui/CloseOverlay/CloseOverlay";
 import "./menuOverlay.scss";
 import Logo from "../Logo";
 
@@ -47,7 +47,7 @@ function MenuOverlay({ openTl, closeTl }) {
       .from(
         [
           ".menu-overlay .logo",
-          ".close-menu",
+          ".menu-overlay .close-overlay",
           ".lang",
           ".menu-overlay p",
           ".mobile-footer h5",
@@ -63,7 +63,7 @@ function MenuOverlay({ openTl, closeTl }) {
           duration: 0.4,
           stagger: 0.05,
           onComplete: () => {
-            gsap.set([ ".close-menu",
+            gsap.set([ ".menu-overlay .close-overlay",
               ".row.s-between.gap-50",
               ".logo" ], { pointerEvents: "all" });
           },
@@ -81,7 +81,7 @@ function MenuOverlay({ openTl, closeTl }) {
           duration: 0.3,
           stagger: 0.05,
           onStart: () => {
-            gsap.set([ ".close-menu",
+            gsap.set([ ".menu-overlay .close-overlay",
               ".row.s-between.gap-50",
               ".logo" ], { pointerEvents: "none" });
           },
@@ -91,7 +91,7 @@ function MenuOverlay({ openTl, closeTl }) {
       .to(
         [
           ".menu-overlay  .logo",
-          ".close-menu",
+          ".menu-overlay .close-overlay",
           ".lang",
           ".menu-overlay p",
           ".mobile-footer h5",
@@ -116,7 +116,7 @@ function MenuOverlay({ openTl, closeTl }) {
           gsap.set(".transition path", {
             attr: { d: closeEnd },
           });
-          gsap.set([ ".close-menu",
+          gsap.set([ ".menu-overlay .close-overlay",
             ".row.s-between.gap-50",
             ".logo" ], { clearProps: "pointerEvents" });
           getScrollBar()?.updatePluginOptions("overflow", { open: false });
@@ -135,7 +135,7 @@ function MenuOverlay({ openTl, closeTl }) {
         gsap.set(".transition path", {
           attr: { d: closeEnd},
         });
-        gsap.set([ ".close-menu",
+        gsap.set([ ".menu-overlay .close-overlay",
           ".row.s-between.gap-50",
           ".logo" ], { clearProps: "pointerEvents" });
         getScrollBar()?.updatePluginOptions("overflow", { open: false });
@@ -179,7 +179,7 @@ function MenuOverlay({ openTl, closeTl }) {
         {isMobile && <MobileFooter />}
       </div>
 
-      <CloseMenu
+      <CloseOverlay
         onClick={() => closeTl.current.restart()} />
     </div>,
     document.querySelector("#transition-root")
