@@ -19,7 +19,6 @@ function ContactsPage() {
  
       <JoinForm />
  
-
       <Map />
 
     </div>

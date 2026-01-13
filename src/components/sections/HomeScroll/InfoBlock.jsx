@@ -16,7 +16,7 @@ function InfoBlock({ icon, title, text, percentage }) {
       duration: 3,
       ease: "power2.out",
       scrollTrigger: {
-        trigger: blockRef.current.closest(".section-block"),
+        trigger: blockRef.current.closest(".column"),
         start: "left 70%",
         toggleActions: "play none none none",
         ...options

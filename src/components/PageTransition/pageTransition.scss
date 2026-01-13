@@ -14,6 +14,6 @@
     &.delayed {
         background-color: rgb(223, 220, 216);
         z-index: 794;
+        will-change: transform;
     }
 }
- 

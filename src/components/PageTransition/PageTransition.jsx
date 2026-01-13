@@ -3,7 +3,7 @@ import {ScrollTrigger} from "gsap/ScrollTrigger"
 import { getScrollBar } from "../Scroll/ScrollAccess"
 import { motion } from "framer-motion";
 import { createPortal } from "preact/compat";
-// import { useBlocker } from "react-router-dom";
+import { useBlocker } from "react-router-dom";
 import "./pageTransition.scss";
 
 function PageTransition(Component) {
@@ -11,10 +11,10 @@ function PageTransition(Component) {
 
     const [ isAnimating, setIsAnimating ] = useState(false);
  
-    // useBlocker(({ currentLocation: current, nextLocation: next }) => {
-    //   return isAnimating && current.pathname !== next.pathname;
-    //   // || currentLocation.pathname === nextLocation.pathname
-    // });
+    useBlocker(({ currentLocation: current, nextLocation: next }) => {
+      return isAnimating && current.pathname !== next.pathname;
+      // || currentLocation.pathname === nextLocation.pathname
+    });
 
    
  
@@ -45,6 +45,7 @@ function PageTransition(Component) {
             <motion.div
               onAnimationStart={() => {
                 setIsAnimating(true);
+                getScrollBar()?.updatePluginOptions('overflow', { open: true })
               }}
               initial={{ transform:  'translateY(100%)' }}
               animate={{ transform: 'translateY(100%)' }}
@@ -80,10 +81,7 @@ function PageTransition(Component) {
 
             <motion.div
  
-              onAnimationComplete={() => {
-                setIsAnimating(false);
 
-              }}
               initial={{ transform: 'translateY(0)' }}
               animate={{ transform: 'translateY(-100%)' }}
               exit={{
@@ -104,20 +102,25 @@ function PageTransition(Component) {
             <motion.div
               initial={{ transform: 'translateY(0)' }}
               animate={{ transform: 'translateY(-100%)' }}
-              onAnimationStart={(e) => {
-                if (e.transform !== "translateY(0)") {
-               
-                  getScrollBar()?.updatePluginOptions('overflow', { open: true })
-                }
-                
-              }}
+ 
  
               onAnimationComplete={(e) => {
-                if (!e.transition) {
+                setIsAnimating(false);
+                
+ 
+                requestAnimationFrame(() => {
+     
+                  getScrollBar()?.update();      
+                  // getScrollBar()?.scrollTo(0, 0, 0);
+                  if (!e.transition) {
 
-                  getScrollBar()?.updatePluginOptions('overflow', { open: false })
+            
+                    getScrollBar()?.updatePluginOptions('overflow', { open: false })
+                 
               
-                }
+                  }
+                });
+
               
               }}
               exit={{
