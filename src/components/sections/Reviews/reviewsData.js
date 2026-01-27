@@ -17,7 +17,7 @@ const reviewsData = [
     img: img1,
     position: "Project Manager, Tesla",
     stars: 5,
-    text: "The collaboration with this team exceeded our expectations. Their careful planning, consistent communication, and technical expertise helped us complete the project ahead of schedule. Each stage of development was handled professionally, resulting in a robust solution that is now being successfully implemented across multiple departments."
+    text: "The collaboration with this team exceeded our expectations. Their careful planning and technical expertise helped us complete the project ahead of schedule. Each stage of development was handled professionally, resulting in a robust solution that is now being successfully implemented across multiple departments."
   },
   {
     name: "Olivia Martinez",

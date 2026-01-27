@@ -8,14 +8,15 @@
 
         .team-cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
             gap: 30px;
             margin-top: 44px;
             padding: 0 clamp(1rem, 0.575rem + 2.125vw, 3.125rem);
             ;
 
             li {
-                height: max(457px, 55vh);
+                height: max(657px, 26vw);
+                // min-height: 457px;
                 position: relative;
 
                 &:hover {

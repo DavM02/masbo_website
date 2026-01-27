@@ -10,7 +10,7 @@
 #home-scroll {
     height: 100vh !important;
     width: calc(1762px + 3271px + 1822px + (100vw * 5) + ( (100vw / 3) * 2 )) !important;
-    will-change: transform;
+    // will-change: transform;
 
     h1 {
         white-space: nowrap;
@@ -21,7 +21,7 @@
         background-size: contain;
         background-position: -2px 0;
         background-repeat: no-repeat;
-        will-change: transform;
+        // will-change: transform;
         height: 100%;
     }
 

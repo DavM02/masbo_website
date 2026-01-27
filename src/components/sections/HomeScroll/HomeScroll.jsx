@@ -10,19 +10,24 @@ import Team from './Team/Team'
 import { useGSAP } from '@gsap/react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { setScrollTween } from '../../Scroll/ScrollAccess'
 import useAnimation from "@hooks/useAnimation"
-import { useContext } from "preact/hooks";
-import { MainContext } from "@context/MainContext";
+ 
+import useMediaQ from '@hooks/useMediaQ'
+
+
 export default function HomeScroll() { 
-  const {width, height, isLargeScreen} = useAnimation()
-  const { setTriggerInit } = useContext(MainContext)
+  const { match } = useAnimation()
+  
+ 
+  const isLargeScreen = useMediaQ(
+    "(min-height: 2200px) and (min-width: 1500px), (min-width: 3000px)"
+  );
  
   useGSAP(() => {
     const createAnimation = () => {
     
-      if (width && height) {
-        let scrollTween = gsap.to("#home-scroll > .row", {
+      if (match) {
+        gsap.to("#home-scroll > .row", {
           x: isLargeScreen
             ? "-700vw"
             : () =>
@@ -44,27 +49,19 @@ export default function HomeScroll() {
             force3D: true,
           },
         });
-        setScrollTween(scrollTween);
       }
     };
    
     requestAnimationFrame(() => {
       ScrollTrigger.getById("home_trigger")?.kill()
       createAnimation()
-     
-
-      setTriggerInit(true)
- 
+    
+  
     }
     )
-
-    return () => {
-      setTriggerInit(false)
-    }
  
-  }, {dependencies: [ width,
-    height,
-    isLargeScreen ], revertOnUpdate: true})
+ 
+  }, {dependencies: [ match, isLargeScreen ], revertOnUpdate: true})
    
   return (
     <section

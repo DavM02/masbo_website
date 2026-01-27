@@ -21,11 +21,11 @@ export function App() {
   const location = useLocation()
 
   const [ show, setShow ] = useState(
-    sessionStorage.getItem('animationCompleted') ||
+    !!sessionStorage.getItem('animationCompleted') ||
   document.referrer.includes('masbo')
   );
 
-  console.log(location.pathname)
+ 
  
   return (
     <>
@@ -90,7 +90,7 @@ export function App() {
  
       </MainContextProvider>
 
-      {(show === false || show === 'show') && <PageLoading
+      {(show === false) && <PageLoading
 
         setShow={setShow} />}
 

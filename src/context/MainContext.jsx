@@ -1,15 +1,18 @@
-
-import { createContext, useState } from "react";
-
+import { useRef } from "preact/hooks";
+import { createContext } from "preact";
 const MainContext = createContext();
 
 export default function MainContextProvider({ children }) {
 
-  const [ triggerInit, setTriggerInit ] = useState(false)
+ 
+  const openTl = useRef(null);
+  const closeTl = useRef(null);
   
   return (
     <MainContext.Provider
-      value={{triggerInit, setTriggerInit}}>
+      value={{ openTl, closeTl
+        
+      }}>
       {children}
     </MainContext.Provider>
   );

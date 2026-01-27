@@ -1,55 +1,29 @@
 import { useGSAP } from "@gsap/react";
 import useMediaQ from "./useMediaQ";
-import { getScrollBar, getScrollTween } from "../components/Scroll/ScrollAccess";
-import { MainContext } from "@context/MainContext";
-import { useContext } from "preact/hooks";
-export default function useAnimation(gsapAnimation = () => {}, scope, returnFn = () => {}) {
  
 
+export default function useAnimation(gsapAnimation = () => {}, scope, returnFn = () => {}) {
+ 
+ 
   const width = useMediaQ("(min-width: 1025px)");
   const height = useMediaQ("(min-height: 695px)");
 
-  const isFirstPage = window.location.hash.split('#')[1] === "/" || window.location.hash.length === 0
 
   const isLargeScreen = useMediaQ(
     "(min-height: 2200px) and (min-width: 1500px), (min-width: 3000px)"
-  ) && isFirstPage;
-
-  const {triggerInit} = useContext(MainContext)
-
-  const match = (width && height) || isLargeScreen;
-
- 
-  function scrollTo(selector, options) {
-  
-    if (match) {
-      getScrollBar()?.scrollIntoView(
-        document.getElementById(selector),
-        options
-      );
-    } else {
-      document.getElementById(selector)?.scrollIntoView({ behavior: "smooth", });
-    }
-  }
-
+  )  
+  const match = (width && height)  
  
   useGSAP(
     () => {
 
-      if (!isFirstPage ?  gsapAnimation : (gsapAnimation && triggerInit)) {
+      if (gsapAnimation) {
         requestAnimationFrame(() => {
  
           const options = {
             scroller: match ? "#scroll-wrapper" : window,
           };
           
-
-          if (match && isFirstPage) {
-           
-            options.containerAnimation = getScrollTween()
- 
-          } 
-      
           gsapAnimation(options); 
     
         })
@@ -66,9 +40,7 @@ export default function useAnimation(gsapAnimation = () => {}, scope, returnFn =
 
     },
     {
-      dependencies: [ width,
-        height,
-        triggerInit ],
+      dependencies: [ match ],
       revertOnUpdate: true,
       ...scope,
     }
@@ -76,10 +48,9 @@ export default function useAnimation(gsapAnimation = () => {}, scope, returnFn =
 
   return {
     scroller: match ? "#scroll-wrapper" : window,
+    match,
     isLargeScreen,
-    width,
-    height,
-    scrollTo,
-    isFirstPage
+    width, height
+ 
   };
 }

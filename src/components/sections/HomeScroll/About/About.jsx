@@ -2,10 +2,48 @@ import Numbers from "@components/shared/Numbers/Numbers"
 import useAnimation from '@hooks/useAnimation'
 import play from "@assets/icons/play.svg"
 import Socials from "@components/shared/Socials/Socials"
-
+import { useGSAP } from "@gsap/react";
+import { gsap } from "gsap";
+ 
 export default function About() {
 
-  const { width, height } = useAnimation()
+  const { match } = useAnimation()
+
+  useGSAP(() => {
+
+     
+    requestAnimationFrame(() => {
+ 
+      if (match) {
+        gsap.to("header", {
+          scrollTrigger: {
+            id: 'header_trigger_2',
+            trigger: ".about",
+            start: "left 0%",
+            end: "right 0%",
+            onEnter: () => {
+              gsap.set("header", { backgroundColor: "transparent" });
+            },
+            onEnterBack: () => {
+              gsap.set("header", { backgroundColor: "transparent" });
+            },
+            onLeaveBack: () => {
+              gsap.set("header", { clearProps: "backgroundColor" });
+            },
+            onLeave: () => {
+              gsap.set("header", { clearProps: "backgroundColor" });
+            }
+          },
+        });
+      }
+
+
+    })
+ 
+  }, {dependencies: [  match ]});
+
+
+
   return (
     <section
       className="about">
@@ -47,7 +85,7 @@ export default function About() {
       
         <Numbers />
                 
-        {width && height && <Socials />}
+        {match && <Socials />}
       </div>
     </section>
   )

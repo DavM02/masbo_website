@@ -1,9 +1,12 @@
 3. replace contents + images in slider
-
-10. adjust max width for reviews 
-
+  
 13. add lazy loading
 14. add loading for portofolio + data fethcing + filter url
  
-16. animations shpuld play after loading/page transition
+   
 
+все ссылки и кнопки кликабеьны
+
+ 
+ 
+structure anim code

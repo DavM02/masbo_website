@@ -4,8 +4,8 @@ import {gsap} from "gsap"
  
 export default function ScrollIndicator() {
  
-  const { width, height, isLargeScreen } = useAnimation((options) => {
-    if ((width && height) || isLargeScreen) {
+  const { match } = useAnimation((options) => {
+    if (match) {
       gsap.set(".scroll-indicator div", {width: "0%"})
       gsap.to(".scroll-indicator div", {
         ease: "power1.out",
@@ -22,7 +22,7 @@ export default function ScrollIndicator() {
     
   })
  
-  return (width && height &&
+  return (match &&
     createPortal(<div
       className="scroll-indicator">
       <div></div>

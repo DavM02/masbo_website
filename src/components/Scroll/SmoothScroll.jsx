@@ -5,8 +5,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import useAnimation from "@hooks/useAnimation";
 import { useGSAP } from "@gsap/react";
 import {  setScrollBar, clearScrollBar, getScrollBar } from "./ScrollAccess";
-import { ScrollbarPlugin } from "smooth-scrollbar";
 import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
+ 
+// registerin' plugins
 
 gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin, useGSAP);
  
@@ -14,14 +15,12 @@ export default function SmoothScroll({ children }) {
  
   const scrollRef = useRef(null);
 
-  const { width, height, isLargeScreen } = useAnimation();
+  const { match } = useAnimation();
 
   useGSAP(
     () => {
-
+ 
       let scrollbar;
-      let resizeObserver;
-
       const initScrollbar = () => {
         if (scrollRef.current) {
           scrollbar = Scrollbar.init(scrollRef.current, {
@@ -57,20 +56,15 @@ export default function SmoothScroll({ children }) {
         }
       };
 
-
-      const handleResize = () => {
+      const resize = () => {
         ScrollTrigger.refresh();
-
-      };
-
-      resizeObserver = new ResizeObserver(handleResize);
-      if (scrollRef.current) {
-        resizeObserver.observe(scrollRef.current);
       }
 
-      if (width && height) {
+      window.addEventListener("resize", resize);
+ 
+
+      if (match) {
         initScrollbar();
-        
       }
 
       if (document.body.classList.contains('overlay-opened') || !!document.body.querySelector('.modal')) {
@@ -80,28 +74,22 @@ export default function SmoothScroll({ children }) {
       return () => {
         ScrollTrigger.killAll()
         clearScrollBar();
-        if (resizeObserver) {
-          resizeObserver.disconnect();
-        }
+        window.removeEventListener("resize", resize);
       };
     },
     {
-      dependencies: [ width,
-        height,
-        isLargeScreen, ],
+      dependencies: [ match ],
       scope: scrollRef,
       revertOnUpdate: true,
     }
   );
 
 
-
-
   return (
     <div
       id="scroll-wrapper"
       style={{
-        position: width && height ? "fixed" : "static",
+        position: match ? "fixed" : "static",
         height: "100%",
       }}
       ref={scrollRef}>
@@ -110,16 +98,6 @@ export default function SmoothScroll({ children }) {
   );
 }
 
-class OverflowPlugin extends ScrollbarPlugin {
-  static pluginName = "overflow";
 
-  static defaultOptions = {
-    open: false,
-  };
 
-  transformDelta(delta) {
-    return this.options.open ? { x: 0, y: 0 } : delta;
-  }
-}
 
-Scrollbar.use(OverflowPlugin);

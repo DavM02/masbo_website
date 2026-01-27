@@ -20,7 +20,7 @@ export default function StageOfWorks() {
  
   const disableTrigger = (isVertical && isNarrow) || isTooSmall  
 
-  console.log(isTooSmall, )
+ 
  
   const { scroller, width, height } = useAnimation();
 

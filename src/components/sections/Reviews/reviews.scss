@@ -1,10 +1,13 @@
 #reviews {
 .container {
     position: relative;
+  
 }
     .reviews {
         display: grid;
         grid-template-columns: 10px 1fr 10px;
+        max-width: 800px;
+        margin: 0 auto;
     }
 
     .review-item {
@@ -13,7 +16,7 @@
         min-height: 330px;
 
         p {
-            max-width: 681px;
+            // max-width: 681px;
 
             span {
 

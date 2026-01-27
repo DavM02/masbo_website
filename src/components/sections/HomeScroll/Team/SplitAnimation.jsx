@@ -1,7 +1,7 @@
 import { useRef } from "preact/hooks";
-import useAnimation from "@hooks/useAnimation";
 import { teamImages } from "./TeamImages";
 import { gsap } from "gsap";
+import Observer from "@components/shared/Observer/Observer";
 
 const titleText = "Meeting our team"
   .split("")
@@ -12,29 +12,24 @@ const titleText = "Meeting our team"
 
 
 export default function SplitAnimation() {
+
   const titleRef = useRef(null);
-  const {width, height} = useAnimation((options) => {
+
+  const initStyles = () => {
+    gsap.killTweensOf(".team li");
+    gsap.killTweensOf("h1 span");
+    const items = gsap.utils.toArray(".team li");
+    const spans = titleRef.current.querySelectorAll("span");
+
+    gsap.set(spans, { opacity: 0, y: 20 });
+    gsap.set(items, { opacity: 0, y: 25 });
+  }
+
+  const gsapAnimation = () => {
  
     const items = gsap.utils.toArray(".team li");
     const spans = titleRef.current.querySelectorAll("span");
-      
-    gsap.set(spans, { opacity: 0, y: 20 });
-    gsap.to(spans, {
-      opacity: 1,
-      y: 0,
-      delay: 0.3,
-      duration: 3,
-      stagger: 0.05,
-      ease: "expo.out",
-      scrollTrigger: {
-        trigger: ".team",
-        start: (width && height) ? "left 40%" : "top 80%",
-        toggleActions: "play none none none",
-        ...options
-      },
-    });
 
-    gsap.set(items, { opacity: 0, y: 25 });
     gsap.to(items, {
       opacity: 1,
       y: 0,
@@ -42,19 +37,24 @@ export default function SplitAnimation() {
       duration: 3,
       stagger: 0.09,
       ease: "expo.out",
-      scrollTrigger: {
-        trigger: ".team",
-        start: (width && height) ? "left 40%" : "top 80%",
-        toggleActions: "play none none none",
-        ...options
-      },
     });
-  })
 
-  
+    gsap.to(spans, {
+      opacity: 1,
+      y: 0,
+      delay: 0.3,
+      duration: 3,
+      stagger: 0.05,
+      ease: "expo.out",
+    });
+  }
 
-  
-  return (<>
+
+  return (<Observer
+    initStyles={() => initStyles()}
+    gsapAnimation={() => gsapAnimation()}
+    className={"column center-y gap-25"}
+    threshold={0.2}>
     <h1
       ref={titleRef}>{titleText}</h1> 
 
@@ -69,5 +69,6 @@ export default function SplitAnimation() {
         </li>
       ))}
     </ul>
-  </>)    
+  </Observer>)    
 }
+
