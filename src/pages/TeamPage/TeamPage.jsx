@@ -11,6 +11,7 @@ function TeamPage() {
     <div
       id='team-page'> 
       <Suspense
+        
         fallback={    <Loading />}>
         <TeamSections />
       </Suspense>
