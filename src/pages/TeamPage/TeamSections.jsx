@@ -1,20 +1,16 @@
-import TeamHeading from "@components/sections/TeanHeading/TeamHeading"
-import Team from "@components/sections/Team/Team"
-import JoinTeam from "@components/sections/JoinTeam/JoinTeam"
-import JoinForm from "@components/sections/JoinForm/JoinForm"
- 
+import Loading from "@components/shared/Loading/Loading";
+
+import { lazy, Suspense } from "preact/compat"
+
+const TeamSectionsChilren = lazy(() => import("./TeamSectionsChilren"));
+
 function TeamSections() {
  
   return (
-    <> 
-      <TeamHeading />
-
-      <Team />
-
-      <JoinTeam />
-
-      <JoinForm />
-    </>
+    <Suspense
+      fallback={Loading}> 
+      <TeamSectionsChilren />
+    </Suspense>
   )
 }
 
