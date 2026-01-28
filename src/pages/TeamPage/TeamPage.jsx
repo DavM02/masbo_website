@@ -26,12 +26,10 @@
 // TeamPage.jsx
 import PageTransition from "@components/PageTransition/PageTransition";
 import loadable from "@loadable/component";
-import Loading from "@components/shared/Loading/Loading";
+// import Loading from "@components/shared/Loading/Loading";
 
 // ленивый импорт секций
-const TeamSections = loadable(() => import("./TeamSections"), {
-  fallback: <Loading /> // блок, который займет место вместо мерцания
-});
+const TeamSections = loadable(() => import("./TeamSections"));
 
 function TeamPage() {
   return (
