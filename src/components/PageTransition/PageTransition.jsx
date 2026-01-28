@@ -1,25 +1,31 @@
-import {  useState, useContext } from "preact/hooks";
-import { MainContext } from "@context/MainContext";
-import { getScrollBar } from "../Scroll/ScrollAccess";
-import { motion } from "framer-motion";
+import {  useState, useContext, useEffect } from "preact/hooks";
+
 import { createPortal } from "preact/compat";
 import { useBlocker } from "react-router-dom";
 import "./pageTransition.scss";
+import { MainContext } from "@context/MainContext";
 
+import SlideIn from "./SlideIn";
+import SlideOut from "./SlideOut";
 import { resetOverlayAndScroll } from "./resetOverlayAndScroll";
-
-import { BLOCKS, containerVariants, slideInItem, slideOutItem} from "./pageTransitionConfig";
-
 
 function PageTransition(Component) {
   return function WrappedComponent(props) {
+    
     const [ isAnimating, setIsAnimating ] = useState(false);
+    
+    const {closeTl} = useContext(MainContext)
 
     useBlocker(({ currentLocation, nextLocation }) => {
       return isAnimating && currentLocation.pathname !== nextLocation.pathname;
-    });
-    
-    const {closeTl} = useContext(MainContext)
+    }); 
+ 
+
+    useEffect(() => {
+      return () => {
+        resetOverlayAndScroll(closeTl)
+      }
+    }, [])
 
     return (
       <>
@@ -31,69 +37,13 @@ function PageTransition(Component) {
             className="page-transition"
             style={{ pointerEvents: isAnimating ? "all" : "none" }}>
    
-            <motion.div
-              className="slide-in row"
-              variants={containerVariants}
-              initial="hidden"
-              animate="hidden"
-              exit="show"
-              onAnimationStart={() => {
-               
-                if (!document.body.classList.contains("overlay-opened")) {
-                  document.body.style.overflow = 'hidden'
-                }
 
-                setIsAnimating(true);
-                getScrollBar()?.updatePluginOptions("overflow", {
-                  open: true,
-                });
+            <SlideIn
+              setIsAnimating={setIsAnimating} />
 
-              }}>
-              {Array.from({ length: BLOCKS }).map((_, i) => (
-                <motion.div
-                  key={i}
-                  variants={slideInItem}
-                  onAnimationComplete={
-                    i === BLOCKS - 1 ? () => {
-                      resetOverlayAndScroll(closeTl)
-                    } : undefined
-                  } />
-              ))}
-            </motion.div>
+            <SlideOut
+              setIsAnimating={setIsAnimating} />
 
- 
-            <motion.div
-              className="slide-out row"
-              variants={containerVariants}
-              initial="hidden"
-              animate="show">
-              {Array.from({ length: BLOCKS }).map((_, i) => (
-                <motion.div
-                  key={i}
-                  variants={slideOutItem}
-                  onAnimationComplete={
-                    i === BLOCKS - 1
-                      ? () => {
-                        setIsAnimating(false);
-
-                        document.body.removeAttribute("class");
-
-                        if (!document.body.classList.contains("overlay-opened")) {
-                          document.body.removeAttribute("style")
-                        }
-
-                        requestAnimationFrame(() => {
-                          getScrollBar()?.update();
-                          getScrollBar()?.updatePluginOptions("overflow", {
-                            open: false,
-                          });
-                        });
-
-                      }
-                      : undefined
-                  } />
-              ))}
-            </motion.div>
           </div>,
           document.querySelector("#modal-root")
         )}
@@ -103,3 +53,5 @@ function PageTransition(Component) {
 }
 
 export default PageTransition;
+
+  

@@ -20,6 +20,7 @@ function PortfolioPage() {
       <PortfolioHeading />
 
       <AnimatePresence
+      
         
         onExitComplete={() => {
 
@@ -37,12 +38,33 @@ function PortfolioPage() {
               left: 0,
               behavior: 'auto',
             });
+
           }
+ 
         }}
 
 
         mode="wait">
         <SmoothAppearance
+          onAnimationStart={(e) => {
+            if (e.opacity !== 0) return
+ 
+            getScrollBar()?.updatePluginOptions("overflow", {
+              open: true,
+            });
+            getScrollBar()?.update()
+
+          }}
+          onAnimationComplete={(e) => {
+            if (e.opacity !== 1) return
+       
+            getScrollBar()?.updatePluginOptions("overflow", {
+              open: false,
+            });
+
+            getScrollBar()?.update()
+          }}
+
           id="portfolio-page-transition"
           blur={false}
           style={{position: 'relative', zIndex: 509}}
