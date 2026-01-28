@@ -10,10 +10,10 @@ import TeamPage from '@pages/TeamPage/TeamPage'
 import AboutPage from '@pages/AboutPage/AboutPage'
 import PageLoading from '@components/PageLoading/PageLoading'
 import { useState } from 'preact/hooks'
-import PortfolioPage from '@pages/PortfolioPage/PortfolioPage'
 import BlogPage from '@pages/BlogPage/BlogPage'
 import BlogInsidePage from './pages/BlogPage/BlogInsidePage/BlogInsidePage'
 import ContactsPage from '@pages/ContactsPage/ContactsPage'
+import PortfolioRoute from '@pages/PortfolioPage/PortfolioRoute'
 
 
 export function App() {
@@ -78,7 +78,7 @@ export function App() {
               
                 <Route
                   path="portfolio/*"
-                  element={<PortfolioPage />} />
+                  element={<PortfolioRoute />} />
               </Routes>
             </AnimatePresence>
           </main>

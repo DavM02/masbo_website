@@ -1,24 +1,19 @@
-
-import PageTransition from "@components/PageTransition/PageTransition"
-
- 
-
-import { lazy, Suspense } from "preact/compat"
-  
-const ContactsSections = lazy(() => import("./ContactsSections"));
+import PageTransition from "@components/PageTransition/PageTransition";
+import { useLazyComponent } from "@hooks/useLazyComponent";
+import Loading from "@components/shared/Loading/Loading";
+import { memo } from "preact/compat";
 
 function ContactsPage() {
- 
+  const ContactsSections = useLazyComponent(() => import("./ContactsSections"));
+
   return (
     <div
-      id='contacts-page'> 
-      <Suspense
-        fallback={null}>
-        <ContactsSections />
-      </Suspense>
-
+      id="contacts-page">
+      {ContactsSections ? <ContactsSections /> : <Loading />}
     </div>
-  )
+  );
 }
 
-export default PageTransition(ContactsPage)
+ 
+
+export default PageTransition(memo(ContactsPage));

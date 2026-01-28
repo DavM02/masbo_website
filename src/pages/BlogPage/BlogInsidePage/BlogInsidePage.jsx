@@ -1,21 +1,19 @@
-import PageTransition from "@components/PageTransition/PageTransition"
-import { lazy, Suspense } from "preact/compat"
-
- 
-
-const BlogInsideSections = lazy(() => import("./BlogInsideSections"))
+import PageTransition from "@components/PageTransition/PageTransition";
+import { useLazyComponent } from "@hooks/useLazyComponent";
+import Loading from "@components/shared/Loading/Loading";
+import { memo } from "preact/compat";
 
 function BlogInsidePage() {
- 
+  const BlogInsideSections = useLazyComponent(() => import("./BlogInsideSections"));
+
   return (
     <div
       id="blog-inside-page">
-      <Suspense
-        fallback={null}>
-        <BlogInsideSections />
-      </Suspense>
+      {BlogInsideSections ? <BlogInsideSections /> : <Loading />}
     </div>
-  )
+  );
 }
 
-export default PageTransition(BlogInsidePage)
+ 
+
+export default PageTransition(memo(BlogInsidePage));

@@ -1,23 +1,18 @@
-import PageTransition from "@components/PageTransition/PageTransition"
-
-import { lazy, Suspense } from "preact/compat"
-   
-const HomeSections = lazy(() => import("./HomeSections"));
- 
+import PageTransition from "@components/PageTransition/PageTransition";
+import { useLazyComponent } from "@hooks/useLazyComponent";
+import Loading from "@components/shared/Loading/Loading";
+import { memo } from "preact/compat";
 
 function HomePage() {
- 
+
+  const HomeSections = useLazyComponent(() => import("./HomeSections"));
+
   return (
     <div
-      id='home-page'> 
-      <Suspense
-        fallback={null}>
-        <HomeSections />
-      </Suspense>
-     
-
+      id="home-page">
+      {HomeSections ? <HomeSections /> : <Loading />}
     </div>
-  )
+  );
 }
-
-export default PageTransition(HomePage)
+ 
+export default PageTransition(memo(HomePage));

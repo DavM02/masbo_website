@@ -1,15 +1,11 @@
 import PageTransition from "@components/PageTransition/PageTransition";
-import { useState, useEffect } from "preact/hooks";
+import { useLazyComponent } from "@hooks/useLazyComponent";
+import { memo } from "preact/compat";
 import Loading from "@components/shared/Loading/Loading";
 
 function TeamPage() {
-  const [ TeamSections, setTeamSections ] = useState(null);
-
-  useEffect(() => {
-    import("./TeamSections").then(module => {
-      setTeamSections(() => module.default);
-    });
-  }, []);
+  
+  const TeamSections = useLazyComponent(() => import("./TeamSections"));
 
   return (
     <div
@@ -19,4 +15,4 @@ function TeamPage() {
   );
 }
 
-export default PageTransition(TeamPage);
+export default PageTransition(memo(TeamPage));
