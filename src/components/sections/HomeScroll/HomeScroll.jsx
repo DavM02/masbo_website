@@ -11,7 +11,7 @@ import { useGSAP } from '@gsap/react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import useAnimation from "@hooks/useAnimation"
- 
+import { getScrollBar } from '@components/Scroll/ScrollAccess'
 import useMediaQ from '@hooks/useMediaQ'
 
 
@@ -49,6 +49,8 @@ export default function HomeScroll() {
             force3D: true,
           },
         });
+
+        getScrollBar()?.update()
       }
     };
    
