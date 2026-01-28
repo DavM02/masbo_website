@@ -1,0 +1,25 @@
+.flip3d {
+    width: 40px;
+    height: 40px;
+    background: $blue;
+    transform-style: preserve-3d;
+    animation: flip3d calc(1.3s * 1) ease-in-out infinite;
+}
+
+.loading.center-gr {
+    min-height: inherit;
+}
+
+@keyframes flip3d {
+    0% {
+        transform: rotateX(0) rotateY(0);
+    }
+
+    50% {
+        transform: rotateX(180deg) rotateY(0);
+    }
+
+    100% {
+        transform: rotateX(180deg) rotateY(180deg);
+    }
+}

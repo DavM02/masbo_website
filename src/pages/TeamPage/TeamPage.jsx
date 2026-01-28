@@ -1,5 +1,5 @@
 import PageTransition from "@components/PageTransition/PageTransition" 
- 
+import Loading from "@components/shared/Loading/Loading";
 
 import { lazy, Suspense } from "preact/compat"
 
@@ -11,9 +11,10 @@ function TeamPage() {
     <div
       id='team-page'> 
       <Suspense
-        fallback={null}>
+        fallback={    <Loading />}>
         <TeamSections />
       </Suspense>
+  
     </div>
   )
 }

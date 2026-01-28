@@ -107,6 +107,10 @@ main {
     // flex-grow: 1;
 }
 
+[id*="page"] {
+    min-height: inherit;
+}
+
 #scroll-wrapper {
     inset: 0;
     width: 100%;
