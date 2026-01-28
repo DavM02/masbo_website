@@ -1,14 +1,20 @@
-import PortfolioHeading from "@components/sections/PortfolioHeading/PortfolioHeading";
-import Portfolio from "@components/sections/Portfolio/Portfolio";
-import PortfolioInsidePage from '@pages/PortfolioPage/PortfolioInsidePage/PortfolioInsidePage';
 import SmoothAppearance from '@ui/SmoothAppearance';
 import PageTransition from "@components/PageTransition/PageTransition";
 import { AnimatePresence } from 'framer-motion';
 import { Routes, Route, useLocation } from "react-router-dom";
 import { getScrollBar } from "@components/Scroll/ScrollAccess";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { lazy, Suspense } from "preact/compat";
+
+import PortfolioHeading from "@components/sections/PortfolioHeading/PortfolioHeading"
+import PortfolioInsidePage from './PortfolioInsidePage/PortfolioInsidePage';
+ 
+
+const Portfolio = lazy(() => import("@components/sections/Portfolio/Portfolio"))
  
 function PortfolioPage() {
+
+
   const location = useLocation();
 
   const subKey = location.pathname.replace('/portfolio', '') || 'index';
@@ -81,7 +87,10 @@ function PortfolioPage() {
             key={subKey}>
             <Route
               index
-              element={<Portfolio />} />
+              element={<Suspense
+                fallback={null}>
+                <Portfolio />
+              </Suspense>} />
 
             <Route
               path=":slug"

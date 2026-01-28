@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState } from 'preact/hooks'
 import './details.scss'
 import { AnimatePresence } from 'framer-motion'
 import DetailsTabs from './DetailsTabs'

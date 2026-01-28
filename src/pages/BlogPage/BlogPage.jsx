@@ -1,9 +1,9 @@
-import BlogHeading from "@sections/BlogHeading/BlogHeading";
-
 import PageTransition from "@components/PageTransition/PageTransition"
-import Blog from "@components/sections/Blog/Blog";
  
-
+import { lazy, Suspense } from "preact/compat";
+ 
+ 
+const BlogSections = lazy(() => import("./BlogSections"))
  
 
 function BlogPage() {
@@ -12,11 +12,11 @@ function BlogPage() {
     <div
       id='blog-page'> 
  
-      <BlogHeading />
-
-      <Blog />
+      <Suspense
+        fallback={null}>
+        <BlogSections />
+      </Suspense>
  
-
     </div>
   )
 }

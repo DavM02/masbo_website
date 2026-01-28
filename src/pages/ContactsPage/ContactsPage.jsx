@@ -1,25 +1,21 @@
 
 import PageTransition from "@components/PageTransition/PageTransition"
-import JoinForm from "@components/sections/JoinForm/JoinForm"
-import ContactiHeasing from "@components/sections/ContactsHeading/ContactsHeading"
-import Contacts from "@components/sections/Contacts/Contacts"
-import Map from "@components/sections/Map/Map"
- 
 
  
+
+import { lazy, Suspense } from "preact/compat"
+  
+const ContactsSections = lazy(() => import("./ContactsSections"));
 
 function ContactsPage() {
  
   return (
     <div
       id='contacts-page'> 
-      <ContactiHeasing />
-
-      <Contacts />
- 
-      <JoinForm />
- 
-      <Map />
+      <Suspense
+        fallback={null}>
+        <ContactsSections />
+      </Suspense>
 
     </div>
   )

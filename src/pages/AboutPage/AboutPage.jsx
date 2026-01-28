@@ -1,27 +1,18 @@
 import PageTransition from "@components/PageTransition/PageTransition";
-import AboutHeading from "@sections/AboutHeading/AboutHeading";
-import Goals from "@sections/Goals/Goals";
-import Details from "@sections/Details/Details";
-import AboutSlider from "@sections/AboutSlider/AboutSlider";
-import Achievements from "@sections/Achievements/Achievements";
-import Philosophy from "@sections/Philosophy/Philosophy";
 
+import { lazy, Suspense} from "preact/compat"
+ 
+ 
+const AboutSections = lazy(() => import("./AboutSections"));
 
 function AboutPage() {
   return (
     <div
       id="about-page">
-      <AboutHeading />
-
-      <Goals />
-
-      <Details />
-
-      <AboutSlider />
-
-      <Philosophy />
-
-      <Achievements />
+      <Suspense
+        fallback={null}>
+        <AboutSections />
+      </Suspense>
     </div>
   )
 }

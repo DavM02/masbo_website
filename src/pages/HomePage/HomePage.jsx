@@ -1,8 +1,8 @@
-import Home from "@sections/Home/Home"
-import HomeScroll from "@sections/HomeScroll/HomeScroll"
 import PageTransition from "@components/PageTransition/PageTransition"
- 
 
+import { lazy, Suspense } from "preact/compat"
+   
+const HomeSections = lazy(() => import("./HomeSections"));
  
 
 function HomePage() {
@@ -10,11 +10,11 @@ function HomePage() {
   return (
     <div
       id='home-page'> 
- 
-      <Home />
-
-      <HomeScroll />
-
+      <Suspense
+        fallback={null}>
+        <HomeSections />
+      </Suspense>
+     
 
     </div>
   )

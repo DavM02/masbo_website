@@ -1,21 +1,19 @@
 import PageTransition from "@components/PageTransition/PageTransition" 
-import TeamHeading from "@components/sections/TeanHeading/TeamHeading"
-import Team from "@components/sections/Team/Team"
-import JoinTeam from "@components/sections/JoinTeam/JoinTeam"
-import JoinForm from "@components/sections/JoinForm/JoinForm"
+ 
+
+import { lazy, Suspense } from "preact/compat"
+
+const TeamSections = lazy(() => import("./TeamSections"));
 
 function TeamPage() {
- 
+
   return (
     <div
       id='team-page'> 
-      <TeamHeading />
-
-      <Team />
-
-      <JoinTeam />
-
-      <JoinForm />
+      <Suspense
+        fallback={null}>
+        <TeamSections />
+      </Suspense>
     </div>
   )
 }

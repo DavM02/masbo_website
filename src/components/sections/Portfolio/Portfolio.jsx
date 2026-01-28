@@ -1,5 +1,5 @@
 import './portfolio.scss';
-import { useState } from 'react';
+import { useState } from 'preact/hooks';
 import { portfolioData } from './PortfolioData';
 import PortfolioCard from './PortfolioCard';
 import { AnimatePresence, motion } from 'framer-motion';

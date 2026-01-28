@@ -1,5 +1,5 @@
 import './reviews.scss'
-import { useRef, useState } from 'react'
+import { useRef, useState } from 'preact/hooks'
 import { AnimatePresence, motion } from 'framer-motion'
 
 import useMediaQ from '@hooks/useMediaQ'

@@ -1,6 +1,6 @@
 import { createPortal } from "preact/compat";
 import Logo from '@assets/icons/main-logo.svg?react'
-import { useEffect } from 'react';
+import { useEffect } from 'preact/hooks';
 import { getScrollBar } from '../Scroll/ScrollAccess';
 import { gsap } from "gsap";
 import { useLocation } from "react-router-dom";
