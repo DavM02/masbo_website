@@ -24,7 +24,14 @@ function PortfolioPage() {
         
         onExitComplete={() => {
 
-          ScrollTrigger.killAll()
+        
+          ScrollTrigger.getAll().forEach(trigger => {
+            if (
+              trigger.vars.id !== "header_trigger_1" 
+            ) {
+              trigger.kill();
+            }
+          });
 
           if (!window.location.hash.includes('portfolio')) return;
 

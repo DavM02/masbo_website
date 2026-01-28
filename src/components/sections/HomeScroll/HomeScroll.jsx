@@ -55,8 +55,6 @@ export default function HomeScroll() {
     requestAnimationFrame(() => {
       ScrollTrigger.getById("home_trigger")?.kill()
       createAnimation()
-    
-  
     }
     )
  
