@@ -7,7 +7,12 @@ import Icon6 from "@assets/icons/icon-6.svg?react"
 import ImageBlock from "../ImageBlock";
 import InfoBlock from "../InfoBlock";
 import MainButton from "@ui/buttons/MainButton"
+import { useNavigate } from "react-router-dom";
+
 export default function InvestmentProjects() {
+
+  const navigate = useNavigate()
+
   return (
     <section
       className="investment-projects">
@@ -35,6 +40,7 @@ export default function InvestmentProjects() {
 
             <MainButton
               arrow={false}
+              onClick={() => navigate('/contact')}
               type="button">
               Order The Project
             </MainButton>

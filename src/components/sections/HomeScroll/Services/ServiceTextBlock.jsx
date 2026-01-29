@@ -1,6 +1,8 @@
 import MainButton from '@ui/buttons/MainButton';
-
+import { useNavigate } from 'react-router-dom';
 export default function ServiceTextBlock() {
+
+  const navigate = useNavigate()
   return (
  
     <div
@@ -19,6 +21,7 @@ export default function ServiceTextBlock() {
             </p>
 
             <MainButton
+              onClick={() => navigate('/portfolio')}
               arrow={true}
               type='button'>Learn more</MainButton>
           </div>

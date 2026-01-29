@@ -1,14 +1,11 @@
 import './footer.scss'
-import Instagram from "@assets/icons/instagram.svg?react";
-import Facebook from "@assets/icons/facebook.svg?react";
-import Twitter from "@assets/icons/twitter.svg?react";
-
-import Telegram from "@assets/icons/telegram.svg?react";
-
-import Youtube from "@assets/icons/youtube.svg?react";
+import { SocialList } from './SocialList';
 import { Link } from 'react-router-dom';
 import logo from "@assets/icons/MASBO_Logo 2.svg";
 import MobileSocials from '@components/shared/MobileSocials/MobileSocials';
+import { LinksList } from './LinksList';
+import { popularLinks, hotLinks } from './LinksConfig';
+
 
 export default function Footer() {
   return (<footer>
@@ -73,32 +70,16 @@ export default function Footer() {
             </h5>
         
            
+            <LinksList
+              items={popularLinks} />
 
-            <ul>
-              <li> <Link>  Arhitexture</Link> </li> 
-
-              <li>   <Link>Modern design</Link> </li> 
-
-              <li>   <Link>Our Services</Link> </li> 
-
-              <li>   <Link>How we work</Link> </li> 
-
-              <li>   <Link>Order the project</Link> </li> 
-            </ul>
           </div>
 
           <div>
             <h5>Hot links</h5>
 
-            <ul>
-              <li>   <Link>       Our team</Link> </li> 
-
-              <li>   <Link>Our Services</Link> </li> 
-
-              <li>   <Link>   How to order </Link> </li> 
-
-              <li>   <Link>Last project</Link> </li> 
-            </ul>
+            <LinksList
+              items={hotLinks} />
           </div>
 
           <div
@@ -106,60 +87,7 @@ export default function Footer() {
             <h5>Social</h5>
             
 
-
-            <ul >
-              <li
-                className='row center-y gap-15'>
-                <a
-                  href='#'>
-                  <Facebook />
-                </a>
-
-                <h4>  Facebook</h4>
-                
-              </li>
-
-              <li
-                className='row center-y gap-15'>
-                <a
-                  href='#'>
-                                  
-                  <Instagram />
-                </a>
-
-                <h4>   Instagram</h4>
-          
-              
-                
-              </li>
-
-              <li
-                className='row center-y gap-15'>
-                <a
-                  href='#'> <Twitter /></a>
-
-                <h4>  Twiter</h4>
-                
-              </li>
-
-              <li
-                className='row center-y gap-15'>
-                <a
-                  href='#'><Youtube /></a>
-
-                <h4>   Youtube</h4>
-                
-              </li>
-
-              <li
-                className='row center-y gap-15'>
-                <a
-                  href='#'> <Telegram /></a>
-
-                <h4>    Telegram</h4>
-                
-              </li>
-            </ul>
+            <SocialList />
           </div>
         </div>
               
@@ -178,7 +106,7 @@ export default function Footer() {
       className='label center-gr'>
       <span
         className='fs-12 text-white text-center'>
-        © {new Date().getFullYear()} .All Rioghts Reserved.
+        © {new Date().getFullYear()} .All Rights Reserved.
       </span>
     </div>
   </footer>)

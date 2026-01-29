@@ -1,6 +1,6 @@
 import { extraLinks } from "../Links"
-import { Link } from "react-router-dom"
-export default function ExtraLinks() {
+import { NavLink } from "react-router-dom"
+export default function ExtraLinks({closeTl}) {
   return (
     <div
           
@@ -8,12 +8,13 @@ export default function ExtraLinks() {
       <ul
    
         className='column gap-20'>
-        {extraLinks.map(([ path, label ]) => (
+        {extraLinks.map(([ path, label ], i) => (
           <li
+            onClick={(i === 0 || i === 2 || i===4) ? () => {closeTl.current.restart()} : undefined}
             key={path}>
-            <Link
+            <NavLink
               to={path}>{label}
-            </Link></li>
+            </NavLink></li>
         ))}
       </ul>
 

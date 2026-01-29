@@ -16,14 +16,60 @@
 
   <link rel="preload" href="/src/assets/noise.gif" as="image" />
 
-  <link rel="preload" href="/pageLoading.css" as="style" crossorigin="anonymous">
-  <link rel="stylesheet" href="/pageLoading.css" crossorigin="anonymous">
-  
+  <!-- <link rel="preload" href="/pageLoading.css" as="style" crossorigin="anonymous">
+  <link rel="stylesheet" href="/pageLoading.css" crossorigin="anonymous"> -->
+
   <script defer>
     if ("scrollRestoration" in window.history) {
       window.history.scrollRestoration = "manual";
     }
   </script>
+
+  <style>
+    body {
+      background-color: #151517;
+    }
+
+    .page-loading {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 885;
+    }
+
+    .page-loading.index .strips>div {
+      background-color: #1C6BCF;
+    }
+
+    .page-loading.index svg path {
+      stroke: #E9E9E9;
+    }
+
+    .page-loading .strips {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      z-index: -1;
+    }
+
+    .page-loading svg path {
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+    }
+
+    .page-loading .strips>div {
+      transform: translateZ(0);
+      height: 100%;
+      margin-left: -1px;
+      flex: 1 0 0;
+      background-color: #151517;
+      clip-path: inset(0 0 0 0);
+    }
+  </style>
 </head>
 
 <body>

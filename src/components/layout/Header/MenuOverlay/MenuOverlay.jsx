@@ -51,7 +51,8 @@ function MenuOverlay({ openTl, closeTl }) {
           onClick={() => closeTl.current.restart()}
           isMobile={isMobile} />
 
-        {!isMobile && <ExtraLinks />}
+        {!isMobile && <ExtraLinks
+          closeTl={closeTl} />}
 
         <div
           className="column s-between">

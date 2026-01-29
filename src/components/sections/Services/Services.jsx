@@ -4,7 +4,7 @@ import DraggableSlider from '@components/shared/DraggableSlider/DraggableSlider'
 import MainButton from '@ui/buttons/MainButton';
 import './services.scss';
 import ServicesData from './ServicesData'
-
+import { useNavigate } from 'react-router-dom';
 
 export default function Services() {
   const sliderRef = useRef(null);
@@ -14,6 +14,8 @@ export default function Services() {
     setCurrentIndex(index);
     sliderRef.current?.scrollTo(index);
   };
+
+  const navigate = useNavigate()
 
   return (
     <>
@@ -62,6 +64,7 @@ export default function Services() {
 
                   <MainButton
                     arrow={false}
+                    onClick={() => navigate('/contact')}
                     type="button">
                     Order The Project
                   </MainButton>

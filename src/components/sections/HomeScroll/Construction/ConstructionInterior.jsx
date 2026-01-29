@@ -12,9 +12,14 @@ import img10 from "@assets/img-10.jpg";
 import Icon1 from "@assets/icons/icon-1.svg?react";
 import Icon3 from "@assets/icons/icon-3.svg?react";
 import Icon4 from "@assets/icons/icon-4.svg?react";
+
+import { useNavigate } from "react-router-dom";
  
 
 export default function ConstructionInterior() {
+
+  const navigate = useNavigate()
+
   return (
     <section
       className="construction">
@@ -57,6 +62,9 @@ export default function ConstructionInterior() {
 
             <MainButton
               arrow={false}
+              onClick={() => {
+                navigate('/contact')
+              }}
               type="button">
               Order The Project
             </MainButton>
@@ -105,7 +113,10 @@ export default function ConstructionInterior() {
 
             <MainButton
               arrow={false}
-              type="button">
+              type="button"
+              onClick={() => {
+                navigate('/contact')
+              }}>
               Order The Project
             </MainButton>
           </div>

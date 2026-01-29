@@ -8,9 +8,9 @@ export const menuLinks = [
 ];
 
 export const extraLinks = [
-  [ '/technologies', 'Technologies' ],
-  [ '/approach', 'Our approach' ],
-  [ '/projects', 'Last projects' ],
+  [ '/news/blog-20', 'Technologies' ],
+  [ '/about', 'Our approach' ],
+  [ '/portfolio', 'Last projects' ],
   [ '/team', 'Become a part of team' ],
-  [ '/investment', 'For investors' ],
+  [ '/news/blog-21', 'For investors' ],
 ];

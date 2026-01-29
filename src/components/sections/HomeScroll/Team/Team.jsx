@@ -1,7 +1,10 @@
 import MainButton from "@ui/buttons/MainButton";
 import SplitAnimation from "./SplitAnimation";
-
+import { useNavigate } from "react-router-dom";
 export default function Team() {
+
+  const navigate = useNavigate()
+  
   return (
     <section
       className="team">
@@ -25,6 +28,9 @@ export default function Team() {
           </p>
 
           <MainButton
+            onClick={() => {
+              navigate('/contact')
+            }}
             arrow={true}>Let’s work together</MainButton>
         </div>
       </div>

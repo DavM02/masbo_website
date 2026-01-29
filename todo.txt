@@ -1,10 +1,6 @@
 3. replace contents + images in slider
   
-13. add lazy loading
-14. add loading for portofolio + data fethcing + filter url
+ 14. add loading for portofolio + data fethcing + filter url
  
-   
-
-все ссылки и кнопки кликабеьны
-
+ 
  

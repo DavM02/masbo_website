@@ -1,7 +1,11 @@
 import MainButton from '@ui/buttons/MainButton'
 import './projects.scss'
 import ProjectsList from '@components/shared/ProjectsList/ProjectsList'
+import { useNavigate } from 'react-router-dom'
+
 export default function Projects() {
+
+  const navigate = useNavigate()
   return (
     <section
       className='projects'>
@@ -26,6 +30,7 @@ export default function Projects() {
               </p>
 
               <MainButton
+                onCLick={() => navigate('/portfolio')}
                 type="button">
                 learn more
               </MainButton>

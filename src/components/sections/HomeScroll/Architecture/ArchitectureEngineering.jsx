@@ -11,7 +11,12 @@ import Icon2 from "@assets/icons/icon-2.svg?react";
 
 import ImageBlock from "../ImageBlock";
 
+import { useNavigate } from "react-router-dom";
+
 export default function ArchitectureEngineering() {
+
+  const navigate = useNavigate()
+
   return (
     <section
       className="architecture">
@@ -62,6 +67,7 @@ export default function ArchitectureEngineering() {
 
             <MainButton
               arrow={false}
+              onClick={() => navigate('/contact')}
               type="button">
               Order The Project
             </MainButton>
