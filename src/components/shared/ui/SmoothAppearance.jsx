@@ -5,7 +5,7 @@ export default function SmoothAppearance({ blur, Tag = motion.div, updateLayout,
   return (
     <Tag
 
-      onAnimationComplete={(e) => {
+      onAnimationComplete={() => {
          
  
         if (updateLayout) {

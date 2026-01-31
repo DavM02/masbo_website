@@ -17,7 +17,7 @@ export default function Projects() {
             className='text-wrapper row gap-50'>
             <h1
               className='capitalize'>
-                Our <br /> Approach
+              Our <br /> Approach
             </h1>
 
 
