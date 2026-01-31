@@ -4,10 +4,10 @@ import Observer from "@components/shared/Observer/Observer";
 import "./numbers.css";
 
 const numbers = [
-  { num: 123, title: "successful projects" },
-  { num: 1235, title: "people who work with us" },
-  { num: 23, title: "urban planning projects" },
-  { num: 1012, title: "Modern interiors" },
+  { num: 123, title: "Completed Projects" },
+  { num: 85, title: "Clients Served" },
+  { num: 27, title: "Urban Planning Projects" },
+  { num: 42, title: "Modern Interiors Designed" },
 ];
 
 export default function Numbers() {

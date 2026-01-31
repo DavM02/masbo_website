@@ -5,7 +5,9 @@ export default function PortfolioInsidePage() {
  
   return (
     <div
-      className="portfolio-inside-page">
+      className="portfolio-inside-page"
+    
+      style={{ minHeight: "inherit" }}>
       <PortfolioInsideSections />
     </div>
   )

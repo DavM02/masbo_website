@@ -1,4 +1,4 @@
-import { extraLinks } from "../Links"
+import { extraLinks } from "../LinksConfig"
 import { Link } from "react-router-dom"
 export default function HotLinks() {
   return (

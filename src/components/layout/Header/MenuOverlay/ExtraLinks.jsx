@@ -1,4 +1,4 @@
-import { extraLinks } from "../Links"
+import { extraLinks } from "../LinksConfig"
 import { NavLink } from "react-router-dom"
 export default function ExtraLinks({closeTl}) {
   return (
@@ -13,6 +13,7 @@ export default function ExtraLinks({closeTl}) {
             onClick={(i === 0 || i === 2 || i===4) ? () => {closeTl.current.restart()} : undefined}
             key={path}>
             <NavLink
+              end
               to={path}>{label}
             </NavLink></li>
         ))}

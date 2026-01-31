@@ -21,10 +21,7 @@ export default function Team() {
 
           <p
             className="to-middle text-white text-center capitalize">
-            MasBo is an architectural group working in the field of architecture
-            and urban planning. The company was founded in 2006. We offer a full
-            range of services from interior design, individual cottages to the
-            design and construction of residential complexes.
+            MasBo is an architectural studio specializing in urban planning and contemporary design. We are trusted by clients for our precision, responsibility, and consistently high standards, bringing complex ideas to life through a clear process and thoughtful execution.
           </p>
 
           <MainButton

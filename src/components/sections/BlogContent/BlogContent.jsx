@@ -9,7 +9,7 @@ import {
 } from './BlogComponents';  
 
 export default function BlogContent({ data }) {
-  const { intro, image, sections } = data
+  const { intro, mainImage, sections } = data
 
   return (
     <section
@@ -21,7 +21,7 @@ export default function BlogContent({ data }) {
           text={intro} />
 
         <BlogParallaxImage
-          src={image}
+          src={`${import.meta.env.BASE_URL}${mainImage}`}
           wrapperClass="blog-image placeholder-3"
           height="140%" />
 

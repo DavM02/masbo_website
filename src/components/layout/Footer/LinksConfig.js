@@ -10,7 +10,7 @@ export const hotLinks = [
   { to: "/team", label: "Our team" },
   { to: "/services", label: "Our Services" },
   { to: "/contact", label: "How to order" },
-  { to: "/portfolio", label: "Last project" },
+  { to: "/portfolio", label: "Latest Project" },
 ];
 
  

@@ -19,20 +19,15 @@ export default function Home() {
             className="row center-y gap-50">
             <h1
               className="capitalize">
-              from idea
-              <br /> to life
+             From Vision 
+              <br /> to Form
             </h1>
 
             <p
               className="to-small text-white capitalize">
-              Arhitecture modern technology
-              <br /> MasBo is an architectural group working in the field of
-              architecture and
-
-              <br /> urban planning. For our customers, we are known as a
-              reliable partner
-
-              <br /> with high standards of quality and responsibility.
+              Architecture shaped by technology and purpose.
+              <br />  MasBo is an architectural studio specializing in urban planning and contemporary design.
+              We are trusted by clients for our precision, responsibility, and consistently high standards, bringing complex ideas to life through a clear process and thoughtful execution.
             </p>
           </div>
         </div>

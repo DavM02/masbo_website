@@ -12,12 +12,12 @@ export default function JoinTeam() {
           className='column center-y'>
           <h3
             className="text-gray capitalize">
-            Do you want to become a part of team?
+            Want to Join Our Team?
           </h3>
 
           <p
             className='static text-gray text-center capitalize'>
-            We offer innovative engineering solutions that ensure the successful achievement of the client&apos;s goals. Because engineering is a result-oriented strategy in action. An i
+            We are always looking for talented and passionate individuals. At MasBo, you will work on innovative projects that shape the future of architecture and design. Your skills and ideas will be valued and developed in a supportive environment.
           </p>
         </div>
 

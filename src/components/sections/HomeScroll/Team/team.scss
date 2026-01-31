@@ -44,10 +44,10 @@
                 overflow: hidden;
 
 
-                img {
+                // img {
                     height: $imgSize;
                     width: $imgSize;
-                }
+                // }
 
                 @for $item from 1 through 5 {
 

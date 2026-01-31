@@ -10,14 +10,14 @@ const reviewsData = [
     img: img2,
     position: "Art Director, Netflix",
     stars: 5,
-    text: "We offer innovative engineering solutions that ensure the successful achievement of our clients' goals. Each project is approached individually, with detailed attention to design, functionality, and testing. Our team guarantees a reliable and efficient outcome, making sure every system meets expectations and works seamlessly."
+    text: "MasBo transformed our ideas into a reality with precision and creativity. The team anticipated challenges and provided practical solutions, keeping the project on schedule. The final result is a high-quality, fully integrated solution that adds real value to our operations."
   },
   {
     name: "James Thompson",
     img: img1,
     position: "Project Manager, Tesla",
     stars: 5,
-    text: "The collaboration with this team exceeded our expectations. Their careful planning and technical expertise helped us complete the project ahead of schedule. Each stage of development was handled professionally, resulting in a robust solution that is now being successfully implemented across multiple departments."
+    text: "The collaboration with this team exceeded our expectations. Their careful planning helped us complete the project ahead of schedule. Each stage of development was handled professionally, resulting in a robust solution that is now being successfully implemented across multiple departments."
   },
   {
     name: "Olivia Martinez",

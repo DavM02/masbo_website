@@ -10,9 +10,9 @@ export default function PortfolioHeading() {
         <div
           className="row center-y">
           <h1
-            className="capitalize text-black">Perfect is when <br /> a Modern solution with
+            className="capitalize text-black">Perfection:  <br /> modern solutions
 
-            <br /> love to life</h1>
+            <br />  crafted with care</h1>
         </div>
       </div>
     </Intro>

@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import useMediaQ from "@hooks/useMediaQ";
-import { menuLinks } from "./Links";
+import { menuLinks } from "./LinksConfig";
  
 export default function Menu() {
 

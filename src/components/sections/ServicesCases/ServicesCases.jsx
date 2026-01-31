@@ -5,6 +5,7 @@ import DraggableSlider from '@components/shared/DraggableSlider/DraggableSlider'
 import SmoothAppearance from '@ui/SmoothAppearance';
 import { AnimatePresence } from 'framer-motion';
 import { categories, imagesByCategory } from './servicesCasesData';
+import { useNavigate } from 'react-router-dom';
 
 export default function ServicesCases() {
   const [ activeCategory, setActiveCategory ] = useState('All Projects');
@@ -12,6 +13,8 @@ export default function ServicesCases() {
   const handleCategoryClick = (label) => {
     setActiveCategory(label);
   };
+
+  const navigate = useNavigate()
 
   return (
     <section
@@ -22,7 +25,7 @@ export default function ServicesCases() {
         <div
           className='column center-x'>
           <span
-            className="fs-14 text-black up-case">Last Projects</span>
+            className="fs-14 text-black up-case">Latest Projects</span>
 
           <h3
             className='text-gray'>Selected case <br /> studies</h3>
@@ -43,6 +46,7 @@ export default function ServicesCases() {
           </ul>
 
           <MainButton
+            onClick={()=> {navigate('/portfolio')}}
             arrow={true}
             type='button'>
             See all projects
@@ -58,7 +62,7 @@ export default function ServicesCases() {
               blur={true}>
               <DraggableSlider
                 options={{ dragFree: true }}
-                images={imagesByCategory[activeCategory].map(src => ({ src }))} />
+                images={imagesByCategory[activeCategory].map(src => ({ src: `${import.meta.env.BASE_URL}${src}` }))} />
             </SmoothAppearance>
           </AnimatePresence>
         </div>

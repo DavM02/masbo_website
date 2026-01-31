@@ -41,6 +41,7 @@ export default defineConfig({
         { find: "@pages", replacement: path.resolve(__dirname, "./src/pages") },
         { find: "@hooks", replacement: path.resolve(__dirname, "./src/hooks") },
         { find: "@context", replacement: path.resolve(__dirname, "./src/context") },
+        { find: "@db", replacement: path.resolve(__dirname, "./src/db") },
       ],
     }),
     svgr(),  

@@ -3,7 +3,7 @@ import SmoothAppearance from '../SmoothAppearance'
 export default function Modal({children}) {
   return (
     <SmoothAppearance
-      blur={"true"}
+      blur={true}
       className='modal'> 
       {children}
     </SmoothAppearance>

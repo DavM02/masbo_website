@@ -1,8 +1,29 @@
 
 import { motion } from 'framer-motion'
-export default function SmoothAppearance({ blur, Tag = motion.div, ...props }) {
+import { getScrollBar } from '@components/Scroll/ScrollAccess';
+export default function SmoothAppearance({ blur, Tag = motion.div, updateLayout,  ...props }) {
   return (
     <Tag
+
+      onAnimationComplete={(e) => {
+         
+ 
+        if (updateLayout) {
+          const scrollBar = getScrollBar();
+          scrollBar?.update();
+        }
+    
+      }}
+
+      onAnimationStart={(e) => {
+       
+        if (updateLayout && e.opacity == 1) {
+          const scrollBar = getScrollBar();
+          scrollBar?.update();
+        }
+    
+      }}
+
       transition={{
         duration: 0.5,
         ease: [ 0.645,

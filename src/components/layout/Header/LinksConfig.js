@@ -10,7 +10,7 @@ export const menuLinks = [
 export const extraLinks = [
   [ '/news/blog-20', 'Technologies' ],
   [ '/about', 'Our approach' ],
-  [ '/portfolio', 'Last projects' ],
+  [ '/portfolio/project-33', 'Latest Project' ],
   [ '/team', 'Become a part of team' ],
   [ '/news/blog-21', 'For investors' ],
 ];

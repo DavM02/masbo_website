@@ -3,9 +3,9 @@ export default function GoalsIntro() {
  
 
   const lines = [
-    "Arhitecture modern technology",
-    "MasBo is an architectural group",
-    "working in the field",
+    "MasBo is an architectural studio",
+    "specializing in urban planning",
+    "and contemporary design.",
   ];
 
  

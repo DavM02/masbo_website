@@ -36,7 +36,7 @@ export default function PortfolioGallery({ images }) {
       id="project-gallery">
       <DraggableSlider
         options={{ dragFree: true }}
-        images={images.map((src) => ({ src }))} />
+        images={images.map((src) => ({ src: `${import.meta.env.BASE_URL}${src}` }))} />
     </section>
   )
 }

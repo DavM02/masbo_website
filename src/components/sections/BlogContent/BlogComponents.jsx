@@ -56,7 +56,7 @@ export const BlogTextImageBlock = ({ paragraphs, image }) => (
         width="100%"
         height="100%"
         effect="opacity"
-        src={image} />
+        src={`${import.meta.env.BASE_URL}${image}`} />
     </div>
   </div>
 )

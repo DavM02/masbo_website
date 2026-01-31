@@ -14,7 +14,7 @@ import BlogPage from '@pages/BlogPage/BlogPage'
 import BlogInsidePage from './pages/BlogPage/BlogInsidePage/BlogInsidePage'
 import ContactsPage from '@pages/ContactsPage/ContactsPage'
 import PortfolioRoute from '@pages/PortfolioPage/PortfolioRoute'
-
+import NotFound from '@pages/NotFound/NotFound'
 
 export function App() {
  
@@ -25,8 +25,7 @@ export function App() {
   document.referrer.includes('masbo')
   );
 
- 
- 
+
   return (
     <>
       <MainContextProvider>
@@ -79,6 +78,11 @@ export function App() {
                 <Route
                   path="portfolio/*"
                   element={<PortfolioRoute />} />
+                
+                <Route
+                  path="*"
+                  element={<NotFound />} />
+
               </Routes>
             </AnimatePresence>
           </main>

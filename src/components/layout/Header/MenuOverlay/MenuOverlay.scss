@@ -110,6 +110,9 @@
             margin-top: 15%;
         }
 
+        .hot-links a {
+            &::after {display: none;}
+        }
     }
 
 

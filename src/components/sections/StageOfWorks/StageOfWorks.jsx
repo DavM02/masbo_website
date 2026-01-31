@@ -155,11 +155,10 @@ export default function StageOfWorks() {
 
         <p
           className="to-middle text-black capitalize">
-          We offer innovative engineering solutions that ensure the successful
-          achievement of the client's goals. Because engineering is a
-          result-oriented strategy in action.
-        </p>
+          At the heart of our approach is innovation and precision. We don’t just deliver engineering solutions—we craft strategies that are tailored to the unique challenges and goals of each client. Every decision we make, every design we implement, is focused on driving tangible results and creating measurable impact. Our work is a fusion of creativity, technical expertise, and a result-oriented mindset, ensuring that every project not only meets expectations but pushes boundaries. Engineering, for us, is more than calculations and plans—it’s a dynamic strategy in action, transforming ideas into real-world achievements and turning challenges into opportunities for success.        </p>
       </div>
     </section>
   );
 }
+
+

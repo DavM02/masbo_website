@@ -29,8 +29,7 @@ export default function Footer() {
 
           <p
             className='to-middle text-white capitalize'>
-            MasBo is an architectural group working in the field of architecture and urban planning. The company was founded in 2006. We offer a full range of services from interior design, individual cottages to the design and construction of residential complexes.
-          </p>
+            MasBo is an architectural studio specializing in urban planning and contemporary design. We are trusted by clients for our precision, responsibility, and consistently high standards, bringing complex ideas to life through a clear process and thoughtful execution.          </p>
                   
           <div
             className='row gap-25 wrap'>
@@ -43,16 +42,16 @@ export default function Footer() {
             </p>
 
             <p
-              className='to-middle text-white capitalize'>
+              className='to-middle text-white'>
               <span
-                className='font-bold'>
+                className='font-bold capitalize'>
                 Tel:
               </span> +3 (096) 029-81-18, +3 (063) 023-81-18
 
               <br />
 
               <span
-                className='font-bold'>
+                className='font-bold capitalize'>
                 Email:
               </span> office@masbo.com.ua 
             </p>
@@ -106,7 +105,7 @@ export default function Footer() {
       className='label center-gr'>
       <span
         className='fs-12 text-white text-center'>
-        © {new Date().getFullYear()} .All Rights Reserved.
+        © {new Date().getFullYear()}. All Rights Reserved.
       </span>
     </div>
   </footer>)

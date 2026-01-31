@@ -14,10 +14,10 @@ export default function TeamHeading() {
           className="row center-y">
           <h1
             className="capitalize">
-            The team that Builds  <br /> 
-            Ideas Driven by the 
-
-            <br /> Future.
+            A Team That Builds  <br /> 
+ 
+            Ideas with the 
+            <br /> Future in Mind.
 
 
           </h1>

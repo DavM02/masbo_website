@@ -12,7 +12,7 @@ export default function ContactiHeasing() {
           className="row center-y">
           <h1
             className="capitalize">
-            Were to Find us
+             Find us
 
           </h1>
         </div>

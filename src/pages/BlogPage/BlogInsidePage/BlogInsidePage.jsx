@@ -8,6 +8,7 @@ function BlogInsidePage() {
 
   return (
     <div
+      style={{ zIndex: 509, position: 'relative'}}
       id="blog-inside-page">
       {BlogInsideSections ? <BlogInsideSections /> : <Loading />}
     </div>

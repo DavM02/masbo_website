@@ -17,16 +17,16 @@ export default function Projects() {
             className='text-wrapper row gap-50'>
             <h1
               className='capitalize'>
-              how we are
-              <br /> working
+                Our <br /> Approach
             </h1>
 
 
             <div>
               <p
                 className='to-middle text-white capitalize'>
-                Arhitecture modern technology
-                Collaboration is a priority at MasBo. We believe that the best result can only be achieved through constant dialogue between all stakeholders. Our practice brings together experts in the field of architecture, design, engineering and construction, to solve any tasks assigned to us.
+                At MasBo, architecture meets modern technology.  
+                Collaboration drives every project — we bring together experts in architecture, design, engineering, and construction to create solutions that are both innovative and practical.  
+                Every step is carefully planned to ensure efficiency, quality, and a seamless experience for our clients.
               </p>
 
               <MainButton

@@ -36,7 +36,7 @@ export default function ConstructionInterior() {
             percentage={"55%"}
             icon={<Icon3 />}
             title="Construction"
-            text="MasBo is an architectural group working in <br/> the field of architecture and urban planning." />
+            text="Delivering reliable and efficient building solutions <br/> for modern structures." />
         </div>
 
         <div
@@ -57,8 +57,8 @@ export default function ConstructionInterior() {
 
             <p
               className="to-middle text-white capitalize">
-              We offer innovative engineering solutions that ensure the successful achievement of the client&apos;s goals. Because engineering is a result-oriented strategy in action. An individual approach and attention to detail in the development of engineering systems allows us to obtain reliable, verified solutions. Simply put, we think over the operation of facilities based on practical experience and scientific knowledge.
-            </p>
+              We design engineering systems that combine creativity with functionality.  
+              Each solution is tailored to the project, ensuring efficiency, safety, and long-term performance.            </p>
 
             <MainButton
               arrow={false}
@@ -76,8 +76,8 @@ export default function ConstructionInterior() {
           <InfoBlock
             percentage={"45%"}
             icon={<Icon4 />}
-            title="Interior"
-            text="MasBo is an architectural group working in <br/> the field of architecture and urban planning." />
+            title="Interior Design"
+            text="Creating thoughtful interiors that balance <br/> style, comfort, and practicality." />
 
           <ImageBlock
             src={img7}
@@ -108,8 +108,8 @@ export default function ConstructionInterior() {
 
             <p
               className="to-middle text-white capitalize">
-              We create a comfortable space for living and working, entertainment and education. High-quality and thoughtful design not only pleases the eye, but creates a healthy environment for a comfortable and intuitive use of the room.
-            </p>
+              We craft spaces that are functional, beautiful, and harmonious with their surroundings.  
+              Every detail is considered to enhance comfort, aesthetics, and usability.            </p>
 
             <MainButton
               arrow={false}
@@ -133,7 +133,7 @@ export default function ConstructionInterior() {
             percentage={"14%"}
             icon={<Icon1 />}
             title="Landscape Design"
-            text="MasBo is an architectural group working in <br/> the field of architecture and urban planning." />
+            text="Designing outdoor spaces that complement architecture <br/> and enhance daily life." />
         </div>
       </div>
     </section>

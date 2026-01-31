@@ -5,7 +5,7 @@ export default function ProjectItem({el}) {
       <div
         className='placeholder-1'>
         <LazyLoadImage
-          src={el.img}
+          src={`${import.meta.env.BASE_URL}${el.image}`}
           width={"100%"}
           height={"127px"}
           effect="opacity"
@@ -21,7 +21,7 @@ export default function ProjectItem({el}) {
 
       <p
         className='to-middle capitalize'>
-        {el.description}
+        {el.text}...
       </p>
     </li> 
   )

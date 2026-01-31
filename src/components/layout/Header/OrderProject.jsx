@@ -1,7 +1,7 @@
 import { useState } from "preact/hooks"
 import Portal from "@ui/Portal"
 import Overlay from "@ui/Overlay/Overlay"
-import { getScrollBar } from "../../Scroll/ScrollAccess"
+import { getScrollBar } from "@components/Scroll/ScrollAccess"
 import Modal from "@ui/Modal/Modal"
 import Form from "@ui/Form/Form"
 import CLoseOverlay from "@ui/CloseOverlay/CloseOverlay"

@@ -28,12 +28,12 @@ export default function ArchitectureEngineering() {
             percentage={"14%"}
             icon={<Icon1 />}
             title="Architecture"
-            text="MasBo is an architectural group working in  <br/> the field of architecture and urban planning." />
+            text="Designing functional and aesthetic spaces <br/> for modern urban life." />
 
           <InfoBlock
             icon={<Icon2 />}
             title="Engineering"
-            text="Modern solutions for the modern city." />
+            text="Applying innovative technical solutions  <br/> for sustainable buildings." />
 
           <ImageBlock
             src={img1}
@@ -53,17 +53,18 @@ export default function ArchitectureEngineering() {
             className="description">
             <h1
               className="capitalize">
-              innovative <br /> engineering &
+              Modern  <br /> Design   &
 
-              <br /> architecture
+              <br /> Real
 
-              <br /> solutions
+              <br /> Results
             </h1>
 
             <p
               className="to-middle text-white capitalize">
-              We offer innovative engineering solutions that ensure the successful achievement of the client&apos;s goals. Because engineering is a result-oriented strategy in action. An individual approach and attention to detail in the development of engineering systems allows us to obtain reliable, verified solutions. Simply put, we think over the operation of facilities based on practical experience and scientific knowledge.
-            </p>
+              We develop engineering solutions that combine creativity and practicality.  
+              Each project receives an individual approach, ensuring reliable systems and efficient operation.  
+              Our designs are grounded in real-world experience and advanced technical knowledge, delivering spaces that perform as they inspire.            </p>
 
             <MainButton
               arrow={false}

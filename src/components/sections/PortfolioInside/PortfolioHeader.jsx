@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-export default function PortfolioHeader() {
+export default function PortfolioHeader({ id }) {
   return (
     <div
       className="section-header row s-between">
@@ -25,7 +25,7 @@ export default function PortfolioHeader() {
       </div>
 
       <span
-        className="fs-14 text-black up-case">01</span>
+        className="fs-14 text-black up-case">{parseInt(id) > 9 ? id : "0"+ id}</span>
     </div>
   )
 }

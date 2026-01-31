@@ -1,4 +1,9 @@
 #blog {
+    min-height: inherit;
+
+    .container {
+        min-height: inherit;
+    }
 
     .categories {
         margin-bottom: 30px;

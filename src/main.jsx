@@ -1,14 +1,18 @@
-import { render } from 'preact'
-import './index.scss'
+import { render } from 'preact';
+import './index.scss';
 
 import {
   createHashRouter,
   createRoutesFromElements,
   Route,
   RouterProvider
-} from 'react-router-dom'
+} from 'react-router-dom';
 
-import { App } from './app'
+import { App } from './app';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+ 
+const queryClient = new QueryClient();
 
 const router = createHashRouter(
   createRoutesFromElements(
@@ -16,10 +20,14 @@ const router = createHashRouter(
       path="*"
       element={<App />} />
   )
-)
+);
 
+ 
 render(
-  <RouterProvider
-    router={router} />,
+  <QueryClientProvider
+    client={queryClient}>
+    <RouterProvider
+      router={router} />
+  </QueryClientProvider>,
   document.getElementById('app')
-)
+);

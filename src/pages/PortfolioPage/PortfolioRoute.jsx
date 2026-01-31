@@ -62,8 +62,7 @@ function PortfolioRoute() {
             getScrollBar()?.updatePluginOptions("overflow", {
               open: true,
             });
-            getScrollBar()?.update()
-
+ 
           }}
           onAnimationComplete={(e) => {
             if (e.opacity !== 1) return
@@ -72,11 +71,10 @@ function PortfolioRoute() {
               open: false,
             });
 
-            getScrollBar()?.update()
           }}
 
           id="portfolio-page-transition"
-          blur={false}
+          updateLayout={true}
           style={{position: 'relative', zIndex: 509}}
           key={subKey}>
           <Routes

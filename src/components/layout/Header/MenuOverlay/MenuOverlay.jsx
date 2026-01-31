@@ -56,7 +56,8 @@ function MenuOverlay({ openTl, closeTl }) {
 
         <div
           className="column s-between">
-          <SchemeList />
+          <SchemeList
+            onClick={() => closeTl.current.restart()}  />
 
           {!isMobile && (
             <p

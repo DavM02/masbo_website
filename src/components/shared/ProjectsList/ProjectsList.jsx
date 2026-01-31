@@ -1,39 +1,66 @@
-import img2 from "@assets/img-2.jpg"
-import img11 from "@assets/img-11.jpg"
-import img12 from "@assets/img-12.jpg"
+import { AnimatePresence, motion } from "framer-motion";
+import SmoothAppearance from "@ui/SmoothAppearance";
+import Loading from "@components/shared/Loading/Loading";
+import Error from "@components/shared/ui/Error/Error";
 import ProjectItem from "./ProjectItem";
 import './projectsList.scss'
+import { useFetch } from "@hooks/useFetch";
+import { getLatestNews } from "@db/loadData";
 
-const data = [
-  {
-    img: img2,
-    title: "How the industrial zone turned into a colorful microdistrict",
-    date: "25 september ", description: "We offer innovative engineering solutions that ensure the successful achievement of the client's goals. Because engineering is a result-oriented strategy in action."
-  },
-  {
-    img: img11,
-    title: "How the industrial zone turned into a colorful microdistrict",
-    date: "25 september ", description: "We offer innovative engineering solutions that ensure the successful achievement of the client's goals. Because engineering is a result-oriented strategy in action."
-  },
-  {
-    img: img12,
-    title: "How the industrial zone turned into a colorful microdistrict",
-    date: "25 september ", description: "We offer innovative engineering solutions that ensure the successful achievement of the client's goals. Because engineering is a result-oriented strategy in action."
-  }
-]
+function limitWords(text, limit = 22) {
+  return text.split(/\s+/).slice(0, limit).join(' ');
+}
+
+
 
 export default function ProjectsList() {
 
 
+  const {data, isFetching, isLoading, error = true} = useFetch(
+    'projects_list',
+    () => getLatestNews()
+  );    
+  
   return (
-    <ul
-      className="projects-list row gap-85">
-      {data.map((el, i) => (
-        <ProjectItem
-          el={el}
-          key={i} />
-      ))}
-    </ul>
+    <div
+      style={{ minHeight: "327px" }}>
+      <AnimatePresence
+        mode="wait">
+
+        {
+          (isLoading || isFetching) ? <SmoothAppearance
+            updateLayout={true} 
+            key={'loading'}
+            style={{minHeight: 'inherit'}}>
+            <Loading /> 
+          </SmoothAppearance> : (error) ?
+            <SmoothAppearance
+              updateLayout={true} 
+              key={'error'}
+              style={{minHeight: 'inherit'}}>
+              <Error
+                text={"no data found"} /> 
+            </SmoothAppearance> :
+ 
+            <SmoothAppearance
+              updateLayout={true} 
+              Tag={motion.ul}
+              className="projects-list row gap-85"
+              key={'projects-list'}>
+           
+              {data.map((el, i) => (
+                <ProjectItem
+                  el={{...el, text: limitWords(el.text, 22)  }}
+                  key={i} />
+              ))}
+             
+            </SmoothAppearance>
+      
+        }
+  
+      </AnimatePresence>
+    </div>
+
   );
 
 }

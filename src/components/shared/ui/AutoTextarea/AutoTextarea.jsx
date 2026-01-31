@@ -11,6 +11,7 @@ export default function AutoTextarea({ placeholder }) {
 
   return (
     <textarea
+      name="message"
       ref={ref}
       rows={1}
       placeholder={placeholder}

@@ -6,13 +6,15 @@ import PortfolioDescription from './PortfolioDescription'
 import './portfolioInside.scss'
 
 export default function PortfolioInside({ project }) {
+  console.log(project)
   return (
     <>
       <section
         id="portfolio-inside">
         <div
           className="container">
-          <PortfolioHeader />
+          <PortfolioHeader
+            id={project.id} />
 
           <PortfolioHero
             image={project.mainImage} />

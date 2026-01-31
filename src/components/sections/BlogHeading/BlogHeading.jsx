@@ -12,7 +12,7 @@ export default function AboutHeading() {
           className="row center-y">
           <h1
             className="capitalize">
-            blog
+            Latest from <br /> MasBo
 
 
           </h1>

@@ -1,6 +1,1 @@
-3. replace contents + images in slider
-  
- 14. add loading for portofolio + data fethcing + filter url
- 
- 
- 
+everything is done !

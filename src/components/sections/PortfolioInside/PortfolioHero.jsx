@@ -5,7 +5,7 @@ export default function PortfolioHero({ image }) {
 
   return (
     <ScrollParallaxImage
-      src={image}
+      src={`${import.meta.env.BASE_URL}${image}`}
       wrapperClass="main-img placeholder-1" />
   )
 }

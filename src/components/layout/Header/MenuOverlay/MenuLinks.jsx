@@ -1,4 +1,4 @@
-import { menuLinks } from "../Links"
+import { menuLinks } from "../LinksConfig"
 import {  NavLink } from "react-router-dom"
 export default function MenuLinks({isMobile, onClick}) {
   return (
@@ -11,6 +11,7 @@ export default function MenuLinks({isMobile, onClick}) {
           <li
             key={path}>
             <NavLink
+              end
               onClick={onClick}
               to={path}>{label}</NavLink></li>
         ))}

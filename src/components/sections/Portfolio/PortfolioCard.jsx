@@ -19,7 +19,7 @@ export default function PortfolioCard({ item }) {
         width="100%"
         height="100%"
         effect="opacity"
-        src={item.image} />
+        src={`${import.meta.env.BASE_URL}${item.image}`} />
 
       <div
         className="portfolio-card-description row gap-25">
@@ -34,7 +34,7 @@ export default function PortfolioCard({ item }) {
 
             <p
               className="to-middle text-white capitalize">
-              {item.description}
+              {item.previewDescription}
             </p>
           </div>
 

@@ -19,11 +19,21 @@
         }
 
     }
+
+
 }
 
 .projects {
+
+    h2 {
+        color: $white !important;
+    }
+
     .projects-list {
-        span, p, h5 {
+
+        span,
+        p,
+        h5 {
             color: $white !important;
         }
     }

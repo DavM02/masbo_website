@@ -1,5 +1,10 @@
 #portfolio {
     padding-top: 0 !important;
+    min-height: inherit;
+
+    .container {
+        min-height: inherit;
+    }
 
     .line:not(.portfolio-card-description .line) {
         background-color: $black;

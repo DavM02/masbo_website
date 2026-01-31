@@ -7,7 +7,7 @@ export default function PortfolioDescription({ description }) {
     image,
     problems,
   } = description
-
+ 
   return (
     <div
       className="project-description">
@@ -32,7 +32,7 @@ export default function PortfolioDescription({ description }) {
         <div
           className="placeholder-1">
           <LazyLoadImage
-            src={image}
+            src={`${import.meta.env.BASE_URL}${image}`}
             width="100%"
             height="100%"
             effect="opacity"

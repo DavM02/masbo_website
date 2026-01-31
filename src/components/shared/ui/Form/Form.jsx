@@ -8,8 +8,7 @@ export default function Form() {
       className="form-wrapper row s-between wrap gap-15">
       <h3
         className="text-gray">
-        Do you have any questions?
-        Fill the form below and our manager will contact you
+        Fill out the form below, and our manager will get in touch with you shortly.
       </h3>
       
       <div>
@@ -22,15 +21,18 @@ export default function Form() {
           <div
             className="row gap-45">
             <input
+              name='name'
               type="text"
               placeholder="Your Name*" />
 
             <input
+              name='email'
               type="email"
               placeholder="email*" />
           </div>
 
           <input
+            name='tel'
             type="tel"
             placeholder="phone number*" />
 

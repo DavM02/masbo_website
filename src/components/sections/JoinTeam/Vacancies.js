@@ -1,29 +1,28 @@
 const vacancies = [
   {
     title: "Architect",
-    workType: "work in office",
-    deadline: "Until 12.03.22",
+    workType: "Office-based",
+    deadline: "Until March 12, 2022",
     requirements: [
-      "Development of projects of residential and public buildings in stadiums PP, ER, RP, RD.",
-      "Work from Archicad, 3dsmax (Corona).",
-      "Having your own working laptop",
+      "Development of residential and public building projects (PP, ER, RP, RD stages).",
+      "Proficiency in Archicad and 3ds Max (Corona Renderer).",
+      "Own a personal laptop for work.",
     ],
     offer: [
-      "Salary rate from 15,000 + bonuses and bonuses, salary increase, and career growth.", "New experience in the project of housing and public buildings",
+      "Starting salary from 15,000 with bonuses, opportunities for raises and career growth.", "Gain valuable experience in residential and public building projects.",
     ],
   },
   {
-    title: "Interior designer",
-    workType: "work in office",
-    deadline: "Until 12.03.22",
+    title: "Interior Designer",
+    workType: "Office-based",
+    deadline: "Until March 12, 2022",
     requirements: [
-      "Development of projects of residential and public buildings in stadiums PP, ER, RP, RD.", "Having your own working laptop",
+      "Development of residential and public building projects (PP, ER, RP, RD stages).", "Own a personal laptop for work.",
     ],
     offer: [
-      "Salary rate from 15,000 + bonuses and bonuses, salary increase, and career growth.", "New experience in the project of housing and public buildings",
+      "Starting salary from 15,000 with bonuses, opportunities for raises and career growth.", "Gain valuable experience in residential and public building projects.",
     ],
   },
 ];
 
-
-export default vacancies
+export default vacancies;

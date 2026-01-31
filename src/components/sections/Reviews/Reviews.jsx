@@ -49,11 +49,11 @@ export default function Reviews() {
         <div
           className="text-center">
           <h3
-            className="text-gray">Connecting people around the world.</h3>
+            className="text-gray">Connecting people around the world</h3>
 
           <span
             className="fs-14 text-gray capitalize">
-            What is our clients say about us
+            What Clients Think About Us
           </span>
         </div>
 

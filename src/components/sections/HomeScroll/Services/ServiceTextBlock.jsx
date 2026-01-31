@@ -12,13 +12,13 @@ export default function ServiceTextBlock() {
         <div
           className='text-wrapper row gap-50'>
           <h1
-            className='capitalize'>What we <br /> engage?</h1>
+            className='capitalize'>  Our <br /> Expertise</h1>
 
           <div>
             <p
               className='to-middle text-white capitalize'>
-              Our portfolio is a long-term experience, a variety of complex projects and the implementation of innovative solutions. We approach each client and his project as a unique challenge that we accept. Responsibly performing our work, we will confidently bring it to life.
-            </p>
+              We handle diverse and complex projects, delivering innovative solutions every time.  
+              Each client and project is treated as a unique challenge, and we bring it to life with care, precision, and a focus on results.            </p>
 
             <MainButton
               onClick={() => navigate('/portfolio')}

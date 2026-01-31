@@ -12,9 +12,7 @@ export default function AboutHeading() {
           className="row center-y">
           <h1
             className="capitalize">
-            Perfection is a modern  <br /> solution made with love
-
-            <br /> for life.
+           Modern Solutions  <br /> Made with Care 
 
           </h1>
         </div>

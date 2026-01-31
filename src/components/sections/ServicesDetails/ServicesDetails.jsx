@@ -1,15 +1,7 @@
 import AccordionList from '@ui/Accordion/AccordionList';
-import './servicesDetails.scss'
+import './servicesDetails.scss';
+import { servicesDetailsData } from './ServicesDetailsData';
 
-const items = [ "Sketch of style and mood",
-  "3D visualization",
-  "specification for components",
-  "Author's supervision",
-  "interior concept",
-  "design project",
-  "working documentation" ]
-  
-    
 export default function ServicesDetails() {
   return (
     <section
@@ -19,12 +11,12 @@ export default function ServicesDetails() {
         <div
           className="row wrap gap-35 s-between">
           <AccordionList
-            items={items.slice(0, 4)} />
+            items={servicesDetailsData.slice(0, 4)} />
 
           <AccordionList
-            items={items.slice(4)} />
+            items={servicesDetailsData.slice(4)} />
         </div>
       </div>
     </section>
-  )
+  );
 }

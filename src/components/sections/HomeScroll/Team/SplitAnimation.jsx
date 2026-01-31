@@ -2,6 +2,7 @@ import { useRef } from "preact/hooks";
 import { teamImages } from "./TeamImages";
 import { gsap } from "gsap";
 import Observer from "@components/shared/Observer/Observer";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const titleText = "Meeting our team"
   .split("")
@@ -62,10 +63,13 @@ export default function SplitAnimation() {
       className="row">
       {teamImages.map((el, i) => (
         <li
+          className="placeholder-1"
           key={i}>
-          <img
-            src={el}
-            alt={`team-img-${i + 1}`} />
+          <LazyLoadImage
+            width="100%"
+            height="100%"
+            effect="opacity"
+            src={el} />
         </li>
       ))}
     </ul>

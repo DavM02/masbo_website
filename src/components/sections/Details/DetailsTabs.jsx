@@ -17,7 +17,7 @@ export default function DetailsTabs({ activeTab, setActiveTab }) {
       <h3
         onClick={() => setActiveTab('projects')}
         className={`text-black capitalize cursor-pointer ${activeTab === 'projects' ? 'active' : 'inactive'}`}>
-        Last Projects
+       Latest Project
       </h3>
     </div>
   )
