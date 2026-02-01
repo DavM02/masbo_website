@@ -19,7 +19,7 @@ export default function PortfolioCard({ item }) {
         width="100%"
         height="100%"
         effect="opacity"
-        src={`${import.meta.env.BASE_URL}${item.image}`} />
+        src={item.image ? `${import.meta.env.BASE_URL}${item.image}` : ""} />
 
       <div
         className="portfolio-card-description row gap-25">

@@ -66,7 +66,6 @@ export async function getItem([ id, dbName ]) {
       return null;
     }
   } catch (error) {
-    console.log(error);
     throw new Error("An unexpected error occurred");
   }
 }
