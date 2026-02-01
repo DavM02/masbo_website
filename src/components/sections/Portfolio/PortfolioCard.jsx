@@ -11,15 +11,15 @@ export default function PortfolioCard({ item }) {
     navigate(slug);  
   };
 
-  console.log(item.image)
+
   return (
     <li
       className={`portfolio-card ${item.placeholder}`}>
-      {/* <LazyLoadImage
+      <LazyLoadImage
         width="100%"
         height="100%"
         effect="opacity"
-        src={`${import.meta.env.BASE_URL}${item.image?.replace(/^\/+/,'')}`} /> */}
+        src={`${import.meta.env.BASE_URL}${item.image}`} />
 
       <div
         className="portfolio-card-description row gap-25">

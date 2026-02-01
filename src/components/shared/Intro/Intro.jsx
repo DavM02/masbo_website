@@ -7,6 +7,7 @@ export default function Intro({ id, bg, children}) {
   const [ show, setShow ] = useState(false)
     
   useEffect(() => {
+    if(!bg) return  
     const img = new Image()
     img.src = bg
     img.onload = () => {
