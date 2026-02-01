@@ -49,7 +49,7 @@ export const imagesByCategory = {
     "/img-31.jpg",
     "/img-32.jpg",
     "/img-31.jpg" ],
-  'Residence': [ "/img-33.jpg",
+  'Residences': [ "/img-33.jpg",
     "/img-34.jpg",
     "/img-33.jpg",
     "/img-34.jpg",

@@ -12,5 +12,5 @@ export const extraLinks = [
   [ '/about', 'Our approach' ],
   [ '/portfolio/project-33', 'Latest Project' ],
   [ '/team', 'Become a part of team' ],
-  [ '/news/blog-21', 'For investors' ],
+  [ '/news/blog-4', 'For investors' ],
 ];
