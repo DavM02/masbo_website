@@ -81,7 +81,7 @@ export default function Portfolio() {
             return prev;
           })} />
 
-        <AnimatePresence
+        {/* <AnimatePresence
           mode="wait">
           {
             (isLoading || isFetching) ? <SmoothAppearance
@@ -110,7 +110,7 @@ export default function Portfolio() {
               </SmoothAppearance>
           }
 
-        </AnimatePresence>
+        </AnimatePresence> */}
 
       </div>
     </section>
