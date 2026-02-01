@@ -25,24 +25,24 @@ const categories = [
 
 export default function Portfolio() {
 
-  const [ searchParams, setSearchParams ] = useSearchParams();
+  // const [ searchParams, setSearchParams ] = useSearchParams();
 
-  const activeTag = searchParams.get('tag') || tags[0];
-  const activeCategory = searchParams.get('category') || 'interiors';
+  // const activeTag = searchParams.get('tag') || tags[0];
+  // const activeCategory = searchParams.get('category') || 'interiors';
 
  
-  const { data, isLoading, isFetching, error } = useFetch(
-    `portfolio_${activeCategory}`,
-    () => loadDataByCategory('portfolio', activeCategory)
-  ); 
+  // const { data, isLoading, isFetching, error } = useFetch(
+  //   `portfolio_${activeCategory}`,
+  //   () => loadDataByCategory('portfolio', activeCategory)
+  // ); 
   
-  const filteredData = (data ?? []).filter(item => {
-    const tagMatch = item.tag === activeTag;
-    const categoryMatch =
-    activeCategory === 'all' || item.category === activeCategory;
+  // const filteredData = (data ?? []).filter(item => {
+  //   const tagMatch = item.tag === activeTag;
+  //   const categoryMatch =
+  //   activeCategory === 'all' || item.category === activeCategory;
 
-    return tagMatch && categoryMatch;
-  });
+  //   return tagMatch && categoryMatch;
+  // });
 
 
   return (
@@ -51,7 +51,7 @@ export default function Portfolio() {
       <div
         className="container">
 
-        <ul
+        {/* <ul
           className="tags row s-between center-y wrap gap-40">
           {tags.map(tag => (
             <li
@@ -70,7 +70,7 @@ export default function Portfolio() {
 
           <li
             className="line"></li>
-        </ul>
+        </ul> */}
 
 
         {/* <Categories
