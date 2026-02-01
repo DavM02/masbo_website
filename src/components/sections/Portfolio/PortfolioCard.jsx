@@ -11,7 +11,7 @@ export default function PortfolioCard({ item }) {
     navigate(slug);  
   };
 
-
+  console.log(item.image)
   return (
     <li
       className={`portfolio-card ${item.placeholder}`}>
