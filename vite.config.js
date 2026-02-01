@@ -18,7 +18,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 export default defineConfig({
-  base: "/masbo_website/", 
+  base: "/masbo_website/#", 
   server: {
     allowedHosts: [ "q5r5mx-5173.csb.app" ],  
   },
