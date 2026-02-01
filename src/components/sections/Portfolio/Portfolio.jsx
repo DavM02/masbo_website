@@ -73,13 +73,13 @@ export default function Portfolio() {
         </ul>
 
 
-        <Categories
+        {/* <Categories
           items={categories}
           active={activeCategory}
           onChange={category =>  setSearchParams(prev => {
             prev.set('category', category);
             return prev;
-          })} />
+          })} /> */}
 
         {/* <AnimatePresence
           mode="wait">
