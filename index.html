@@ -15,13 +15,63 @@
   <link rel="preload" href="/masbo_website/assets/Inter-Regular-D360cRkH.woff" as="font" type="font/woff" crossorigin="anonymous" />
 
   <link rel="preload" href="/masbo_website/assets/noise-BlxTny2C.gif" as="image" />
+
+  <!-- <link rel="preload" href="/pageLoading.css" as="style" crossorigin="anonymous">
+  <link rel="stylesheet" href="/pageLoading.css" crossorigin="anonymous"> -->
+
   <script defer>
     if ("scrollRestoration" in window.history) {
       window.history.scrollRestoration = "manual";
     }
   </script>
-  <script type="module" crossorigin src="/masbo_website/assets/index-Dc4_Ap5a.js"></script>
-  <link rel="stylesheet" crossorigin href="/masbo_website/assets/index-vEp8e19_.css">
+
+  <style>
+    body, .page-loading .strips>div {
+      background-color: #151517;
+    }
+
+    .page-loading, .page-loading .strips, .page-loading .strips>div {
+      height: 100%;
+    }
+
+    .page-loading, .page-loading .strips {
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+
+    .page-loading {
+      position: fixed;
+      z-index: 885;
+    }
+
+    .page-loading.index .strips>div {
+      background-color: #1C6BCF;
+    }
+
+    .page-loading.index svg path {
+      stroke: #E9E9E9;
+    }
+
+    .page-loading .strips {
+      position: absolute;
+      z-index: -1;
+    }
+
+    .page-loading svg path {
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+    }
+
+    .page-loading .strips>div {
+      transform: translateZ(0);
+      margin-left: -1px;
+      flex: 1 0 0;
+      clip-path: inset(0 0 0 0);
+    }
+  </style>
+  <script type="module" crossorigin src="/masbo_website/assets/index-DamPCV2N.js"></script>
+  <link rel="stylesheet" crossorigin href="/masbo_website/assets/index-WG1ENO2C.css">
 </head>
 
 <body>
