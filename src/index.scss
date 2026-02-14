@@ -94,12 +94,6 @@ html {
     color: $white;
 }
 
-[data-animate] {
-    transform: translateZ(0);
-    will-change: transform, opacity;
-    backface-visibility: hidden;
-}
-
 body,
 html,
 #app,
@@ -109,7 +103,7 @@ html,
 }
 
 main {
-    min-height: 100dvh;
+    min-height: 100lvh;
     // flex-grow: 1;
 }
 

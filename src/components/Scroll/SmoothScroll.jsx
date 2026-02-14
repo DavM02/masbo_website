@@ -12,6 +12,10 @@ import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
 gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin, useGSAP);
 
  
+ScrollTrigger.config({
+  ignoreMobileResize: true
+});
+
 export default function SmoothScroll({ children }) {
  
   const scrollRef = useRef(null);
