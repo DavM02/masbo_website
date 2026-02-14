@@ -32,6 +32,7 @@ export default function ScrollParallaxImage({
       ref={containerRef}
       className={wrapperClass}>
       <LazyLoadImage
+     
         src={src}
         width="100%"
         height={imageHeight}
