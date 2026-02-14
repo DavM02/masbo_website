@@ -24,7 +24,7 @@ export default function SmoothScroll({ children }) {
 
   useGSAP(
     () => {
-     ScrollTrigger.config({ ignoreMobileResize: true });
+      ScrollTrigger.config({ ignoreMobileResize: true });
 
 
       let scrollbar;
@@ -98,7 +98,7 @@ export default function SmoothScroll({ children }) {
       id="scroll-wrapper"
       style={{
         position: match ? "fixed" : "static",
-        height: "100%",
+        height: match ? "100%" : "auto",
       }}
       ref={scrollRef}>
       {children}

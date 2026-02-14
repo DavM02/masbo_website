@@ -122,11 +122,7 @@ main {
         backface-visibility: initial !important;
     }
 
-    /* безопасная высота viewport */
-    // overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;
-    /* плавный momentum scroll на iOS */
-
+  
 }
 
 .scroll-content {
