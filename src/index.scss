@@ -99,11 +99,11 @@ html,
 #app,
 #root {
     /* width: 100%; */
-    height: auto !important;
+    height: 100svh !important;
 }
 
 main {
-    min-height: 100dvh;
+    min-height: 100svh;
     // flex-grow: 1;
 }
 
@@ -122,7 +122,8 @@ main {
         backface-visibility: initial !important;
     }
 
-  
+    -webkit-overflow-scrolling: touch;
+    /* плавный momentum scroll на iOS */
 }
 
 .scroll-content {
