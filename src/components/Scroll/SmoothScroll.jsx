@@ -71,7 +71,10 @@ export default function SmoothScroll({ children }) {
       if (match) {
         initScrollbar();
       } else if (isSafari()) {
-        ScrollTrigger.normalizeScroll(true);
+        ScrollTrigger.config({
+          ignoreMobileResize: true,
+          autoRefreshEvents: "visibilitychange,DOMContentLoaded,load"
+        });
       }
 
       if (document.body.classList.contains('overlay-opened') || !!document.body.querySelector('.modal')) {
