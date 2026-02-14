@@ -1,0 +1,1 @@
+.categories li.active h3{-webkit-text-decoration:line-through;text-decoration:line-through}.categories li.active .dot{background-color:#151517}.categories li .dot{background-color:#1c6bcf;width:10px;height:10px;border-radius:50%;margin-right:10px;transition:cubic-bezier(.645,.045,.355,1) .5s background-color}
