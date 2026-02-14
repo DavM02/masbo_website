@@ -4,7 +4,6 @@ import { useEffect } from 'preact/hooks';
 import { getScrollBar } from '../Scroll/ScrollAccess';
 import { gsap } from "gsap";
 import { useLocation } from "react-router-dom";
-import { document } from "postcss";
 
 export default function PageLoading({ setShow}) {
 
@@ -16,7 +15,7 @@ export default function PageLoading({ setShow}) {
    
     getScrollBar()?.updatePluginOptions("overflow", { open: true });
     document.body.style.overflow = 'hidden'
-
+ 
    
     tl.fromTo(
       ".page-loading svg path",
