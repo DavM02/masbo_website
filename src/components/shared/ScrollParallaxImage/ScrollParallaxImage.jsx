@@ -20,6 +20,7 @@ export default function ScrollParallaxImage({
       scrollTrigger: {
         id: "#scrollImageParallax",
         trigger: containerRef.current,
+        invalidateOnRefresh: false,
         scrub: true,
         pin: false,
         ...options,
