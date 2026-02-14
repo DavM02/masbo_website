@@ -112,6 +112,7 @@ main {
 }
 
 #scroll-wrapper {
+    will-change: transform;
     inset: 0;
     width: 100%;
     perspective: 1px;
