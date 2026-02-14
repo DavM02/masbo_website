@@ -11,10 +11,10 @@ import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
 
 gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin, useGSAP);
 
-// const isSafari = () => {
-//   const ua = navigator.userAgent;
-//   return /^((?!chrome|android).)*safari/i.test(ua);
-// };
+const isSafari = () => {
+  const ua = navigator.userAgent;
+  return /^((?!chrome|android).)*safari/i.test(ua);
+};
  
 export default function SmoothScroll({ children }) {
  
@@ -24,7 +24,12 @@ export default function SmoothScroll({ children }) {
 
   useGSAP(
     () => {
-     ScrollTrigger.config({ ignoreMobileResize: true });
+     
+      ScrollTrigger.config({
+        ignoreMobileResize: true,
+        limitCallbacks: true,
+        syncInterval: 999999999 
+      });
 
 
       let scrollbar;
@@ -72,7 +77,16 @@ export default function SmoothScroll({ children }) {
 
       if (match) {
         initScrollbar();
-      }  
+      } else if (isSafari()) { 
+
+        ScrollTrigger.config({
+          ignoreMobileResize: true,
+          limitCallbacks: true,
+          syncInterval: 999999999 
+        });
+      }
+
+
      
 
       if (document.body.classList.contains('overlay-opened') || !!document.body.querySelector('.modal')) {
