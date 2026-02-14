@@ -24,12 +24,17 @@ export default function SmoothScroll({ children }) {
 
   useGSAP(
     () => {
-     
+     gsap.ticker.lagSmoothing(0);
+
       ScrollTrigger.config({
         ignoreMobileResize: true,
         limitCallbacks: true,
         syncInterval: 999999999 
       });
+
+      ScrollTrigger.defaults({
+  anticipatePin: 1
+});
 
 
       let scrollbar;
@@ -77,14 +82,20 @@ export default function SmoothScroll({ children }) {
 
       if (match) {
         initScrollbar();
-      } else if (isSafari()) { 
-
-        ScrollTrigger.config({
-          ignoreMobileResize: true,
-          limitCallbacks: true,
-          syncInterval: 999999999 
-        });
       }
+      
+      // else if (isSafari()) { 
+
+      //   ScrollTrigger.config({
+      //     ignoreMobileResize: true,
+      //     limitCallbacks: true,
+      //     syncInterval: 999999999 
+      //   });
+
+      //   ScrollTrigger.defaults({
+      //     anticipatePin: 1
+      //   });
+      // }
 
 
      
