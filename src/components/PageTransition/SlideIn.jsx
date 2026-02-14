@@ -25,7 +25,6 @@ export default function SlideIn({setIsAnimating}) {
             if (i === 0) {
               if (!document.body.classList.contains("overlay-opened")) {
                 document.body.style.overflow = 'hidden'
-                document.body.querySelector("#scroll-wrapper").style.overflow = 'hidden'
               }
       
               setIsAnimating(true);
