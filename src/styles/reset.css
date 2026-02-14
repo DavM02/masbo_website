@@ -13,8 +13,7 @@
 } */
 
 html {
-  scroll-behavior: smooth !important;
-  /* scroll-behavior: unset !important; */
+  scroll-behavior: unset !important;
 }
 
 img:not(.icon) {
