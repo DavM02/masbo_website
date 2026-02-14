@@ -24,7 +24,7 @@ export default function SmoothScroll({ children }) {
 
   useGSAP(
     () => {
- ScrollTrigger.refreshPriority = -1; // уменьшает приоритет refresh
+      ScrollTrigger.refreshPriority = -1; // уменьшает приоритет refresh
 
       let scrollbar;
       const initScrollbar = () => {
