@@ -22,7 +22,7 @@ export default function SlideOut({setIsAnimating}) {
             if (i === 0) {
 
               setIsAnimating(false);
-              
+              document.body.querySelector("#scroll-wrapper").style.overflow = 'initial'
               document.body.removeAttribute("class");
 
               if (!document.body.classList.contains("overlay-opened")) {
