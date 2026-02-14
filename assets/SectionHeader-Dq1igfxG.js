@@ -1,0 +1,1 @@
+import{a as e}from"./index-ZYfVBZ08.js";/* empty css                      */function r({headline:a,num:s}){return e("div",{className:"section-header row s-between",children:[e("span",{className:"fs-14 text-black up-case",children:a}),e("span",{className:"fs-14 text-black up-case",children:["0",s]})]})}export{r as S};

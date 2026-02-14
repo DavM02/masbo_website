@@ -1,1 +1,0 @@
-import{a as e,m as n}from"./index-z2aixqsh.js";function l({blur:i,Tag:a=n.div,updateLayout:r,...t}){return e(a,{transition:{duration:.5,ease:[.645,.045,.355,1]},initial:{opacity:0,filter:i?"blur(4px)":"none"},animate:{opacity:1,filter:i?"blur(0px)":"none"},exit:{opacity:0,filter:i?"blur(2px)":"none"},...t,children:t.children})}export{l as S};
