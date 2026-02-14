@@ -7,7 +7,7 @@ import Menu from "./Menu";
 import Logo from "./Logo";
 import OrderProject from "./OrderProject";
 import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
+ import { gsap } from "gsap";
 
 export default function Header() {
 
@@ -24,7 +24,6 @@ export default function Header() {
           id: 'header_trigger_1',
           scroller:scroller,
           trigger: "main",
-          invalidateOnRefresh: false,  
           start: "3px top",
           onEnter: () =>
             gsap.set("header", { className: "scrolled", clearProps: "backgroundColor" }),
@@ -32,8 +31,6 @@ export default function Header() {
             gsap.set("header", { className: "static", clearProps: "backgroundColor" }),
         },
       });
-
-      
 
     })
  

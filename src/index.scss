@@ -118,9 +118,17 @@ main {
     backface-visibility: hidden;
 
     &:has(#portfolio-page) {
-    perspective: initial !important;
-    backface-visibility: initial !important;
+        perspective: initial !important;
+        backface-visibility: initial !important;
     }
+
+
+    height: 100svh;
+    /* безопасная высота viewport */
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    /* плавный momentum scroll на iOS */
+
 }
 
 .scroll-content {
