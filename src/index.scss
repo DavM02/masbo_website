@@ -99,11 +99,11 @@ html,
 #app,
 #root {
     /* width: 100%; */
-    height: 100svh !important;
+    height: 100%;
 }
 
 main {
-    min-height: 100svh;
+    min-height: 100dvh;
     // flex-grow: 1;
 }
 
@@ -118,12 +118,9 @@ main {
     backface-visibility: hidden;
 
     &:has(#portfolio-page) {
-        perspective: initial !important;
-        backface-visibility: initial !important;
+    perspective: initial !important;
+    backface-visibility: initial !important;
     }
-
-    -webkit-overflow-scrolling: touch;
-    /* плавный momentum scroll на iOS */
 }
 
 .scroll-content {
