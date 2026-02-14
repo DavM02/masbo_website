@@ -15,8 +15,6 @@ const isSafari = () => {
   const ua = navigator.userAgent;
   return /^((?!chrome|android).)*safari/i.test(ua);
 };
-
-
  
 export default function SmoothScroll({ children }) {
  
@@ -26,10 +24,8 @@ export default function SmoothScroll({ children }) {
 
   useGSAP(
     () => {
- 
-      ScrollTrigger.defaults({
-        fastScrollEnd: true, // пытается сгладить резкие stop на iOS
-      });
+ ScrollTrigger.refreshPriority = -1; // уменьшает приоритет refresh
+
       let scrollbar;
       const initScrollbar = () => {
         if (scrollRef.current) {
@@ -76,9 +72,8 @@ export default function SmoothScroll({ children }) {
       if (match) {
         initScrollbar();
       } else if (isSafari()) {
-        ScrollTrigger.defaults({
-          fastScrollEnd: true, // пытается сгладить резкие stop на iOS
-        });
+        ScrollTrigger.refreshPriority = -1; // уменьшает приоритет refresh
+
       }
 
       if (document.body.classList.contains('overlay-opened') || !!document.body.querySelector('.modal')) {
