@@ -10,6 +10,11 @@ import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
 // registerin' plugins
 
 gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin, useGSAP);
+
+const isSafari = () => {
+  const ua = navigator.userAgent;
+  return /^((?!chrome|android).)*safari/i.test(ua);
+};
  
 export default function SmoothScroll({ children }) {
  
@@ -65,6 +70,8 @@ export default function SmoothScroll({ children }) {
 
       if (match) {
         initScrollbar();
+      } else if (isSafari()) {
+        ScrollTrigger.normalizeScroll(true);
       }
 
       if (document.body.classList.contains('overlay-opened') || !!document.body.querySelector('.modal')) {
