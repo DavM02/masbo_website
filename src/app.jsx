@@ -34,7 +34,15 @@ export function App() {
 
         <SmoothScroll>
           <main>
-            <AboutPage />
+            {/* <AboutPage /> */}
+            <div
+              style={{ height: '500px', backgroundColor: 'red' }}> </div>
+
+            <div
+              style={{ height: '500px', backgroundColor: 'blue' }}> </div>
+
+            <div
+              style={{height: '500px', backgroundColor: 'pink'}}> </div>
 
             {/* <AnimatePresence
             mode="wait"
