@@ -95,10 +95,10 @@ export default function SmoothScroll({ children }) {
   return (
     <div
       id="scroll-wrapper"
-      style={{
-        position: match ? "fixed" : "static",
-        height: "100%",
-      }}
+      // style={{
+      //   position: match ? "fixed" : "static",
+      //   height: "100%",
+      // }}
       ref={scrollRef}>
       {children}
     </div>
