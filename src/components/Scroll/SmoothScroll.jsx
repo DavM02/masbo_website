@@ -60,9 +60,9 @@ export default function SmoothScroll({ children }) {
         }
       };
 
-      const resize = () => {
-        ScrollTrigger.refresh();
-      }
+      // const resize = () => {
+      //   ScrollTrigger.refresh();
+      // }
 
       // window.addEventListener("resize", resize);
  
@@ -74,13 +74,13 @@ export default function SmoothScroll({ children }) {
   
      
 
-      if (document.body.classList.contains('overlay-opened') || !!document.body.querySelector('.modal')) {
-        getScrollBar()?.updatePluginOptions('overflow', { open: true })
-      }
+      // if (document.body.classList.contains('overlay-opened') || !!document.body.querySelector('.modal')) {
+      //   getScrollBar()?.updatePluginOptions('overflow', { open: true })
+      // }
 
       return () => {
-        ScrollTrigger.killAll()
-        clearScrollBar();
+        // ScrollTrigger.killAll()
+        // clearScrollBar();
         // window.removeEventListener("resize", resize);
       };
     },
