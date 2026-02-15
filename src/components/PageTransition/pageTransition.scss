@@ -15,7 +15,7 @@
         left: 0;
 
         >div {
- 
+ opacity: 0;
             will-change: transform;
             background-color: $blue;
             width: calc(100%/4);
