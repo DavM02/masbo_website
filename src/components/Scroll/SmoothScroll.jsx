@@ -64,7 +64,7 @@ export default function SmoothScroll({ children }) {
         ScrollTrigger.refresh();
       }
 
-      window.addEventListener("resize", resize);
+      // window.addEventListener("resize", resize);
  
 
       if (match) {
@@ -81,7 +81,7 @@ export default function SmoothScroll({ children }) {
       return () => {
         ScrollTrigger.killAll()
         clearScrollBar();
-        window.removeEventListener("resize", resize);
+        // window.removeEventListener("resize", resize);
       };
     },
     {
