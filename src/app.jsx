@@ -32,7 +32,7 @@ export function App() {
 
         <Header />
 
-        {/* <SmoothScroll> */}
+        <SmoothScroll>
         <main>
           <div style={{ height: '500px', backgroundColor: 'red' }}> </div>
           <div style={{ height: '500px', backgroundColor: 'blue' }}> </div>
@@ -92,7 +92,7 @@ export function App() {
 
         <Footer />
 
-        {/* </SmoothScroll> */}
+        </SmoothScroll>
 
  
       </MainContextProvider>
