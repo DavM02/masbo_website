@@ -82,7 +82,7 @@ export default function SmoothScroll({ children }) {
         for (let entry of entries) {
           const { width, height } = entry.contentRect;
 
-          // можно добавить порог, чтобы игнорировать мелкие дерганья
+ 
           if (width > 0 && height > 0) {
             console.log("resized")
             ScrollTrigger.refresh();
