@@ -45,6 +45,8 @@ html:has(#home-page) {
 }
 
 header {
+    transform: translate3d(0, 0, 0);
+        backface-visibility: hidden;
     will-change: transform, opacity;
     background-color: $white;
     border-bottom: 0.5px solid line-bg(0.5);
