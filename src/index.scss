@@ -84,10 +84,10 @@ html {
     -moz-osx-font-smoothing: grayscale;
 }
 
-// body,
-// html {
-//     overscroll-behavior: none;
-// }
+body,
+html {
+    overscroll-behavior: none;
+}
 
 ::selection {
     background-color: $blue;
