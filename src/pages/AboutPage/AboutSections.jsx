@@ -19,7 +19,7 @@ function AboutSections() {
 
       <Philosophy />
 
-      {/* <Achievements /> */}
+      <Achievements />
     </>
   )
 }

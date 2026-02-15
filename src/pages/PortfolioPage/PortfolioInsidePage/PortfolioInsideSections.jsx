@@ -48,7 +48,7 @@ export default function PortfolioInsideSections() {
               <PortfolioGallery
                 images={data?.gallery} />
       
-              {/* <StageOfWorks /> */}
+              <StageOfWorks />
             </SmoothAppearance>
         }
 
