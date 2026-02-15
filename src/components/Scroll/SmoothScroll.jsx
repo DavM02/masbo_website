@@ -60,11 +60,11 @@ export default function SmoothScroll({ children }) {
         }
       };
 
-      // const resize = () => {
-      //   ScrollTrigger.refresh();
-      // }
+      const resize = () => {
+        ScrollTrigger.refresh();
+      }
 
-      // window.addEventListener("resize", resize);
+      window.addEventListener("resize", resize);
  
 
       if (match) {
@@ -79,13 +79,13 @@ export default function SmoothScroll({ children }) {
       }
 
       return () => {
-        // ScrollTrigger.killAll()
-        // clearScrollBar();
-        // window.removeEventListener("resize", resize);
+        ScrollTrigger.killAll()
+        clearScrollBar();
+        window.removeEventListener("resize", resize);
       };
     },
     {
-      // dependencies: [ match ],
+      dependencies: [ match ],
       scope: scrollRef,
       // revertOnUpdate: true,
     }
