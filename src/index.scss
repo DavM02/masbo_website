@@ -114,8 +114,8 @@ main {
 #scroll-wrapper {
     inset: 0;
     width: 100%;
-    perspective: 1px;
-    backface-visibility: hidden;
+    // perspective: 1px;
+    // backface-visibility: hidden;
 
     &:has(#portfolio-page) {
     perspective: initial !important;
