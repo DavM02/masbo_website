@@ -42,7 +42,7 @@ export function App() {
               style={{ height: '500px', backgroundColor: 'blue' }}> </div>
 
             <div
-              style={{height: '500px', backgroundColor: 'pink'}}> </div>
+              style={{height: '500px', backgroundColor: 'yellow'}}> </div>
 
             {/* <AnimatePresence
             mode="wait"
