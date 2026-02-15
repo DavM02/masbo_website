@@ -11,7 +11,20 @@ import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
 
 gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin, useGSAP);
 
- 
+const supportsRealResize = () => {
+  // iOS Safari и мобильные Safari часто меняют innerHeight при панели — это не ресайз
+  const ua = navigator.userAgent;
+
+  const isIOS = /iP(ad|hone|od)/.test(ua);
+  const isSafari = /^((?!chrome|android).)*safari/i.test(ua);
+
+  // если desktop или не Safari iOS — ресайз нормальный
+  if (!isIOS || !isSafari) return true;
+
+  // на iOS лучше реагировать только на visualViewport
+  return !!window.visualViewport;
+};
+
 
 export default function SmoothScroll({ children }) {
  
@@ -61,9 +74,14 @@ export default function SmoothScroll({ children }) {
       };
 
       const resize = () => {
-        alert('sdasd')
+ 
         ScrollTrigger.refresh();
       }
+
+ 
+      if(supportsRealResize()) {
+        window.addEventListener("resize", resize);
+      }  
 
       window.addEventListener("resize", resize);
  
@@ -72,7 +90,7 @@ export default function SmoothScroll({ children }) {
         initScrollbar();
       }
       
-  
+ 
      
 
       if (document.body.classList.contains('overlay-opened') || !!document.body.querySelector('.modal')) {
@@ -82,7 +100,10 @@ export default function SmoothScroll({ children }) {
       return () => {
         ScrollTrigger.killAll()
         clearScrollBar();
-        window.removeEventListener("resize", resize);
+        if (supportsRealResize()) {
+          window.removeEventListener("resize", resize);
+        }
+     
       };
     },
     {
