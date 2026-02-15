@@ -68,9 +68,8 @@ export default function SmoothScroll({ children }) {
 
       if (match) {
         initScrollbar();
-      } else if (isIOS() && isSafari()) {
-        initScrollbar();
       }
+      
   
      
 

@@ -14,19 +14,18 @@ export default function useAnimation(gsapAnimation = () => {}, scope, returnFn =
   )  
 
 
-  const isIOS = () => {
-    return (
-      /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream
-    );
-  };
-  
-  const isSafari = () => {
+  const isIOSSafari = () => {
     const ua = navigator.userAgent;
-    return /^((?!chrome|android).)*safari/i.test(ua);
-  }; 
+
+    const isIOS = /iP(ad|hone|od)/.test(ua);
+    const isWebkit = /WebKit/.test(ua);
+    const isChrome = /CriOS/.test(ua);
+
+    return isIOS && isWebkit && !isChrome;
+  };
 
 
-  const match = (width && height) || (isIOS() && isSafari())
+  const match = (width && height) || isIOSSafari()
  
   useGSAP(
     () => {
