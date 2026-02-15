@@ -84,10 +84,10 @@ html {
     -moz-osx-font-smoothing: grayscale;
 }
 
-body,
-html {
-    overscroll-behavior: none;
-}
+// body,
+// html {
+//     overscroll-behavior: none;
+// }
 
 ::selection {
     background-color: $blue;
@@ -99,11 +99,11 @@ html,
 #app,
 #root {
     /* width: 100%; */
-    height: var(--app-height);
+    height: 100%;
 }
 
 main {
-    min-height: var(--app-height);
+    min-height: 100lvh;
     // flex-grow: 1;
 }
 
@@ -118,8 +118,8 @@ main {
     backface-visibility: hidden;
 
     &:has(#portfolio-page) {
-        perspective: initial !important;
-        backface-visibility: initial !important;
+    perspective: initial !important;
+    backface-visibility: initial !important;
     }
 }
 
