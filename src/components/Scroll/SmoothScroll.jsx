@@ -12,6 +12,14 @@ import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
 gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin, useGSAP);
 
 
+let lockedVH = window.innerHeight;
+
+document.documentElement.style.setProperty(
+  "--app-height",
+  `${lockedVH}px`
+);
+ 
+
 export default function SmoothScroll({ children }) {
  
   const scrollRef = useRef(null);

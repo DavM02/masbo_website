@@ -99,11 +99,11 @@ html,
 #app,
 #root {
     /* width: 100%; */
-    height: 100%;
+    height: var(--app-height);
 }
 
 main {
-    min-height: 100lvh;
+   height: var(--app-height);
     // flex-grow: 1;
 }
 
@@ -118,8 +118,8 @@ main {
     backface-visibility: hidden;
 
     &:has(#portfolio-page) {
-    perspective: initial !important;
-    backface-visibility: initial !important;
+        perspective: initial !important;
+        backface-visibility: initial !important;
     }
 }
 
