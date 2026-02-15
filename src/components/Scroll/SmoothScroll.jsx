@@ -11,10 +11,6 @@ import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
 
 gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin, useGSAP);
 
- 
-ScrollTrigger.config({
-  ignoreMobileResize: true
-});
 
 export default function SmoothScroll({ children }) {
  
@@ -72,8 +68,9 @@ export default function SmoothScroll({ children }) {
 
       if (match) {
         initScrollbar();
+      } else if (isIOS() && isSafari()) {
+        initScrollbar();
       }
-      
   
      
 
@@ -100,7 +97,7 @@ export default function SmoothScroll({ children }) {
       id="scroll-wrapper"
       style={{
         position: match ? "fixed" : "static",
-        // height: "100%",
+        height: "100%",
       }}
       ref={scrollRef}>
       {children}

@@ -12,7 +12,21 @@ export default function useAnimation(gsapAnimation = () => {}, scope, returnFn =
   const isLargeScreen = useMediaQ(
     "(min-height: 2200px) and (min-width: 1500px), (min-width: 3000px)"
   )  
-  const match = (width && height)  
+
+
+  const isIOS = () => {
+    return (
+      /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream
+    );
+  };
+  
+  const isSafari = () => {
+    const ua = navigator.userAgent;
+    return /^((?!chrome|android).)*safari/i.test(ua);
+  }; 
+
+
+  const match = (width && height) || (isIOS() && isSafari())
  
   useGSAP(
     () => {
