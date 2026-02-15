@@ -79,7 +79,8 @@ export default function SmoothScroll({ children }) {
       }
 
  
-      if(supportsRealResize()) {
+      if (supportsRealResize()) {
+        alert('supports real resize')
         window.addEventListener("resize", resize);
       }  
 
