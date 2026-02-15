@@ -11,20 +11,7 @@ import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
 
 gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin, useGSAP);
 
-const supportsRealResize = () => {
-  // iOS Safari и мобильные Safari часто меняют innerHeight при панели — это не ресайз
-  const ua = navigator.userAgent;
-
-  const isIOS = /iP(ad|hone|od)/.test(ua);
-  const isSafari = /^((?!chrome|android).)*safari/i.test(ua);
-
-  // если desktop или не Safari iOS — ресайз нормальный
-  if (!isIOS || !isSafari) return true;
-
-  // на iOS лучше реагировать только на visualViewport
-  return !!window.visualViewport;
-};
-
+ 
 
 export default function SmoothScroll({ children }) {
  
@@ -38,6 +25,7 @@ export default function SmoothScroll({ children }) {
 
 
       let scrollbar;
+    let resizeObserver;
       const initScrollbar = () => {
         if (scrollRef.current) {
           scrollbar = Scrollbar.init(scrollRef.current, {
@@ -73,26 +61,38 @@ export default function SmoothScroll({ children }) {
         }
       };
 
-      const resize = () => {
- 
-        ScrollTrigger.refresh();
-      }
+      // const resize = () => {
+        
+      //   ScrollTrigger.refresh();
+      // }
 
- 
-      if (supportsRealResize()) {
-        alert('supports real resize')
-        window.addEventListener("resize", resize);
-      }  
+      // window.addEventListener("resize", resize);
 
-      window.addEventListener("resize", resize);
+
+
  
 
       if (match) {
         initScrollbar();
       }
       
- 
+  
      
+      resizeObserver = new ResizeObserver(entries => {
+        for (let entry of entries) {
+          const { width, height } = entry.contentRect;
+
+          // можно добавить порог, чтобы игнорировать мелкие дерганья
+          if (width > 0 && height > 0) {
+            console.log("resized")
+            ScrollTrigger.refresh();
+          }
+        }
+      });
+
+      resizeObserver.observe(scrollRef.current);
+
+      ScrollTrigger.refresh();
 
       if (document.body.classList.contains('overlay-opened') || !!document.body.querySelector('.modal')) {
         getScrollBar()?.updatePluginOptions('overflow', { open: true })
@@ -101,10 +101,7 @@ export default function SmoothScroll({ children }) {
       return () => {
         ScrollTrigger.killAll()
         clearScrollBar();
-        if (supportsRealResize()) {
-          window.removeEventListener("resize", resize);
-        }
-     
+        if (resizeObserver && scrollRef.current) resizeObserver.unobserve(scrollRef.current);
       };
     },
     {
