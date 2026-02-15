@@ -15,8 +15,8 @@ export default function PortfolioInside({ project }) {
           <PortfolioHeader
             id={project.id} />
 
-          {/* <PortfolioHero
-            image={project.mainImage} /> */}
+          <PortfolioHero
+            image={project.mainImage} />
 
           <PortfolioOverview
             title={project.title}

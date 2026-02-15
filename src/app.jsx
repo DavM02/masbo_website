@@ -30,7 +30,7 @@ export function App() {
     <>
       <MainContextProvider>
 
-        <Header />
+        {/* <Header /> */}
 
         <SmoothScroll>
           <main>
