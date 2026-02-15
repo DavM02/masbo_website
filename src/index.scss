@@ -103,7 +103,7 @@ html,
 }
 
 main {
-   height: var(--app-height);
+    min-height: var(--app-height);
     // flex-grow: 1;
 }
 

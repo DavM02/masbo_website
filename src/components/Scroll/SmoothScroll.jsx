@@ -12,8 +12,8 @@ import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
 gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin, useGSAP);
 
 
-let lockedVH = window.innerHeight;
-
+let lockedVH = window.innerHeight * 0.01;;
+ 
 document.documentElement.style.setProperty(
   "--app-height",
   `${lockedVH}px`
