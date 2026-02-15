@@ -32,7 +32,7 @@ export function App() {
 
         <Header />
 
-        <SmoothScroll>
+        {/* <SmoothScroll> */}
           <main>
             {/* <AboutPage /> */}
             <div
@@ -99,7 +99,7 @@ export function App() {
 
           <Footer />
 
-        </SmoothScroll>
+        {/* </SmoothScroll> */}
 
  
       </MainContextProvider>

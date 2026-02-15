@@ -1,5 +1,7 @@
 @import './menu.scss';
-
+header.scrolled {
+    background-color: $black;
+}
 html:has(#home-page) {
     header {
         background-color: transparent;
