@@ -33,11 +33,10 @@ export function App() {
         <Header />
 
         <SmoothScroll>
-        <main>
-          <div style={{ height: '500px', backgroundColor: 'red' }}> </div>
-          <div style={{ height: '500px', backgroundColor: 'blue' }}> </div>
-           <div style={{height: '500px', backgroundColor: 'pink'}}> </div>
-          {/* <AnimatePresence
+          <main>
+            <AboutPage />
+
+            {/* <AnimatePresence
             mode="wait"
             initial={false}>
             <Routes
@@ -88,9 +87,9 @@ export function App() {
 
             </Routes>
           </AnimatePresence> */}
-        </main>
+          </main>
 
-        <Footer />
+          <Footer />
 
         </SmoothScroll>
 
