@@ -9,7 +9,10 @@ function AboutPage() {
   return (
     <div
       id="about-page">
-      {AboutSections ? <AboutSections /> : <Loading />}
+          <div style={{ height: '500px', backgroundColor: 'red' }}> </div>
+          <div style={{ height: '500px', backgroundColor: 'blue' }}> </div>
+           <div style={{height: '500px', backgroundColor: 'pink'}}> </div>
+      {/* {AboutSections ? <AboutSections /> : <Loading />} */}
     </div>
   );
 }
