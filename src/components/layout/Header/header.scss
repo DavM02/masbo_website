@@ -45,6 +45,7 @@ html:has(#home-page) {
 }
 
 header {
+    will-change: transform, opacity;
     background-color: $white;
     border-bottom: 0.5px solid line-bg(0.5);
     z-index: 585;
