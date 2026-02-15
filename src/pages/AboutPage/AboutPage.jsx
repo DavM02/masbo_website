@@ -7,9 +7,10 @@ function AboutPage() {
   const AboutSections = useLazyComponent(() => import("./AboutSections"));
 
   return (
-    <>
+    <div
+      id="about-page">
       {AboutSections ? <AboutSections /> : <Loading />}
-    </>
+    </div>
   );
 }
 
