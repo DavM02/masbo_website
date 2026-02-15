@@ -11,7 +11,11 @@ import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
 
 gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin, useGSAP);
 
- 
+const isIOS = () => {
+  return (
+    /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream
+  );
+};
 
 export default function SmoothScroll({ children }) {
  
@@ -64,14 +68,15 @@ export default function SmoothScroll({ children }) {
         ScrollTrigger.refresh();
       }
 
-      // window.addEventListener("resize", resize);
  
 
       if (match) {
         initScrollbar();
       }
       
-  
+      if(!isIOS()) {
+        window.addEventListener("resize", resize);
+      } 
      
 
       if (document.body.classList.contains('overlay-opened') || !!document.body.querySelector('.modal')) {
@@ -81,7 +86,11 @@ export default function SmoothScroll({ children }) {
       return () => {
         ScrollTrigger.killAll()
         clearScrollBar();
-        // window.removeEventListener("resize", resize);
+             
+        if(!isIOS()) {
+          window.removeEventListener("resize", resize);
+        } 
+       
       };
     },
     {
