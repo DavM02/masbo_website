@@ -30,66 +30,69 @@ export function App() {
     <>
       <MainContextProvider>
 
-        {/* <Header /> */}
+        <Header />
 
-        <SmoothScroll>
-          <main>
-            <AnimatePresence
-              mode="wait"
-              initial={false}>
-              <Routes
-                location={location}
-                key={location.pathname === "/news" ? location.pathname : location.pathname.split('/')[1]}>
-                <Route
-                  path="/"
-                  element={<HomePage />} />
+        {/* <SmoothScroll> */}
+        <main>
+          <div style={{ height: '500px', backgroundColor: 'red' }}> </div>
+          <div style={{ height: '500px', backgroundColor: 'blue' }}> </div>
+           <div style={{height: '500px', backgroundColor: 'pink'}}> </div>
+          {/* <AnimatePresence
+            mode="wait"
+            initial={false}>
+            <Routes
+              location={location}
+              key={location.pathname === "/news" ? location.pathname : location.pathname.split('/')[1]}>
+              <Route
+                path="/"
+                element={<HomePage />} />
 
-                <Route
-                  path="about"
-                  element={<AboutPage />} />
+              <Route
+                path="about"
+                element={<AboutPage />} />
 
-                <Route
-                  path="services"
-                  element={<ServicesPage />} />
+              <Route
+                path="services"
+                element={<ServicesPage />} />
 
-                <Route
-                  path="team"
-                  element={<TeamPage />} />
+              <Route
+                path="team"
+                element={<TeamPage />} />
                 
+              <Route
+                path="news"
+                element={<BlogPage />} />
+                
+              <Route
+                path="news">
                 <Route
-                  path="news"
+                  index
                   element={<BlogPage />} />
-                
-                <Route
-                  path="news">
-                  <Route
-                    index
-                    element={<BlogPage />} />
-
-                  <Route
-                    path=":blogId"
-                    element={<BlogInsidePage />} />
-                </Route>
 
                 <Route
-                  path="contact"
-                  element={<ContactsPage />} />
+                  path=":blogId"
+                  element={<BlogInsidePage />} />
+              </Route>
+
+              <Route
+                path="contact"
+                element={<ContactsPage />} />
               
-                <Route
-                  path="portfolio/*"
-                  element={<PortfolioRoute />} />
+              <Route
+                path="portfolio/*"
+                element={<PortfolioRoute />} />
                 
-                <Route
-                  path="*"
-                  element={<NotFound />} />
+              <Route
+                path="*"
+                element={<NotFound />} />
 
-              </Routes>
-            </AnimatePresence>
-          </main>
+            </Routes>
+          </AnimatePresence> */}
+        </main>
 
-          <Footer />
+        <Footer />
 
-        </SmoothScroll>
+        {/* </SmoothScroll> */}
 
  
       </MainContextProvider>
