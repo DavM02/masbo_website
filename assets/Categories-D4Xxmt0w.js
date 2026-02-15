@@ -1,1 +1,0 @@
-import{a}from"./index-CLZQ51Et.js";function s({items:i,active:c,onChange:t}){return a("ul",{className:"categories row s-between wrap gap-30",children:i.map((e=>a("li",{className:"row center-y "+(c===e?"active":"inactive"),onClick:()=>t(e),children:[a("div",{className:"dot"}),a("h3",{className:"text-gray capitalize",children:e})]},e)))})}export{s as C};
