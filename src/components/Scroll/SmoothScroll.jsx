@@ -85,7 +85,7 @@ export default function SmoothScroll({ children }) {
       };
     },
     {
-      // dependencies: [ match ],
+      dependencies: [ match ],
       scope: scrollRef,
       revertOnUpdate: true,
     }
